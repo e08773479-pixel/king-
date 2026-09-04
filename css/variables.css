@@ -1,0 +1,93 @@
+:root {
+    /* الألوان الأساسية */
+    --primary: #5b35d5;
+    --primary-dark: #3f249f;
+    --primary-light: #7454df;
+
+    /* الألوان المساعدة */
+    --secondary: #08a99a;
+    --gold: #d6a642;
+
+    /* الخلفيات */
+    --background: #f4f6fa;
+    --surface: #ffffff;
+    --surface-soft: #f8f9fc;
+
+    /* النصوص */
+    --text: #171a24;
+    --text-secondary: #697184;
+    --text-light: #969eae;
+
+    /* الحدود */
+    --border: #e5e8ef;
+    --border-dark: #d5d9e3;
+
+    /* الحالات */
+    --success: #18a66a;
+    --danger: #e5484d;
+    --warning: #e9a227;
+    --info: #3788e8;
+
+    /* الظلال */
+    --shadow-sm: 0 2px 8px rgba(23, 26, 36, 0.06);
+    --shadow-md: 0 8px 24px rgba(23, 26, 36, 0.09);
+    --shadow-lg: 0 16px 45px rgba(23, 26, 36, 0.13);
+
+    /* الحواف */
+    --radius-sm: 8px;
+    --radius-md: 14px;
+    --radius-lg: 20px;
+    --radius-xl: 28px;
+    --radius-full: 999px;
+
+    /* المسافات */
+    --space-1: 4px;
+    --space-2: 8px;
+    --space-3: 12px;
+    --space-4: 16px;
+    --space-5: 20px;
+    --space-6: 24px;
+    --space-7: 32px;
+    --space-8: 40px;
+    --space-9: 48px;
+
+    /* أحجام الخط */
+    --font-xs: 12px;
+    --font-sm: 14px;
+    --font-md: 16px;
+    --font-lg: 18px;
+    --font-xl: 24px;
+    --font-2xl: 32px;
+    --font-3xl: 42px;
+
+    /* سرعة الحركة */
+    --transition-fast: 0.15s ease;
+    --transition-normal: 0.25s ease;
+    --transition-slow: 0.4s ease;
+
+    /* ترتيب العناصر */
+    --z-header: 100;
+    --z-sidebar: 90;
+    --z-dropdown: 200;
+    --z-modal: 1000;
+    --z-toast: 2000;
+}
+
+/* الوضع الداكن */
+
+[data-theme="dark"] {
+    --background: #101118;
+    --surface: #181a23;
+    --surface-soft: #20232e;
+
+    --text: #f4f5f8;
+    --text-secondary: #aeb5c5;
+    --text-light: #7e8799;
+
+    --border: #2b2f3b;
+    --border-dark: #383d4b;
+
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.2);
+    --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.28);
+    --shadow-lg: 0 16px 45px rgba(0, 0, 0, 0.35);
+}
