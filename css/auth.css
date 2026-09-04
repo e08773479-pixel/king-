@@ -1,0 +1,398 @@
+/* ========================================
+   MALEK - AUTH PAGES
+   ======================================== */
+
+.auth-page {
+    min-height: 100vh;
+    padding: 30px 16px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background:
+        radial-gradient(
+            circle at 15% 20%,
+            rgba(91, 53, 213, 0.14),
+            transparent 32%
+        ),
+        radial-gradient(
+            circle at 85% 80%,
+            rgba(8, 169, 154, 0.10),
+            transparent 30%
+        ),
+        var(--background);
+}
+
+.auth-card {
+    width: min(100%, 470px);
+    padding: 38px 34px;
+
+    background: var(--surface);
+
+    border: 1px solid var(--border);
+    border-radius: var(--radius-xl);
+
+    box-shadow: var(--shadow-lg);
+}
+
+.register-card {
+    width: min(100%, 560px);
+}
+
+.auth-brand {
+    width: fit-content;
+    margin: 0 auto 26px;
+
+    display: flex;
+    align-items: center;
+    gap: 11px;
+}
+
+.auth-brand .brand-mark {
+    width: 52px;
+    height: 52px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 16px;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--primary),
+            var(--primary-dark)
+        );
+
+    color: #ffffff;
+
+    font-size: 27px;
+    font-weight: 900;
+
+    box-shadow:
+        0 10px 24px rgba(91, 53, 213, 0.25);
+}
+
+.auth-brand .brand-name {
+    color: var(--primary);
+
+    font-size: 30px;
+    font-weight: 900;
+}
+
+.auth-heading {
+    text-align: center;
+    margin-bottom: 28px;
+}
+
+.auth-heading h1 {
+    margin-bottom: 8px;
+
+    color: var(--text);
+
+    font-size: 27px;
+    font-weight: 900;
+}
+
+.auth-heading p {
+    color: var(--text-secondary);
+    font-size: 15px;
+}
+
+
+/* ========================================
+   الفورم
+   ======================================== */
+
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: 17px;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.form-group label,
+.form-label-row label {
+    color: var(--text);
+
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.form-label-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.form-label-row a {
+    color: var(--primary);
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.form-label-row a:hover {
+    text-decoration: underline;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    height: 48px;
+
+    padding: 0 14px;
+
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+
+    background: var(--surface-soft);
+    color: var(--text);
+
+    font-size: 15px;
+
+    transition:
+        border-color var(--transition-fast),
+        box-shadow var(--transition-fast),
+        background-color var(--transition-fast);
+}
+
+.form-group input::placeholder {
+    color: var(--text-light);
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    border-color: var(--primary);
+
+    background: var(--surface);
+
+    box-shadow:
+        0 0 0 4px rgba(91, 53, 213, 0.10);
+}
+
+.form-error {
+    min-height: 0;
+
+    color: var(--danger);
+
+    font-size: 12px;
+}
+
+
+/* ========================================
+   كلمة المرور
+   ======================================== */
+
+.password-field {
+    position: relative;
+}
+
+.password-field input {
+    padding-left: 50px;
+}
+
+.password-toggle {
+    position: absolute;
+
+    left: 10px;
+    top: 50%;
+
+    width: 34px;
+    height: 34px;
+
+    transform: translateY(-50%);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 9px;
+
+    color: var(--text-secondary);
+
+    cursor: pointer;
+}
+
+.password-toggle:hover {
+    background: var(--surface-soft);
+    color: var(--primary);
+}
+
+
+/* ========================================
+   قوة كلمة المرور
+   ======================================== */
+
+.password-strength {
+    width: 100%;
+    height: 5px;
+
+    margin-top: 3px;
+
+    overflow: hidden;
+
+    border-radius: var(--radius-full);
+
+    background: var(--border);
+}
+
+.password-strength-bar {
+    width: 0;
+    height: 100%;
+
+    border-radius: inherit;
+
+    transition:
+        width var(--transition-normal),
+        background-color var(--transition-normal);
+}
+
+.password-strength-text {
+    color: var(--text-light);
+    font-size: 12px;
+}
+
+
+/* ========================================
+   التذكر
+   ======================================== */
+
+.remember-me,
+.terms-check {
+    display: flex;
+    align-items: flex-start;
+    gap: 9px;
+
+    color: var(--text-secondary);
+
+    font-size: 13px;
+
+    cursor: pointer;
+}
+
+.remember-me {
+    align-items: center;
+}
+
+.remember-me input,
+.terms-check input {
+    width: 17px;
+    height: 17px;
+
+    margin-top: 1px;
+
+    accent-color: var(--primary);
+
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.terms-check a {
+    color: var(--primary);
+    font-weight: 700;
+}
+
+.terms-check a:hover {
+    text-decoration: underline;
+}
+
+
+/* ========================================
+   زر الدخول / التسجيل
+   ======================================== */
+
+.auth-submit {
+    width: 100%;
+    min-height: 50px;
+
+    margin-top: 2px;
+
+    border-radius: var(--radius-md);
+
+    font-size: 15px;
+}
+
+.auth-submit:disabled {
+    opacity: 0.65;
+    cursor: not-allowed;
+    transform: none;
+}
+
+
+/* ========================================
+   الرسائل
+   ======================================== */
+
+.auth-message {
+    padding: 11px 13px;
+
+    border-radius: 12px;
+
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.auth-message.success {
+    background: rgba(24, 166, 106, 0.10);
+    color: var(--success);
+    border: 1px solid rgba(24, 166, 106, 0.20);
+}
+
+.auth-message.error {
+    background: rgba(229, 72, 77, 0.10);
+    color: var(--danger);
+    border: 1px solid rgba(229, 72, 77, 0.20);
+}
+
+.auth-message.info {
+    background: rgba(55, 136, 232, 0.10);
+    color: var(--info);
+    border: 1px solid rgba(55, 136, 232, 0.20);
+}
+
+
+/* ========================================
+   الفاصل
+   ======================================== */
+
+.auth-divider {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+
+    margin: 25px 0;
+}
+
+.auth-divider::before,
+.auth-divider::after {
+    content: "";
+
+    flex: 1;
+
+    height: 1px;
+
+    background: var(--border);
+}
+
+.auth-divider span {
+    color: var(--text-light);
+    font-size: 13px;
+}
+
+
+/* ========================================
+   إنشاء
