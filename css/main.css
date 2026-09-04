@@ -1,0 +1,283 @@
+/* ========================================
+   MALEK - MAIN CSS
+   ======================================== */
+
+html {
+    font-family:
+        Arial,
+        "Segoe UI",
+        Tahoma,
+        sans-serif;
+
+    background: var(--background);
+    color: var(--text);
+}
+
+body {
+    min-height: 100vh;
+    background: var(--background);
+    color: var(--text);
+
+    line-height: 1.6;
+
+    transition:
+        background-color var(--transition-normal),
+        color var(--transition-normal);
+}
+
+/* ========================================
+   الأزرار
+   ======================================== */
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    min-height: 46px;
+    padding: 0 20px;
+
+    border-radius: var(--radius-md);
+
+    font-size: var(--font-md);
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        transform var(--transition-fast),
+        background-color var(--transition-fast),
+        color var(--transition-fast),
+        box-shadow var(--transition-fast);
+}
+
+.btn:hover {
+    transform: translateY(-1px);
+}
+
+.btn:active {
+    transform: translateY(0);
+}
+
+.btn-primary {
+    background: var(--primary);
+    color: #ffffff;
+
+    box-shadow: var(--shadow-sm);
+}
+
+.btn-primary:hover {
+    background: var(--primary-dark);
+    box-shadow: var(--shadow-md);
+}
+
+.btn-secondary {
+    background: var(--surface);
+    color: var(--primary);
+
+    border: 1px solid var(--border);
+}
+
+.btn-secondary:hover {
+    background: var(--surface-soft);
+}
+
+/* ========================================
+   صفحة البداية
+   ======================================== */
+
+.landing-page {
+    min-height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: var(--space-6);
+
+    background:
+        radial-gradient(
+            circle at 20% 20%,
+            rgba(91, 53, 213, 0.12),
+            transparent 32%
+        ),
+        radial-gradient(
+            circle at 80% 80%,
+            rgba(8, 169, 154, 0.10),
+            transparent 30%
+        ),
+        var(--background);
+}
+
+.landing-content {
+    width: min(100%, 620px);
+
+    padding: 48px 32px;
+
+    text-align: center;
+
+    background: var(--surface);
+
+    border: 1px solid var(--border);
+    border-radius: var(--radius-xl);
+
+    box-shadow: var(--shadow-lg);
+}
+
+.brand-logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+
+    margin-bottom: 28px;
+}
+
+.brand-mark {
+    width: 58px;
+    height: 58px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 18px;
+
+    background: linear-gradient(
+        135deg,
+        var(--primary),
+        var(--primary-dark)
+    );
+
+    color: #ffffff;
+
+    font-size: 30px;
+    font-weight: 900;
+
+    box-shadow:
+        0 10px 25px rgba(91, 53, 213, 0.25);
+}
+
+.brand-name {
+    color: var(--primary);
+
+    font-size: 34px;
+    font-weight: 900;
+
+    letter-spacing: -1px;
+}
+
+.landing-content h1 {
+    margin-bottom: 12px;
+
+    color: var(--text);
+
+    font-size: clamp(28px, 6vw, 42px);
+    font-weight: 900;
+
+    line-height: 1.2;
+}
+
+.landing-content p {
+    max-width: 500px;
+
+    margin: 0 auto 30px;
+
+    color: var(--text-secondary);
+
+    font-size: var(--font-lg);
+}
+
+/* ========================================
+   أزرار البداية
+   ======================================== */
+
+.landing-actions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+
+    flex-wrap: wrap;
+}
+
+.landing-actions .btn {
+    min-width: 190px;
+}
+
+/* ========================================
+   حالات عامة
+   ======================================== */
+
+[hidden] {
+    display: none !important;
+}
+
+.is-hidden {
+    display: none !important;
+}
+
+.is-visible {
+    display: block !important;
+}
+
+/* ========================================
+   التمرير
+   ======================================== */
+
+::-webkit-scrollbar {
+    width: 9px;
+    height: 9px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--border-dark);
+    border-radius: var(--radius-full);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--text-light);
+}
+
+/* ========================================
+   الموبايل
+   ======================================== */
+
+@media (max-width: 600px) {
+
+    .landing-page {
+        padding: 16px;
+    }
+
+    .landing-content {
+        padding: 36px 20px;
+        border-radius: 22px;
+    }
+
+    .brand-mark {
+        width: 52px;
+        height: 52px;
+
+        font-size: 27px;
+    }
+
+    .brand-name {
+        font-size: 30px;
+    }
+
+    .landing-content p {
+        font-size: var(--font-md);
+    }
+
+    .landing-actions {
+        flex-direction: column;
+    }
+
+    .landing-actions .btn {
+        width: 100%;
+    }
+}
