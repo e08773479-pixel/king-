@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="description"
+        content="إنشاء حساب جديد في مَلِك"
+    >
+
+    <title>إنشاء حساب | مَلِك</title>
+
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/auth.css">
+</head>
+
+<body>
+
+    <main class="auth-page">
+
+        <section class="auth-card register-card">
+
+            <a href="index.html" class="auth-brand">
+                <span class="brand-mark">م</span>
+                <span class="brand-name">مَلِك</span>
+            </a>
+
+            <div class="auth-heading">
+                <h1>إنشاء حساب جديد</h1>
+                <p>
+                    انضم إلى مَلِك وابدأ التواصل مع أصدقائك.
+                </p>
+            </div>
+
+
+            <form
+                id="registerForm"
+                class="auth-form"
+                novalidate
+            >
+
+                <!-- الاسم -->
+
+                <div class="form-row">
+
+                    <div class="form-group">
+
+                        <label for="firstName">
+                            الاسم الأول
+                        </label>
+
+                        <input
+                            type="text"
+                            id="firstName"
+                            name="first_name"
+                            placeholder="الاسم الأول"
+                            autocomplete="given-name"
+                            required
+                        >
+
+                        <small
+                            class="form-error"
+                            data-error-for="firstName"
+                        ></small>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="lastName">
+                            اسم العائلة
+                        </label>
+
+                        <input
+                            type="text"
+                            id="lastName"
+                            name="last_name"
+                            placeholder="اسم العائلة"
+                            autocomplete="family-name"
+                            required
+                        >
+
+                        <small
+                            class="form-error"
+                            data-error-for="lastName"
+                        ></small>
+
+                    </div>
+
+                </div>
+
+
+                <!-- البريد -->
+
+                <div class="form-group">
+
+                    <label for="registerEmail">
+                        البريد الإلكتروني
+                    </label>
+
+                    <input
+                        type="email"
+                        id="registerEmail"
+                        name="email"
+                        placeholder="example@email.com"
+                        autocomplete="email"
+                        required
+                    >
+
+                    <small
+                        class="form-error"
+                        data-error-for="registerEmail"
+                    ></small>
+
+                </div>
+
+
+                <!-- الهاتف -->
+
+                <div class="form-group">
+
+                    <label for="registerPhone">
+                        رقم الهاتف
+                    </label>
+
+                    <input
+                        type="tel"
+                        id="registerPhone"
+                        name="phone"
+                        placeholder="01xxxxxxxxx"
+                        autocomplete="tel"
+                    >
+
+                    <small
+                        class="form-error"
+                        data-error-for="registerPhone"
+                    ></small>
+
+                </div>
+
+
+                <!-- تاريخ الميلاد -->
+
+                <div class="form-group">
+
+                    <label for="birthDate">
+                        تاريخ الميلاد
+                    </label>
+
+                    <input
+                        type="date"
+                        id="birthDate"
+                        name="birth_date"
+                        autocomplete="bday"
+                        required
+                    >
+
+                    <small
+                        class="form-error"
+                        data-error-for="birthDate"
+                    ></small>
+
+                </div>
+
+
+                <!-- الجنس -->
+
+                <div class="form-group">
+
+                    <label for="gender">
+                        الجنس
+                    </label>
+
+                    <select
+                        id="gender"
+                        name="gender"
+                        required
+                    >
+
+                        <option value="">
+                            اختر الجنس
+                        </option>
+
+                        <option value="male">
+                            ذكر
+                        </option>
+
+                        <option value="female">
+                            أنثى
+                        </option>
+
+                        <option value="other">
+                            أفضل عدم التحديد
+                        </option>
+
+                    </select>
+
+                    <small
+                        class="form-error"
+                        data-error-for="gender"
+                    ></small>
+
+                </div>
+
+
+                <!-- كلمة المرور -->
+
+                <div class="form-group">
+
+                    <label for="registerPassword">
+                        كلمة المرور
+                    </label>
+
+                    <div class="password-field">
+
+                        <input
+                            type="password"
+                            id="registerPassword"
+                            name="password"
+                            placeholder="أنشئ كلمة مرور قوية"
+                            autocomplete="new-password"
+                            minlength="8"
+                            required
+                        >
+
+                        <button
+                            type="button"
+                            class="password-toggle"
+                            data-password-toggle="registerPassword"
+                            aria-label="إظهار كلمة المرور"
+                        >
+                            👁
+                        </button>
+
+                    </div>
+
+                    <div class="password-strength">
+                        <div
+                            class="password-strength-bar"
+                            id="passwordStrengthBar"
+                        ></div>
+                    </div>
+
+                    <small
+                        class="password-strength-text"
+                        id="passwordStrengthText"
+                    >
+                        استخدم 8 أحرف على الأقل.
+                    </small>
+
+                    <small
+                        class="form-error"
+                        data-error-for="registerPassword"
+                    ></small>
+
+                </div>
+
+
+                <!-- تأكيد كلمة المرور -->
+
+                <div class="form-group">
+
+                    <label for="confirmPassword">
+                        تأكيد كلمة المرور
+                    </label>
+
+                    <div class="password-field">
+
+                        <input
+                            type="password"
+                            id="confirmPassword"
+                            name="password_confirmation"
+                            placeholder="أعد كتابة كلمة المرور"
+                            autocomplete="new-password"
+                            required
+                        >
+
+                        <button
+                            type="button"
+                            class="password-toggle"
+                            data-password-toggle="confirmPassword"
+                            aria-label="إظهار كلمة المرور"
+                        >
+                            👁
+                        </button>
+
+                    </div>
+
+                    <small
+                        class="form-error"
+                        data-error-for="confirmPassword"
+                    ></small>
+
+                </div>
+
+
+                <!-- الشروط -->
+
+                <label class="terms-check">
+
+                    <input
+                        type="checkbox"
+                        id="acceptTerms"
+                        name="accept_terms"
+                        required
+                    >
+
+                    <span>
+                        أوافق على
+                        <a href="#" target="_blank">
+                            شروط الاستخدام
+                        </a>
+                        و
+                        <a href="#" target="_blank">
+                            سياسة الخصوصية
+                        </a>
+                        الخاصة بمَلِك.
+                    </span>
+
+                </label>
+
+
+                <!-- زر التسجيل -->
+
+                <button
+                    type="submit"
+                    class="btn btn-primary auth-submit"
+                    id="registerSubmit"
+                >
+                    إنشاء الحساب
+                </button>
+
+
+                <!-- رسالة -->
+
+                <div
+                    id="registerMessage"
+                    class="auth-message"
+                    role="alert"
+                    hidden
+                ></div>
+
+            </form>
+
+
+            <div class="auth-divider">
+                <span>أو</span>
+            </div>
+
+
+            <div class="auth-register">
+
+                <span>
+                    لديك حساب بالفعل؟
+                </span>
+
+                <a href="login.html">
+                    تسجيل الدخول
+                </a>
+
+            </div>
+
+
+            <a
+                href="index.html"
+                class="back-home"
+            >
+                ← العودة إلى الصفحة الرئيسية
+            </a>
+
+        </section>
+
+    </main>
+
+
+    <script src="js/app.js"></script>
+    <script src="js/auth.js"></script>
+
+</body>
+                      </html>
