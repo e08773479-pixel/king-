@@ -2,9 +2,11 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
-<meta name="theme-color" content="#07111f">
-<title>LEGENDS FC | Football</title>
+<meta name="viewport"
+      content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,
+      viewport-fit=cover">
+
+<title>LEGENDS FC</title>
 
 <style>
 *{
@@ -12,1204 +14,1284 @@
     margin:0;
     padding:0;
     -webkit-tap-highlight-color:transparent;
+    user-select:none;
 }
 
 :root{
-    --bg:#050a12;
-    --panel:#0b1422;
-    --panel2:#101d2e;
-    --line:rgba(255,255,255,.09);
-    --text:#f7fbff;
-    --muted:#91a1b5;
-    --gold:#f6c453;
-    --green:#20d88a;
-    --blue:#3b82f6;
-    --red:#ff5268;
-    --cyan:#38d9ff;
+    --bg:#020711;
+    --panel:#071426;
+    --panel2:#0b1b30;
+    --line:#173a5c;
+    --blue:#19a9ff;
+    --cyan:#16e0d0;
+    --green:#24df87;
+    --gold:#ffd34d;
+    --red:#ff4e63;
+    --white:#f5fbff;
+    --muted:#8ba4ba;
 }
 
 html,body{
     width:100%;
-    min-height:100%;
-    background:
-        radial-gradient(circle at 20% 10%,rgba(40,110,255,.16),transparent 28%),
-        radial-gradient(circle at 85% 20%,rgba(0,220,160,.10),transparent 25%),
-        var(--bg);
-    color:var(--text);
-    font-family:Arial,"Tahoma",sans-serif;
-    overflow-x:hidden;
+    height:100%;
+    overflow:hidden;
+    background:#000;
+    color:white;
+    font-family:
+      Arial,
+      "Tahoma",
+      sans-serif;
 }
 
 body{
-    min-height:100vh;
+    touch-action:none;
 }
 
-/* =========================
-   APP
-========================= */
-
-.app{
-    width:100%;
-    max-width:520px;
-    min-height:100vh;
-    margin:auto;
-    position:relative;
-    background:
-        linear-gradient(rgba(3,8,15,.15),rgba(3,8,15,.45)),
-        #050a12;
-    overflow:hidden;
+button{
+    border:0;
+    color:white;
+    font:inherit;
 }
 
-.screen{
+#rotateScreen{
     display:none;
+    position:fixed;
+    inset:0;
+    z-index:99999;
+    background:
+      radial-gradient(circle at center,#12365c,#020711 70%);
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+}
+
+.rotateBox{
+    padding:35px;
+}
+
+.rotateIcon{
+    font-size:70px;
+    margin-bottom:20px;
+    animation:rotatePhone 2s infinite;
+}
+
+@keyframes rotatePhone{
+    0%,100%{transform:rotate(0deg)}
+    50%{transform:rotate(90deg)}
+}
+
+@media (orientation:portrait){
+    #rotateScreen{
+        display:flex;
+    }
+
+    #game{
+        display:none!important;
+    }
+}
+
+#game{
+    width:100vw;
+    height:100vh;
     min-height:100vh;
-    padding-bottom:90px;
-    animation:screenIn .25s ease;
-}
-
-.screen.active{
-    display:block;
-}
-
-@keyframes screenIn{
-    from{opacity:0;transform:translateY(8px)}
-    to{opacity:1;transform:translateY(0)}
+    position:relative;
+    overflow:hidden;
+    background:
+      radial-gradient(circle at 70% 0%,#12365b 0%,transparent 32%),
+      linear-gradient(135deg,#020711,#061426 55%,#02060d);
 }
 
 /* =========================
-   HEADER
+   TOP BAR
 ========================= */
 
 .topbar{
-    height:72px;
+    height:76px;
+    width:100%;
     display:flex;
     align-items:center;
     justify-content:space-between;
-    padding:0 17px;
-    position:sticky;
+    padding:10px 20px;
+    position:absolute;
     top:0;
-    z-index:20;
-    background:rgba(5,10,18,.86);
-    backdrop-filter:blur(18px);
-    border-bottom:1px solid var(--line);
+    z-index:100;
+    background:
+      linear-gradient(180deg,
+      rgba(1,7,17,.97),
+      rgba(1,7,17,.72),
+      transparent);
 }
 
 .brand{
     display:flex;
     align-items:center;
     gap:10px;
+    min-width:210px;
 }
 
 .logo{
-    width:42px;
-    height:42px;
-    border-radius:14px;
+    width:52px;
+    height:52px;
+    border-radius:15px;
+    border:2px solid var(--gold);
+    background:
+      radial-gradient(circle,#193c64,#050a13);
     display:grid;
     place-items:center;
-    font-size:23px;
-    background:
-        linear-gradient(145deg,#28e69a,#0a8d70);
-    box-shadow:0 7px 25px rgba(32,216,138,.25);
+    box-shadow:
+      0 0 25px rgba(255,211,77,.2),
+      inset 0 0 15px rgba(255,255,255,.06);
+    font-size:26px;
 }
 
-.brand strong{
-    font-size:17px;
+.brandTitle{
+    font-weight:900;
+    font-size:18px;
     letter-spacing:1px;
 }
 
-.brand small{
-    display:block;
-    color:var(--muted);
+.brandSub{
+    color:#91a8bc;
     font-size:9px;
-    margin-top:3px;
+    letter-spacing:3px;
 }
 
-.top-actions{
+.currencyBox{
     display:flex;
+    gap:10px;
+    align-items:center;
+}
+
+.currency{
+    height:42px;
+    min-width:125px;
+    padding:0 12px;
+    border-radius:14px;
+    border:1px solid #23496c;
+    background:rgba(4,15,29,.88);
+    display:flex;
+    align-items:center;
     gap:8px;
 }
 
-.icon-btn{
-    width:40px;
-    height:40px;
-    border:1px solid var(--line);
-    border-radius:13px;
-    background:rgba(255,255,255,.045);
-    color:white;
-    font-size:18px;
+.coin{
+    width:27px;
+    height:27px;
+    border-radius:50%;
+    display:grid;
+    place-items:center;
+    background:linear-gradient(145deg,#fff1a0,#e39c16);
+    color:#4e3100;
+    font-weight:900;
+}
+
+.gem{
+    background:linear-gradient(145deg,#d6c1ff,#713cff);
+    color:#fff;
+}
+
+.currency strong{
+    font-size:13px;
+}
+
+.plus{
+    margin-right:auto;
+    width:23px;
+    height:23px;
+    border-radius:50%;
+    background:var(--cyan);
+    color:#001b22;
+    font-weight:900;
 }
 
 /* =========================
-   HOME HERO
+   PAGES
 ========================= */
 
+.page{
+    position:absolute;
+    inset:0;
+    padding:
+      90px
+      20px
+      88px;
+    overflow:auto;
+    display:none;
+}
+
+.page.active{
+    display:block;
+    animation:pageIn .25s ease;
+}
+
+@keyframes pageIn{
+    from{
+        opacity:0;
+        transform:translateY(10px);
+    }
+    to{
+        opacity:1;
+        transform:none;
+    }
+}
+
+/* =========================
+   HOME
+========================= */
+
+.homeGrid{
+    max-width:1450px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:1.5fr .85fr;
+    gap:18px;
+}
+
 .hero{
-    margin:14px;
-    min-height:280px;
-    border-radius:28px;
-    overflow:hidden;
+    min-height:370px;
     position:relative;
+    overflow:hidden;
+    border-radius:25px;
+    border:1px solid #214f77;
     background:
-        linear-gradient(180deg,rgba(0,0,0,.05),rgba(0,0,0,.75)),
-        radial-gradient(circle at 65% 30%,#315b8e,transparent 23%),
-        linear-gradient(135deg,#132b46,#07131f 60%,#041018);
+      radial-gradient(circle at 80% 35%,
+      rgba(24,190,255,.32),
+      transparent 27%),
+      linear-gradient(125deg,#071a30,#03101f);
     box-shadow:
-        0 25px 60px rgba(0,0,0,.35),
-        inset 0 0 0 1px rgba(255,255,255,.08);
+      0 25px 80px rgba(0,0,0,.5),
+      inset 0 0 50px rgba(25,169,255,.04);
 }
 
 .hero:before{
     content:"";
     position:absolute;
-    width:340px;
-    height:340px;
-    border:1px solid rgba(255,255,255,.09);
-    border-radius:50%;
-    left:-130px;
-    bottom:-190px;
+    inset:auto -10% -45% 20%;
+    height:350px;
+    background:
+      radial-gradient(circle,
+      rgba(29,230,144,.22),
+      transparent 60%);
 }
 
-.hero:after{
-    content:"";
+.stadiumLight{
     position:absolute;
-    width:250px;
-    height:250px;
-    border:1px solid rgba(32,216,138,.15);
-    border-radius:50%;
-    right:-110px;
-    top:-100px;
+    width:500px;
+    height:500px;
+    right:-80px;
+    top:-160px;
+    background:
+      radial-gradient(circle,
+      rgba(255,255,255,.15),
+      transparent 60%);
 }
 
-.hero-content{
-    position:relative;
-    z-index:2;
-    padding:28px 22px;
-    height:280px;
-    display:flex;
-    flex-direction:column;
-    justify-content:space-between;
+.heroText{
+    position:absolute;
+    z-index:3;
+    right:35px;
+    top:45px;
+    max-width:430px;
 }
 
-.hero-kicker{
+.heroTag{
     color:var(--green);
-    font-size:11px;
-    font-weight:bold;
+    font-weight:900;
     letter-spacing:2px;
+    font-size:13px;
+    margin-bottom:12px;
 }
 
 .hero h1{
-    font-size:35px;
-    line-height:1.05;
-    max-width:280px;
+    font-size:43px;
+    line-height:1;
+    margin-bottom:15px;
 }
 
 .hero p{
-    color:#b5c3d3;
-    font-size:12px;
-    line-height:1.7;
-    max-width:270px;
+    color:#9bb1c6;
+    line-height:1.8;
+    font-size:14px;
 }
 
-.play-btn{
-    width:155px;
-    height:50px;
-    border:0;
-    border-radius:17px;
-    color:#03120d;
-    background:linear-gradient(135deg,#48f2ad,#14c982);
-    font-size:15px;
+.heroPlayer{
+    position:absolute;
+    left:4%;
+    bottom:-25px;
+    width:52%;
+    height:95%;
+    display:flex;
+    align-items:flex-end;
+    justify-content:center;
+}
+
+.playerSilhouette{
+    width:240px;
+    height:310px;
+    position:relative;
+    filter:
+      drop-shadow(0 20px 30px rgba(0,0,0,.7));
+}
+
+.playerHead{
+    width:72px;
+    height:72px;
+    border-radius:50%;
+    background:
+      radial-gradient(circle at 35% 30%,#ffd4b1,#9b5b35);
+    position:absolute;
+    top:0;
+    left:84px;
+    z-index:2;
+}
+
+.playerBody{
+    width:180px;
+    height:220px;
+    position:absolute;
+    bottom:0;
+    left:30px;
+    border-radius:80px 80px 25px 25px;
+    background:
+      linear-gradient(135deg,#0e4b78,#071526);
+    border:2px solid #267db0;
+}
+
+.playerBody:after{
+    content:"10";
+    position:absolute;
+    top:50px;
+    left:60px;
+    font-size:90px;
     font-weight:900;
-    box-shadow:0 12px 30px rgba(32,216,138,.24);
+    color:rgba(255,255,255,.07);
+}
+
+.heroActions{
+    display:flex;
+    gap:10px;
+    margin-top:25px;
+}
+
+.primaryBtn{
+    padding:13px 27px;
+    border-radius:13px;
+    background:
+      linear-gradient(135deg,#25e3c8,#159ce8);
+    color:#001b25;
+    font-weight:900;
+    box-shadow:0 10px 30px rgba(22,224,208,.2);
+}
+
+.secondaryBtn{
+    padding:13px 22px;
+    border-radius:13px;
+    border:1px solid #265a80;
+    background:rgba(6,21,38,.85);
 }
 
 /* =========================
-   CURRENCY
+   QUICK MENU
 ========================= */
 
-.currency-row{
+.quickGrid{
     display:grid;
     grid-template-columns:1fr 1fr;
-    gap:10px;
-    padding:0 14px;
-}
-
-.currency{
-    background:linear-gradient(145deg,#0e1a2a,#09121f);
-    border:1px solid var(--line);
-    border-radius:18px;
-    padding:14px;
-    display:flex;
-    align-items:center;
-    gap:10px;
-}
-
-.currency .coin{
-    width:35px;
-    height:35px;
-    display:grid;
-    place-items:center;
-    border-radius:50%;
-    background:rgba(246,196,83,.13);
-    color:var(--gold);
-}
-
-.currency:nth-child(2) .coin{
-    color:var(--cyan);
-    background:rgba(56,217,255,.12);
-}
-
-.currency small{
-    display:block;
-    color:var(--muted);
-    font-size:9px;
-    margin-bottom:3px;
-}
-
-.currency strong{
-    font-size:15px;
-}
-
-/* =========================
-   SECTION
-========================= */
-
-.section{
-    padding:22px 14px 0;
-}
-
-.section-head{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    margin-bottom:13px;
-}
-
-.section-head h2{
-    font-size:17px;
-}
-
-.section-head button{
-    border:0;
-    background:none;
-    color:var(--green);
-    font-size:11px;
-}
-
-/* =========================
-   QUICK ACTIONS
-========================= */
-
-.quick-grid{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:9px;
+    gap:12px;
 }
 
 .quick{
-    min-height:88px;
-    background:linear-gradient(145deg,#101c2c,#09121f);
-    border:1px solid var(--line);
+    min-height:120px;
     border-radius:18px;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    justify-content:center;
-    gap:8px;
-    color:white;
+    border:1px solid #1a4568;
+    background:
+      linear-gradient(145deg,
+      rgba(10,31,54,.95),
+      rgba(4,13,25,.95));
+    padding:17px;
+    position:relative;
+    overflow:hidden;
+    cursor:pointer;
 }
 
-.quick span{
-    font-size:24px;
+.quick:hover{
+    border-color:var(--cyan);
+}
+
+.quickIcon{
+    font-size:34px;
+}
+
+.quick h3{
+    margin-top:8px;
+    font-size:15px;
 }
 
 .quick small{
-    color:#aebccc;
-    font-size:9px;
+    color:#7992a8;
 }
 
 /* =========================
-   MATCH CARD
+   CARDS
 ========================= */
 
-.match-card{
-    border-radius:23px;
-    padding:18px;
-    background:
-        radial-gradient(circle at 50% 0%,rgba(59,130,246,.15),transparent 45%),
-        linear-gradient(145deg,#0f1d30,#08111d);
-    border:1px solid var(--line);
-}
-
-.match-top{
+.sectionTitle{
     display:flex;
     justify-content:space-between;
-    color:var(--muted);
-    font-size:10px;
-}
-
-.teams{
-    display:grid;
-    grid-template-columns:1fr 70px 1fr;
     align-items:center;
-    text-align:center;
-    margin-top:20px;
+    margin:20px 0 12px;
 }
 
-.team-logo{
-    width:58px;
-    height:58px;
-    margin:auto;
-    border-radius:19px;
-    display:grid;
-    place-items:center;
-    font-size:27px;
-    background:linear-gradient(145deg,#173653,#0b1826);
-    border:1px solid rgba(255,255,255,.08);
+.sectionTitle h2{
+    font-size:20px;
 }
 
-.team-name{
-    font-size:11px;
-    margin-top:8px;
-    color:#d8e2ed;
+.sectionTitle span{
+    color:var(--cyan);
+    font-size:12px;
 }
 
-.score{
-    font-size:21px;
-    font-weight:900;
-}
-
-.vs{
-    color:var(--muted);
-    font-size:10px;
-    margin-top:5px;
-}
-
-/* =========================
-   PLAYER CARDS
-========================= */
-
-.player-scroll{
+.cards{
     display:flex;
-    gap:12px;
-    overflow-x:auto;
-    padding-bottom:4px;
-    scrollbar-width:none;
+    gap:14px;
+    overflow:auto;
+    padding-bottom:8px;
 }
 
-.player-scroll::-webkit-scrollbar{
+.cards::-webkit-scrollbar{
     display:none;
 }
 
-.player-card{
-    flex:0 0 165px;
-    height:220px;
-    border-radius:22px;
-    overflow:hidden;
+.playerCard{
+    flex:0 0 190px;
+    min-height:260px;
     position:relative;
+    border-radius:20px;
+    overflow:hidden;
+    padding:12px;
     background:
-        radial-gradient(circle at 70% 15%,rgba(255,255,255,.16),transparent 20%),
-        linear-gradient(145deg,#243d56,#0c1725);
-    border:1px solid rgba(255,255,255,.12);
-    box-shadow:0 15px 30px rgba(0,0,0,.3);
+      linear-gradient(145deg,#193450,#071321 70%);
+    border:1px solid #3e6583;
+    box-shadow:0 15px 35px rgba(0,0,0,.35);
 }
 
-.player-card:after{
-    content:"";
-    position:absolute;
-    inset:0;
-    background:linear-gradient(transparent 38%,rgba(0,0,0,.85));
+.playerCard.gold{
+    background:
+      linear-gradient(145deg,#6b4a11,#241707 55%,#090b10);
+    border-color:#d7a936;
 }
 
-.player-face{
-    height:140px;
-    display:grid;
-    place-items:center;
-    font-size:70px;
-    filter:drop-shadow(0 12px 15px rgba(0,0,0,.4));
+.playerCard.purple{
+    background:
+      linear-gradient(145deg,#442276,#140d27 65%,#070a12);
+    border-color:#8c56d8;
 }
 
-.player-rating{
+.cardRating{
     position:absolute;
     top:12px;
-    left:12px;
-    z-index:3;
-    font-size:23px;
+    right:12px;
+    font-size:27px;
     font-weight:900;
 }
 
-.player-pos{
+.cardPosition{
     position:absolute;
-    top:39px;
-    left:15px;
-    z-index:3;
-    font-size:9px;
-    color:#c9d5e2;
+    top:45px;
+    right:17px;
+    color:#8ca8bb;
+    font-size:10px;
 }
 
-.player-info{
-    position:absolute;
-    z-index:3;
-    bottom:13px;
-    left:13px;
-    right:13px;
-}
-
-.player-info strong{
-    display:block;
-    font-size:13px;
-}
-
-.player-info small{
-    color:#aebccc;
-    font-size:8px;
-}
-
-.stats-mini{
+.cardFace{
+    width:110px;
+    height:125px;
+    margin:30px auto 0;
+    position:relative;
     display:flex;
-    gap:7px;
-    margin-top:8px;
+    justify-content:center;
+    align-items:flex-end;
 }
 
-.stats-mini span{
-    font-size:8px;
-    color:#d8e4ef;
+.cardFace .head{
+    width:57px;
+    height:57px;
+    border-radius:50%;
+    background:
+      radial-gradient(circle at 35% 30%,#ffd5b7,#754327);
+    position:absolute;
+    top:0;
+}
+
+.cardFace .shirt{
+    width:105px;
+    height:85px;
+    border-radius:50px 50px 10px 10px;
+    background:
+      linear-gradient(135deg,#1e91dd,#07162a);
+    position:absolute;
+    bottom:0;
+}
+
+.cardName{
+    text-align:center;
+    font-weight:900;
+    margin-top:4px;
+}
+
+.cardStats{
+    display:flex;
+    justify-content:space-around;
+    margin-top:8px;
+    color:#9db3c4;
+    font-size:10px;
+}
+
+.cardPrice{
+    text-align:center;
+    color:var(--gold);
+    margin-top:8px;
+    font-weight:900;
 }
 
 /* =========================
-   NAVIGATION
+   BOTTOM NAV
 ========================= */
 
-.bottom-nav{
-    position:fixed;
-    z-index:50;
+.bottomNav{
+    position:absolute;
     bottom:0;
-    left:50%;
-    transform:translateX(-50%);
-    width:min(520px,100%);
+    left:0;
+    right:0;
     height:78px;
-    padding:8px 9px;
-    display:grid;
-    grid-template-columns:repeat(5,1fr);
-    background:rgba(6,12,21,.92);
-    backdrop-filter:blur(22px);
-    border-top:1px solid var(--line);
+    z-index:200;
+    display:flex;
+    justify-content:center;
+    gap:8px;
+    padding:9px 15px;
+    background:
+      linear-gradient(0deg,
+      rgba(1,6,14,.99),
+      rgba(3,11,22,.94));
+    border-top:1px solid #163753;
 }
 
-.nav-btn{
-    border:0;
-    background:none;
-    color:#728196;
+.navBtn{
+    min-width:110px;
+    border-radius:15px;
+    background:transparent;
+    color:#7893a8;
     display:flex;
     flex-direction:column;
     align-items:center;
     justify-content:center;
-    gap:5px;
-    font-size:18px;
+    gap:4px;
+    cursor:pointer;
 }
 
-.nav-btn small{
-    font-size:8px;
+.navBtn span:first-child{
+    font-size:23px;
 }
 
-.nav-btn.active{
-    color:var(--green);
-}
-
-.nav-btn.active span{
-    filter:drop-shadow(0 0 7px rgba(32,216,138,.5));
-}
-
-/* =========================
-   PAGE TITLE
-========================= */
-
-.page-title{
-    padding:22px 16px 12px;
-}
-
-.page-title h1{
-    font-size:27px;
-}
-
-.page-title p{
-    color:var(--muted);
-    font-size:11px;
-    margin-top:6px;
-}
-
-/* =========================
-   TABS
-========================= */
-
-.tabs{
-    display:flex;
-    gap:8px;
-    padding:0 14px 15px;
-    overflow:auto;
-    scrollbar-width:none;
-}
-
-.tabs::-webkit-scrollbar{display:none}
-
-.tab{
-    white-space:nowrap;
-    border:1px solid var(--line);
-    border-radius:13px;
-    background:#0b1421;
-    color:#8797aa;
-    padding:10px 15px;
+.navBtn small{
     font-size:10px;
 }
 
-.tab.active{
-    color:#03120d;
-    background:var(--green);
-    border-color:var(--green);
-    font-weight:bold;
+.navBtn.active{
+    color:white;
+    background:
+      linear-gradient(145deg,
+      rgba(19,122,190,.35),
+      rgba(15,214,190,.08));
+    border:1px solid #1e688d;
 }
 
 /* =========================
    SQUAD
 ========================= */
 
+.squadLayout{
+    max-width:1450px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:1fr 340px;
+    gap:18px;
+}
+
 .pitch{
-    margin:0 14px;
-    height:490px;
-    border-radius:27px;
+    min-height:650px;
     position:relative;
     overflow:hidden;
+    border-radius:25px;
+    border:3px solid #275e42;
     background:
-        linear-gradient(90deg,rgba(255,255,255,.025) 50%,transparent 50%),
-        repeating-linear-gradient(
-            90deg,
-            rgba(0,120,70,.25) 0px,
-            rgba(0,120,70,.25) 45px,
-            rgba(0,145,78,.25) 45px,
-            rgba(0,145,78,.25) 90px
-        ),
-        #087341;
-    border:2px solid rgba(255,255,255,.08);
-    box-shadow:inset 0 0 70px rgba(0,0,0,.25);
+      repeating-linear-gradient(
+        90deg,
+        #167143 0,
+        #167143 70px,
+        #196f40 70px,
+        #196f40 140px
+      );
+    box-shadow:
+      inset 0 0 80px rgba(0,0,0,.3),
+      0 20px 50px rgba(0,0,0,.4);
 }
 
 .pitch:before{
     content:"";
     position:absolute;
+    inset:0;
+    background:
+      linear-gradient(
+        transparent 49.7%,
+        rgba(255,255,255,.85) 50%,
+        transparent 50.3%);
+}
+
+.centerCircle{
+    position:absolute;
     width:150px;
     height:150px;
-    border:2px solid rgba(255,255,255,.4);
+    border:2px solid rgba(255,255,255,.8);
     border-radius:50%;
     left:50%;
     top:50%;
     transform:translate(-50%,-50%);
 }
 
-.pitch:after{
-    content:"";
+.centerDot{
     position:absolute;
-    width:2px;
-    height:100%;
-    background:rgba(255,255,255,.35);
+    width:8px;
+    height:8px;
+    border-radius:50%;
+    background:white;
     left:50%;
-    top:0;
+    top:50%;
+    transform:translate(-50%,-50%);
 }
 
-.line-box{
+.penalty{
     position:absolute;
-    width:190px;
-    height:90px;
-    border:2px solid rgba(255,255,255,.35);
+    width:220px;
+    height:100px;
+    border:2px solid rgba(255,255,255,.75);
     left:50%;
     transform:translateX(-50%);
 }
 
-.line-top{top:0;border-top:0}
-.line-bottom{bottom:0;border-bottom:0}
+.penalty.top{
+    top:0;
+    border-top:0;
+}
 
-.footballer{
+.penalty.bottom{
+    bottom:0;
+    border-bottom:0;
+}
+
+.playerOnPitch{
     position:absolute;
-    z-index:3;
     transform:translate(-50%,-50%);
+    width:82px;
     text-align:center;
+    z-index:5;
 }
 
-.avatar{
-    width:48px;
-    height:48px;
+.pitchAvatar{
+    width:52px;
+    height:52px;
     border-radius:50%;
-    display:grid;
-    place-items:center;
-    font-size:25px;
-    background:linear-gradient(145deg,#162c43,#07111d);
-    border:3px solid #e9f4ff;
-    box-shadow:0 8px 16px rgba(0,0,0,.35);
+    margin:auto;
+    border:3px solid var(--gold);
+    background:
+      radial-gradient(circle at 35% 25%,#ffd7bd 0 20%,#8b5435 21% 43%,#101d2c 44%);
+    box-shadow:
+      0 7px 15px rgba(0,0,0,.5);
 }
 
-.footballer.selected .avatar{
-    border-color:var(--gold);
-    box-shadow:0 0 0 4px rgba(246,196,83,.2),0 10px 20px rgba(0,0,0,.4);
-}
-
-.footballer small{
-    display:block;
-    margin-top:4px;
-    background:rgba(0,0,0,.65);
-    border-radius:8px;
-    padding:3px 5px;
-    font-size:7px;
-    white-space:nowrap;
-}
-
-.formation-label{
-    text-align:center;
-    color:var(--muted);
+.pitchName{
     font-size:10px;
-    margin:12px;
+    font-weight:900;
+    background:rgba(0,0,0,.6);
+    padding:3px 5px;
+    border-radius:6px;
+    margin-top:3px;
+}
+
+.positionGK{left:50%;bottom:5%}
+.positionLB{left:18%;bottom:22%}
+.positionCB1{left:39%;bottom:18%}
+.positionCB2{left:61%;bottom:18%}
+.positionRB{left:82%;bottom:22%}
+.positionCM1{left:34%;bottom:43%}
+.positionCM2{left:66%;bottom:43%}
+.positionCAM{left:50%;bottom:50%}
+.positionLW{left:20%;bottom:69%}
+.positionST{left:50%;bottom:76%}
+.positionRW{left:80%;bottom:69%}
+
+.squadPanel{
+    border-radius:22px;
+    border:1px solid #1b4567;
+    background:#071426;
+    padding:18px;
+}
+
+.teamRating{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:15px;
+    background:#0a1c31;
+    border-radius:16px;
+    margin-bottom:15px;
+}
+
+.rating{
+    font-size:40px;
+    color:var(--gold);
+    font-weight:900;
 }
 
 /* =========================
-   PLAYER LIST
+   PLAYERS
 ========================= */
 
-.list{
-    padding:0 14px;
+.playersGrid{
+    max-width:1400px;
+    margin:auto;
 }
 
-.list-item{
+.filters{
+    display:flex;
+    gap:8px;
+    margin-bottom:15px;
+    overflow:auto;
+}
+
+.filter{
+    padding:9px 18px;
+    border-radius:10px;
+    background:#081a2c;
+    border:1px solid #214764;
+    white-space:nowrap;
+}
+
+.filter.active{
+    background:#12a9b7;
+    color:#001a20;
+    font-weight:900;
+}
+
+.playerList{
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    gap:13px;
+}
+
+.smallPlayer{
+    padding:12px;
+    border-radius:17px;
+    border:1px solid #1c4666;
+    background:#071525;
+    cursor:pointer;
+}
+
+.smallPlayerTop{
     display:flex;
     align-items:center;
     gap:12px;
-    padding:12px;
-    margin-bottom:9px;
-    border-radius:18px;
-    background:#0b1523;
-    border:1px solid var(--line);
 }
 
-.list-avatar{
-    width:52px;
-    height:52px;
-    flex-shrink:0;
-    display:grid;
-    place-items:center;
-    border-radius:16px;
-    background:linear-gradient(145deg,#19344f,#0b1724);
-    font-size:26px;
+.miniAvatar{
+    width:58px;
+    height:58px;
+    border-radius:50%;
+    background:
+      radial-gradient(circle at 35% 25%,#ffd7bd 0 20%,#925636 21% 42%,#102033 43%);
+    border:2px solid #4381a7;
 }
 
-.list-main{
-    flex:1;
-}
-
-.list-main strong{
-    font-size:12px;
-    display:block;
-}
-
-.list-main small{
-    color:var(--muted);
-    font-size:9px;
-}
-
-.ovr{
-    font-size:20px;
-    font-weight:900;
+.smallRating{
+    margin-right:auto;
     color:var(--gold);
+    font-size:22px;
+    font-weight:900;
 }
 
-.mini-btn{
-    border:1px solid var(--line);
-    background:#101e2e;
-    color:white;
-    border-radius:11px;
-    padding:8px 10px;
-    font-size:9px;
+.bar{
+    height:5px;
+    background:#14283c;
+    border-radius:10px;
+    margin-top:8px;
+    overflow:hidden;
+}
+
+.bar i{
+    display:block;
+    height:100%;
+    background:linear-gradient(90deg,var(--cyan),var(--green));
 }
 
 /* =========================
    MARKET
 ========================= */
 
-.market-card{
-    margin:0 14px 12px;
-    min-height:195px;
-    border-radius:24px;
-    padding:16px;
-    position:relative;
-    overflow:hidden;
+.marketGrid{
+    max-width:1400px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:15px;
+}
+
+.marketCard{
+    padding:15px;
+    border-radius:20px;
+    border:1px solid #274d69;
     background:
-        radial-gradient(circle at 80% 10%,rgba(246,196,83,.18),transparent 30%),
-        linear-gradient(145deg,#172b40,#09131f);
-    border:1px solid rgba(255,255,255,.09);
+      linear-gradient(145deg,#0d2035,#050e19);
 }
 
-.market-card .rare{
-    color:var(--gold);
-    font-size:9px;
-    font-weight:bold;
-}
-
-.market-player{
-    display:flex;
-    align-items:center;
-    margin-top:12px;
-    gap:12px;
-}
-
-.market-face{
-    width:80px;
-    height:105px;
-    border-radius:18px;
+.marketVisual{
+    height:180px;
+    border-radius:15px;
     display:grid;
     place-items:center;
-    font-size:53px;
-    background:linear-gradient(145deg,#294966,#0c1825);
+    background:
+      radial-gradient(circle,#1a4160,#06111f);
+    margin-bottom:12px;
 }
 
-.market-data strong{
-    display:block;
-    font-size:16px;
+.marketVisual .bigFace{
+    width:110px;
+    height:130px;
+    position:relative;
 }
 
-.market-data span{
-    display:block;
-    color:var(--muted);
-    font-size:9px;
-    margin-top:5px;
+.bigFace .head{
+    width:60px;
+    height:60px;
+    border-radius:50%;
+    background:
+      radial-gradient(circle at 35% 25%,#ffd5b7,#8e5332);
+    position:absolute;
+    top:0;
+    left:25px;
 }
 
-.price{
-    margin-top:11px;
-    font-size:17px;
-    font-weight:bold;
-    color:var(--gold);
+.bigFace .body{
+    width:110px;
+    height:90px;
+    background:linear-gradient(135deg,#168ed2,#071c2f);
+    border-radius:50px 50px 10px 10px;
+    position:absolute;
+    bottom:0;
+}
+
+.buy{
+    width:100%;
+    margin-top:12px;
+    padding:11px;
+    border-radius:10px;
+    background:linear-gradient(135deg,#1fe3be,#19a4ed);
+    color:#00191e;
+    font-weight:900;
 }
 
 /* =========================
-   TOURNAMENT
+   TOURNAMENTS
 ========================= */
 
-.tournament{
-    margin:0 14px 12px;
-    border:1px solid var(--line);
-    border-radius:21px;
-    background:linear-gradient(145deg,#0f1b2a,#08111d);
-    padding:17px;
-}
-
-.tournament-top{
-    display:flex;
-    justify-content:space-between;
-}
-
-.tournament-icon{
-    width:48px;
-    height:48px;
+.tournamentGrid{
+    max-width:1300px;
+    margin:auto;
     display:grid;
-    place-items:center;
-    border-radius:16px;
-    background:rgba(56,217,255,.12);
-    font-size:25px;
+    grid-template-columns:repeat(4,1fr);
+    gap:15px;
 }
 
-.tournament strong{
-    display:block;
-    margin-top:12px;
-    font-size:14px;
+.tournament{
+    min-height:230px;
+    padding:20px;
+    border-radius:20px;
+    border:1px solid #254b69;
+    background:
+      radial-gradient(circle at 80% 20%,rgba(255,204,71,.15),transparent 30%),
+      #071525;
+    position:relative;
+    overflow:hidden;
 }
 
-.tournament p{
-    color:var(--muted);
-    font-size:9px;
-    margin-top:5px;
+.trophy{
+    font-size:60px;
+    margin-bottom:15px;
 }
 
 .progress{
-    height:6px;
-    background:#172435;
+    height:7px;
+    background:#17293a;
     border-radius:10px;
-    margin-top:15px;
     overflow:hidden;
+    margin:15px 0;
 }
 
 .progress i{
     display:block;
+    width:45%;
     height:100%;
-    width:65%;
-    background:linear-gradient(90deg,var(--green),var(--cyan));
+    background:linear-gradient(90deg,#ffd34d,#ff9e22);
 }
 
 /* =========================
-   MATCH SCREEN
+   PROFILE
 ========================= */
 
-.match-screen{
-    position:fixed;
-    inset:0;
-    z-index:100;
-    display:none;
-    background:#071b12;
-    overflow:hidden;
+.profileLayout{
+    max-width:1000px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:300px 1fr;
+    gap:18px;
 }
 
-.match-screen.active{
-    display:block;
+.profileCard,
+.statsPanel{
+    border:1px solid #204865;
+    border-radius:22px;
+    background:#071426;
+    padding:25px;
 }
 
-.stadium{
-    position:absolute;
-    inset:0;
-    background:
-        radial-gradient(ellipse at 50% -5%,rgba(255,255,255,.25),transparent 20%),
-        linear-gradient(#07101a 0 22%,#09552e 22% 100%);
+.profileAvatar{
+    width:120px;
+    height:120px;
+    margin:auto;
+    border-radius:50%;
+    border:3px solid var(--gold);
+    display:grid;
+    place-items:center;
+    font-size:55px;
+    background:radial-gradient(circle,#24496b,#050a12);
 }
 
-.stadium:after{
-    content:"";
-    position:absolute;
-    left:0;
-    right:0;
-    top:23%;
-    bottom:0;
-    background:
-        repeating-linear-gradient(
-            90deg,
-            rgba(255,255,255,.04) 0 70px,
-            rgba(0,0,0,.04) 70px 140px
-        );
+.profileName{
+    text-align:center;
+    margin-top:15px;
+    font-size:24px;
+    font-weight:900;
 }
 
-.match-hud{
-    position:absolute;
-    top:15px;
-    left:12px;
-    right:12px;
-    z-index:10;
-    display:flex;
-    justify-content:center;
+.statsGrid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:12px;
 }
 
-.scoreboard{
-    min-width:230px;
-    padding:11px 18px;
-    border-radius:18px;
-    background:rgba(3,8,14,.85);
-    backdrop-filter:blur(12px);
-    border:1px solid rgba(255,255,255,.12);
+.stat{
+    padding:20px;
+    border-radius:15px;
+    background:#0a1d31;
     text-align:center;
 }
 
-.scoreboard small{
-    color:#8da0b5;
-    font-size:8px;
-}
-
-.scoreboard strong{
+.stat strong{
     display:block;
-    font-size:22px;
-    margin-top:4px;
+    font-size:30px;
+    color:var(--cyan);
 }
 
-.match-close{
-    position:absolute;
-    top:17px;
-    right:15px;
-    z-index:12;
-    width:38px;
-    height:38px;
-    border-radius:13px;
-    background:rgba(0,0,0,.55);
-    color:white;
-    border:1px solid rgba(255,255,255,.15);
+/* =========================
+   MATCH
+========================= */
+
+#match{
+    display:none;
+    position:fixed;
+    inset:0;
+    z-index:10000;
+    background:#020509;
 }
 
-.game-field{
-    position:absolute;
-    left:5%;
-    right:5%;
-    top:24%;
-    bottom:20%;
-    border:2px solid rgba(255,255,255,.45);
+#match.active{
+    display:block;
 }
 
-.center-circle{
+#matchCanvas{
     position:absolute;
-    width:115px;
-    height:115px;
-    border:2px solid rgba(255,255,255,.45);
-    border-radius:50%;
-    left:50%;
-    top:50%;
-    transform:translate(-50%,-50%);
+    inset:0;
+    width:100%;
+    height:100%;
 }
 
-.center-line{
+.scoreboard{
     position:absolute;
-    left:0;
-    right:0;
-    top:50%;
-    height:2px;
-    background:rgba(255,255,255,.4);
-}
-
-.goal{
-    position:absolute;
-    width:120px;
-    height:55px;
+    top:12px;
     left:50%;
     transform:translateX(-50%);
-    border:2px solid rgba(255,255,255,.45);
+    min-width:360px;
+    padding:10px 20px;
+    border-radius:13px;
+    background:rgba(0,7,15,.88);
+    border:1px solid rgba(255,255,255,.15);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:25px;
+    z-index:20;
 }
 
-.goal.top{top:-2px}
-.goal.bottom{bottom:-2px}
+.score{
+    font-size:26px;
+    font-weight:900;
+}
 
-.match-player{
+.matchTime{
+    color:var(--gold);
+}
+
+.matchPause{
     position:absolute;
+    top:14px;
+    right:15px;
+    z-index:30;
     width:45px;
     height:45px;
     border-radius:50%;
-    display:grid;
-    place-items:center;
-    background:linear-gradient(145deg,#28e69a,#087d58);
-    border:3px solid white;
-    z-index:5;
-    font-size:23px;
-    box-shadow:0 8px 16px rgba(0,0,0,.4);
-}
-
-.match-player.enemy{
-    background:linear-gradient(145deg,#ff6378,#9d1d34);
-}
-
-.ball{
-    position:absolute;
-    z-index:8;
-    width:19px;
-    height:19px;
-    border-radius:50%;
-    background:white;
-    border:2px solid #222;
-    box-shadow:0 3px 10px rgba(0,0,0,.5);
+    background:rgba(0,0,0,.6);
+    border:1px solid #fff;
 }
 
 .controls{
     position:absolute;
-    left:0;
-    right:0;
-    bottom:15px;
-    height:125px;
-    z-index:20;
+    inset:0;
+    pointer-events:none;
 }
 
 .joystick{
+    pointer-events:auto;
     position:absolute;
-    left:20px;
-    bottom:5px;
-    width:105px;
-    height:105px;
+    left:35px;
+    bottom:35px;
+    width:145px;
+    height:145px;
     border-radius:50%;
-    background:rgba(0,0,0,.27);
-    border:1px solid rgba(255,255,255,.15);
+    background:rgba(0,0,0,.23);
+    border:2px solid rgba(255,255,255,.25);
 }
 
 .stick{
-    width:52px;
-    height:52px;
     position:absolute;
+    width:62px;
+    height:62px;
+    border-radius:50%;
+    background:
+      radial-gradient(circle at 35% 30%,#607080,#152332);
+    border:2px solid rgba(255,255,255,.35);
     left:50%;
     top:50%;
     transform:translate(-50%,-50%);
-    border-radius:50%;
-    background:rgba(255,255,255,.2);
-    border:2px solid rgba(255,255,255,.3);
 }
 
-.action-buttons{
+.actionButtons{
+    pointer-events:auto;
     position:absolute;
-    right:15px;
-    bottom:0;
-    display:grid;
-    grid-template-columns:repeat(2,64px);
-    gap:9px;
+    right:35px;
+    bottom:30px;
+    width:280px;
+    height:190px;
 }
 
 .action{
-    width:64px;
-    height:50px;
-    border:1px solid rgba(255,255,255,.2);
-    border-radius:17px;
-    color:white;
-    background:rgba(0,0,0,.4);
-    font-weight:bold;
-    font-size:10px;
+    position:absolute;
+    width:72px;
+    height:72px;
+    border-radius:50%;
+    border:2px solid rgba(255,255,255,.4);
+    background:rgba(5,20,32,.78);
+    box-shadow:0 8px 20px rgba(0,0,0,.4);
+    font-weight:900;
 }
 
 .action.shoot{
-    background:rgba(255,69,91,.65);
+    right:0;
+    top:45px;
+    width:88px;
+    height:88px;
+    background:
+      radial-gradient(circle,#ff5e65,#7c1521);
 }
 
 .action.pass{
-    background:rgba(40,190,130,.55);
+    right:105px;
+    top:0;
 }
 
-/* =========================
-   MODAL
-========================= */
+.action.through{
+    right:175px;
+    top:70px;
+}
 
-.modal{
-    position:fixed;
-    inset:0;
-    z-index:200;
+.action.sprint{
+    right:100px;
+    bottom:0;
+    background:
+      radial-gradient(circle,#24e39b,#074d3a);
+}
+
+.matchResult{
     display:none;
-    align-items:flex-end;
-    justify-content:center;
-    background:rgba(0,0,0,.65);
-    backdrop-filter:blur(7px);
-}
-
-.modal.show{
-    display:flex;
-}
-
-.modal-box{
-    width:min(520px,100%);
-    max-height:85vh;
-    overflow:auto;
-    border-radius:30px 30px 0 0;
-    padding:22px;
-    background:#0b1523;
-    border-top:1px solid rgba(255,255,255,.12);
-    animation:modalUp .25s ease;
-}
-
-@keyframes modalUp{
-    from{transform:translateY(100%)}
-    to{transform:translateY(0)}
-}
-
-.modal-head{
-    display:flex;
-    justify-content:space-between;
+    position:absolute;
+    inset:0;
+    z-index:50;
     align-items:center;
-    margin-bottom:20px;
+    justify-content:center;
+    background:rgba(0,4,10,.75);
+    backdrop-filter:blur(10px);
 }
 
-.modal-head h2{
-    font-size:18px;
+.matchResult.show{
+    display:flex;
 }
 
-.close{
-    width:38px;
-    height:38px;
-    border-radius:13px;
-    border:1px solid var(--line);
-    background:#101d2d;
-    color:white;
+.resultBox{
+    width:min(550px,90vw);
+    padding:35px;
+    border-radius:25px;
+    text-align:center;
+    border:1px solid #38617d;
+    background:
+      linear-gradient(145deg,#0c2239,#030b14);
+    box-shadow:0 30px 100px #000;
+}
+
+.resultBox h1{
+    font-size:38px;
+    color:var(--gold);
+}
+
+.resultScore{
+    font-size:70px;
+    font-weight:900;
+    margin:20px;
 }
 
 /* =========================
-   NOTIFICATION
+   TOAST
 ========================= */
 
-.toast{
+#toast{
     position:fixed;
-    z-index:300;
-    top:85px;
+    z-index:999999;
     left:50%;
-    transform:translateX(-50%) translateY(-20px);
-    width:calc(100% - 30px);
-    max-width:480px;
-    padding:14px 17px;
-    border-radius:17px;
-    background:#132235;
-    border:1px solid rgba(255,255,255,.1);
-    box-shadow:0 15px 35px rgba(0,0,0,.4);
+    bottom:100px;
+    transform:translateX(-50%) translateY(20px);
+    background:#071827;
+    border:1px solid #2e6586;
+    padding:12px 22px;
+    border-radius:13px;
     opacity:0;
     pointer-events:none;
     transition:.3s;
-    font-size:11px;
-    text-align:center;
+    white-space:nowrap;
 }
 
-.toast.show{
+#toast.show{
     opacity:1;
     transform:translateX(-50%) translateY(0);
 }
 
 /* =========================
-   SETTINGS
+   RESPONSIVE
 ========================= */
 
-.setting{
-    margin:0 14px 9px;
-    padding:15px;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    border:1px solid var(--line);
-    background:#0b1523;
-    border-radius:17px;
-}
-
-.setting strong{
-    font-size:11px;
-}
-
-.setting small{
-    display:block;
-    color:var(--muted);
-    margin-top:4px;
-    font-size:8px;
-}
-
-.switch{
-    width:45px;
-    height:25px;
-    border-radius:30px;
-    background:#243448;
-    position:relative;
-}
-
-.switch i{
-    position:absolute;
-    width:19px;
-    height:19px;
-    border-radius:50%;
-    background:#fff;
-    top:3px;
-    right:3px;
-}
-
-.switch.on{
-    background:var(--green);
-}
-
-.switch.on i{
-    right:23px;
-}
-
-/* =========================
-   DESKTOP
-========================= */
-
-@media(min-width:700px){
-    body{
-        background:
-            radial-gradient(circle at 50% 20%,#132b43,#03070c 55%);
+@media(max-width:1100px){
+    .playerList{
+        grid-template-columns:repeat(3,1fr);
     }
 
-    .app{
-        box-shadow:
-            0 0 80px rgba(0,0,0,.65),
-            0 0 0 1px rgba(255,255,255,.04);
+    .marketGrid,
+    .tournamentGrid{
+        grid-template-columns:repeat(2,1fr);
     }
 
-    .bottom-nav{
-        bottom:10px;
-        border:1px solid var(--line);
-        border-radius:23px;
-        width:500px;
+    .squadLayout{
+        grid-template-columns:1fr 280px;
+    }
+}
+
+@media(max-width:800px){
+    .topbar{
+        height:62px;
+        padding:7px 10px;
+    }
+
+    .brand{
+        min-width:auto;
+    }
+
+    .brandTitle{
+        font-size:13px;
+    }
+
+    .currency{
+        min-width:95px;
+        height:34px;
+    }
+
+    .page{
+        padding:
+          70px
+          10px
+          78px;
+    }
+
+    .homeGrid{
+        grid-template-columns:1fr;
+    }
+
+    .hero{
+        min-height:310px;
+    }
+
+    .hero h1{
+        font-size:30px;
+    }
+
+    .heroPlayer{
+        opacity:.45;
+    }
+
+    .quick{
+        min-height:100px;
+    }
+
+    .navBtn{
+        min-width:70px;
+    }
+
+    .navBtn small{
+        font-size:8px;
+    }
+
+    .squadLayout{
+        grid-template-columns:1fr;
+    }
+
+    .squadPanel{
+        display:none;
+    }
+
+    .pitch{
+        min-height:600px;
+    }
+
+    .playerList{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .profileLayout{
+        grid-template-columns:1fr;
     }
 }
 </style>
@@ -1217,939 +1299,1387 @@ body{
 
 <body>
 
-<div class="app">
+<!-- ROTATE -->
+<div id="rotateScreen">
+    <div class="rotateBox">
+        <div class="rotateIcon">📱</div>
+        <h2>قم بتدوير الهاتف</h2>
+        <p>LEGENDS FC مصممة للعب بالوضع الأفقي</p>
+    </div>
+</div>
 
-<!-- =====================================================
-     HOME
-===================================================== -->
-<section id="home" class="screen active">
+<div id="game">
 
-    <header class="topbar">
-        <div class="brand">
-            <div class="logo">⚽</div>
-            <div>
-                <strong>LEGENDS FC</strong>
-                <small>THE NEXT FOOTBALL EXPERIENCE</small>
-            </div>
+<!-- TOP -->
+<header class="topbar">
+
+    <div class="brand">
+        <div class="logo">⚽</div>
+        <div>
+            <div class="brandTitle">LEGENDS FC</div>
+            <div class="brandSub">FOOTBALL</div>
+        </div>
+    </div>
+
+    <div class="currencyBox">
+
+        <div class="currency">
+            <div class="coin">₡</div>
+            <strong id="coins">25,000</strong>
+            <button class="plus" onclick="addCoins()">+</button>
         </div>
 
-        <div class="top-actions">
-            <button class="icon-btn" onclick="showToast('لا توجد إشعارات جديدة')">🔔</button>
-            <button class="icon-btn" onclick="openModal('profileModal')">👤</button>
+        <div class="currency">
+            <div class="coin gem">◆</div>
+            <strong id="gems">850</strong>
+            <button class="plus" onclick="addGems()">+</button>
         </div>
-    </header>
+
+    </div>
+
+</header>
+
+<!-- ================= HOME ================= -->
+
+<section id="home" class="page active">
+
+<div class="homeGrid">
 
     <div class="hero">
-        <div class="hero-content">
-            <div>
-                <div class="hero-kicker">SEASON 01 • CAREER</div>
-                <h1>اصنع فريقك.<br>اكتب تاريخك.</h1>
-                <p>
-                    كوّن فريق الأحلام، خض المباريات،
-                    طوّر لاعبيك ونافس على البطولات.
-                </p>
+
+        <div class="stadiumLight"></div>
+
+        <div class="heroText">
+
+            <div class="heroTag">
+                SEASON 01 • RISE OF LEGENDS
             </div>
 
-            <button class="play-btn" onclick="startMatch()">
-                ▶ PLAY MATCH
-            </button>
-        </div>
-    </div>
+            <h1>
+                اصنع فريقك<br>
+                واكتب التاريخ
+            </h1>
 
-    <div class="currency-row">
-        <div class="currency">
-            <div class="coin">🪙</div>
-            <div>
-                <small>COINS</small>
-                <strong id="coinsHome">25,000</strong>
+            <p>
+                ابنِ ناديك، طوّر لاعبيك، ادخل البطولات
+                وواجه خصومًا حقيقيين داخل الملعب.
+            </p>
+
+            <div class="heroActions">
+                <button class="primaryBtn" onclick="startMatch()">
+                    ▶ العب الآن
+                </button>
+
+                <button class="secondaryBtn"
+                        onclick="showPage('squad')">
+                    ⚽ فريقي
+                </button>
+            </div>
+
+        </div>
+
+        <div class="heroPlayer">
+            <div class="playerSilhouette">
+                <div class="playerHead"></div>
+                <div class="playerBody"></div>
             </div>
         </div>
 
-        <div class="currency">
-            <div class="coin">💎</div>
-            <div>
-                <small>GEMS</small>
-                <strong id="gemsHome">850</strong>
-            </div>
-        </div>
     </div>
 
-    <div class="section">
-        <div class="section-head">
-            <h2>الوصول السريع</h2>
+    <div class="quickGrid">
+
+        <div class="quick"
+             onclick="showPage('players')">
+            <div class="quickIcon">👥</div>
+            <h3>اللاعبون</h3>
+            <small>إدارة وتطوير اللاعبين</small>
         </div>
 
-        <div class="quick-grid">
-            <button class="quick" onclick="showScreen('squad')">
-                <span>👕</span><small>فريقي</small>
-            </button>
-
-            <button class="quick" onclick="showScreen('players')">
-                <span>🃏</span><small>اللاعبين</small>
-            </button>
-
-            <button class="quick" onclick="showScreen('market')">
-                <span>💰</span><small>السوق</small>
-            </button>
-
-            <button class="quick" onclick="showScreen('tournaments')">
-                <span>🏆</span><small>البطولات</small>
-            </button>
+        <div class="quick"
+             onclick="showPage('market')">
+            <div class="quickIcon">💰</div>
+            <h3>سوق الانتقالات</h3>
+            <small>اكتشف النجوم</small>
         </div>
+
+        <div class="quick"
+             onclick="showPage('tournaments')">
+            <div class="quickIcon">🏆</div>
+            <h3>البطولات</h3>
+            <small>نافس على الكأس</small>
+        </div>
+
+        <div class="quick"
+             onclick="showPage('profile')">
+            <div class="quickIcon">📊</div>
+            <h3>الإحصائيات</h3>
+            <small>تابع مستواك</small>
+        </div>
+
     </div>
 
-    <div class="section">
-        <div class="section-head">
-            <h2>المباراة القادمة</h2>
-            <button onclick="startMatch()">ابدأ الآن</button>
-        </div>
+</div>
 
-        <div class="match-card">
-            <div class="match-top">
-                <span>FRIENDLY MATCH</span>
-                <span>20:00</span>
-            </div>
+<div class="sectionTitle">
+    <h2>نجوم فريقك</h2>
+    <span onclick="showPage('players')">عرض الكل ←</span>
+</div>
 
-            <div class="teams">
-                <div>
-                    <div class="team-logo">🦅</div>
-                    <div class="team-name">LEGENDS FC</div>
-                </div>
-
-                <div>
-                    <div class="score">VS</div>
-                    <div class="vs">HOME</div>
-                </div>
-
-                <div>
-                    <div class="team-logo">🦁</div>
-                    <div class="team-name">ROYAL CITY</div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="section">
-        <div class="section-head">
-            <h2>نجوم فريقك</h2>
-            <button onclick="showScreen('players')">عرض الكل</button>
-        </div>
-
-        <div class="player-scroll" id="homePlayers"></div>
-    </div>
+<div class="cards" id="homeCards"></div>
 
 </section>
 
 
-<!-- =====================================================
-     SQUAD
-===================================================== -->
-<section id="squad" class="screen">
+<!-- ================= SQUAD ================= -->
 
-    <header class="topbar">
-        <div class="brand">
-            <div class="logo">👕</div>
-            <div>
-                <strong>MY SQUAD</strong>
-                <small>LEGENDS FC</small>
-            </div>
-        </div>
+<section id="squad" class="page">
 
-        <button class="icon-btn" onclick="showToast('تم حفظ التشكيلة')">✓</button>
-    </header>
-
-    <div class="page-title">
-        <h1>التشكيلة</h1>
-        <p>اختَر الخطة ورتّب لاعبيك قبل المباراة.</p>
-    </div>
-
-    <div class="tabs">
-        <button class="tab active">4-3-3</button>
-        <button class="tab">4-4-2</button>
-        <button class="tab">4-2-3-1</button>
-        <button class="tab">3-5-2</button>
-    </div>
+<div class="squadLayout">
 
     <div class="pitch">
 
-        <div class="line-box line-top"></div>
-        <div class="line-box line-bottom"></div>
+        <div class="centerCircle"></div>
+        <div class="centerDot"></div>
 
-        <div class="footballer" style="left:50%;top:91%">
-            <div class="avatar">🧤</div>
-            <small>ADAM</small>
+        <div class="penalty top"></div>
+        <div class="penalty bottom"></div>
+
+        <div class="playerOnPitch positionGK">
+            <div class="pitchAvatar"></div>
+            <div class="pitchName">ADAM</div>
         </div>
 
-        <div class="footballer" style="left:18%;top:72%">
-            <div class="avatar">👤</div>
-            <small>KAREEM</small>
+        <div class="playerOnPitch positionLB">
+            <div class="pitchAvatar"></div>
+            <div class="pitchName">YASSER</div>
         </div>
 
-        <div class="footballer selected" style="left:40%;top:74%">
-            <div class="avatar">👤</div>
-            <small>OMAR</small>
+        <div class="playerOnPitch positionCB1">
+            <div class="pitchAvatar"></div>
+            <div class="pitchName">HASSAN</div>
         </div>
 
-        <div class="footballer" style="left:62%;top:74%">
-            <div class="avatar">👤</div>
-            <small>YOUSEF</small>
+        <div class="playerOnPitch positionCB2">
+            <div class="pitchAvatar"></div>
+            <div class="pitchName">DAVID</div>
         </div>
 
-        <div class="footballer" style="left:82%;top:72%">
-            <div class="avatar">👤</div>
-            <small>AHMED</small>
+        <div class="playerOnPitch positionRB">
+            <div class="pitchAvatar"></div>
+            <div class="pitchName">ALI</div>
         </div>
 
-        <div class="footballer" style="left:27%;top:53%">
-            <div class="avatar">👤</div>
-            <small>ALI</small>
+        <div class="playerOnPitch positionCM1">
+            <div class="pitchAvatar"></div>
+            <div class="pitchName">MAZEN</div>
         </div>
 
-        <div class="footballer" style="left:50%;top:52%">
-            <div class="avatar">👤</div>
-            <small>MAZEN</small>
+        <div class="playerOnPitch positionCM2">
+            <div class="pitchAvatar"></div>
+            <div class="pitchName">OMAR</div>
         </div>
 
-        <div class="footballer" style="left:73%;top:53%">
-            <div class="avatar">👤</div>
-            <small>HASSAN</small>
+        <div class="playerOnPitch positionCAM">
+            <div class="pitchAvatar"></div>
+            <div class="pitchName">YOUSSEF</div>
         </div>
 
-        <div class="footballer" style="left:18%;top:27%">
-            <div class="avatar">👤</div>
-            <small>ZIAD</small>
+        <div class="playerOnPitch positionLW">
+            <div class="pitchAvatar"></div>
+            <div class="pitchName">RAFAEL</div>
         </div>
 
-        <div class="footballer" style="left:50%;top:22%">
-            <div class="avatar">👤</div>
-            <small>MOHAMED</small>
+        <div class="playerOnPitch positionST">
+            <div class="pitchAvatar"></div>
+            <div class="pitchName">MOHAMED</div>
         </div>
 
-        <div class="footballer" style="left:82%;top:27%">
-            <div class="avatar">👤</div>
-            <small>YASSER</small>
+        <div class="playerOnPitch positionRW">
+            <div class="pitchAvatar"></div>
+            <div class="pitchName">VICTOR</div>
         </div>
 
     </div>
 
-    <div class="formation-label">
-        التقييم الإجمالي للفريق: <b style="color:var(--gold)">86</b>
-        &nbsp; • &nbsp; الانسجام: <b style="color:var(--green)">92%</b>
-    </div>
+    <aside class="squadPanel">
+
+        <div class="teamRating">
+            <div>
+                <small>التقييم العام</small>
+                <div>LEGENDS FC</div>
+            </div>
+            <div class="rating">86</div>
+        </div>
+
+        <h3>الخطة</h3>
+
+        <button class="primaryBtn"
+                style="width:100%;margin-top:12px"
+                onclick="toast('تم اختيار خطة 4-3-3')">
+            4 - 3 - 3
+        </button>
+
+        <div class="sectionTitle">
+            <h3>التعليمات</h3>
+        </div>
+
+        <button class="secondaryBtn"
+                style="width:100%;margin-bottom:8px"
+                onclick="toast('أسلوب هجومي')">
+            ⚔️ هجومي
+        </button>
+
+        <button class="secondaryBtn"
+                style="width:100%;margin-bottom:8px"
+                onclick="toast('ضغط متوسط')">
+            🔥 ضغط متوسط
+        </button>
+
+        <button class="secondaryBtn"
+                style="width:100%"
+                onclick="toast('دفاع متوازن')">
+            🛡️ دفاع متوازن
+        </button>
+
+    </aside>
+
+</div>
 
 </section>
 
 
-<!-- =====================================================
-     PLAYERS
-===================================================== -->
-<section id="players" class="screen">
+<!-- ================= PLAYERS ================= -->
 
-    <header class="topbar">
-        <div class="brand">
-            <div class="logo">🃏</div>
-            <div>
-                <strong>PLAYERS</strong>
-                <small>PLAYER COLLECTION</small>
-            </div>
-        </div>
-    </header>
+<section id="players" class="page">
 
-    <div class="page-title">
-        <h1>اللاعبون</h1>
-        <p>اجمع النجوم وطوّر فريقك.</p>
+<div class="playersGrid">
+
+    <div class="sectionTitle">
+        <h2>قائمة اللاعبين</h2>
+        <span id="playerCount"></span>
     </div>
 
-    <div class="tabs">
-        <button class="tab active" onclick="filterPlayers('all',this)">الكل</button>
-        <button class="tab" onclick="filterPlayers('GK',this)">حراس</button>
-        <button class="tab" onclick="filterPlayers('DEF',this)">دفاع</button>
-        <button class="tab" onclick="filterPlayers('MID',this)">وسط</button>
-        <button class="tab" onclick="filterPlayers('ATT',this)">هجوم</button>
+    <div class="filters">
+
+        <button class="filter active"
+                onclick="filterPlayers('ALL',this)">
+            الكل
+        </button>
+
+        <button class="filter"
+                onclick="filterPlayers('GK',this)">
+            حراس
+        </button>
+
+        <button class="filter"
+                onclick="filterPlayers('DEF',this)">
+            دفاع
+        </button>
+
+        <button class="filter"
+                onclick="filterPlayers('MID',this)">
+            وسط
+        </button>
+
+        <button class="filter"
+                onclick="filterPlayers('ATT',this)">
+            هجوم
+        </button>
+
     </div>
 
-    <div class="list" id="playersList"></div>
+    <div id="playerList" class="playerList"></div>
+
+</div>
 
 </section>
 
 
-<!-- =====================================================
-     MARKET
-===================================================== -->
-<section id="market" class="screen">
+<!-- ================= MARKET ================= -->
 
-    <header class="topbar">
-        <div class="brand">
-            <div class="logo">💰</div>
-            <div>
-                <strong>TRANSFER MARKET</strong>
-                <small>BUILD YOUR DREAM TEAM</small>
-            </div>
+<section id="market" class="page">
+
+<div class="sectionTitle">
+    <h2>سوق الانتقالات</h2>
+    <span>اكتشف المواهب والنجوم</span>
+</div>
+
+<div id="marketGrid" class="marketGrid"></div>
+
+</section>
+
+
+<!-- ================= TOURNAMENTS ================= -->
+
+<section id="tournaments" class="page">
+
+<div class="sectionTitle">
+    <h2>البطولات</h2>
+    <span>نافس واربح الجوائز</span>
+</div>
+
+<div class="tournamentGrid">
+
+    <div class="tournament">
+        <div class="trophy">🏆</div>
+        <h2>دوري الأبطال</h2>
+        <p>أقوى منافسة للأندية</p>
+        <div class="progress">
+            <i style="width:35%"></i>
         </div>
-    </header>
-
-    <div class="page-title">
-        <h1>سوق الانتقالات</h1>
-        <p>اكتشف اللاعبين المتاحين وابنِ فريقك.</p>
-    </div>
-
-    <div class="market-card">
-        <div class="rare">★ SPECIAL PLAYER</div>
-
-        <div class="market-player">
-            <div class="market-face">👤</div>
-
-            <div class="market-data">
-                <strong>RAFAEL</strong>
-                <span>LW • 91 OVR</span>
-                <span>PACE 95 • SHOOT 88</span>
-                <span>DRIBBLE 94 • PASS 86</span>
-                <div class="price">🪙 18,500</div>
-            </div>
-        </div>
-
-        <button class="play-btn" style="width:100%;height:43px;margin-top:13px"
-                onclick="buyPlayer('RAFAEL',18500)">
-            شراء اللاعب
+        <small>الجولة 3 / 8</small>
+        <br><br>
+        <button class="primaryBtn"
+                onclick="startMatch()">
+            دخول المباراة
         </button>
     </div>
 
-    <div class="market-card">
-        <div class="rare" style="color:var(--cyan)">◆ ELITE</div>
+    <div class="tournament">
+        <div class="trophy">🥇</div>
+        <h2>كأس العالم للأندية</h2>
+        <p>واجه أبطال العالم</p>
+        <div class="progress">
+            <i style="width:65%"></i>
+        </div>
+        <small>الجولة 5 / 8</small>
+    </div>
 
-        <div class="market-player">
-            <div class="market-face">👤</div>
+    <div class="tournament">
+        <div class="trophy">🏅</div>
+        <h2>الدوري المحلي</h2>
+        <p>موسم كامل من المنافسة</p>
+        <div class="progress">
+            <i style="width:50%"></i>
+        </div>
+        <small>الأسبوع 12</small>
+    </div>
 
-            <div class="market-data">
-                <strong>VICTOR</strong>
-                <span>ST • 89 OVR</span>
-                <span>PACE 91 • SHOOT 94</span>
-                <span>DRIBBLE 88 • PHYS 90</span>
-                <div class="price">🪙 15,200</div>
-            </div>
+    <div class="tournament">
+        <div class="trophy">⚡</div>
+        <h2>تحدي الموسم</h2>
+        <p>مباريات خاصة ومكافآت</p>
+        <div class="progress">
+            <i style="width:80%"></i>
+        </div>
+        <small>مفتوح</small>
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- ================= PROFILE ================= -->
+
+<section id="profile" class="page">
+
+<div class="profileLayout">
+
+    <div class="profileCard">
+
+        <div class="profileAvatar">👑</div>
+
+        <div class="profileName">
+            LEGENDS FC
         </div>
 
-        <button class="play-btn" style="width:100%;height:43px;margin-top:13px"
-                onclick="buyPlayer('VICTOR',15200)">
-            شراء اللاعب
+        <p style="text-align:center;color:#8099ad;margin-top:5px">
+            مدير النادي
+        </p>
+
+        <button class="primaryBtn"
+                style="width:100%;margin-top:20px"
+                onclick="toast('تم فتح إعدادات النادي')">
+            ⚙ إعدادات النادي
         </button>
+
     </div>
+
+    <div class="statsPanel">
+
+        <h2>إحصائيات الموسم</h2>
+
+        <div class="statsGrid"
+             style="margin-top:20px">
+
+            <div class="stat">
+                <strong id="matches">18</strong>
+                مباريات
+            </div>
+
+            <div class="stat">
+                <strong id="wins">14</strong>
+                انتصارات
+            </div>
+
+            <div class="stat">
+                <strong id="goals">41</strong>
+                أهداف
+            </div>
+
+            <div class="stat">
+                <strong>77%</strong>
+                نسبة الفوز
+            </div>
+
+            <div class="stat">
+                <strong>86</strong>
+                تقييم الفريق
+            </div>
+
+            <div class="stat">
+                <strong>12</strong>
+                بطولات
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
 
 </section>
 
 
-<!-- =====================================================
-     TOURNAMENTS
-===================================================== -->
-<section id="tournaments" class="screen">
+<!-- ================= NAV ================= -->
 
-    <header class="topbar">
-        <div class="brand">
-            <div class="logo">🏆</div>
-            <div>
-                <strong>TOURNAMENTS</strong>
-                <small>COMPETE • WIN • RISE</small>
-            </div>
-        </div>
-    </header>
+<nav class="bottomNav">
 
-    <div class="page-title">
-        <h1>البطولات</h1>
-        <p>نافس، اربح، واصعد إلى القمة.</p>
-    </div>
-
-    <div class="tournament">
-        <div class="tournament-top">
-            <div>
-                <strong style="margin-top:0">WORLD CHAMPIONS</strong>
-                <p>بطولة النخبة العالمية</p>
-            </div>
-            <div class="tournament-icon">🌍</div>
-        </div>
-
-        <div class="progress"><i style="width:40%"></i></div>
-
-        <div style="display:flex;justify-content:space-between;margin-top:9px;color:#8394a8;font-size:8px">
-            <span>الدور الأول</span>
-            <span>4 / 10</span>
-        </div>
-    </div>
-
-    <div class="tournament">
-        <div class="tournament-top">
-            <div>
-                <strong style="margin-top:0">LEGENDS CUP</strong>
-                <p>كأس خروج المغلوب</p>
-            </div>
-            <div class="tournament-icon">🏆</div>
-        </div>
-
-        <div class="progress"><i style="width:70%"></i></div>
-
-        <div style="display:flex;justify-content:space-between;margin-top:9px;color:#8394a8;font-size:8px">
-            <span>ربع النهائي</span>
-            <span>7 / 10</span>
-        </div>
-    </div>
-
-    <div class="tournament">
-        <div class="tournament-top">
-            <div>
-                <strong style="margin-top:0">NATIONAL LEAGUE</strong>
-                <p>موسم الدوري</p>
-            </div>
-            <div class="tournament-icon">⭐</div>
-        </div>
-
-        <div class="progress"><i style="width:22%"></i></div>
-
-        <div style="display:flex;justify-content:space-between;margin-top:9px;color:#8394a8;font-size:8px">
-            <span>الجولة 8</span>
-            <span>8 / 38</span>
-        </div>
-    </div>
-
-</section>
-
-
-<!-- =====================================================
-     PROFILE
-===================================================== -->
-<section id="profile" class="screen">
-
-    <header class="topbar">
-        <div class="brand">
-            <div class="logo">👤</div>
-            <div>
-                <strong>PROFILE</strong>
-                <small>MANAGER PROFILE</small>
-            </div>
-        </div>
-    </header>
-
-    <div class="hero" style="min-height:210px">
-        <div class="hero-content" style="height:210px">
-            <div>
-                <div class="hero-kicker">MANAGER LEVEL 12</div>
-                <h1 style="font-size:28px">LEGENDS<br>MANAGER</h1>
-                <p>الموسم الأول • 18 مباراة</p>
-            </div>
-        </div>
-    </div>
-
-    <div class="currency-row">
-        <div class="currency">
-            <div class="coin">🏆</div>
-            <div>
-                <small>WINS</small>
-                <strong>14</strong>
-            </div>
-        </div>
-
-        <div class="currency">
-            <div class="coin">⚽</div>
-            <div>
-                <small>GOALS</small>
-                <strong>41</strong>
-            </div>
-        </div>
-    </div>
-
-    <div class="section">
-        <div class="section-head">
-            <h2>الإحصائيات</h2>
-        </div>
-    </div>
-
-    <div class="setting">
-        <div>
-            <strong>نسبة الفوز</strong>
-            <small>من إجمالي المباريات</small>
-        </div>
-        <b style="color:var(--green)">77%</b>
-    </div>
-
-    <div class="setting">
-        <div>
-            <strong>متوسط الأهداف</strong>
-            <small>لكل مباراة</small>
-        </div>
-        <b>2.28</b>
-    </div>
-
-    <div class="setting">
-        <div>
-            <strong>قوة الفريق</strong>
-            <small>Overall Rating</small>
-        </div>
-        <b style="color:var(--gold)">86</b>
-    </div>
-
-</section>
-
-
-<!-- =====================================================
-     SETTINGS
-===================================================== -->
-<section id="settings" class="screen">
-
-    <header class="topbar">
-        <div class="brand">
-            <div class="logo">⚙️</div>
-            <div>
-                <strong>SETTINGS</strong>
-                <small>GAME SETTINGS</small>
-            </div>
-        </div>
-    </header>
-
-    <div class="page-title">
-        <h1>الإعدادات</h1>
-        <p>تحكم في تجربة اللعبة.</p>
-    </div>
-
-    <div class="setting" onclick="toggleSetting(this)">
-        <div>
-            <strong>المؤثرات الصوتية</strong>
-            <small>أصوات المباراة والأزرار</small>
-        </div>
-        <div class="switch on"><i></i></div>
-    </div>
-
-    <div class="setting" onclick="toggleSetting(this)">
-        <div>
-            <strong>الموسيقى</strong>
-            <small>الموسيقى داخل القوائم</small>
-        </div>
-        <div class="switch on"><i></i></div>
-    </div>
-
-    <div class="setting" onclick="toggleSetting(this)">
-        <div>
-            <strong>اهتزاز الموبايل</strong>
-            <small>عند التسديد والهدف</small>
-        </div>
-        <div class="switch"><i></i></div>
-    </div>
-
-    <div class="setting" onclick="saveGame()">
-        <div>
-            <strong>حفظ اللعبة</strong>
-            <small>حفظ بياناتك على الجهاز</small>
-        </div>
-        <b style="color:var(--green)">SAVE</b>
-    </div>
-
-    <div class="setting" onclick="resetGame()">
-        <div>
-            <strong>إعادة ضبط البيانات</strong>
-            <small>حذف تقدم اللعبة</small>
-        </div>
-        <b style="color:var(--red)">RESET</b>
-    </div>
-
-</section>
-
-
-<!-- =====================================================
-     BOTTOM NAV
-===================================================== -->
-
-<nav class="bottom-nav">
-
-    <button class="nav-btn active" data-screen="home" onclick="showScreen('home',this)">
-        <span>⌂</span>
+    <button class="navBtn active"
+            onclick="showPage('home',this)">
+        <span>🏠</span>
         <small>الرئيسية</small>
     </button>
 
-    <button class="nav-btn" data-screen="squad" onclick="showScreen('squad',this)">
-        <span>👕</span>
+    <button class="navBtn"
+            onclick="showPage('squad',this)">
+        <span>⚽</span>
         <small>فريقي</small>
     </button>
 
-    <button class="nav-btn" data-screen="players" onclick="showScreen('players',this)">
-        <span>🃏</span>
+    <button class="navBtn"
+            onclick="showPage('players',this)">
+        <span>👥</span>
         <small>اللاعبون</small>
     </button>
 
-    <button class="nav-btn" data-screen="tournaments" onclick="showScreen('tournaments',this)">
+    <button class="navBtn"
+            onclick="showPage('market',this)">
+        <span>💰</span>
+        <small>الانتقالات</small>
+    </button>
+
+    <button class="navBtn"
+            onclick="showPage('tournaments',this)">
         <span>🏆</span>
         <small>البطولات</small>
     </button>
 
-    <button class="nav-btn" data-screen="profile" onclick="showScreen('profile',this)">
+    <button class="navBtn"
+            onclick="showPage('profile',this)">
         <span>👤</span>
-        <small>حسابي</small>
+        <small>النادي</small>
     </button>
 
 </nav>
 
+</div>
 
-<!-- =====================================================
-     MATCH
-===================================================== -->
 
-<div id="matchScreen" class="match-screen">
+<!-- ================= MATCH ================= -->
 
-    <div class="stadium"></div>
+<div id="match">
 
-    <div class="match-hud">
-        <div class="scoreboard">
-            <small>LEGENDS FC &nbsp; • &nbsp; FRIENDLY</small>
-            <strong>
-                <span id="homeScore">0</span>
-                &nbsp; - &nbsp;
-                <span id="awayScore">0</span>
-            </strong>
-            <small id="matchTime">00:00</small>
-        </div>
-    </div>
+    <canvas id="matchCanvas"></canvas>
 
-    <button class="match-close" onclick="closeMatch()">✕</button>
+    <div class="scoreboard">
 
-    <div class="game-field">
+        <span>LEG</span>
 
-        <div class="center-circle"></div>
-        <div class="center-line"></div>
+        <span id="homeScore"
+              class="score">0</span>
 
-        <div class="goal top"></div>
-        <div class="goal bottom"></div>
+        <span class="matchTime"
+              id="matchClock">
+            00:00
+        </span>
 
-        <div class="match-player enemy" style="left:22%;top:30%">👤</div>
-        <div class="match-player enemy" style="left:50%;top:28%">👤</div>
-        <div class="match-player enemy" style="left:78%;top:30%">👤</div>
+        <span id="awayScore"
+              class="score">0</span>
 
-        <div class="match-player enemy" style="left:35%;top:44%">👤</div>
-        <div class="match-player enemy" style="left:65%;top:44%">👤</div>
-
-        <div id="controlledPlayer"
-             class="match-player"
-             style="left:50%;top:67%">👤</div>
-
-        <div class="match-player" style="left:22%;top:78%">👤</div>
-        <div class="match-player" style="left:78%;top:78%">👤</div>
-
-        <div id="ball" class="ball" style="left:50%;top:65%"></div>
+        <span>RIV</span>
 
     </div>
+
+    <button class="matchPause"
+            onclick="pauseMatch()">
+        II
+    </button>
 
     <div class="controls">
 
-        <div class="joystick" id="joystick">
-            <div class="stick" id="stick"></div>
+        <div class="joystick"
+             id="joystick">
+
+            <div class="stick"
+                 id="stick"></div>
+
         </div>
 
-        <div class="action-buttons">
+        <div class="actionButtons">
 
-            <button class="action shoot" onclick="shoot()">SHOOT</button>
-            <button class="action pass" onclick="passBall()">PASS</button>
-            <button class="action" onclick="throughBall()">THROUGH</button>
-            <button class="action" onclick="sprint()">SPRINT</button>
+            <button class="action shoot"
+                    onclick="shoot()">
+                تسديد
+            </button>
+
+            <button class="action pass"
+                    onclick="passBall()">
+                تمرير
+            </button>
+
+            <button class="action through"
+                    onclick="throughBall()">
+                بينية
+            </button>
+
+            <button class="action sprint"
+                    onclick="sprint()">
+                سرعة
+            </button>
 
         </div>
 
     </div>
 
-</div>
+    <div id="matchResult"
+         class="matchResult">
 
+        <div class="resultBox">
 
-<!-- =====================================================
-     PROFILE MODAL
-===================================================== -->
+            <h1>نهاية المباراة</h1>
 
-<div class="modal" id="profileModal">
-
-    <div class="modal-box">
-
-        <div class="modal-head">
-            <h2>ملف المدير</h2>
-            <button class="close" onclick="closeModal('profileModal')">✕</button>
-        </div>
-
-        <div class="list-item">
-            <div class="list-avatar">👑</div>
-            <div class="list-main">
-                <strong>LEGENDS MANAGER</strong>
-                <small>Level 12 • Season 01</small>
+            <div class="resultScore">
+                <span id="finalHome">0</span>
+                -
+                <span id="finalAway">0</span>
             </div>
-            <div class="ovr">12</div>
+
+            <p id="resultText">
+                أداء رائع
+            </p>
+
+            <button class="primaryBtn"
+                    style="margin-top:25px"
+                    onclick="closeMatch()">
+                العودة للنادي
+            </button>
+
         </div>
 
-        <button class="play-btn"
-                style="width:100%;margin-top:12px"
-                onclick="closeModal('profileModal');showScreen('profile')">
-            فتح الملف الكامل
-        </button>
-
     </div>
-</div>
-
-
-<!-- TOAST -->
-
-<div class="toast" id="toast"></div>
 
 </div>
+
+
+<div id="toast"></div>
 
 
 <script>
 
-/* =====================================================
-   GAME DATA
-===================================================== */
+/* =========================================================
+   LEGENDS FC
+   GAME ENGINE
+========================================================= */
+
+const SAVE_KEY = "LEGENDS_FC_SAVE_V2";
+
+const defaultSave = {
+    coins:25000,
+    gems:850,
+    matches:18,
+    wins:14,
+    goals:41,
+    owned:[1,2,3,4,5,6,7,8,9,10,11]
+};
+
+let save =
+    JSON.parse(localStorage.getItem(SAVE_KEY))
+    || structuredClone(defaultSave);
+
+
+/* =========================================================
+   PLAYER DATABASE
+========================================================= */
 
 const players = [
 
-    {
-        id:1,
-        name:"ADAM",
-        pos:"GK",
-        type:"GK",
-        ovr:84,
-        pace:72,
-        shoot:40,
-        pass:67,
-        dribble:48,
-        defense:88,
-        phys:82,
-        face:"🧤"
-    },
+{
+ id:1,
+ name:"ADAM",
+ position:"GK",
+ category:"GK",
+ rating:86,
+ speed:70,
+ shoot:35,
+ pass:68,
+ defense:88,
+ price:7000
+},
 
-    {
-        id:2,
-        name:"KAREEM",
-        pos:"LB",
-        type:"DEF",
-        ovr:82,
-        pace:86,
-        shoot:55,
-        pass:78,
-        dribble:74,
-        defense:82,
-        phys:77,
-        face:"👤"
-    },
+{
+ id:2,
+ name:"YASSER",
+ position:"LB",
+ category:"DEF",
+ rating:82,
+ speed:86,
+ shoot:42,
+ pass:75,
+ defense:84,
+ price:8500
+},
 
-    {
-        id:3,
-        name:"OMAR",
-        pos:"CB",
-        type:"DEF",
-        ovr:86,
-        pace:78,
-        shoot:45,
-        pass:72,
-        dribble:52,
-        defense:93,
-        phys:91,
-        face:"👤"
-    },
+{
+ id:3,
+ name:"HASSAN",
+ position:"CB",
+ category:"DEF",
+ rating:84,
+ speed:71,
+ shoot:35,
+ pass:70,
+ defense:91,
+ price:9600
+},
 
-    {
-        id:4,
-        name:"YOUSEF",
-        pos:"CB",
-        type:"DEF",
-        ovr:85,
-        pace:79,
-        shoot:48,
-        pass:75,
-        dribble:55,
-        defense:90,
-        phys:89,
-        face:"👤"
-    },
+{
+ id:4,
+ name:"DAVID",
+ position:"CB",
+ category:"DEF",
+ rating:83,
+ speed:73,
+ shoot:37,
+ pass:72,
+ defense:89,
+ price:9200
+},
 
-    {
-        id:5,
-        name:"AHMED",
-        pos:"RB",
-        type:"DEF",
-        ovr:83,
-        pace:89,
-        shoot:58,
-        pass:80,
-        dribble:77,
-        defense:79,
-        phys:75,
-        face:"👤"
-    },
+{
+ id:5,
+ name:"ALI",
+ position:"RB",
+ category:"DEF",
+ rating:82,
+ speed:88,
+ shoot:45,
+ pass:76,
+ defense:82,
+ price:8800
+},
 
-    {
-        id:6,
-        name:"ALI",
-        pos:"CM",
-        type:"MID",
-        ovr:84,
-        pace:76,
-        shoot:73,
-        pass:90,
-        dribble:83,
-        defense:72,
-        phys:70,
-        face:"👤"
-    },
+{
+ id:6,
+ name:"MAZEN",
+ position:"CM",
+ category:"MID",
+ rating:85,
+ speed:80,
+ shoot:68,
+ pass:91,
+ defense:67,
+ price:12500
+},
 
-    {
-        id:7,
-        name:"MAZEN",
-        pos:"CM",
-        type:"MID",
-        ovr:88,
-        pace:82,
-        shoot:81,
-        pass:94,
-        dribble:91,
-        defense:68,
-        phys:76,
-        face:"👤"
-    },
+{
+ id:7,
+ name:"OMAR",
+ position:"CM",
+ category:"MID",
+ rating:86,
+ speed:82,
+ shoot:72,
+ pass:93,
+ defense:64,
+ price:14000
+},
 
-    {
-        id:8,
-        name:"HASSAN",
-        pos:"CAM",
-        type:"MID",
-        ovr:89,
-        pace:88,
-        shoot:87,
-        pass:91,
-        dribble:95,
-        defense:45,
-        phys:65,
-        face:"👤"
-    },
+{
+ id:8,
+ name:"YOUSSEF",
+ position:"CAM",
+ category:"MID",
+ rating:88,
+ speed:89,
+ shoot:85,
+ pass:94,
+ defense:44,
+ price:16500
+},
 
-    {
-        id:9,
-        name:"ZIAD",
-        pos:"LW",
-        type:"ATT",
-        ovr:87,
-        pace:95,
-        shoot:82,
-        pass:78,
-        dribble:94,
-        defense:38,
-        phys:69,
-        face:"👤"
-    },
+{
+ id:9,
+ name:"RAFAEL",
+ position:"LW",
+ category:"ATT",
+ rating:91,
+ speed:96,
+ shoot:91,
+ pass:79,
+ defense:30,
+ price:18500
+},
 
-    {
-        id:10,
-        name:"MOHAMED",
-        pos:"ST",
-        type:"ATT",
-        ovr:91,
-        pace:91,
-        shoot:96,
-        pass:75,
-        dribble:88,
-        defense:30,
-        phys:92,
-        face:"👤"
-    },
+{
+ id:10,
+ name:"MOHAMED",
+ position:"ST",
+ category:"ATT",
+ rating:91,
+ speed:91,
+ shoot:96,
+ pass:75,
+ defense:30,
+ price:19000
+},
 
-    {
-        id:11,
-        name:"YASSER",
-        pos:"RW",
-        type:"ATT",
-        ovr:88,
-        pace:94,
-        shoot:85,
-        pass:82,
-        dribble:92,
-        defense:35,
-        phys:72,
-        face:"👤"
-    },
+{
+ id:11,
+ name:"VICTOR",
+ position:"RW",
+ category:"ATT",
+ rating:89,
+ speed:94,
+ shoot:88,
+ pass:82,
+ defense:34,
+ price:15200
+},
 
-    {
-        id:12,
-        name:"RAFAEL",
-        pos:"LW",
-        type:"ATT",
-        ovr:91,
-        pace:95,
-        shoot:88,
-        pass:86,
-        dribble:94,
-        defense:40,
-        phys:77,
-        face:"👤"
-    },
+{
+ id:12,
+ name:"LUCAS",
+ position:"CAM",
+ category:"MID",
+ rating:87,
+ speed:84,
+ shoot:79,
+ pass:91,
+ defense:39,
+ price:12800
+},
 
-    {
-        id:13,
-        name:"VICTOR",
-        pos:"ST",
-        type:"ATT",
-        ovr:89,
-        pace:91,
-        shoot:94,
-        pass:74,
-        dribble:88,
-        defense:31,
-        phys:90,
-        face:"👤"
-    }
+{
+ id:13,
+ name:"KAREEM",
+ position:"ST",
+ category:"ATT",
+ rating:88,
+ speed:86,
+ shoot:92,
+ pass:70,
+ defense:31,
+ price:14600
+},
+
+{
+ id:14,
+ name:"ZIAD",
+ position:"CDM",
+ category:"MID",
+ rating:84,
+ speed:77,
+ shoot:51,
+ pass:87,
+ defense:85,
+ price:11000
+},
+
+{
+ id:15,
+ name:"MARCOS",
+ position:"CB",
+ category:"DEF",
+ rating:87,
+ speed:75,
+ shoot:41,
+ pass:77,
+ defense:94,
+ price:13200
+},
+
+{
+ id:16,
+ name:"NABIL",
+ position:"GK",
+ category:"GK",
+ rating:84,
+ speed:60,
+ shoot:25,
+ pass:61,
+ defense:91,
+ price:9000
+},
+
+{
+ id:17,
+ name:"SAMIR",
+ position:"LW",
+ category:"ATT",
+ rating:85,
+ speed:92,
+ shoot:83,
+ pass:74,
+ defense:28,
+ price:11900
+},
+
+{
+ id:18,
+ name:"RAYAN",
+ position:"RW",
+ category:"ATT",
+ rating:86,
+ speed:93,
+ shoot:84,
+ pass:77,
+ defense:32,
+ price:12300
+}
 
 ];
 
 
-/* =====================================================
-   SAVE DATA
-===================================================== */
+/* =========================================================
+   CLUB DATABASE
+========================================================= */
 
-let game = JSON.parse(localStorage.getItem("LEGENDS_FC_SAVE")) || {
+const clubs = [
 
-    coins:25000,
-    gems:850,
-    wins:14,
-    goals:41,
-    matches:18,
-    owned:[1,2,3,4,5,6,7,8,9,10,11]
-};
+{
+ id:1,
+ name:"LEGENDS FC",
+ country:"Egypt",
+ rating:86
+},
+
+{
+ id:2,
+ name:"RIVER UNITED",
+ country:"England",
+ rating:84
+},
+
+{
+ id:3,
+ name:"CAPITAL CITY",
+ country:"Spain",
+ rating:88
+},
+
+{
+ id:4,
+ name:"ROYAL ATHLETIC",
+ country:"France",
+ rating:87
+},
+
+{
+ id:5,
+ name:"BLUE WARRIORS",
+ country:"Italy",
+ rating:85
+},
+
+{
+ id:6,
+ name:"RED STARS",
+ country:"Germany",
+ rating:89
+},
+
+{
+ id:7,
+ name:"DESERT KINGS",
+ country:"Egypt",
+ rating:82
+},
+
+{
+ id:8,
+ name:"NORTH LIONS",
+ country:"Morocco",
+ rating:83
+},
+
+{
+ id:9,
+ name:"OCEAN FC",
+ country:"Portugal",
+ rating:84
+},
+
+{
+ id:10,
+ name:"GOLDEN CITY",
+ country:"Brazil",
+ rating:90
+}
+
+];
 
 
-/* =====================================================
-   INITIALIZE
-===================================================== */
+/* =========================================================
+   SAVE SYSTEM
+========================================================= */
 
-document.addEventListener("DOMContentLoaded",()=>{
+function saveGame(){
 
-    updateCurrency();
+    localStorage.setItem(
+        SAVE_KEY,
+        JSON.stringify(save)
+    );
 
-    renderHomePlayers();
+    updateCurrencies();
+}
 
-    renderPlayers("all");
+function updateCurrencies(){
 
-    setupTabs();
+    document.getElementById("coins").textContent =
+        save.coins.toLocaleString();
 
-    setupJoystick();
+    document.getElementById("gems").textContent =
+        save.gems.toLocaleString();
 
-});
+    document.getElementById("matches").textContent =
+        save.matches;
+
+    document.getElementById("wins").textContent =
+        save.wins;
+
+    document.getElementById("goals").textContent =
+        save.goals;
+}
+
+function addCoins(){
+
+    save.coins += 1000;
+
+    saveGame();
+
+    toast("+1,000 عملة");
+}
+
+function addGems(){
+
+    save.gems += 50;
+
+    saveGame();
+
+    toast("+50 جوهرة");
+}
 
 
-/* =====================================================
-   SCREEN SYSTEM
-===================================================== */
+/* =========================================================
+   PAGE SYSTEM
+========================================================= */
 
-function showScreen(id,button=null){
+function showPage(id,btn){
 
-    document.querySelectorAll(".screen").forEach(s=>{
-        s.classList.remove("active");
-    });
+    document.querySelectorAll(".page")
+        .forEach(p=>{
+            p.classList.remove("active");
+        });
 
-    const screen=document.getElementById(id);
+    const page =
+        document.getElementById(id);
 
-    if(screen){
-        screen.classList.add("active");
+    if(page){
+        page.classList.add("active");
     }
 
-    document.querySelectorAll(".nav-btn").forEach(b=>{
-        b.classList.remove("active");
-    });
+    if(btn){
 
-    const nav=document.query
+        document.querySelectorAll(".navBtn")
+            .forEach(x=>{
+                x.classList.remove("active");
+            });
+
+        btn.classList.add("active");
+    }
+
+    if(id==="players"){
+        renderPlayers("ALL");
+    }
+
+    if(id==="market"){
+        renderMarket();
+    }
+}
+
+
+/* =========================================================
+   HOME CARDS
+========================================================= */
+
+function renderHomeCards(){
+
+    const box =
+        document.getElementById("homeCards");
+
+    box.innerHTML="";
+
+    players
+    .filter(p=>save.owned.includes(p.id))
+    .slice(0,8)
+    .forEach(p=>{
+
+        box.innerHTML += cardHTML(p);
+
+    });
+}
+
+function cardHTML(p){
+
+    let cls =
+        p.rating>=90
+        ? "gold"
+        : p.rating>=87
+        ? "purple"
+        : "";
+
+    return `
+
+    <div class="playerCard ${cls}">
+
+        <div class="cardRating">
+            ${p.rating}
+        </div>
+
+        <div class="cardPosition">
+            ${p.position}
+        </div>
+
+        <div class="cardFace">
+            <div class="head"></div>
+            <div class="shirt"></div>
+        </div>
+
+        <div class="cardName">
+            ${p.name}
+        </div>
+
+        <div class="cardStats">
+
+            <span>
+                ⚡ ${p.speed}
+            </span>
+
+            <span>
+                🎯 ${p.shoot}
+            </span>
+
+            <span>
+                🛡 ${p.defense}
+            </span>
+
+        </div>
+
+    </div>
+
+    `;
+}
+
+
+/* =========================================================
+   PLAYERS
+========================================================= */
+
+function renderPlayers(filter){
+
+    const box =
+        document.getElementById("playerList");
+
+    box.innerHTML="";
+
+    let list =
+        players.filter(p=>{
+            return filter==="ALL"
+                || p.category===filter;
+        });
+
+    document.getElementById("playerCount")
+        .textContent =
+        list.length+" لاعب";
+
+    list.forEach(p=>{
+
+        const owned =
+            save.owned.includes(p.id);
+
+        box.innerHTML += `
+
+        <div class="smallPlayer"
+             onclick="playerDetails(${p.id})">
+
+            <div class="smallPlayerTop">
+
+                <div class="miniAvatar"></div>
+
+                <div>
+                    <strong>${p.name}</strong>
+                    <div style="color:#718da3">
+                        ${p.position}
+                    </div>
+                </div>
+
+                <div class="smallRating">
+                    ${p.rating}
+                </div>
+
+            </div>
+
+            <div class="bar">
+                <i style="width:${p.speed}%"></i>
+            </div>
+
+            <div style="
+                display:flex;
+                justify-content:space-between;
+                margin-top:6px;
+                font-size:10px;
+                color:#7f98aa">
+
+                <span>⚡ ${p.speed}</span>
+                <span>🎯 ${p.shoot}</span>
+                <span>🎯 ${p.pass}</span>
+                <span>🛡 ${p.defense}</span>
+
+            </div>
+
+            <div style="
+                margin-top:9px;
+                color:${owned?'#24df87':'#ffcf48'};
+                font-size:11px">
+
+                ${owned?'✓ ضمن الفريق':'غير مملوك'}
+
+            </div>
+
+        </div>
+
+        `;
+
+    });
+}
+
+function filterPlayers(filter,button){
+
+    document.querySelectorAll(".filter")
+        .forEach(b=>{
+            b.classList.remove("active");
+        });
+
+    button.classList.add("active");
+
+    renderPlayers(filter);
+}
+
+function playerDetails(id){
+
+    const p =
+        players.find(x=>x.id===id);
+
+    if(!p) return;
+
+    toast(
+        `${p.name} • ${p.position} • تقييم ${p.rating}`
+    );
+}
+
+
+/* =========================================================
+   MARKET
+========================================================= */
+
+function renderMarket(){
+
+    const box =
+        document.getElementById("marketGrid");
+
+    box.innerHTML="";
+
+    players
+    .filter(p=>!save.owned.includes(p.id))
+    .forEach(p=>{
+
+        box.innerHTML += `
+
+        <div class="marketCard">
+
+            <div class="marketVisual">
+
+                <div class="bigFace">
+
+                    <div class="head"></div>
+                    <div class="body"></div>
+
+                </div>
+
+            </div>
+
+            <h2>${p.name}</h2>
+
+            <p style="color:#7792a7">
+                ${p.position}
+            </p>
+
+            <div style="
+                color:#ffd34d;
+                font-size:25px;
+                font-weight:900;
+                margin-top:7px">
+                ${p.rating}
+            </div>
+
+            <div style="
+                display:flex;
+                justify-content:space-between;
+                color:#7f99ac;
+                margin-top:7px;
+                font-size:11px">
+
+                <span>⚡ ${p.speed}</span>
+                <span>🎯 ${p.shoot}</span>
+                <span>🛡 ${p.defense}</span>
+
+            </div>
+
+            <div style="
+                margin-top:12px;
+                color:#ffd34d;
+                font-weight:900">
+
+                ₡ ${p.price.toLocaleString()}
+
+            </div>
+
+            <button class="buy"
+                    onclick="buyPlayer(${p.id})">
+
+                شراء اللاعب
+
+            </button>
+
+        </div>
+
+        `;
+
+    });
+}
+
+function buyPlayer(id){
+
+    const p =
+        players.find(x=>x.id===id);
+
+    if(!p) return;
+
+    if(save.owned.includes(id)){
+
+        toast("اللاعب موجود بالفعل");
+
+        return;
+    }
+
+    if(save.coins<p.price){
+
+        toast("العملات غير كافية");
+
+        return;
+    }
+
+    save.coins -= p.price;
+
+    save.owned.push(id);
+
+    saveGame();
+
+    renderMarket();
+
+    renderHomeCards();
+
+    toast(
+        `تم التعاقد مع ${p.name}`
+    );
+}
+
+
+/* =========================================================
+   MATCH ENGINE
+========================================================= */
+
+const canvas =
+    document.getElementById("matchCanvas");
+
+const ctx =
+    canvas.getContext("2d");
+
+let matchRunning=false;
+let matchPaused=false;
+let matchStart=0;
+let matchElapsed=0;
+let homeGoals=0;
+let awayGoals=0;
+
+let playerX=.5;
+let playerY=.68;
+
+let ballX=.5;
+let ballY=.61;
+
+let ballVX=0;
+let ballVY=0;
+
+let joystickX=0;
+let joystickY=0;
+
+let aiPlayers=[];
+
+function resizeCanvas(){
+
+    canvas.width =
+        window.innerWidth *
+        devicePixelRatio;
+
+    canvas.height =
+        window.innerHeight *
+        devicePixelRatio;
+
+    ctx.setTransform(
+        devicePixelRatio,
+        0,
+        0,
+        devicePixelRatio,
+        0,
+        0
+    );
+}
+
+window.addEventListener(
+    "resize",
+    resizeCanvas
+);
+
+resizeCanvas();
+
+
+function startMatch(){
+
+    document.getElementById("match")
+        .classList.add("active");
+
+    homeGoals=0
