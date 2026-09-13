@@ -1,132 +1,1765 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#07110e">
-<title>ملك | Malak World</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+<meta name="theme-color" content="#09030b">
+<title>ملك | أجمل حكاية ❤️</title>
+
 <style>
-:root{--bg:#050b09;--surface:#0b1713;--surface2:#10211b;--text:#f7fffb;--muted:#9ab3a8;--accent:#19d47c;--accent2:#8b7cff;--pink:#ff4f9a;--line:rgba(255,255,255,.09);--shadow:0 25px 80px rgba(0,0,0,.35)}
-*{box-sizing:border-box}
-html,body{margin:0;min-height:100%;background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,"Segoe UI",Tahoma,Arial,sans-serif}
-body{overflow-x:hidden}
-button,input,textarea{font:inherit}
-button{cursor:pointer}
-#sky{position:fixed;inset:0;z-index:-5;overflow:hidden;background:radial-gradient(circle at 15% 20%,rgba(25,212,124,.12),transparent 30%),radial-gradient(circle at 85% 15%,rgba(255,79,154,.11),transparent 28%),linear-gradient(145deg,#050b09,#07130f 50%,#100714)}
-.orb{position:absolute;border-radius:50%;filter:blur(8px);opacity:.45;animation:float 14s ease-in-out infinite}
-.o1{width:320px;height:320px;background:var(--accent);left:-120px;top:8%}
-.o2{width:260px;height:260px;background:var(--pink);right:-100px;top:38%;animation-delay:-5s}
-.o3{width:220px;height:220px;background:var(--accent2);left:45%;bottom:-100px;animation-delay:-9s}
-@keyframes float{50%{transform:translate(40px,-35px) scale(1.08)}}
-#particles{position:absolute;inset:0}.particle{position:absolute;width:3px;height:3px;border-radius:50%;background:white;opacity:.55;animation:twinkle 3s infinite}
-@keyframes twinkle{50%{opacity:.1;transform:scale(.4)}}
-.app{min-height:100vh;display:grid;grid-template-columns:260px minmax(0,1fr);gap:18px;padding:18px;position:relative}
-.sidebar{position:sticky;top:18px;height:calc(100vh - 36px);background:rgba(9,20,16,.82);backdrop-filter:blur(24px);border:1px solid var(--line);border-radius:28px;padding:18px;box-shadow:var(--shadow);overflow:auto}
-.brand{display:flex;align-items:center;gap:12px;padding:8px 4px 20px}.logo{width:52px;height:52px;border-radius:18px;display:grid;place-items:center;background:linear-gradient(135deg,var(--pink),#ff8bc0);font-size:26px}.brand h1{font-size:20px;margin:0}.brand small{color:var(--muted)}
-.nav{display:grid;gap:8px}.nav button{border:1px solid transparent;background:transparent;color:var(--muted);padding:13px 14px;border-radius:15px;text-align:right;transition:.2s}.nav button:hover,.nav button.active{background:rgba(255,255,255,.07);color:var(--text);border-color:var(--line);transform:translateX(-2px)}
-.main{min-width:0;padding-bottom:50px}.topbar{height:72px;display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:18px}.search{flex:1;max-width:650px;display:flex;gap:8px}
-.input,.search input,.composer textarea{width:100%;background:rgba(9,20,16,.8);border:1px solid var(--line);color:var(--text);border-radius:16px;padding:13px 15px;outline:none}.input:focus,.search input:focus,.composer textarea:focus{border-color:rgba(25,212,124,.6);box-shadow:0 0 0 4px rgba(25,212,124,.08)}
-.iconbtn,.primary,.ghost{border:1px solid var(--line);border-radius:14px;padding:11px 14px;background:rgba(255,255,255,.05);color:var(--text)}.primary{background:linear-gradient(135deg,var(--accent),#0aa45d);color:#04110a;border:0;font-weight:800}
-.hero{position:relative;min-height:350px;border:1px solid var(--line);border-radius:32px;padding:38px;overflow:hidden;background:linear-gradient(120deg,rgba(255,79,154,.16),rgba(25,212,124,.09)),rgba(8,18,14,.84);box-shadow:var(--shadow)}
-.hero:before{content:"";position:absolute;inset:auto -10% -55% 35%;height:500px;background:radial-gradient(circle,rgba(255,79,154,.22),transparent 62%);animation:heroGlow 8s infinite alternate}@keyframes heroGlow{to{transform:translate(-80px,-40px) scale(1.15)}}
-.hero-content{position:relative;z-index:1;max-width:720px}.badge{display:inline-flex;gap:8px;align-items:center;padding:8px 12px;border-radius:999px;background:rgba(255,255,255,.07);border:1px solid var(--line);color:#ffd4e7}
-.hero h2{font-size:clamp(34px,6vw,72px);line-height:1.05;margin:20px 0 14px}.hero p{font-size:18px;line-height:1.8;color:var(--muted);max-width:650px}.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
-.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-top:18px}.card{background:rgba(10,23,18,.78);border:1px solid var(--line);border-radius:22px;padding:18px;box-shadow:0 12px 40px rgba(0,0,0,.16)}
-.stat b{font-size:28px;display:block;margin-top:7px}.muted{color:var(--muted)}
-.section{display:none;margin-top:18px;animation:appear .35s ease}.section.active{display:block}@keyframes appear{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
-.section-head{display:flex;align-items:end;justify-content:space-between;gap:12px;margin-bottom:12px}.section-head h2{margin:0;font-size:26px}
-.story-row{display:flex;gap:12px;overflow:auto;padding:5px 0 12px}.story{min-width:92px;height:130px;border-radius:20px;padding:10px;display:flex;align-items:end;position:relative;overflow:hidden;border:1px solid var(--line);background:linear-gradient(160deg,#3c1831,#10231b)}.story:after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 35%,rgba(0,0,0,.7))}.story span{position:relative;z-index:1;font-weight:700;font-size:12px}
-.feed{display:grid;gap:14px}.post-head{display:flex;align-items:center;gap:10px}.avatar{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(135deg,var(--pink),var(--accent2));font-weight:900}.post-actions{display:flex;gap:8px;margin-top:12px}.post-actions button{flex:1;background:rgba(255,255,255,.05);color:var(--muted);border:1px solid var(--line);padding:10px;border-radius:13px}.post-actions button.liked{color:#ff6eaa;border-color:rgba(255,79,154,.35);background:rgba(255,79,154,.08)}
-.composer{display:grid;gap:10px}.composer textarea{min-height:110px;resize:vertical}
-.message-grid{display:grid;grid-template-columns:280px 1fr;min-height:500px;overflow:hidden}.chat-list{border-left:1px solid var(--line);padding:12px}.chat{padding:12px;border-radius:14px;display:flex;gap:10px;align-items:center;cursor:pointer}.chat:hover,.chat.active{background:rgba(255,255,255,.06)}.chat-window{display:flex;flex-direction:column;min-width:0}.chat-messages{flex:1;padding:18px;display:grid;align-content:start;gap:10px;max-height:440px;overflow:auto}.bubble{max-width:75%;padding:11px 14px;border-radius:18px;background:rgba(255,255,255,.07);line-height:1.7}.bubble.me{justify-self:start;background:linear-gradient(135deg,rgba(25,212,124,.22),rgba(25,212,124,.08));border-bottom-left-radius:5px}.bubble.them{justify-self:end;border-bottom-right-radius:5px}.chat-compose{display:flex;gap:8px;padding:12px;border-top:1px solid var(--line)}.chat-compose input{flex:1}
-.memory-grid,.achievement-grid,.theme-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.memory{min-height:170px;position:relative;overflow:hidden}.memory .heart{font-size:42px}.progress{height:10px;background:rgba(255,255,255,.07);border-radius:99px;overflow:hidden;margin-top:10px}.progress i{display:block;height:100%;width:68%;background:linear-gradient(90deg,var(--accent),var(--pink));border-radius:inherit}
-.heart-btn{width:90px;height:90px;border:0;border-radius:50%;background:rgba(255,79,154,.12);font-size:48px;transition:.12s}.heart-btn:active{transform:scale(.88)}
-.modal{position:fixed;inset:0;background:rgba(0,0,0,.65);backdrop-filter:blur(10px);display:none;place-items:center;z-index:50;padding:18px}.modal.open{display:grid}.modal-box{width:min(700px,100%);max-height:90vh;overflow:auto;background:#0a1712;border:1px solid var(--line);border-radius:28px;padding:22px;box-shadow:var(--shadow)}
-.toast-stack{position:fixed;left:18px;bottom:18px;z-index:100;display:grid;gap:8px;max-width:min(360px,calc(100vw - 36px))}.toast{background:rgba(12,26,20,.94);border:1px solid var(--line);padding:13px 15px;border-radius:15px;box-shadow:var(--shadow);animation:toastIn .25s ease}@keyframes toastIn{from{opacity:0;transform:translateY(10px)}}
-.rain{position:fixed;inset:0;pointer-events:none;z-index:20;display:none;overflow:hidden}.rain.active{display:block}.drop{position:absolute;top:-30px;width:1px;height:18px;background:rgba(120,200,255,.35);animation:fall linear infinite}@keyframes fall{to{transform:translateY(110vh)}}
-.hearts{position:fixed;inset:0;pointer-events:none;z-index:30;overflow:hidden}.floating-heart{position:absolute;font-size:22px;animation:heartUp 3s ease-out forwards}@keyframes heartUp{to{transform:translateY(-100vh) rotate(25deg);opacity:0}}
-@media(max-width:1000px){.app{grid-template-columns:1fr;padding:10px}.sidebar{position:fixed;z-index:40;right:10px;left:10px;bottom:10px;top:auto;height:auto;padding:8px;border-radius:22px}.brand{display:none}.nav{display:flex;overflow:auto}.nav button{min-width:max-content}.main{padding-bottom:90px}.grid{grid-template-columns:repeat(2,1fr)}.memory-grid,.achievement-grid,.theme-grid{grid-template-columns:1fr 1fr}.message-grid{grid-template-columns:1fr}.chat-list{display:none}}
-@media(max-width:620px){.topbar{height:auto;flex-wrap:wrap}.search{order:2;max-width:none;width:100%}.hero{padding:24px;min-height:390px;border-radius:25px}.hero h2{font-size:40px}.grid,.memory-grid,.achievement-grid,.theme-grid{grid-template-columns:1fr}.card{border-radius:18px}}
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=Playfair+Display:wght@600;700;800&display=swap');
+
+:root{
+  --pink:#ff4f91;
+  --pink2:#ff86b5;
+  --gold:#ffd36a;
+  --purple:#8b5cf6;
+  --red:#ff315f;
+  --bg:#08030a;
+  --card:rgba(255,255,255,.065);
+  --border:rgba(255,255,255,.12);
+  --text:#fff;
+  --muted:#c7b9c2;
+  --shadow:0 25px 80px rgba(0,0,0,.45);
+}
+
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+  -webkit-tap-highlight-color:transparent;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  background:
+    radial-gradient(circle at 20% 10%,rgba(255,79,145,.18),transparent 30%),
+    radial-gradient(circle at 80% 30%,rgba(139,92,246,.15),transparent 28%),
+    radial-gradient(circle at 50% 90%,rgba(255,211,106,.08),transparent 35%),
+    var(--bg);
+  color:var(--text);
+  font-family:Cairo,sans-serif;
+  overflow-x:hidden;
+}
+
+button{
+  font-family:inherit;
+  cursor:pointer;
+  border:0;
+}
+
+a{
+  color:inherit;
+  text-decoration:none;
+}
+
+/* =========================
+   LOADER
+========================= */
+
+#loader{
+  position:fixed;
+  inset:0;
+  z-index:99999;
+  background:#08030a;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-direction:column;
+  transition:opacity .8s,visibility .8s;
+}
+
+#loader.hide{
+  opacity:0;
+  visibility:hidden;
+}
+
+.loader-heart{
+  width:75px;
+  height:75px;
+  position:relative;
+  animation:heartbeat 1.2s infinite;
+}
+
+.loader-heart:before,
+.loader-heart:after{
+  content:"";
+  position:absolute;
+  width:43px;
+  height:68px;
+  background:linear-gradient(180deg,#ff86b5,#ff315f);
+  border-radius:45px 45px 0 0;
+  top:0;
+}
+
+.loader-heart:before{
+  right:35px;
+  transform:rotate(45deg);
+  transform-origin:0 100%;
+}
+
+.loader-heart:after{
+  left:35px;
+  transform:rotate(-45deg);
+  transform-origin:100% 100%;
+}
+
+.loader-text{
+  margin-top:25px;
+  color:#fff;
+  font-size:14px;
+  letter-spacing:2px;
+}
+
+@keyframes heartbeat{
+  0%,100%{transform:scale(.85)}
+  50%{transform:scale(1.08)}
+}
+
+/* =========================
+   BACKGROUND
+========================= */
+
+#stars,
+#particles{
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  z-index:-1;
+  overflow:hidden;
+}
+
+.star{
+  position:absolute;
+  width:2px;
+  height:2px;
+  background:#fff;
+  border-radius:50%;
+  opacity:.7;
+  animation:twinkle 3s infinite alternate;
+}
+
+@keyframes twinkle{
+  from{opacity:.15;transform:scale(.5)}
+  to{opacity:1;transform:scale(1.4)}
+}
+
+.particle{
+  position:absolute;
+  bottom:-30px;
+  opacity:0;
+  animation:floatUp linear infinite;
+}
+
+@keyframes floatUp{
+  0%{transform:translateY(0) rotate(0);opacity:0}
+  10%{opacity:.8}
+  90%{opacity:.35}
+  100%{transform:translateY(-110vh) rotate(360deg);opacity:0}
+}
+
+/* =========================
+   NAV
+========================= */
+
+.nav{
+  position:fixed;
+  top:15px;
+  left:50%;
+  transform:translateX(-50%);
+  width:min(940px,calc(100% - 28px));
+  z-index:500;
+  padding:10px 14px;
+  border:1px solid var(--border);
+  background:rgba(12,5,12,.7);
+  backdrop-filter:blur(22px);
+  -webkit-backdrop-filter:blur(22px);
+  border-radius:24px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  box-shadow:0 12px 50px rgba(0,0,0,.35);
+}
+
+.logo{
+  display:flex;
+  align-items:center;
+  gap:9px;
+  font-weight:900;
+}
+
+.logo-icon{
+  width:40px;
+  height:40px;
+  border-radius:14px;
+  display:grid;
+  place-items:center;
+  background:linear-gradient(135deg,#ff4f91,#8b5cf6);
+  box-shadow:0 8px 30px rgba(255,79,145,.3);
+  font-size:20px;
+}
+
+.logo span{
+  color:#fff;
+}
+
+.nav-actions{
+  display:flex;
+  gap:7px;
+}
+
+.nav-btn{
+  width:40px;
+  height:40px;
+  border-radius:13px;
+  background:rgba(255,255,255,.07);
+  color:#fff;
+  font-size:17px;
+  transition:.25s;
+}
+
+.nav-btn:hover,
+.nav-btn:active{
+  background:rgba(255,79,145,.2);
+  transform:translateY(-2px);
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+  min-height:100vh;
+  position:relative;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:110px 20px 70px;
+  overflow:hidden;
+}
+
+.hero-glow{
+  position:absolute;
+  width:450px;
+  height:450px;
+  border-radius:50%;
+  background:radial-gradient(circle,rgba(255,79,145,.25),transparent 70%);
+  filter:blur(20px);
+  animation:pulseGlow 5s ease-in-out infinite;
+}
+
+.hero-glow.two{
+  width:330px;
+  height:330px;
+  background:radial-gradient(circle,rgba(139,92,246,.2),transparent 70%);
+  right:5%;
+  top:20%;
+  animation-delay:1.5s;
+}
+
+@keyframes pulseGlow{
+  0%,100%{transform:scale(.9);opacity:.5}
+  50%{transform:scale(1.15);opacity:1}
+}
+
+.hero-content{
+  position:relative;
+  z-index:2;
+  max-width:900px;
+}
+
+.badge{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:8px 16px;
+  border-radius:100px;
+  background:rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.12);
+  color:#ffd9e7;
+  font-size:13px;
+  margin-bottom:25px;
+  box-shadow:0 10px 40px rgba(0,0,0,.25);
+}
+
+.badge i{
+  color:var(--gold);
+}
+
+.hero h1{
+  font-size:clamp(58px,14vw,150px);
+  line-height:.9;
+  font-weight:900;
+  margin-bottom:20px;
+  background:linear-gradient(135deg,#fff 10%,#ffb3d0 38%,#ff4f91 65%,#ffd36a);
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+  text-shadow:0 0 70px rgba(255,79,145,.18);
+}
+
+.hero-sub{
+  color:#e5dce1;
+  font-size:clamp(16px,3vw,23px);
+  line-height:1.9;
+  max-width:650px;
+  margin:auto;
+}
+
+.hero-sub strong{
+  color:#ff86b5;
+}
+
+.hero-buttons{
+  margin-top:35px;
+  display:flex;
+  justify-content:center;
+  gap:12px;
+  flex-wrap:wrap;
+}
+
+.primary-btn,
+.secondary-btn{
+  min-height:52px;
+  padding:0 25px;
+  border-radius:17px;
+  color:#fff;
+  font-weight:800;
+  font-size:14px;
+  transition:.3s;
+}
+
+.primary-btn{
+  background:linear-gradient(135deg,#ff4f91,#ff315f);
+  box-shadow:0 12px 35px rgba(255,49,95,.3);
+}
+
+.secondary-btn{
+  background:rgba(255,255,255,.06);
+  border:1px solid var(--border);
+}
+
+.primary-btn:hover,
+.secondary-btn:hover{
+  transform:translateY(-4px) scale(1.02);
+}
+
+.scroll-hint{
+  position:absolute;
+  bottom:30px;
+  left:50%;
+  transform:translateX(-50%);
+  color:#95858e;
+  font-size:11px;
+}
+
+.scroll-hint span{
+  display:block;
+  margin-top:7px;
+  animation:down 1.5s infinite;
+}
+
+@keyframes down{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(7px)}
+}
+
+/* =========================
+   SECTIONS
+========================= */
+
+section{
+  width:min(1100px,calc(100% - 28px));
+  margin:auto;
+  padding:90px 0;
+}
+
+.section-title{
+  text-align:center;
+  margin-bottom:40px;
+}
+
+.eyebrow{
+  color:#ff86b5;
+  font-size:12px;
+  font-weight:800;
+  letter-spacing:1px;
+  margin-bottom:10px;
+}
+
+.section-title h2{
+  font-size:clamp(30px,6vw,55px);
+  line-height:1.2;
+  font-weight:900;
+}
+
+.section-title p{
+  color:var(--muted);
+  margin-top:12px;
+  font-size:14px;
+}
+
+/* =========================
+   COUNTDOWN
+========================= */
+
+.countdown-card{
+  position:relative;
+  overflow:hidden;
+  border:1px solid var(--border);
+  border-radius:32px;
+  padding:35px 20px;
+  background:
+    linear-gradient(135deg,rgba(255,79,145,.13),rgba(139,92,246,.08)),
+    rgba(255,255,255,.035);
+  box-shadow:var(--shadow);
+  text-align:center;
+}
+
+.countdown-card:before{
+  content:"";
+  position:absolute;
+  width:250px;
+  height:250px;
+  background:rgba(255,79,145,.13);
+  filter:blur(70px);
+  top:-120px;
+  left:-80px;
+}
+
+.countdown{
+  position:relative;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:12px;
+  max-width:760px;
+  margin:30px auto 0;
+}
+
+.time-box{
+  padding:20px 8px;
+  border:1px solid rgba(255,255,255,.1);
+  background:rgba(0,0,0,.18);
+  border-radius:22px;
+}
+
+.time-number{
+  font-size:clamp(28px,7vw,52px);
+  font-weight:900;
+  color:#fff;
+  line-height:1;
+}
+
+.time-label{
+  color:#a99ca3;
+  font-size:11px;
+  margin-top:10px;
+}
+
+/* =========================
+   MESSAGE
+========================= */
+
+.love-card{
+  display:grid;
+  grid-template-columns:1fr 1.2fr;
+  gap:25px;
+  align-items:stretch;
+}
+
+.love-visual{
+  min-height:430px;
+  border-radius:32px;
+  overflow:hidden;
+  position:relative;
+  background:
+    linear-gradient(180deg,transparent,rgba(0,0,0,.7)),
+    url("https://images.unsplash.com/photo-1518199266791-5375a83190b7?auto=format&fit=crop&w=1000&q=85") center/cover;
+  border:1px solid var(--border);
+  box-shadow:var(--shadow);
+}
+
+.love-visual-content{
+  position:absolute;
+  bottom:25px;
+  right:25px;
+  left:25px;
+}
+
+.love-visual-content h3{
+  font-size:30px;
+  font-weight:900;
+}
+
+.love-visual-content p{
+  color:#ddd;
+  font-size:13px;
+}
+
+.letter{
+  border:1px solid var(--border);
+  background:rgba(255,255,255,.045);
+  border-radius:32px;
+  padding:35px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  box-shadow:var(--shadow);
+}
+
+.letter-icon{
+  font-size:42px;
+  margin-bottom:18px;
+}
+
+.letter h3{
+  font-size:29px;
+  margin-bottom:18px;
+}
+
+.letter p{
+  color:#d2c6cd;
+  line-height:2.1;
+  font-size:14px;
+}
+
+.signature{
+  color:#ff86b5;
+  font-size:19px;
+  font-weight:900;
+  margin-top:25px;
+}
+
+/* =========================
+   MEMORIES
+========================= */
+
+.memories{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:15px;
+}
+
+.memory{
+  min-height:310px;
+  position:relative;
+  overflow:hidden;
+  border-radius:27px;
+  border:1px solid var(--border);
+  background:#160b12;
+  cursor:pointer;
+  transition:.4s;
+}
+
+.memory:hover{
+  transform:translateY(-8px);
+  box-shadow:0 25px 60px rgba(0,0,0,.5);
+}
+
+.memory:nth-child(1){
+  background:url("https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?auto=format&fit=crop&w=800&q=85") center/cover;
+}
+
+.memory:nth-child(2){
+  background:url("https://images.unsplash.com/photo-1494774157365-9e04c6720e47?auto=format&fit=crop&w=800&q=85") center/cover;
+}
+
+.memory:nth-child(3){
+  background:url("https://images.unsplash.com/photo-1518568814500-bf0f8d125f46?auto=format&fit=crop&w=800&q=85") center/cover;
+}
+
+.memory:after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(transparent 35%,rgba(0,0,0,.9));
+}
+
+.memory-content{
+  position:absolute;
+  z-index:2;
+  bottom:20px;
+  right:20px;
+  left:20px;
+}
+
+.memory-content span{
+  color:#ff86b5;
+  font-size:11px;
+}
+
+.memory-content h3{
+  margin-top:4px;
+  font-size:20px;
+}
+
+/* =========================
+   WHY MALAK
+========================= */
+
+.reasons{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:14px;
+}
+
+.reason{
+  padding:23px;
+  border-radius:23px;
+  background:var(--card);
+  border:1px solid var(--border);
+  transition:.3s;
+}
+
+.reason:hover{
+  border-color:rgba(255,79,145,.35);
+  transform:translateY(-4px);
+}
+
+.reason-icon{
+  width:48px;
+  height:48px;
+  border-radius:15px;
+  display:grid;
+  place-items:center;
+  background:rgba(255,79,145,.12);
+  font-size:22px;
+  margin-bottom:15px;
+}
+
+.reason h3{
+  font-size:17px;
+}
+
+.reason p{
+  color:#a99ca3;
+  font-size:12px;
+  line-height:1.9;
+  margin-top:6px;
+}
+
+/* =========================
+   GAMES
+========================= */
+
+.game-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:16px;
+}
+
+.game{
+  padding:28px;
+  min-height:210px;
+  border:1px solid var(--border);
+  border-radius:28px;
+  background:linear-gradient(145deg,rgba(255,255,255,.06),rgba(255,255,255,.02));
+  position:relative;
+  overflow:hidden;
+}
+
+.game:before{
+  content:"";
+  position:absolute;
+  width:150px;
+  height:150px;
+  border-radius:50%;
+  background:rgba(255,79,145,.12);
+  filter:blur(30px);
+  left:-50px;
+  top:-50px;
+}
+
+.game-icon{
+  font-size:38px;
+  position:relative;
+}
+
+.game h3{
+  position:relative;
+  margin:10px 0 5px;
+}
+
+.game p{
+  position:relative;
+  color:#a99ca3;
+  font-size:12px;
+  line-height:1.7;
+}
+
+.game button{
+  position:relative;
+  margin-top:17px;
+  padding:10px 18px;
+  border-radius:12px;
+  background:#fff;
+  color:#15080e;
+  font-weight:800;
+}
+
+/* =========================
+   SECRET
+========================= */
+
+.secret{
+  text-align:center;
+}
+
+.secret-box{
+  max-width:700px;
+  margin:auto;
+  padding:50px 25px;
+  border-radius:35px;
+  background:
+    radial-gradient(circle at center,rgba(255,79,145,.15),transparent 55%),
+    rgba(255,255,255,.035);
+  border:1px solid var(--border);
+  box-shadow:var(--shadow);
+}
+
+.lock{
+  font-size:60px;
+  animation:float 3s ease-in-out infinite;
+}
+
+@keyframes float{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-10px)}
+}
+
+.secret-box h2{
+  font-size:28px;
+  margin:15px 0 10px;
+}
+
+.secret-box p{
+  color:#a99ca3;
+  font-size:13px;
+}
+
+.secret-btn{
+  margin-top:25px;
+  padding:14px 25px;
+  border-radius:15px;
+  color:#fff;
+  font-weight:900;
+  background:linear-gradient(135deg,#8b5cf6,#ff4f91);
+  box-shadow:0 10px 35px rgba(139,92,246,.25);
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+  text-align:center;
+  padding:60px 20px 35px;
+  border-top:1px solid rgba(255,255,255,.07);
+}
+
+.footer-heart{
+  font-size:30px;
+  animation:heartbeat 1.2s infinite;
+  display:inline-block;
+}
+
+footer h3{
+  margin:10px 0;
+  font-size:22px;
+}
+
+footer p{
+  color:#887b83;
+  font-size:11px;
+}
+
+/* =========================
+   MODAL
+========================= */
+
+.modal{
+  position:fixed;
+  inset:0;
+  z-index:9000;
+  background:rgba(0,0,0,.75);
+  backdrop-filter:blur(15px);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+  opacity:0;
+  visibility:hidden;
+  transition:.35s;
+}
+
+.modal.show{
+  opacity:1;
+  visibility:visible;
+}
+
+.modal-card{
+  width:min(600px,100%);
+  max-height:90vh;
+  overflow:auto;
+  border-radius:30px;
+  border:1px solid var(--border);
+  background:#12070e;
+  padding:30px;
+  text-align:center;
+  transform:scale(.9) translateY(20px);
+  transition:.4s;
+}
+
+.modal.show .modal-card{
+  transform:scale(1) translateY(0);
+}
+
+.modal-close{
+  float:left;
+  width:36px;
+  height:36px;
+  border-radius:12px;
+  background:rgba(255,255,255,.08);
+  color:#fff;
+}
+
+.modal-card h2{
+  margin:15px 0;
+  font-size:28px;
+}
+
+.modal-card p{
+  color:#c8bbc2;
+  line-height:2;
+  font-size:14px;
+}
+
+/* =========================
+   GIFT
+========================= */
+
+.gift{
+  font-size:90px;
+  cursor:pointer;
+  display:inline-block;
+  animation:giftShake 2s infinite;
+}
+
+@keyframes giftShake{
+  0%,70%,100%{transform:rotate(0)}
+  74%{transform:rotate(-7deg)}
+  78%{transform:rotate(7deg)}
+  82%{transform:rotate(-5deg)}
+  86%{transform:rotate(5deg)}
+}
+
+/* =========================
+   MUSIC
+========================= */
+
+.music-player{
+  position:fixed;
+  bottom:18px;
+  left:18px;
+  z-index:700;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding:9px 12px;
+  border:1px solid var(--border);
+  background:rgba(15,6,12,.82);
+  backdrop-filter:blur(18px);
+  border-radius:20px;
+  box-shadow:0 12px 40px rgba(0,0,0,.35);
+}
+
+.music-button{
+  width:42px;
+  height:42px;
+  border-radius:14px;
+  background:linear-gradient(135deg,#ff4f91,#8b5cf6);
+  color:#fff;
+}
+
+.music-info{
+  max-width:150px;
+}
+
+.music-info strong{
+  display:block;
+  font-size:11px;
+}
+
+.music-info small{
+  color:#95858e;
+  font-size:9px;
+}
+
+/* =========================
+   TOAST
+========================= */
+
+.toast{
+  position:fixed;
+  top:90px;
+  left:50%;
+  transform:translate(-50%,-20px);
+  z-index:9990;
+  padding:12px 20px;
+  background:#fff;
+  color:#190a11;
+  border-radius:15px;
+  font-size:12px;
+  font-weight:800;
+  opacity:0;
+  visibility:hidden;
+  transition:.35s;
+  box-shadow:0 15px 50px rgba(0,0,0,.4);
+}
+
+.toast.show{
+  opacity:1;
+  visibility:visible;
+  transform:translate(-50%,0);
+}
+
+/* =========================
+   CONFETTI
+========================= */
+
+.confetti{
+  position:fixed;
+  top:-20px;
+  z-index:10000;
+  pointer-events:none;
+  animation:confettiFall 3s linear forwards;
+}
+
+@keyframes confettiFall{
+  to{
+    transform:translateY(110vh) rotate(720deg);
+    opacity:0;
+  }
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:750px){
+
+  .nav{
+    top:9px;
+    border-radius:19px;
+  }
+
+  .logo-icon{
+    width:36px;
+    height:36px;
+  }
+
+  .logo{
+    font-size:13px;
+  }
+
+  .hero{
+    padding-top:115px;
+  }
+
+  .hero h1{
+    font-size:78px;
+  }
+
+  .hero-sub{
+    font-size:14px;
+  }
+
+  .countdown{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .love-card{
+    grid-template-columns:1fr;
+  }
+
+  .love-visual{
+    min-height:340px;
+  }
+
+  .letter{
+    padding:25px;
+  }
+
+  .memories{
+    grid-template-columns:1fr;
+  }
+
+  .memory{
+    min-height:280px;
+  }
+
+  .reasons{
+    grid-template-columns:1fr;
+  }
+
+  .game-grid{
+    grid-template-columns:1fr;
+  }
+
+  section{
+    padding:65px 0;
+  }
+}
+
+@media(max-width:420px){
+  .hero h1{
+    font-size:67px;
+  }
+
+  .primary-btn,
+  .secondary-btn{
+    width:100%;
+  }
+
+  .music-info{
+    display:none;
+  }
+}
 </style>
 </head>
+
 <body>
-<div id="sky"><div class="orb o1"></div><div class="orb o2"></div><div class="orb o3"></div><div id="particles"></div></div>
-<div class="rain" id="rain"></div><div class="hearts" id="hearts"></div>
 
-<div class="app">
-<aside class="sidebar">
-<div class="brand"><div class="logo">♥</div><div><h1>ملك</h1><small>Malak World</small></div></div>
+<!-- LOADER -->
+<div id="loader">
+  <div class="loader-heart"></div>
+  <div class="loader-text">هدية صغيرة لشخص كبير في القلب...</div>
+</div>
+
+<div id="stars"></div>
+<div id="particles"></div>
+
+<!-- NAV -->
 <nav class="nav">
-<button class="active" data-page="home">🏠 الرئيسية</button>
-<button data-page="love">💌 رسائل الحب</button>
-<button data-page="memories">📸 الذكريات</button>
-<button data-page="messages">💬 الرسائل</button>
-<button data-page="stories">✨ القصص</button>
-<button data-page="goals">🎯 الأهداف</button>
-<button data-page="achievements">🏆 الإنجازات</button>
-<button data-page="weather">🌧️ عالم الطبيعة</button>
-<button data-page="themes">🎨 الثيمات</button>
-<button data-page="settings">⚙️ الإعدادات</button>
-</nav>
-</aside>
+  <a href="#home" class="logo">
+    <div class="logo-icon">م</div>
+    <span>ملك ❤️</span>
+  </a>
 
-<main class="main">
-<header class="topbar">
-<div class="search"><input id="globalSearch" placeholder="ابحث في عالم ملك..."><button class="iconbtn" id="searchBtn">🔎</button></div>
-<div style="display:flex;gap:8px"><button class="iconbtn" id="notifyBtn">🔔 <span id="notifyCount">3</span></button><button class="iconbtn" id="themeQuick">🌙</button></div>
+  <div class="nav-actions">
+    <button class="nav-btn" onclick="scrollToSection('letter')">💌</button>
+    <button class="nav-btn" onclick="scrollToSection('memories')">📸</button>
+    <button class="nav-btn" onclick="openGift()">🎁</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero" id="home">
+
+  <div class="hero-glow"></div>
+  <div class="hero-glow two"></div>
+
+  <div class="hero-content">
+
+    <div class="badge">
+      <i>✦</i>
+      رسالة خاصة إلى ملك
+      <i>✦</i>
+    </div>
+
+    <h1>ملك</h1>
+
+    <p class="hero-sub">
+      في ناس بتمر في حياتنا...
+      <br>
+      وناس <strong>بتخلّي للحياة معنى تاني.</strong>
+      <br>
+      والنهارده الصفحة دي كلها معمولة عشان واحدة منهم.
+    </p>
+
+    <div class="hero-buttons">
+      <button class="primary-btn" onclick="scrollToSection('letter')">
+        💌 افتحي رسالتي
+      </button>
+
+      <button class="secondary-btn" onclick="openGift()">
+        🎁 عندي مفاجأة
+      </button>
+    </div>
+
+  </div>
+
+  <div class="scroll-hint">
+    انزلي واكتشفي الحكاية
+    <span>⌄</span>
+  </div>
 </header>
 
-<section id="home" class="section active">
-<div class="hero"><div class="hero-content">
-<span class="badge">💖 مساحة خاصة باسم ملك</span>
-<h2>أهلًا بيك في عالم ملك</h2>
-<p>مكان واحد للرسائل والذكريات والمفاجآت واللحظات الجميلة، مع عالم متحرك يتغير من حولك.</p>
-<div class="actions"><button class="primary" onclick="showLove()">💌 رسالة حب</button><button class="ghost" onclick="makeHearts()">❤️ أطلق القلوب</button><button class="ghost" onclick="openSurprise()">🎁 المفاجأة</button></div>
-</div></div>
-<div class="grid">
-<div class="card stat"><span class="muted">رسائل محفوظة</span><b id="statMessages">0</b></div>
-<div class="card stat"><span class="muted">الذكريات</span><b id="statMemories">0</b></div>
-<div class="card stat"><span class="muted">القلوب</span><b id="statHearts">0</b></div>
-<div class="card stat"><span class="muted">المستوى</span><b id="statLevel">1</b></div>
+<!-- COUNTDOWN -->
+<section id="birthday">
+
+  <div class="section-title">
+    <div class="eyebrow">THE SPECIAL DAY</div>
+    <h2>العد التنازلي ليوم ملك 🎂</h2>
+    <p>يوم الأربعاء مش يوم عادي... ده يوم اتولدت فيه ملك.</p>
+  </div>
+
+  <div class="countdown-card">
+
+    <div class="badge">🎉 عيد ميلاد ملك — 16 سبتمبر 2026</div>
+
+    <div class="countdown">
+
+      <div class="time-box">
+        <div class="time-number" id="days">00</div>
+        <div class="time-label">يوم</div>
+      </div>
+
+      <div class="time-box">
+        <div class="time-number" id="hours">00</div>
+        <div class="time-label">ساعة</div>
+      </div>
+
+      <div class="time-box">
+        <div class="time-number" id="minutes">00</div>
+        <div class="time-label">دقيقة</div>
+      </div>
+
+      <div class="time-box">
+        <div class="time-number" id="seconds">00</div>
+        <div class="time-label">ثانية</div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- LETTER -->
+<section id="letter">
+
+  <div class="section-title">
+    <div class="eyebrow">A LETTER FOR YOU</div>
+    <h2>رسالة من القلب ❤️</h2>
+    <p>الكلام ده مخصوص ليكي.</p>
+  </div>
+
+  <div class="love-card">
+
+    <div class="love-visual">
+      <div class="love-visual-content">
+        <span>FOR MY FAVORITE PERSON</span>
+        <h3>ملك ❤️</h3>
+        <p>بعض الأشخاص لا يحتاجون سببًا لكي يصبحوا مميزين.</p>
+      </div>
+    </div>
+
+    <div class="letter">
+
+      <div class="letter-icon">💌</div>
+
+      <h3>إلى ملك...</h3>
+
+      <p>
+        مش عارف أبدأ الكلام إزاي، لأن مهما كتبت مش هيكون كفاية.
+        بس اللي أعرفه إن وجودك في حياتي له معنى كبير جدًا.
+        <br><br>
+        النهارده مش مجرد عيد ميلادك...
+        النهارده فرصة أقولك إنك شخص يستاهل كل حاجة حلوة في الدنيا.
+        تستاهلي الضحكة اللي مابتخلصش،
+        والأيام اللي مافيهاش زعل،
+        والناس اللي تفضل جنبك بجد.
+        <br><br>
+        أتمنى السنة الجديدة من عمرك تكون أجمل من كل اللي فات،
+        وكل أمنية مخبيّاها في قلبك تلاقي طريقها ليكي.
+        <br><br>
+        <strong style="color:#ff86b5">
+          كل سنة وإنتِ ملك... والاسم لوحده حكاية. ❤️
+        </strong>
+      </p>
+
+      <div class="signature">
+        — من شخص شايفك مختلفة عن الكل ❤️
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- MEMORIES -->
+<section id="memories">
+
+  <div class="section-title">
+    <div class="eyebrow">OUR LITTLE WORLD</div>
+    <h2>لحظات تستاهل تتخزن ✨</h2>
+    <p>اضغطي على أي صورة.</p>
+  </div>
+
+  <div class="memories">
+
+    <div class="memory" onclick="openMemory('لحظة جميلة','في لحظات صغيرة جدًا... بس بتفضل في القلب وقت طويل.')">
+      <div class="memory-content">
+        <span>MEMORY 01</span>
+        <h3>أجمل التفاصيل</h3>
+      </div>
+    </div>
+
+    <div class="memory" onclick="openMemory('ضحكة ملك','في ضحكات معينة بتقدر تغيّر يوم كامل... وضحكتك واحدة منها.')">
+      <div class="memory-content">
+        <span>MEMORY 02</span>
+        <h3>الضحكة اللي بتفرق</h3>
+      </div>
+    </div>
+
+    <div class="memory" onclick="openMemory('حكاية لسه بتبدأ','وأجمل حاجة إن الحكايات الحلوة مش لازم يكون لها نهاية.')">
+      <div class="memory-content">
+        <span>MEMORY 03</span>
+        <h3>لسه في ذكريات أكتر</h3>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- REASONS -->
+<section id="reasons">
+
+  <div class="section-title">
+    <div class="eyebrow">WHY YOU?</div>
+    <h2>ليه ملك مختلفة؟ 👑</h2>
+    <p>أسباب كتير... بس دول شوية منهم.</p>
+  </div>
+
+  <div class="reasons">
+
+    <div class="reason">
+      <div class="reason-icon">✨</div>
+      <h3>وجودك له تأثير</h3>
+      <p>في ناس وجودها عادي، وفي ناس بمجرد وجودها المكان كله بيتغير.</p>
+    </div>
+
+    <div class="reason">
+      <div class="reason-icon">😂</div>
+      <h3>ضحكتك</h3>
+      <p>لأن في ضحكات بتعدّي، وضحكات بتفضل معلقة في الذاكرة.</p>
+    </div>
+
+    <div class="reason">
+      <div class="reason-icon">❤️</div>
+      <h3>قلبك</h3>
+      <p>الحاجات الجميلة مش كلها بتبان من أول مرة، لكن القلب الحلو بيبان.</p>
+    </div>
+
+    <div class="reason">
+      <div class="reason-icon">👑</div>
+      <h3>اسمك</h3>
+      <p>مش محتاجين نشرح ليه الاسم ده لوحده مناسب ليكي.</p>
+    </div>
+
+    <div class="reason">
+      <div class="reason-icon">🌙</div>
+      <h3>تفاصيلك</h3>
+      <p>التفاصيل الصغيرة أحيانًا هي أكتر حاجة بتخلّي الشخص مميز.</p>
+    </div>
+
+    <div class="reason">
+      <div class="reason-icon">💫</div>
+      <h3>إنتِ إنتِ</h3>
+      <p>وأحلى سبب في الآخر إنك مش محتاجة تكوني حد تاني.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- GAMES -->
+<section id="games">
+
+  <div class="section-title">
+    <div class="eyebrow">LET'S PLAY</div>
+    <h2>وقت اللعب 🎮</h2>
+    <p>عشان الهدية مش كلام وبس.</p>
+  </div>
+
+  <div class="game-grid">
+
+    <div class="game">
+      <div class="game-icon">💖</div>
+      <h3>اختبري حظك</h3>
+      <p>اضغطي وشوفي الرسالة اللي هتطلعلك.</p>
+      <button onclick="luckyMessage()">جربي حظك ✨</button>
+    </div>
+
+    <div class="game">
+      <div class="game-icon">💝</div>
+      <h3>قد إيه إنتِ مميزة؟</h3>
+      <p>مقياس غير علمي إطلاقًا... لكنه أكيد صادق 😂</p>
+      <button onclick="specialMeter()">احسبي النسبة ❤️</button>
+    </div>
+
+    <div class="game">
+      <div class="game-icon">🔮</div>
+      <h3>رسالة من المستقبل</h3>
+      <p>اضغطي وشوفي رسالة صغيرة من المستقبل.</p>
+      <button onclick="futureMessage()">افتحيها 🔮</button>
+    </div>
+
+    <div class="game">
+      <div class="game-icon">🎯</div>
+      <h3>اختاري رقم</h3>
+      <p>كل رقم وراه مفاجأة صغيرة.</p>
+      <button onclick="chooseNumber()">اختاري 🎯</button>
+    </div>
+
+  </div>
+</section>
+
+<!-- SECRET GIFT -->
+<section class="secret" id="secret">
+
+  <div class="section-title">
+    <div class="eyebrow">ONE LAST THING</div>
+    <h2>في حاجة مستخبية... 🎁</h2>
+    <p>مش هتظهر غير لما تضغطي.</p>
+  </div>
+
+  <div class="secret-box">
+
+    <div class="gift" onclick="openGift()">🎁</div>
+
+    <h2>صندوق ملك السري</h2>
+
+    <p>
+      ممنوع فتحه إلا لو مستعدة لمفاجأة صغيرة ❤️
+    </p>
+
+    <button class="secret-btn" onclick="openGift()">
+      افتحي الصندوق ✨
+    </button>
+
+  </div>
+
+</section>
+
+<footer>
+  <div class="footer-heart">❤️</div>
+  <h3>كل سنة وإنتِ طيبة يا ملك</h3>
+  <p>صُنعت بحب مخصوص ليوم مميز.</p>
+</footer>
+
+<!-- MUSIC -->
+<div class="music-player">
+  <button class="music-button" id="musicBtn" onclick="toggleMusic()">▶</button>
+  <div class="music-info">
+    <strong>أغنية ملك 🎵</strong>
+    <small id="musicStatus">اضغطي للتشغيل</small>
+  </div>
 </div>
-<div class="card" style="margin-top:14px"><div class="section-head"><h2>🌹 لحظة اليوم</h2><span class="muted" id="clock"></span></div><p id="dailyQuote" style="font-size:20px;line-height:2"></p><div class="progress"><i id="dailyProgress"></i></div><small class="muted">مؤشر المزاج الجميل اليوم</small></div>
-<div class="card" style="margin-top:14px;text-align:center"><div class="muted">اضغط على القلب واجمع القلوب</div><button class="heart-btn" onclick="collectHeart()">❤️</button><div id="heartLabel">0</div></div>
-</section>
 
-<section id="love" class="section">
-<div class="section-head"><h2>💌 رسائل الحب</h2><button class="primary" onclick="showLove()">رسالة جديدة</button></div>
-<div class="card" style="text-align:center;padding:35px"><div style="font-size:70px">💌</div><h2 id="loveText">اضغط للحصول على رسالة</h2><p class="muted">كل ضغطة ممكن تطلع لك إحساس مختلف.</p><button class="primary" onclick="showLove()">✨ افتح الرسالة</button></div>
-<div class="card" style="margin-top:14px"><h3>✍️ اكتب رسالة خاصة</h3><div class="composer"><textarea id="customLove" placeholder="اكتب رسالة لملك..."></textarea><button class="primary" onclick="saveLove()">حفظ الرسالة ❤️</button></div></div>
-</section>
+<audio id="music" loop>
+  <!-- ضعي رابط الأغنية هنا لاحقًا -->
+</audio>
 
-<section id="memories" class="section"><div class="section-head"><h2>📸 الذكريات</h2><button class="primary" onclick="addMemory()">+ ذكرى</button></div><div id="memoryGrid" class="memory-grid"></div></section>
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
 
-<section id="messages" class="section">
-<div class="section-head"><h2>💬 الرسائل</h2></div>
-<div class="card message-grid"><div class="chat-list">
-<div class="chat active"><div class="avatar">م</div><div><b>ملك</b><small class="muted" style="display:block">متصلة الآن ✨</small></div></div>
-<div class="chat"><div class="avatar">♥</div><div><b>الذكريات</b><small class="muted" style="display:block">رسائل محفوظة</small></div></div>
+<!-- MODAL -->
+<div class="modal" id="modal" onclick="closeModal(event)">
+  <div class="modal-card">
+
+    <button class="modal-close" onclick="closeModal()">×</button>
+
+    <div id="modalContent"></div>
+
+  </div>
 </div>
-<div class="chat-window"><div class="chat-messages" id="chatMessages"><div class="bubble them">أهلًا ❤️ مستني رسالة حلوة النهارده.</div><div class="bubble me">أنا هنا، وعندي رسالة مخصوص ليكي 💌</div></div><div class="chat-compose"><input class="input" id="chatInput" placeholder="اكتب رسالة..."><button class="primary" onclick="sendChat()">إرسال</button></div></div></div>
-</section>
-
-<section id="stories" class="section"><div class="section-head"><h2>✨ القصص</h2></div><div class="story-row"><div class="story"><span>❤️ لحظة حب</span></div><div class="story"><span>🌙 ليلة هادئة</span></div><div class="story"><span>🌹 وردة اليوم</span></div><div class="story"><span>✨ أمنية</span></div><div class="story"><span>🎁 مفاجأة</span></div></div></section>
-
-<section id="goals" class="section"><div class="section-head"><h2>🎯 الأهداف</h2><button class="primary" onclick="addGoal()">+ هدف</button></div><div id="goalsGrid" class="grid"></div></section>
-<section id="achievements" class="section"><div class="section-head"><h2>🏆 الإنجازات</h2></div><div id="achievementGrid" class="achievement-grid"></div></section>
-<section id="weather" class="section"><div class="section-head"><h2>🌧️ عالم الطبيعة</h2></div><div class="grid"><button class="card" onclick="setWeather('clear')">☀️ سماء صافية</button><button class="card" onclick="setWeather('rain')">🌧️ مطر</button><button class="card" onclick="setWeather('stars')">🌌 نجوم</button><button class="card" onclick="setWeather('hearts')">💖 قلوب</button></div><div class="card" style="margin-top:14px"><h3>ظواهر متحركة</h3><p class="muted">غيّر الجو وسيتم تعديل المؤثرات المرئية مباشرة.</p></div></section>
-<section id="themes" class="section"><div class="section-head"><h2>🎨 الثيمات</h2></div><div class="theme-grid" id="themeGrid"></div></section>
-<section id="settings" class="section"><div class="section-head"><h2>⚙️ الإعدادات</h2></div><div class="card"><label style="display:block;margin-bottom:12px">اسم الشخصية</label><input class="input" id="nameInput" value="ملك"><div class="actions"><button class="primary" onclick="saveName()">حفظ</button><button class="ghost" onclick="resetData()">إعادة ضبط البيانات</button></div></div></section>
-</main></div>
-
-<div class="modal" id="modal"><div class="modal-box"><div class="section-head"><h2 id="modalTitle">💌 رسالة</h2><button class="iconbtn" onclick="closeModal()">✕</button></div><div id="modalContent"></div></div></div>
-<div class="toast-stack" id="toasts"></div>
 
 <script>
-const LOVE_MESSAGES=["يا ملك، وجودك في حياتي بيخلي اليوم العادي ذكرى جميلة ❤️", "كل مرة أشوف اسمك فيها بحس إن الدنيا لسه فيها حاجات حلوة 💕", "أجمل حاجة في يومي إن فيه شخص اسمه ملك يستاهل كل الحب 🌹", "ضحكتك عندي أجمل من ألف نجمة في السما ✨", "وجودك مش تفصيلة صغيرة، وجودك حكاية كاملة ❤️", "كل ذكرى حلوة بتبدأ عندي باسم ملك 💌", "في وسط زحمة الدنيا، اسمك دايمًا بيخليني أهدى 🌙", "ملك، انتي من الحاجات القليلة اللي الواحد يتمنى الزمن ما يغيرهاش."];
-const THEMES=[["ليلة وردية", "#ff4f9a", "#6b163f"], ["نجوم الليل", "#8b7cff", "#141332"], ["قلب أخضر", "#19d47c", "#071a14"], ["غروب", "#ff9a5c", "#24120b"], ["سماء", "#43b7ff", "#071725"]];
-const ACHIEVEMENTS=[["💌", "رسالة اليوم", "افتح رسالة الحب اليومية"], ["❤️", "قلب كبير", "اضغط على القلب 10 مرات"], ["✨", "صائد النجوم", "اجمع 20 نجمة"], ["🌹", "بستان الذكريات", "أضف 3 ذكريات"], ["🎁", "المفاجأة", "افتح صندوق المفاجأة"], ["🌙", "ليلة هادئة", "فعّل الوضع الليلي"]];
-const PHRASE_LIBRARY=[{"id": 1, "text": "يا ملك، وجودك في حياتي بيخلي اليوم العادي ذكرى جميلة ❤️ — رسالة رقم 1", "tag": "حب"}, {"id": 2, "text": "كل مرة أشوف اسمك فيها بحس إن الدنيا لسه فيها حاجات حلوة 💕 — رسالة رقم 2", "tag": "اشتياق"}, {"id": 3, "text": "أجمل حاجة في يومي إن فيه شخص اسمه ملك يستاهل كل الحب 🌹 — رسالة رقم 3", "tag": "ذكريات"}, {"id": 4, "text": "ضحكتك عندي أجمل من ألف نجمة في السما ✨ — رسالة رقم 4", "tag": "صباح"}, {"id": 5, "text": "وجودك مش تفصيلة صغيرة، وجودك حكاية كاملة ❤️ — رسالة رقم 5", "tag": "مساء"}, {"id": 6, "text": "كل ذكرى حلوة بتبدأ عندي باسم ملك 💌 — رسالة رقم 6", "tag": "مفاجأة"}, {"id": 7, "text": "في وسط زحمة الدنيا، اسمك دايمًا بيخليني أهدى 🌙 — رسالة رقم 7", "tag": "حب"}, {"id": 8, "text": "ملك، انتي من الحاجات القليلة اللي الواحد يتمنى الزمن ما يغيرهاش. — رسالة رقم 8", "tag": "اشتياق"}, {"id": 9, "text": "يا ملك، وجودك في حياتي بيخلي اليوم العادي ذكرى جميلة ❤️ — رسالة رقم 9", "tag": "ذكريات"}, {"id": 10, "text": "كل مرة أشوف اسمك فيها بحس إن الدنيا لسه فيها حاجات حلوة 💕 — رسالة رقم 10", "tag": "صباح"}, {"id": 11, "text": "أجمل حاجة في يومي إن فيه شخص اسمه ملك يستاهل كل الحب 🌹 — رسالة رقم 11", "tag": "مساء"}, {"id": 12, "text": "ضحكتك عندي أجمل من ألف نجمة في السما ✨ — رسالة رقم 12", "tag": "مفاجأة"}, {"id": 13, "text": "وجودك مش تفصيلة صغيرة، وجودك حكاية كاملة ❤️ — رسالة رقم 13", "tag": "حب"}, {"id": 14, "text": "كل ذكرى حلوة بتبدأ عندي باسم ملك 💌 — رسالة رقم 14", "tag": "اشتياق"}, {"id": 15, "text": "في وسط زحمة الدنيا، اسمك دايمًا بيخليني أهدى 🌙 — رسالة رقم 15", "tag": "ذكريات"}, {"id": 16, "text": "ملك، انتي من الحاجات القليلة اللي الواحد يتمنى الزمن ما يغيرهاش. — رسالة رقم 16", "tag": "صباح"}, {"id": 17, "text": "يا ملك، وجودك في حياتي بيخلي اليوم العادي ذكرى جميلة ❤️ — رسالة رقم 17", "tag": "مساء"}, {"id": 18, "text": "كل مرة أشوف اسمك فيها بحس إن الدنيا لسه فيها حاجات حلوة 💕 — رسالة رقم 18", "tag": "مفاجأة"}, {"id": 19, "text": "أجمل حاجة في يومي إن فيه شخص اسمه ملك يستاهل كل الحب 🌹 — رسالة رقم 19", "tag": "حب"}, {"id": 20, "text": "ضحكتك عندي أجمل من ألف نجمة في السما ✨ — رسالة رقم 20", "tag": "اشتياق"}, {"id": 21, "text": "وجودك مش تفصيلة صغيرة، وجودك حكاية كاملة ❤️ — رسالة رقم 21", "tag": "ذكريات"}, {"id": 22, "text": "كل ذكرى حلوة بتبدأ عندي باسم ملك 💌 — رسالة رقم 22", "tag": "صباح"}, {"id": 23, "text": "في وسط زحمة الدنيا، اسمك دايمًا بيخليني أهدى 🌙 — رسالة رقم 23", "tag": "مساء"}, {"id": 24, "text": "ملك، انتي من الحاجات القليلة اللي الواحد يتمنى الزمن ما يغيرهاش. — رسالة رقم 24", "tag": "مفاجأة"}, {"id": 25, "text": "يا ملك، وجودك في حياتي بيخلي اليوم العادي ذكرى جميلة ❤️ — رسالة رقم 25", "tag": "حب"}, {"id": 26, "text": "كل مرة أشوف اسمك فيها بحس إن الدنيا لسه فيها حاجات حلوة 💕 — رسالة رقم 26", "tag": "اشتياق"}, {"id": 27, "text": "أجمل حاجة في يومي إن فيه شخص اسمه ملك يستاهل كل الحب 🌹 — رسالة رقم 27", "tag": "ذكريات"}, {"id": 28, "text": "ضحكتك عندي أجمل من ألف نجمة في السما ✨ — رسالة رقم 28", "tag": "صباح"}, {"id": 29, "text": "وجودك مش تفصيلة صغيرة، وجودك حكاية كاملة ❤️ — رسالة رقم 29", "tag": "مساء"}, {"id": 30, "text": "كل ذكرى حلوة بتبدأ عندي باسم ملك 💌 — رسالة رقم 30", "tag": "مفاجأة"}, {"id": 31, "text": "في وسط زحمة الدنيا، اسمك دايمًا بيخليني أهدى 🌙 — رسالة رقم 31", "tag": "حب"}, {"id": 32, "text": "ملك، انتي من الحاجات القليلة اللي الواحد يتمنى الزمن ما يغيرهاش. — رسالة رقم 32", "tag": "اشتياق"}, {"id": 33, "text": "يا ملك، وجودك في حياتي بيخلي اليوم العادي ذكرى جميلة ❤️ — رسالة رقم 33", "tag": "ذكريات"}, {"id": 34, "text": "كل مرة أشوف اسمك فيها بحس إن الدنيا لسه فيها حاجات حلوة 💕 — رسالة رقم 34", "tag": "صباح"}, {"id": 35, "text": "أجمل حاجة في يومي إن فيه شخص اسمه ملك يستاهل كل الحب 🌹 — رسالة رقم 35", "tag": "مساء"}, {"id": 36, "text": "ضحكتك عندي أجمل من ألف نجمة في السما ✨ — رسالة رقم 36", "tag": "مفاجأة"}, {"id": 37, "text": "وجودك مش تفصيلة صغيرة، وجودك حكاية كاملة ❤️ — رسالة رقم 37", "tag": "حب"}, {"id": 38, "text": "كل ذكرى حلوة بتبدأ عندي باسم ملك 💌 — رسالة رقم 38", "tag": "اشتياق"}, {"id": 39, "text": "في وسط زحمة الدنيا، اسمك دايمًا بيخليني أهدى 🌙 — رسالة رقم 39", "tag": "ذكريات"}, {"id": 40, "text": "ملك، انتي من الحاجات القليلة اللي الواحد يتمنى الزمن ما يغيرهاش. — رسالة رقم 40", "tag": "صباح"}, {"id": 41, "text": "يا ملك، وجودك في حياتي بيخلي اليوم العادي ذكرى جميلة ❤️ — رسالة رقم 41", "tag": "مساء"}, {"id": 42, "text": "كل مرة أشوف اسمك فيها بحس إن الدنيا لسه فيها حاجات حلوة 💕 — رسالة رقم 42", "tag": "مفاجأة"}, {"id": 43, "text": "أجمل حاجة في يومي إن فيه شخص اسمه ملك يستاهل كل الحب 🌹 — رسالة رقم 43", "tag": "حب"}, {"id": 44, "text": "ضحكتك عندي أجمل من ألف نجمة في السما ✨ — رسالة رقم 44", "tag": "اشتياق"}, {"id": 45, "text": "وجودك مش تفصيلة صغيرة، وجودك حكاية كاملة ❤️ — رسالة رقم 45", "tag": "ذكريات"}, {"id": 46, "text": "كل ذكرى حلوة بتبدأ عندي باسم ملك 💌 — رسالة رقم 46", "tag": "صباح"}, {"id": 47, "text": "في وسط زحمة الدنيا، اسمك دايمًا بيخليني أهدى 🌙 — رسالة رقم 47", "tag": "مساء"}, {"id": 48, "text": "ملك، انتي من الحاجات القليلة اللي الواحد يتمنى الزمن ما يغيرهاش. — رسالة رقم 48", "tag": "مفاجأة"}, {"id": 49, "text": "يا ملك، وجودك في حياتي بيخلي اليوم العادي ذكرى جميلة ❤️ — رسالة رقم 49", "tag": "حب"}, {"id": 50, "text": "كل مرة أشوف اسمك فيها بحس إن الدنيا لسه فيها حاجات حلوة 💕 — رسالة رقم 50", "tag": "اشتياق"}, {"id": 51, "text": "أجمل حاجة في يومي إن فيه شخص اسمه ملك يستاهل كل الحب 🌹 — رسالة رقم 51", "tag": "ذكريات"}, {"id": 52, "text": "ضحكتك عندي أجمل من ألف نجمة في السما ✨ — رسالة رقم 52", "tag": "صباح"}, {"id": 53, "text": "وجودك مش تفصيلة صغيرة، وجودك حكاية كاملة ❤️ — رسالة رقم 53", "tag": "مساء"}, {"id": 54, "text": "كل ذكرى حلوة بتبدأ عندي باسم ملك 💌 — رسالة رقم 54", "tag": "مفاجأة"}, {"id": 55, "text": "في وسط زحمة الدنيا، اسمك دايمًا بيخليني أهدى 🌙 — رسالة رقم 55", "tag": "حب"}, {"id": 56, "text": "ملك، انتي من الحاجات القليلة اللي الواحد يتمنى الزمن ما يغيرهاش. — رسالة رقم 56", "tag": "اشتياق"}, {"id": 57, "text": "يا ملك، وجودك في حياتي بيخلي اليوم العادي ذكرى جميلة ❤️ — رسالة رقم 57", "tag": "ذكريات"}, {"id": 58, "text": "كل مرة أشوف اسمك فيها بحس إن الدنيا لسه فيها حاجات حلوة 💕 — رسالة رقم 58", "tag": "صباح"}, {"id": 59, "text": "أجمل حاجة في يومي إن فيه شخص اسمه ملك يستاهل كل الحب 🌹 — رسالة رقم 59", "tag": "مساء"}, {"id": 60, "text": "ضحكتك عندي أجمل من ألف نجمة في السما ✨ — رسالة رقم 60", "tag": "مفاجأة"}, {"id": 61, "text": "وجودك مش تفصيلة صغيرة، وجودك حكاية كاملة ❤️ — رسالة رقم 61", "tag": "حب"}, {"id": 62, "text": "كل ذكرى حلوة بتبدأ عندي باسم ملك 💌 — رسالة رقم 62", "tag": "اشتياق"}, {"id": 63, "text": "في وسط زحمة الدنيا، اسمك دايمًا بيخليني أهدى 🌙 — رسالة رقم 63", "tag": "ذكريات"}, {"id": 64, "text": "ملك، انتي من الحاجات القليلة اللي الواحد يتمنى الزمن ما يغيرهاش. — رسالة رقم 64", "tag": "صباح"}, {"id": 65, "text": "يا ملك، وجودك في حياتي بيخلي اليوم العادي ذكرى جميلة ❤️ — رسالة رقم 65", "tag": "مساء"}, {"id": 66, "text": "كل مرة أشوف اسمك فيها بحس إن الدنيا لسه فيها حاجات حلوة 💕 — رسالة رقم 66", "tag": "مفاجأة"}, {"id": 67, "text": "أجمل حاجة في يومي إن فيه شخص اسمه ملك يستاهل كل الحب 🌹 — رسالة رقم 67", "tag": "حب"}, {"id": 68, "text": "ضحكتك عندي أجمل من ألف نجمة في السما ✨ — رسالة رقم 68", "tag": "اشتياق"}, {"id": 69, "text": "وجودك مش تفصيلة صغيرة، وجودك حكاية كاملة ❤️ — رسالة رقم 69", "tag": "ذكريات"}, {"id": 70, "text": "كل ذكرى حلوة بتبدأ عندي باسم ملك 💌 — رسالة رقم 70", "tag": "صباح"}, {"id": 71, "text": "في وسط زحمة الدنيا، اسمك دايمًا بيخليني أهدى 🌙 — رسالة رقم 71", "tag": "مساء"}, {"id": 72, "text": "ملك، انتي من الحاجات القليلة اللي الواحد يتمنى الزمن ما يغيرهاش. — رسالة رقم 72", "tag": "مفاجأة"}, {"id": 73, "text": "يا ملك، وجودك في حياتي بيخلي اليوم العادي ذكرى جميلة ❤️ — رسالة رقم 73", "tag": "حب"}, {"id": 74, "text": "كل مرة أشوف اسمك فيها بحس إن الدنيا لسه فيها حاجات حلوة 💕 — رسالة رقم 74", "tag": "اشتياق"}, {"id": 75, "text": "أجمل حاجة في يومي إن فيه شخص اسمه ملك يستاهل كل الحب 🌹 — رسالة رقم 75", "tag": "ذكريات"}, {"id": 76, "text": "ضحكتك عندي أجمل من ألف نجمة في السما ✨ — رسالة رقم 76", "tag": "صباح"}, {"id": 77, "text": "وجودك مش تفصيلة صغيرة، وجودك حكاية كاملة ❤️ — رسالة رقم 77", "tag": "مساء"}, {"id": 78, "text": "كل ذكرى حلوة بتبدأ عندي باسم ملك 💌 — رسالة رقم 78", "tag": "مفاجأة"}, {"id": 79, "text": "في وسط زحمة الدنيا، اسمك دايمًا بيخليني أهدى 🌙 — رسالة رقم 79", "tag": "حب"}, {"id": 80, "text": "ملك، انتي من الحاجات القليلة اللي الواحد يتمنى الزمن ما يغيرهاش. — رسالة رقم 80", "tag": "اشتياق"}, {"id": 81, "text": "يا ملك، وجودك في حياتي بيخلي اليوم العادي ذكرى جميلة ❤️ — رسالة رقم 81", "tag": "ذكريات"}, {"id": 82, "text": "كل مرة أشوف اسمك فيها بحس إن الدنيا لسه فيها حاجات حلوة 💕 — رسالة رقم 82", "tag": "صباح"}, {"id": 83, "text": "أجمل حاجة في يومي إن فيه شخص اسمه ملك يستاهل كل الحب 🌹 — رسالة رقم 83", "tag": "مساء"}, {"id": 84, "text": "ضحكتك عندي أجمل من ألف نجمة في السما ✨ — رسالة رقم 84", "tag": "مفاجأة"}, {"id": 85, "text": "وجودك مش تفصيلة صغيرة، وجودك حكاية كاملة ❤️ — رسالة رقم 85", "tag": "حب"}, {"id": 86, "text": "كل ذكرى حلوة بتبدأ عندي باسم ملك 💌 — رسالة رقم 86", "tag": "اشتياق"}, {"id": 87, "text": "في وسط زحمة الدنيا، اسمك دايمًا بيخليني أهدى 🌙 — رسالة رقم 87", "tag": "ذكريات"}, {"id": 88, "text": "ملك، انتي من الحاجات القليلة اللي الواحد يتمنى الزمن ما يغيرهاش. — رسالة رقم 88", "tag": "صباح"}, {"id": 89, "text": "يا ملك، وجودك في حياتي بيخلي اليوم العادي ذكرى جميلة ❤️ — رسالة رقم 89", "tag": "مساء"}, {"id": 90, "text": "كل مرة أشوف اسمك فيها بحس إن الدنيا لسه فيها حاجات حلوة 💕 — رسالة رقم 90", "tag": "مفاجأة"}, {"id": 91, "text": "أجمل حاجة في يومي إن فيه شخص اسمه ملك يستاهل كل الحب 🌹 — رسالة رقم 91", "tag": "حب"}, {"id": 92, "text": "ضحكتك عندي أجمل من ألف نجمة في السما ✨ — رسالة رقم 92", "tag": "اشتياق"}, {"id": 93, "text": "وجودك مش تفصيلة صغيرة، وجودك حكاية كاملة ❤️ — رسالة رقم 93", "tag": "ذكريات"}, {"id": 94, "text": "كل ذكرى حلوة بتبدأ عندي باسم ملك 💌 — رسالة رقم 94", "tag": "صباح"}, {"id": 95, "text": "في وسط زحمة الدنيا، اسمك دايمًا بيخليني أهدى 🌙 — رسالة رقم 95", "tag": "مساء"}, {"id": 96, "text": "ملك، انتي من الحاجات القليلة اللي الواحد يتمنى الزمن ما يغيرهاش. — رسالة رقم 96", "tag": "مفاجأة"}, {"id": 97, "text": "يا ملك، وجودك في حياتي بيخلي اليوم العادي ذكرى جميلة ❤️ — رسالة رقم 97", "tag": "حب"}, {"id": 98, "text": "كل مرة أشوف اسمك فيها بحس إن الدنيا لسه فيها حاجات حلوة 💕 — رسالة رقم 98", "tag": "اشتياق"}, {"id": 99, "text": "أجمل حاجة في يومي إن فيه شخص اسمه ملك يستاهل كل الحب 🌹 — رسالة رقم 99", "tag": "ذكريات"}, {"id": 100, "text": "ضحكتك عندي أجمل من ألف نجمة في السما ✨ — رسالة رقم 100", "tag": "صباح"}, {"id": 101, "text": "وجودك مش تفصيلة صغيرة، وجودك حكاية كاملة ❤️ — رسالة رقم 101", "tag": "مساء"}, {"id": 102, "text": "كل ذكرى حلوة بتبدأ عندي باسم ملك 💌 — رسالة رقم 102", "tag": "مفاجأة"}, {"id": 103, "text": "في وسط زحمة الدنيا، اسمك دايمًا بيخليني أهدى 🌙 — رسالة رقم 103", "tag": "حب"}, {"id": 104, "text": "ملك، انتي من الحاجات القليلة اللي الواحد يتمنى الزمن ما يغيرهاش. — رسالة رقم 104", "tag": "اشتياق"}, {"id": 105, "text": "يا ملك، وجودك في حياتي بيخلي اليوم العادي ذكرى جميلة ❤️ — رسالة رقم 105", "tag": "ذكريات"}, {"id": 106, "text": "كل مرة أشوف اسمك فيها بحس إن الدنيا لسه فيها حاجات حلوة 💕 — رسالة رقم 106", "tag": "صباح"}, {"id": 107, "text": "أجمل حاجة في يومي إن فيه شخص اسمه ملك يستاهل كل الحب 🌹 — رسالة رقم 107", "tag": "مساء"}, {"id": 108, "text": "ضحكتك عندي أجمل من ألف نجمة في السما ✨ — رسالة رقم 108", "tag": "مفاجأة"}, {"id": 109, "text": "وجودك مش تفصيلة صغيرة، وجودك حكاية كاملة ❤️ — رسالة رقم 109", "tag": "حب"}, {"id": 110, "text": "كل ذكرى حلوة بتبدأ عندي باسم ملك 💌 — رسالة رقم 110", "tag": "اشتياق"}, {"id": 111, "text": "في وسط زحمة الدنيا، اسمك دايمًا بيخليني أهدى 🌙 — رسالة رقم 111", "tag": "ذكريات"}, {"id": 112, "text": "ملك، انتي من الحاجات القليلة اللي الواحد يتمنى الزمن ما يغيرهاش. — رسالة رقم 112", "tag": "صباح"}, {"id": 113, "text": "يا ملك، وجودك في حياتي بيخلي اليوم العادي ذكرى جميلة ❤️ — رسالة رقم 113", "tag": "مساء"}, {"id": 114, "text": "كل مرة أشوف اسمك فيها بحس إن الدنيا لسه فيها حاجات حلوة 💕 — رسالة رقم 114", "tag": "مفاجأة"}, {"id": 115, "text": "أجمل حاجة في يومي إن فيه شخص اسمه ملك يستاهل كل الحب 🌹 — رسالة رقم 115", "tag": "حب"}, {"id": 116, "text": "ضحكتك عندي أجمل من ألف نجمة في السما ✨ — رسالة رقم 116", "tag": "اشتياق"}, {"id": 117, "text": "وجودك مش تفصيلة صغيرة، وجودك حكاية كاملة ❤️ — رسالة رقم 117", "tag": "ذكريات"}, {"id": 118, "text": "كل ذكرى حلوة بتبدأ عندي باسم ملك 💌 — رسالة رقم 118", "tag": "صباح"}, {"id": 119, "text": "في وسط زحمة الدنيا، اسمك دايمًا بيخليني أهدى 🌙 — رسالة رقم 119", "tag": "مساء"}, {"id": 120, "text": "ملك، انتي من الحاجات القليلة اللي الواحد يتمنى الزمن ما يغيرهاش. — رسالة رقم 120", "tag": "مفاجأة"}, {"id": 121, "text": "يا ملك، وجودك في حياتي بيخلي اليوم العادي ذكرى جميلة ❤️ — رسالة رقم 121", "tag": "حب"}, {"id": 122, "text": "كل مرة أشوف اسمك فيها بحس إن الدنيا لسه فيها حاجات حلوة 💕 — رسالة رقم 122", "tag": "اشتياق"}, {"id": 123, "text": "أجمل حاجة في يومي إن فيه شخص اسمه ملك يستاهل كل الحب 🌹 — رسالة رقم 123", "tag": "ذكريات"}, {"id": 124, "text": "ضحكتك عندي أجمل من ألف نجمة في السما ✨ — رسالة رقم 124", "tag": "صباح"}, {"id": 125, "text": "وجودك مش تفصيلة صغيرة، وجودك حكاية كاملة ❤️ — رسالة رقم 125", "tag": "مساء"}, {"id": 126, "text": "كل ذكرى حلوة بتبدأ عندي باسم ملك 💌 — رسالة رقم 126", "tag": "مفاجأة"}, {"id": 127, "text": "في وسط زحمة الدنيا، اسمك دايمًا بيخليني أهدى 🌙 — رسالة رقم 127", "tag": "حب"}, {"id": 128, "text": "ملك، انتي من الحاجات القليلة اللي الواحد يتمنى الزمن ما يغيرهاش. — رسالة رقم 128", "tag": "اشتياق"}, {"id": 129, "text": "يا ملك، وجودك في حياتي بيخلي اليوم العادي ذكرى جميلة ❤️ — رسالة رقم 129", "tag": "ذكريات"}, {"id": 130, "text": "كل مرة أشوف اسمك فيها بحس إن الدنيا لسه فيها حاجات حلوة 💕 — رسالة رقم 130", "tag": "صباح"}, {"id": 131, "text": "أجمل حاجة في يومي إن فيه شخص اسمه ملك يستاهل كل الحب 🌹 — رسالة رقم 131", "tag": "مساء"}, {"id": 132, "text": "ضحكتك عندي أجمل من ألف نجمة في السما ✨ — رسالة رقم 132", "tag": "مفاجأة"}, {"id": 133, "text": "وجودك مش تفصيلة صغيرة، وجودك حكاية كاملة ❤️ — رسالة رقم 133", "tag": "حب"}, {"id": 134, "text": "كل ذكرى حلوة بتبدأ عندي باسم ملك 💌 — رسالة رقم 134", "tag": "اشتياق"}, {"id": 135, "text": "في وسط زحمة الدنيا، اسمك دايمًا بيخليني أهدى 🌙 — رسالة رقم 135", "tag": "ذكريات"}, {"id": 136, "text": "ملك، انتي من الحاجات القليلة اللي الواحد يتمنى الزمن ما يغيرهاش. — رسالة رقم 136", "tag": "صباح"}, {"id": 137, "text": "يا ملك، وجودك في حياتي بيخلي اليوم العادي ذكرى جميلة ❤️ — رسالة رقم 137", "tag": "مساء"}, {"id": 138, "text": "كل مرة أشوف اسمك فيها بحس إن الدنيا لسه فيها حاجات حلوة 💕 — رسالة رقم 138", "tag": "مفاجأة"}, {"id": 139, "text": "أجمل حاجة في يومي إن فيه شخص اسمه ملك يستاهل كل الحب 🌹 — رسالة رقم 139", "tag": "حب"}, {"id": 140, "text": "ضحكتك عندي أجمل من ألف نجمة في السما ✨ — رسالة رقم 140", "tag": "اشتياق"}, {"id": 141, "text": "وجودك مش تفصيلة صغيرة، وجودك حكاية كاملة ❤️ — رسالة رقم 141", "tag": "ذكريات"}, {"id": 142, "text": "كل ذكرى حلوة بتبدأ عندي باسم ملك 💌 — رسالة رقم 142", "tag": "صباح"}, {"id": 143, "text": "في وسط زحمة الدنيا، اسمك دايمًا بيخليني أهدى 🌙 — رسالة رقم 143", "tag": "مساء"}, {"id": 144, "text": "ملك، انتي من الحاجات القليلة اللي الواحد يتمنى الزمن ما يغيرهاش. — رسالة رقم 144", "tag": "مفاجأة"}, {"id": 145, "text": "يا ملك، وجودك في حياتي بيخلي اليوم العادي ذكرى جميلة ❤️ — رسالة رقم 145", "tag": "حب"}, {"id": 146, "text": "كل مرة أشوف اسمك فيها بحس إن الدنيا لسه فيها حاجات حلوة 💕 — رسالة رقم 146", "tag": "اشتياق"}, {"id": 147, "text": "أجمل حاجة في يومي إن فيه شخص اسمه ملك يستاهل كل الحب 🌹 — رسالة رقم 147", "tag": "ذكريات"}, {"id": 148, "text": "ضحكتك عندي أجمل من ألف نجمة في السما ✨ — رسالة رقم 148", "tag": "صباح"}, {"id": 149, "text": "وجودك مش تفصيلة صغيرة، وجودك حكاية كاملة ❤️ — رسالة رقم 149", "tag": "مساء"}, {"id": 150, "text": "كل ذكرى حلوة بتبدأ عندي باسم ملك 💌 — رسالة رقم 150", "tag": "مفاجأة"}, {"id": 151, "text": "في وسط زحمة الدنيا، اسمك دايمًا بيخليني أهدى 🌙 — رسالة رقم 151", "tag": "حب"}, {"id": 152, "text": "ملك، انتي من الحاجات القليلة اللي الواحد يتمنى الزمن ما يغيرهاش. — رسالة رقم 152", "tag": "اشتياق"}, {"id": 153, "text": "يا ملك، وجودك في حياتي بيخلي اليوم العادي ذكرى جميلة ❤️ — رسالة رقم 153", "tag": "ذكريات"}, {"id": 154, "text": "كل مرة أشوف اسمك فيها بحس إن الدنيا لسه فيها حاجات حلوة 💕 — رسالة رقم 154", "tag": "صباح"}, {"id": 155, "text": "أجمل حاجة في يومي إن فيه شخص اسمه ملك يستاهل كل الحب 🌹 — رسالة رقم 155", "tag": "مساء"}, {"id": 156, "text": "ضحكتك عندي أجمل من ألف نجمة في السما ✨ — رسالة رقم 156", "tag": "مفاجأة"}, {"id": 157, "text": "وجودك مش تفصيلة صغيرة، وجودك حكاية كاملة ❤️ — رسالة رقم 157", "tag": "حب"}, {"id": 158, "text": "كل ذكرى حلوة بتبدأ عندي باسم ملك 💌 — رسالة رقم 158", "tag": "اشتياق"}, {"id": 159, "text": "في وسط زحمة الدنيا، اسمك دايمًا بيخليني أهدى 🌙 — رسالة رقم 159", "tag": "ذكريات"}, {"id": 160, "text": "ملك، انتي من الحاجات القليلة اللي الواحد يتمنى الزمن ما يغيرهاش. — رسالة رقم 160", "tag": "صباح"}, {"id": 161, "text": "يا ملك، وجودك في حياتي بيخلي اليوم العادي ذكرى جميلة ❤️ — رسالة رقم 161", "tag": "مساء"}, {"id": 162, "text": "كل مرة أشوف اسمك فيها بحس إن الدنيا لسه فيها حاجات حلوة 💕 — رسالة رقم 162", "tag": "مفاجأة"}, {"id": 163, "text": "أجمل حاجة في يومي إن فيه شخص اسمه ملك يستاهل كل الحب 🌹 — رسالة رقم 163", "tag": "حب"}, {"id": 164, "text": "ضحكتك عندي أجمل من ألف نجمة في السما ✨ — رسالة رقم 164", "tag": "اشتياق"}, {"id": 165, "text": "وجودك مش تفصيلة صغيرة، وجودك حكاية كاملة ❤️ — رسالة رقم 165", "tag": "ذكريات"}, {"id": 166, "text": "كل ذكرى حلوة بتبدأ عندي باسم ملك 💌 — رسالة رقم 166", "tag": "صباح"}, {"id": 167, "text": "في وسط زحمة الدنيا، اسمك دايمًا بيخليني أهدى 🌙 — رسالة رقم 167", "tag": "مساء"}, {"id": 168, "text": "ملك، انتي من الحاجات القليلة اللي الواحد يتمنى الزمن ما يغيرهاش. — رسالة رقم 168", "tag": "مفاجأة"}, {"id": 169, "text": "يا ملك، وجودك في حياتي بيخلي اليوم العادي ذكرى جميلة ❤️ — رسالة رقم 169", "tag": "حب"}, {"id": 170, "text": "كل مرة أشوف اسمك فيها بحس إن الدنيا لسه فيها حاجات حلوة 💕 — رسالة رقم 170", "tag": "اشتياق"}, {"id": 171, "text": "أجمل حاجة في يومي إن فيه شخص اسمه ملك يستاهل كل الحب 🌹 — رسالة رقم 171", "tag": "ذكريات"}, {"id": 172, "text": "ضحكتك عندي أجمل من ألف نجمة في السما ✨ — رسالة رقم 172", "tag": "صباح"}, {"id": 173, "text": "وجودك مش تفصيلة صغيرة، وجودك حكاية كاملة ❤️ — رسالة رقم 173", "tag": "مساء"}, {"id": 174, "text": "كل ذكرى حلوة بتبدأ عندي باسم ملك 💌 — رسالة رقم 174", "tag": "مفاجأة"}, {"id": 175, "text": "في وسط زحمة الدنيا، اسمك دايمًا بيخليني أهدى 🌙 — رسالة رقم 175", "tag": "حب"}, {"id": 176, "text": "ملك، انتي من الحاجات القليلة اللي الواحد يتمنى الزمن ما يغيرهاش. — رسالة رقم 176", "tag": "اشتياق"}, {"id": 177, "text": "يا ملك، وجودك في حياتي بيخلي اليوم العادي ذكرى جميلة ❤️ — رسالة رقم 177", "tag": "ذكريات"}, {"id": 178, "text": "كل مرة أشوف اسمك فيها بحس إن الدنيا لسه فيها حاجات حلوة 💕 — رسالة رقم 178", "tag": "صباح"}, {"id": 179, "text": "أجمل حاجة في يومي إن فيه شخص اسمه ملك يستاهل كل الحب 🌹 — رسالة رقم 179", "tag": "مساء"}, {"id": 180, "text": "ضحكتك عندي أجمل من ألف نجمة في السما ✨ — رسالة رقم 180", "tag": "مفاجأة"}, {"id": 181, "text": "وجودك مش تفصيلة صغيرة، وجودك حكاية كاملة ❤️ — رسالة رقم 181", "tag": "حب"}, {"id": 182, "text": "كل ذكرى حلوة بتبدأ عندي باسم ملك 💌 — رسالة رقم 182", "tag": "اشتياق"}, {"id": 183, "text": "في وسط زحمة الدنيا، اسمك دايمًا بيخليني أهدى 🌙 — رسالة رقم 183", "tag": "ذكريات"}, {"id": 184, "text": "ملك، انتي من الحاجات القليلة اللي الواحد يتمنى الزمن ما يغيرهاش. — رسالة رقم 184", "tag": "صباح"}, {"id": 185, "text": "يا ملك، وجودك في حياتي بيخلي اليوم العادي ذكرى جميلة ❤️ — رسالة رقم 185", "tag": "مساء"}, {"id": 186, "text": "كل مرة أشوف اسمك فيها بحس إن الدنيا لسه فيها حاجات حلوة 💕 — رسالة رقم 186", "tag": "مفاجأة"}, {"id": 187, "text": "أجمل حاجة في يومي إن فيه شخص اسمه ملك يستاهل كل الحب 🌹 — رسالة رقم 187", "tag": "حب"}, {"id": 188, "text": "ضحكتك عندي أجمل من ألف نجمة في السما ✨ — رسالة رقم 188", "tag": "اشتياق"}, {"id": 189, "text": "وجودك مش تفصيلة صغيرة، وجودك حكاية كاملة ❤️ — رسالة رقم 189", "tag": "ذكريات"}, {"id": 190, "text": "كل ذكرى حلوة بتبدأ عندي باسم ملك 💌 — رسالة رقم 190", "tag": "صباح"}, {"id": 191, "text": "في وسط زحمة الدنيا، اسمك دايمًا بيخليني أهدى 🌙 — رسالة رقم 191", "tag": "مساء"}, {"id": 192, "text": "ملك، انتي من الحاجات القليلة اللي الواحد يتمنى الزمن ما يغيرهاش. — رسالة رقم 192", "tag": "مفاجأة"}, {"id": 193, "text": "يا ملك، وجودك في حياتي بيخلي اليوم العادي ذكرى جميلة ❤️ — رسالة رقم 193", "tag": "حب"}, {"id": 194, "text": "كل مرة أشوف اسمك فيها بحس إن الدنيا لسه فيها حاجات حلوة 💕 — رسالة رقم 194", "tag": "اشتياق"}, {"id": 195, "text": "أجمل حاجة في يومي إن فيه شخص اسمه ملك يستاهل كل الحب 🌹 — رسالة رقم 195", "tag": "ذكريات"}, {"id": 196, "text": "ضحكتك عندي أجمل من ألف نجمة في السما ✨ — رسالة رقم 196", "tag": "صباح"}, {"id": 197, "text": "وجودك مش تفصيلة صغيرة، وجودك حكاية كاملة ❤️ — رسالة رقم 197", "tag": "مساء"}, {"id": 198, "text": "كل ذكرى حلوة بتبدأ عندي باسم ملك 💌 — رسالة رقم 198", "tag": "مفاجأة"}, {"id": 199, "text": "في وسط زحمة الدنيا، اسمك دايمًا بيخليني أهدى 🌙 — رسالة رقم 199", "tag": "حب"}, {"id": 200, "text": "ملك، انتي من الحاجات القليلة اللي الواحد يتمنى الزمن ما يغيرهاش. — رسالة رقم 200", "tag": "اشتياق"}, {"id": 201, "text": "يا ملك، وجودك في حياتي بيخلي اليوم العادي ذكرى جميلة ❤️ — رسالة رقم 201", "tag": "ذكريات"}, {"id": 202, "text": "كل مرة أشوف اسمك فيها بحس إن الدنيا لسه فيها حاجات حلوة 💕 — رسالة رقم 202", "tag": "صباح"}, {"id": 203, "text": "أجمل حاجة في يومي إن فيه شخص اسمه ملك يستاهل كل الحب 🌹 — رسالة رقم 203", "tag": "مساء"}, {"id": 204, "text": "ضحكتك عندي أجمل من ألف نجمة في السما ✨ — رسالة رقم 204", "tag": "مفاجأة"}, {"id": 205, "text": "وجودك مش تفصيلة صغيرة، وجودك حكاية كاملة ❤️ — رسالة رقم 205", "tag": "حب"}, {"id": 206, "text": "كل ذكرى حلوة بتبدأ عندي باسم ملك 💌 — رسالة رقم 206", "tag": "اشتياق"}, {"id": 207, "text": "في وسط زحمة الدنيا، اسمك دايمًا بيخليني أهدى 🌙 — رسالة رقم 207", "tag": "ذكريات"}, {"id": 208, "text": "ملك، انتي من الحاجات القليلة اللي الواحد يتمنى الزمن ما يغيرهاش. — رسالة رقم 208", "tag": "صباح"}, {"id": 209, "text": "يا ملك، وجودك في حياتي بيخلي اليوم العادي ذكرى جميلة ❤️ — رسالة رقم 209", "tag": "مساء"}, {"id": 210, "text": "كل مرة أشوف اسمك فيها بحس إن الدنيا لسه فيها حاجات حلوة 💕 — رسالة رقم 210", "tag": "مفاجأة"}, {"id": 211, "text": "أجمل حاجة في يومي إن فيه شخص اسمه ملك يستاهل كل الحب 🌹 — رسالة رقم 211", "tag": "حب"}, {"id": 212, "text": "ضحكتك عندي أجمل من ألف نجمة في السما ✨ — رسالة رقم 212", "tag": "اشتياق"}, {"id": 213, "text": "وجودك مش تفصيلة صغيرة، وجودك حكاية كاملة ❤️ — رسالة رقم 213", "tag": "ذكريات"}, {"id": 214, "text": "كل ذكرى حلوة بتبدأ عندي باسم ملك 💌 — رسالة رقم 214", "tag": "صباح"}, {"id": 215, "text": "في وسط زحمة الدنيا، اسمك دايمًا بيخليني أهدى 🌙 — رسالة رقم 215", "tag": "مساء"}, {"id": 216, "text": "ملك، انتي من الحاجات القليلة اللي الواحد يتمنى الزمن ما يغيرهاش. — رسالة رقم 216", "tag": "مفاجأة"}, {"id": 217, "text": "يا ملك، وجودك في حياتي بيخلي اليوم العادي ذكرى جميلة ❤️ — رسالة رقم 217", "tag": "حب"}, {"id": 218, "text": "كل مرة أشوف اسمك فيها بحس إن الدنيا لسه فيها حاجات حلوة 💕 — رسالة رقم 218", "tag": "اشتياق"}, {"id": 219, "text": "أجمل حاجة في يومي إن فيه شخص اسمه ملك يستاهل كل الحب 🌹 — رسالة رقم 219", "tag": "ذكريات"}, {"id": 220, "text": "ضحكتك عندي أجمل من ألف نجمة في السما ✨ — رسالة رقم 220", "tag": "صباح"}, {"id": 221, "text": "وجودك مش تفصيلة صغيرة، وجودك حكاية كاملة ❤️ — رسالة رقم 221", "tag": "مساء"}, {"id": 222, "text": "كل ذكرى حلوة بتبدأ عندي باسم ملك 💌 — رسالة رقم 222", "tag": "مفاجأة"}, {"id": 223, "text": "في وسط زحمة الدنيا، اسمك دايمًا بيخليني أهدى 🌙 — رسالة رقم 223", "tag": "حب"}, {"id": 224, "text": "ملك، انتي من الحاجات القليلة اللي الواحد يتمنى الزمن ما يغيرهاش. — رسالة رقم 224", "tag": "اشتياق"}, {"id": 225, "text": "يا ملك، وجودك في حياتي بيخلي اليوم العادي ذكرى جميلة ❤️ — رسالة رقم 225", "tag": "ذكريات"}, {"id": 226, "text": "كل مرة أشوف اسمك فيها بحس إن الدنيا لسه فيها حاجات حلوة 💕 — رسالة رقم 226", "tag": "صباح"}, {"id": 227, "text": "أجمل حاجة في يومي إن فيه شخص اسمه ملك يستاهل كل الحب 🌹 — رسالة رقم 227", "tag": "مساء"}, {"id": 228, "text": "ضحكتك عندي أجمل من ألف نجمة في السما ✨ — رسالة رقم 228", "tag": "مفاجأة"}, {"id": 229, "text": "وجودك مش تفصيلة صغيرة، وجودك حكاية كاملة ❤️ — رسالة رقم 229", "tag": "حب"}, {"id": 230, "text": "كل ذكرى حلوة بتبدأ عندي باسم ملك 💌 — رسالة رقم 230", "tag": "اشتياق"}, {"id": 231, "text": "في وسط زحمة الدنيا، اسمك دايمًا بيخليني أهدى 🌙 — رسالة رقم 231", "tag": "ذكريات"}, {"id": 232, "text": "ملك، انتي من الحاجات القليلة اللي الواحد يتمنى الزمن ما يغيرهاش. — رسالة رقم 232", "tag": "صباح"}, {"id": 233, "text": "يا ملك، وجودك في حياتي بيخلي اليوم العادي ذكرى جميلة ❤️ — رسالة رقم 233", "tag": "مساء"}, {"id": 234, "text": "كل مرة أشوف اسمك فيها بحس إن الدنيا لسه فيها حاجات حلوة 💕 — رسالة رقم 234", "tag": "مفاجأة"}, {"id": 235, "text": "أجمل حاجة في يومي إن فيه شخص اسمه ملك يستاهل كل الحب 🌹 — رسالة رقم 235", "tag": "حب"}, {"id": 236, "text": "ضحكتك عندي أجمل من ألف نجمة في السما ✨ — رسالة رقم 236", "tag": "اشتياق"}, {"id": 237, "text": "وجودك مش تفصيلة صغيرة، وجودك حكاية كاملة ❤️ — رسالة رقم 237", "tag": "ذكريات"}, {"id": 238, "text": "كل ذكرى حلوة بتبدأ عندي باسم ملك 💌 — رسالة رقم 238", "tag": "صباح"}, {"id": 239, "text": "في وسط زحمة الدنيا، اسمك دايمًا بيخليني أهدى 🌙 — رسالة رقم 239", "tag": "مساء"}, {"id": 240, "text": "ملك، انتي من الحاجات القليلة اللي الواحد يتمنى الزمن ما يغيرهاش. — رسالة رقم 240", "tag": "مفاجأة"}, {"id": 241, "text": "يا ملك، وجودك في حياتي بيخلي اليوم العادي ذكرى جميلة ❤️ — رسالة رقم 241", "tag": "حب"}, {"id": 242, "text": "كل مرة أشوف اسمك فيها بحس إن الدنيا لسه فيها حاجات حلوة 💕 — رسالة رقم 242", "tag": "اشتياق"}, {"id": 243, "text": "أجمل حاجة في يومي إن فيه شخص اسمه ملك يستاهل كل الحب 🌹 — رسالة رقم 243", "tag": "ذكريات"}, {"id": 244, "text": "ضحكتك عندي أجمل من ألف نجمة في السما ✨ — رسالة رقم 244", "tag": "صباح"}, {"id": 245, "text": "وجودك مش تفصيلة صغيرة، وجودك حكاية كاملة ❤️ — رسالة رقم 245", "tag": "مساء"}, {"id": 246, "text": "كل ذكرى حلوة بتبدأ عندي باسم ملك 💌 — رسالة رقم 246", "tag": "مفاجأة"}, {"id": 247, "text": "في وسط زحمة الدنيا، اسمك دايمًا بيخليني أهدى 🌙 — رسالة رقم 247", "tag": "حب"}, {"id": 248, "text": "ملك، انتي من الحاجات القليلة اللي الواحد يتمنى الزمن ما يغيرهاش. — رسالة رقم 248", "tag": "اشتياق"}, {"id": 249, "text": "يا ملك، وجودك في حياتي بيخلي اليوم العادي ذكرى جميلة ❤️ — رسالة رقم 249", "tag": "ذكريات"}, {"id": 250, "text": "كل مرة أشوف اسمك فيها بحس إن الدنيا لسه فيها حاجات حلوة 💕 — رسالة رقم 250", "tag": "صباح"}, {"id": 251, "text": "أجمل حاجة في يومي إن فيه شخص اسمه ملك يستاهل كل الحب 🌹 — رسالة رقم 251", "tag": "مساء"}, {"id": 252, "text": "ضحكتك عندي أجمل من ألف نجمة في السما ✨ — رسالة رقم 252", "tag": "مفاجأة"}, {"id": 253, "text": "وجودك مش تفصيلة صغيرة، وجودك حكاية كاملة ❤️ — رسالة رقم 253", "tag": "حب"}, {"id": 254, "text": "كل ذكرى حلوة بتبدأ عندي باسم ملك 💌 — رسالة رقم 254", "tag": "اشتياق"}, {"id": 255, "text": "في وسط زحمة الدنيا، اسمك دايمًا بيخليني أهدى 🌙 — رسالة رقم 255", "tag": "ذكريات"}, {"id": 256, "text": "ملك، انتي من الحاجات القليلة اللي الواحد يتمنى الزمن ما يغيرهاش. — رسالة رقم 256", "tag": "صباح"}, {"id": 257, "text": "يا ملك، وجودك في حياتي بيخلي اليوم العادي ذكرى جميلة ❤️ — رسالة رقم 257", "tag": "مساء"}, {"id": 258, "text": "كل مرة أشوف اسمك فيها بحس إن الدنيا لسه فيها حاجات حلوة 💕 — رسالة رقم 258", "tag": "مفاجأة"}, {"id": 259, "text": "أجمل حاجة في يومي إن فيه شخص اسمه ملك يستاهل كل الحب 🌹 — رسالة رقم 259", "tag": "حب"}, {"id": 260, "text": "ضحكتك عندي أجمل من ألف نجمة في السما ✨ — رسالة رقم 260", "tag": "اشتياق"}, {"id": 261, "text": "وجودك مش تفصيلة صغيرة، وجودك حكاية كاملة ❤️ — رسالة رقم 261", "tag": "ذكريات"}, {"id": 262, "text": "كل ذكرى حلوة بتبدأ عندي باسم ملك 💌 — رسالة رقم 262", "tag": "صباح"}, {"id": 263, "text": "في وسط زحمة الدنيا، اسمك دايمًا بيخليني أهدى 🌙 — رسالة رقم 263", "tag": "مساء"}, {"id": 264, "text": "ملك، انتي من الحاجات القليلة اللي الواحد يتمنى الزمن ما يغيرهاش. — رسالة رقم 264", "tag": "مفاجأة"}, {"id": 265, "text": "يا ملك، وجودك في حياتي بيخلي اليوم العادي ذكرى جميلة ❤️ — رسالة رقم 265", "tag": "حب"}, {"id": 266, "text": "كل مرة أشوف اسمك فيها بحس إن الدنيا لسه فيها حاجات حلوة 💕 — رسالة رقم 266", "tag": "اشتياق"}, {"id": 267, "text": "أجمل حاجة في يومي إن فيه شخص اسمه ملك يستاهل كل الحب 🌹 — رسالة رقم 267", "tag": "ذكريات"}, {"id": 268, "text": "ضحكتك عندي أجمل من ألف نجمة في السما ✨ — رسالة رقم 268", "tag": "صباح"}, {"id": 269, "text": "وجودك مش تفصيلة صغيرة، وجودك حكاية كاملة ❤️ — رسالة رقم 269", "tag": "مساء"}, {"id": 270, "text": "كل ذكرى حلوة بتبدأ عندي باسم ملك 💌 — رسالة رقم 270", "tag": "مفاجأة"}, {"id": 271, "text": "في وسط زحمة الدنيا، اسمك دايمًا بيخليني أهدى 🌙 — رسالة رقم 271", "tag": "حب"}, {"id": 272, "text": "ملك، انتي من الحاجات القليلة اللي الواحد يتمنى الزمن ما يغيرهاش. — رسالة رقم 272", "tag": "اشتياق"}, {"id": 273, "text": "يا ملك، وجودك في حياتي بيخلي اليوم العادي ذكرى جميلة ❤️ — رسالة رقم 273", "tag": "ذكريات"}, {"id": 274, "text": "كل مرة أشوف اسمك فيها بحس إن الدنيا لسه فيها حاجات حلوة 💕 — رسالة رقم 274", "tag": "صباح"}, {"id": 275, "text": "أجمل حاجة في يومي إن فيه شخص اسمه ملك يستاهل كل الحب 🌹 — رسالة رقم 275", "tag": "مساء"}, {"id": 276, "text": "ضحكتك عندي أجمل من ألف نجمة في السما ✨ — رسالة رقم 276", "tag": "مفاجأة"}, {"id": 277, "text": "وجودك مش تفصيلة صغيرة، وجودك حكاية كاملة ❤️ — رسالة رقم 277", "tag": "حب"}, {"id": 278, "text": "كل ذكرى حلوة بتبدأ عندي باسم ملك 💌 — رسالة رقم 278", "tag": "اشتياق"}, {"id": 279, "text": "في وسط زحمة الدنيا، اسمك دايمًا بيخليني أهدى 🌙 — رسالة رقم 279", "tag": "ذكريات"}, {"id": 280, "text": "ملك، انتي من الحاجات القليلة اللي الواحد يتمنى الزمن ما يغيرهاش. — رسالة رقم 280", "tag": "صباح"}, {"id": 281, "text": "يا ملك، وجودك في حياتي بيخلي اليوم العادي ذكرى جميلة ❤️ — رسالة رقم 281", "tag": "مساء"}, {"id": 282, "text": "كل مرة أشوف اسمك فيها بحس إن الدنيا لسه فيها حاجات حلوة 💕 — رسالة رقم 282", "tag": "مفاجأة"}, {"id": 283, "text": "أجمل حاجة في يومي إن فيه شخص اسمه ملك يستاهل كل الحب 🌹 — رسالة رقم 283", "tag": "حب"}, {"id": 284, "text": "ضحكتك عندي أجمل من ألف نجمة في السما ✨ — رسالة رقم 284", "tag": "اشتياق"}, {"id": 285, "text": "وجودك مش تفصيلة صغيرة، وجودك حكاية كاملة ❤️ — رسالة رقم 285", "tag": "ذكريات"}, {"id": 286, "text": "كل ذكرى حلوة بتبدأ عندي باسم ملك 💌 — رسالة رقم 286", "tag": "صباح"}, {"id": 287, "text": "في وسط زحمة الدنيا، اسمك دايمًا بيخليني أهدى 🌙 — رسالة رقم 287", "tag": "مساء"}, {"id": 288, "text": "ملك، انتي من الحاجات القليلة اللي الواحد يتمنى الزمن ما يغيرهاش. — رسالة رقم 288", "tag": "مفاجأة"}, {"id": 289, "text": "يا ملك، وجودك في حياتي بيخلي اليوم العادي ذكرى جميلة ❤️ — رسالة رقم 289", "tag": "حب"}, {"id": 290, "text": "كل مرة أشوف اسمك فيها بحس إن الدنيا لسه فيها حاجات حلوة 💕 — رسالة رقم 290", "tag": "اشتياق"}, {"id": 291, "text": "أجمل حاجة في يومي إن فيه شخص اسمه ملك يستاهل كل الحب 🌹 — رسالة رقم 291", "tag": "ذكريات"}, {"id": 292, "text": "ضحكتك عندي أجمل من ألف نجمة في السما ✨ — رسالة رقم 292", "tag": "صباح"}, {"id": 293, "text": "وجودك مش تفصيلة صغيرة، وجودك حكاية كاملة ❤️ — رسالة رقم 293", "tag": "مساء"}, {"id": 294, "text": "كل ذكرى حلوة بتبدأ عندي باسم ملك 💌 — رسالة رقم 294", "tag": "مفاجأة"}, {"id": 295, "text": "في وسط زحمة الدنيا، اسمك دايمًا بيخليني أهدى 🌙 — رسالة رقم 295", "tag": "حب"}, {"id": 296, "text": "ملك، انتي من الحاجات القليلة اللي الواحد يتمنى الزمن ما يغيرهاش. — رسالة رقم 296", "tag": "اشتياق"}, {"id": 297, "text": "يا ملك، وجودك في حياتي بيخلي اليوم العادي ذكرى جميلة ❤️ — رسالة رقم 297", "tag": "ذكريات"}, {"id": 298, "text": "كل مرة أشوف اسمك فيها بحس إن الدنيا لسه فيها حاجات حلوة 💕 — رسالة رقم 298", "tag": "صباح"}, {"id": 299, "text": "أجمل حاجة في يومي إن فيه شخص اسمه ملك يستاهل كل الحب 🌹 — رسالة رقم 299", "tag": "مساء"}, {"id": 300, "text": "ضحكتك عندي أجمل من ألف نجمة في السما ✨ — رسالة رقم 300", "tag": "مفاجأة"}, {"id": 301, "text": "وجودك مش تفصيلة صغيرة، وجودك حكاية كاملة ❤️ — رسالة رقم 301", "tag": "حب"}, {"id": 302, "text": "كل ذكرى حلوة بتبدأ عندي باسم ملك 💌 — رسالة رقم 302", "tag": "اشتياق"}, {"id": 303, "text": "في وسط زحمة الدنيا، اسمك دايمًا بيخليني أهدى 🌙 — رسالة رقم 303", "tag": "ذكريات"}, {"id": 304, "text": "ملك، انتي من الحاجات القليلة اللي الواحد يتمنى الزمن ما يغيرهاش. — رسالة رقم 304", "tag": "صباح"}, {"id": 305, "text": "يا ملك، وجودك في حياتي بيخلي اليوم العادي ذكرى جميلة ❤️ — رسالة رقم 305", "tag": "مساء"}, {"id": 306, "text": "كل مرة أشوف اسمك فيها بحس إن الدنيا لسه فيها حاجات حلوة 💕 — رسالة رقم 306", "tag": "مفاجأة"}, {"id": 307, "text": "أجمل حاجة في يومي إن فيه شخص اسمه ملك يستاهل كل الحب 🌹 — رسالة رقم 307", "tag": "حب"}, {"id": 308, "text": "ضحكتك عندي أجمل من ألف نجمة في السما ✨ — رسالة رقم 308", "tag": "اشتياق"}, {"id": 309, "text": "وجودك مش تفصيلة صغيرة، وجودك حكاية كاملة ❤️ — رسالة رقم 309", "tag": "ذكريات"}, {"id": 310, "text": "كل ذكرى حلوة بتبدأ عندي باسم ملك 💌 — رسالة رقم 310", "tag": "صباح"}, {"id": 311, "text": "في وسط زحمة الدنيا، اسمك دايمًا بيخليني أهدى 🌙 — رسالة رقم 311", "tag": "مساء"}, {"id": 312, "text": "ملك، انتي من الحاجات القليلة اللي الواحد يتمنى الزمن ما يغيرهاش. — رسالة رقم 312", "tag": "مفاجأة"}, {"id": 313, "text": "يا ملك، وجودك في حياتي بيخلي اليوم العادي ذكرى جميلة ❤️ — رسالة رقم 313", "tag": "حب"}, {"id": 314, "text": "كل مرة أشوف اسمك فيها بحس إن الدنيا لسه فيها حاجات حلوة 💕 — رسالة رقم 314", "tag": "اشتياق"}, {"id": 315, "text": "أجمل حاجة في يومي إن فيه شخص اسمه ملك يستاهل كل الحب 🌹 — رسالة رقم 315", "tag": "ذكريات"}, {"id": 316, "text": "ضحكتك عندي أجمل من ألف نجمة في السما ✨ — رسالة رقم 316", "tag": "صباح"}, {"id": 317, "text": "وجودك مش تفصيلة صغيرة، وجودك حكاية كاملة ❤️ — رسالة رقم 317", "tag": "مساء"}, {"id": 318, "text": "كل ذكرى حلوة بتبدأ عندي باسم ملك 💌 — رسالة رقم 318", "tag": "مفاجأة"}, {"id": 319, "text": "في وسط زحمة الدنيا، اسمك دايمًا بيخليني أهدى 🌙 — رسالة رقم 319", "tag": "حب"}, {"id": 320, "text": "ملك، انتي من الحاجات القليلة اللي الواحد يتمنى الزمن ما يغيرهاش. — رسالة رقم 320", "tag": "اشتياق"}, {"id": 321, "text": "يا ملك، وجودك في حياتي بيخلي اليوم العادي ذكرى جميلة ❤️ — رسالة رقم 321", "tag": "ذكريات"}, {"id": 322, "text": "كل مرة أشوف اسمك فيها بحس إن الدنيا لسه فيها حاجات حلوة 💕 — رسالة رقم 322", "tag": "صباح"}, {"id": 323, "text": "أجمل حاجة في يومي إن فيه شخص اسمه ملك يستاهل كل الحب 🌹 — رسالة رقم 323", "tag": "مساء"}, {"id": 324, "text": "ضحكتك عندي أجمل من ألف نجمة في السما ✨ — رسالة رقم 324", "tag": "مفاجأة"}, {"id": 325, "text": "وجودك مش تفصيلة صغيرة، وجودك حكاية كاملة ❤️ — رسالة رقم 325", "tag": "حب"}, {"id": 326, "text": "كل ذكرى حلوة بتبدأ عندي باسم ملك 💌 — رسالة رقم 326", "tag": "اشتياق"}, {"id": 327, "text": "في وسط زحمة الدنيا، اسمك دايمًا بيخليني أهدى 🌙 — رسالة رقم 327", "tag": "ذكريات"}, {"id": 328, "text": "ملك، انتي من الحاجات القليلة اللي الواحد يتمنى الزمن ما يغيرهاش. — رسالة رقم 328", "tag": "صباح"}, {"id": 329, "text": "يا ملك، وجودك في حياتي بيخلي اليوم العادي ذكرى جميلة ❤️ — رسالة رقم 329", "tag": "مساء"}, {"id": 330, "text": "كل مرة أشوف اسمك فيها بحس إن الدنيا لسه فيها حاجات حلوة 💕 — رسالة رقم 330", "tag": "مفاجأة"}, {"id": 331, "text": "أجمل حاجة في يومي إن فيه شخص اسمه ملك يستاهل كل الحب 🌹 — رسالة رقم 331", "tag": "حب"}, {"id": 332, "text": "ضحكتك عندي أجمل من ألف نجمة في السما ✨ — رسالة رقم 332", "tag": "اشتياق"}, {"id": 333, "text": "وجودك مش تفصيلة صغيرة، وجودك حكاية كاملة ❤️ — رسالة رقم 333", "tag": "ذكريات"}, {"id": 334, "text": "كل ذكرى حلوة بتبدأ عندي باسم ملك 💌 — رسالة رقم 334", "tag": "صباح"}, {"id": 335, "text": "في وسط زحمة الدنيا، اسمك دايمًا بيخليني أهدى 🌙 — رسالة رقم 335", "tag": "مساء"}, {"id": 336, "text": "ملك، انتي من الحاجات القليلة اللي الواحد يتمنى الزمن ما يغيرهاش. — رسالة رقم 336", "tag": "مفاجأة"}, {"id": 337, "text": "يا ملك، وجودك في حياتي بيخلي اليوم العادي ذكرى جميلة ❤️ — رسالة رقم 337", "tag": "حب"}, {"id": 338, "text": "كل مرة أشوف اسمك فيها بحس إن الدنيا لسه فيها حاجات حلوة 💕 — رسالة رقم 338", "tag": "اشتياق"}, {"id": 339, "text": "أجمل حاجة في يومي إن فيه شخص اسمه ملك يستاهل كل الحب 🌹 — رسالة رقم 339", "tag": "ذكريات"}, {"id": 340, "text": "ضحكتك عندي أجمل من ألف نجمة في السما ✨ — رسالة رقم 340", "tag": "صباح"}, {"id": 341, "text": "وجودك مش تفصيلة صغيرة، وجودك حكاية كاملة ❤️ — رسالة رقم 341", "tag": "مساء"}, {"id": 342, "text": "كل ذكرى حلوة بتبدأ عندي باسم ملك 💌 — رسالة رقم 342", "tag": "مفاجأة"}, {"id": 343, "text": "في وسط زحمة الدنيا، اسمك دايمًا بيخليني أهدى 🌙 — رسالة رقم 343", "tag": "حب"}, {"id": 344, "text": "ملك، انتي من الحاجات القليلة اللي الواحد يتمنى الزمن ما يغيرهاش. — رسالة رقم 344", "tag": "اشتياق"}, {"id": 345, "text": "يا ملك، وجودك في حياتي بيخلي اليوم العادي ذكرى جميلة ❤️ — رسالة رقم 345", "tag": "ذكريات"}, {"id": 346, "text": "كل مرة أشوف اسمك فيها بحس إن الدنيا لسه فيها حاجات حلوة 💕 — رسالة رقم 346", "tag": "صباح"}, {"id": 347, "text": "أجمل حاجة في يومي إن فيه شخص اسمه ملك يستاهل كل الحب 🌹 — رسالة رقم 347", "tag": "مساء"}, {"id": 348, "text": "ضحكتك عندي أجمل من ألف نجمة في السما ✨ — رسالة رقم 348", "tag": "مفاجأة"}, {"id": 349, "text": "وجودك مش تفصيلة صغيرة، وجودك حكاية كاملة ❤️ — رسالة رقم 349", "tag": "حب"}, {"id": 350, "text": "كل ذكرى حلوة بتبدأ عندي باسم ملك 💌 — رسالة رقم 350", "tag": "اشتياق"}, {"id": 351, "text": "في وسط زحمة الدنيا، اسمك دايمًا بيخليني أهدى 🌙 — رسالة رقم 351", "tag": "ذكريات"}, {"id": 352, "text": "ملك، انتي من الحاجات القليلة اللي الواحد يتمنى الزمن ما يغيرهاش. — رسالة رقم 352", "tag": "صباح"}, {"id": 353, "text": "يا ملك، وجودك في حياتي بيخلي اليوم العادي ذكرى جميلة ❤️ — رسالة رقم 353", "tag": "مساء"}, {"id": 354, "text": "كل مرة أشوف اسمك فيها بحس إن الدنيا لسه فيها حاجات حلوة 💕 — رسالة رقم 354", "tag": "مفاجأة"}, {"id": 355, "text": "أجمل حاجة في يومي إن فيه شخص اسمه ملك يستاهل كل الحب 🌹 — رسالة رقم 355", "tag": "حب"}, {"id": 356, "text": "ضحكتك عندي أجمل من ألف نجمة في السما ✨ — رسالة رقم 356", "tag": "اشتياق"}, {"id": 357, "text": "وجودك مش تفصيلة صغيرة، وجودك حكاية كاملة ❤️ — رسالة رقم 357", "tag": "ذكريات"}, {"id": 358, "text": "كل ذكرى حلوة بتبدأ عندي باسم ملك 💌 — رسالة رقم 358", "tag": "صباح"}, {"id": 359, "text": "في وسط زحمة الدنيا، اسمك دايمًا بيخليني أهدى 🌙 — رسالة رقم 359", "tag": "مساء"}, {"id": 360, "text": "ملك، انتي من الحاجات القليلة اللي الواحد يتمنى الزمن ما يغيرهاش. — رسالة رقم 360", "tag": "مفاجأة"}, {"id": 361, "text": "يا ملك، وجودك في حياتي بيخلي اليوم العادي ذكرى جميلة ❤️ — رسالة رقم 361", "tag": "حب"}, {"id": 362, "text": "كل مرة أشوف اسمك فيها بحس إن الدنيا لسه فيها حاجات حلوة 💕 — رسالة رقم 362", "tag": "اشتياق"}, {"id": 363, "text": "أجمل حاجة في يومي إن فيه شخص اسمه ملك يستاهل كل الحب 🌹 — رسالة رقم 363", "tag": "ذكريات"}, {"id": 364, "text": "ضحكتك عندي أجمل من ألف نجمة في السما ✨ — رسالة رقم 364", "tag": "صباح"}, {"id": 365, "text": "وجودك مش تفصيلة صغيرة، وجودك حكاية كاملة ❤️ — رسالة رقم 365", "tag": "مساء"}, {"id": 366, "text": "كل ذكرى حلوة بتبدأ عندي باسم ملك 💌 — رسالة رقم 366", "tag": "مفاجأة"}, {"id": 367, "text": "في وسط زحمة الدنيا، اسمك دايمًا بيخليني أهدى 🌙 — رسالة رقم 367", "tag": "حب"}, {"id": 368, "text": "ملك، انتي من الحاجات القليلة اللي الواحد يتمنى الزمن ما يغيرهاش. — رسالة رقم 368", "tag": "اشتياق"}, {"id": 369, "text": "يا ملك، وجودك في حياتي بيخلي اليوم العادي ذكرى جميلة ❤️ — رسالة رقم 369", "tag": "ذكريات"}, {"id": 370, "text": "كل مرة أشوف اسمك فيها بحس إن الدنيا لسه فيها حاجات حلوة 💕 — رسالة رقم 370", "tag": "صباح"}, {"id": 371, "text": "أجمل حاجة في يومي إن فيه شخص اسمه ملك يستاهل كل الحب 🌹 — رسالة رقم 371", "tag": "مساء"}, {"id": 372, "text": "ضحكتك عندي أجمل من ألف نجمة في السما ✨ — رسالة رقم 372", "tag": "مفاجأة"}, {"id": 373, "text": "وجودك مش تفصيلة صغيرة، وجودك حكاية كاملة ❤️ — رسالة رقم 373", "tag": "حب"}, {"id": 374, "text": "كل ذكرى حلوة بتبدأ عندي باسم ملك 💌 — رسالة رقم 374", "tag": "اشتياق"}, {"id": 375, "text": "في وسط زحمة الدنيا، اسمك دايمًا بيخليني أهدى 🌙 — رسالة رقم 375", "tag": "ذكريات"}, {"id": 376, "text": "ملك، انتي من الحاجات القليلة اللي الواحد يتمنى الزمن ما يغيرهاش. — رسالة رقم 376", "tag": "صباح"}, {"id": 377, "text": "يا ملك، وجودك في حياتي بيخلي اليوم العادي ذكرى جميلة ❤️ — رسالة رقم 377", "tag": "مساء"}, {"id": 378, "text": "كل مرة أشوف اسمك فيها بحس إن الدنيا لسه فيها حاجات حلوة 💕 — رسالة رقم 378", "tag": "مفاجأة"}, {"id": 379, "text": "أجمل حاجة في يومي إن فيه شخص اسمه ملك يستاهل كل الحب 🌹 — رسالة رقم 379", "tag": "حب"}, {"id": 380, "text": "ضحكتك عندي أجمل من ألف نجمة في السما ✨ — رسالة رقم 380", "tag": "اشتياق"}, {"id": 381, "text": "وجودك مش تفصيلة صغيرة، وجودك حكاية كاملة ❤️ — رسالة رقم 381", "tag": "ذكريات"}, {"id": 382, "text": "كل ذكرى حلوة بتبدأ عندي باسم ملك 💌 — رسالة رقم 382", "tag": "صباح"}, {"id": 383, "text": "في وسط زحمة الدنيا، اسمك دايمًا بيخليني أهدى 🌙 — رسالة رقم 383", "tag": "مساء"}, {"id": 384, "text": "ملك، انتي من الحاجات القليلة اللي الواحد يتمنى الزمن ما يغيرهاش. — رسالة رقم 384", "tag": "مفاجأة"}, {"id": 385, "text": "يا ملك، وجودك في حياتي بيخلي اليوم العادي ذكرى جميلة ❤️ — رسالة رقم 385", "tag": "حب"}, {"id": 386, "text": "كل مرة أشوف اسمك فيها بحس إن الدنيا لسه فيها حاجات حلوة 💕 — رسالة رقم 386", "tag": "اشتياق"}, {"id": 387, "text": "أجمل حاجة في يومي إن فيه شخص اسمه ملك يستاهل كل الحب 🌹 — رسالة رقم 387", "tag": "ذكريات"}, {"id": 388, "text": "ضحكتك عندي أجمل من ألف نجمة في السما ✨ — رسالة رقم 388", "tag": "صباح"}, {"id": 389, "text": "وجودك مش تفصيلة صغيرة، وجودك حكاية كاملة ❤️ — رسالة رقم 389", "tag": "مساء"}, {"id": 390, "text": "كل ذكرى حلوة بتبدأ عندي باسم ملك 💌 — رسالة رقم 390", "tag": "مفاجأة"}, {"id": 391, "text": "في وسط زحمة الدنيا، اسمك دايمًا بيخليني أهدى 🌙 — رسالة رقم 391", "tag": "حب"}, {"id": 392, "text": "ملك، انتي من الحاجات القليلة اللي الواحد يتمنى الزمن ما يغيرهاش. — رسالة رقم 392", "tag": "اشتياق"}, {"id": 393, "text": "يا ملك، وجودك في حياتي بيخلي اليوم العادي ذكرى جميلة ❤️ — رسالة رقم 393", "tag": "ذكريات"}, {"id": 394, "text": "كل مرة أشوف اسمك فيها بحس إن الدنيا لسه فيها حاجات حلوة 💕 — رسالة رقم 394", "tag": "صباح"}, {"id": 395, "text": "أجمل حاجة في يومي إن فيه شخص اسمه ملك يستاهل كل الحب 🌹 — رسالة رقم 395", "tag": "مساء"}, {"id": 396, "text": "ضحكتك عندي أجمل من ألف نجمة في السما ✨ — رسالة رقم 396", "tag": "مفاجأة"}, {"id": 397, "text": "وجودك مش تفصيلة صغيرة، وجودك حكاية كاملة ❤️ — رسالة رقم 397", "tag": "حب"}, {"id": 398, "text": "كل ذكرى حلوة بتبدأ عندي باسم ملك 💌 — رسالة رقم 398", "tag": "اشتياق"}, {"id": 399, "text": "في وسط زحمة الدنيا، اسمك دايمًا بيخليني أهدى 🌙 — رسالة رقم 399", "tag": "ذكريات"}, {"id": 400, "text": "ملك، انتي من الحاجات القليلة اللي الواحد يتمنى الزمن ما يغيرهاش. — رسالة رقم 400", "tag": "صباح"}, {"id": 401, "text": "يا ملك، وجودك في حياتي بيخلي اليوم العادي ذكرى جميلة ❤️ — رسالة رقم 401", "tag": "مساء"}, {"id": 402, "text": "كل مرة أشوف اسمك فيها بحس إن الدنيا لسه فيها حاجات حلوة 💕 — رسالة رقم 402", "tag": "مفاجأة"}, {"id": 403, "text": "أجمل حاجة في يومي إن فيه شخص اسمه ملك يستاهل كل الحب 🌹 — رسالة رقم 403", "tag": "حب"}, {"id": 404, "text": "ضحكتك عندي أجمل من ألف نجمة في السما ✨ — رسالة رقم 404", "tag": "اشتياق"}, {"id": 405, "text": "وجودك مش تفصيلة صغيرة، وجودك حكاية كاملة ❤️ — رسالة رقم 405", "tag": "ذكريات"}, {"id": 406, "text": "كل ذكرى حلوة بتبدأ عندي باسم ملك 💌 — رسالة رقم 406", "tag": "صباح"}, {"id": 407, "text": "في وسط زحمة الدنيا، اسمك دايمًا بيخليني أهدى 🌙 — رسالة رقم 407", "tag": "مساء"}, {"id": 408, "text": "ملك، انتي من الحاجات القليلة اللي الواحد يتمنى الزمن ما يغيرهاش. — رسالة رقم 408", "tag": "مفاجأة"}, {"id": 409, "text": "يا ملك، وجودك في حياتي بيخلي اليوم العادي ذكرى جميلة ❤️ — رسالة رقم 409", "tag": "حب"}, {"id": 410, "text": "كل مرة أشوف اسمك فيها بحس إن الدنيا لسه فيها حاجات حلوة 💕 — رسالة رقم 410", "tag": "اشتياق"}, {"id": 411, "text": "أجمل حاجة في يومي إن فيه شخص اسمه ملك يستاهل كل الحب 🌹 — رسالة رقم 411", "tag": "ذكريات"}, {"id": 412, "text": "ضحكتك عندي أجمل من ألف نجمة في السما ✨ — رسالة رقم 412", "tag": "صباح"}, {"id": 413, "text": "وجودك مش تفصيلة صغيرة، وجودك حكاية كاملة ❤️ — رسالة رقم 413", "tag": "مساء"}, {"id": 414, "text": "كل ذكرى حلوة بتبدأ عندي باسم ملك 💌 — رسالة رقم 414", "tag": "مفاجأة"}, {"id": 415, "text": "في وسط زحمة الدنيا، اسمك دايمًا بيخليني أهدى 🌙 — رسالة رقم 415", "tag": "حب"}, {"id": 416, "text": "ملك، انتي من الحاجات القليلة اللي الواحد يتمنى الزمن ما يغيرهاش. — رسالة رقم 416", "tag": "اشتياق"}, {"id": 417, "text": "يا ملك، وجودك في حياتي بيخلي اليوم العادي ذكرى جميلة ❤️ — رسالة رقم 417", "tag": "ذكريات"}, {"id": 418, "text": "كل مرة أشوف اسمك فيها بحس إن الدنيا لسه فيها حاجات حلوة 💕 — رسالة رقم 418", "tag": "صباح"}, {"id": 419, "text": "أجمل حاجة في يومي إن فيه شخص اسمه ملك يستاهل كل الحب 🌹 — رسالة رقم 419", "tag": "مساء"}, {"id": 420, "text": "ضحكتك عندي أجمل من ألف نجمة في السما ✨ — رسالة رقم 420", "tag": "مفاجأة"}, {"id": 421, "text": "وجودك مش تفصيلة صغيرة، وجودك حكاية كاملة ❤️ — رسالة رقم 421", "tag": "حب"}, {"id": 422, "text": "كل ذكرى حلوة بتبدأ عندي باسم ملك 💌 — رسالة رقم 422", "tag": "اشتياق"}, {"id": 423, "text": "في وسط زحمة الدنيا، اسمك دايمًا بيخليني أهدى 🌙 — رسالة رقم 423", "tag": "ذكريات"}, {"id": 424, "text": "ملك، انتي من الحاجات القليلة اللي الواحد يتمنى الزمن ما يغيرهاش. — رسالة رقم 424", "tag": "صباح"}, {"id": 425, "text": "يا ملك، وجودك في حياتي بيخلي اليوم العادي ذكرى جميلة ❤️ — رسالة رقم 425", "tag": "مساء"}, {"id": 426, "text": "كل مرة أشوف اسمك فيها بحس إن الدنيا لسه فيها حاجات حلوة 💕 — رسالة رقم 426", "tag": "مفاجأة"}, {"id": 427, "text": "أجمل حاجة في يومي إن فيه شخص اسمه ملك يستاهل كل الحب 🌹 — رسالة رقم 427", "tag": "حب"}, {"id": 428, "text": "ضحكتك عندي أجمل من ألف نجمة في السما ✨ — رسالة رقم 428", "tag": "اشتياق"}, {"id": 429, "text": "وجودك مش تفصيلة صغيرة، وجودك حكاية كاملة ❤️ — رسالة رقم 429", "tag": "ذكريات"}, {"id": 430, "text": "كل ذكرى حلوة بتبدأ عندي باسم ملك 💌 — رسالة رقم 430", "tag": "صباح"}, {"id": 431, "text": "في وسط زحمة الدنيا، اسمك دايمًا بيخليني أهدى 🌙 — رسالة رقم 431", "tag": "مساء"}, {"id": 432, "text": "ملك، انتي من الحاجات القليلة اللي الواحد يتمنى الزمن ما يغيرهاش. — رسالة رقم 432", "tag": "مفاجأة"}, {"id": 433, "text": "يا ملك، وجودك في حياتي بيخلي اليوم العادي ذكرى جميلة ❤️ — رسالة رقم 433", "tag": "حب"}, {"id": 434, "text": "كل مرة أشوف اسمك فيها بحس إن الدنيا لسه فيها حاجات حلوة 💕 — رسالة رقم 434", "tag": "اشتياق"}, {"id": 435, "text": "أجمل حاجة في يومي إن فيه شخص اسمه ملك يستاهل كل الحب 🌹 — رسالة رقم 435", "tag": "ذكريات"}, {"id": 436, "text": "ضحكتك عندي أجمل من ألف نجمة في السما ✨ — رسالة رقم 436", "tag": "صباح"}, {"id": 437, "text": "وجودك مش تفصيلة صغيرة، وجودك حكاية كاملة ❤️ — رسالة رقم 437", "tag": "مساء"}, {"id": 438, "text": "كل ذكرى حلوة بتبدأ عندي باسم ملك 💌 — رسالة رقم 438", "tag": "مفاجأة"}, {"id": 439, "text": "في وسط زحمة الدنيا، اسمك دايمًا بيخليني أهدى 🌙 — رسالة رقم 439", "tag": "حب"}, {"id": 440, "text": "ملك، انتي من الحاجات القليلة اللي الواحد يتمنى الزمن ما يغيرهاش. — رسالة رقم 440", "tag": "اشتياق"}, {"id": 441, "text": "يا ملك، وجودك في حياتي بيخلي اليوم العادي ذكرى جميلة ❤️ — رسالة رقم 441", "tag": "ذكريات"}, {"id": 442, "text": "كل مرة أشوف اسمك فيها بحس إن الدنيا لسه فيها حاجات حلوة 💕 — رسالة رقم 442", "tag": "صباح"}, {"id": 443, "text": "أجمل حاجة في يومي إن فيه شخص اسمه ملك يستاهل كل الحب 🌹 — رسالة رقم 443", "tag": "مساء"}, {"id": 444, "text": "ضحكتك عندي أجمل من ألف نجمة في السما ✨ — رسالة رقم 444", "tag": "مفاجأة"}, {"id": 445, "text": "وجودك مش تفصيلة صغيرة، وجودك حكاية كاملة ❤️ — رسالة رقم 445", "tag": "حب"}, {"id": 446, "text": "كل ذكرى حلوة بتبدأ عندي باسم ملك 💌 — رسالة رقم 446", "tag": "اشتياق"}, {"id": 447, "text": "في وسط زحمة الدنيا، اسمك دايمًا بيخليني أهدى 🌙 — رسالة رقم 447", "tag": "ذكريات"}, {"id": 448, "text": "ملك، انتي من الحاجات القليلة اللي الواحد يتمنى الزمن ما يغيرهاش. — رسالة رقم 448", "tag": "صباح"}, {"id": 449, "text": "يا ملك، وجودك في حياتي بيخلي اليوم العادي ذكرى جميلة ❤️ — رسالة رقم 449", "tag": "مساء"}, {"id": 450, "text": "كل مرة أشوف اسمك فيها بحس إن الدنيا لسه فيها حاجات حلوة 💕 — رسالة رقم 450", "tag": "مفاجأة"}, {"id": 451, "text": "أجمل حاجة في يومي إن فيه شخص اسمه ملك يستاهل كل الحب 🌹 — رسالة رقم 451", "tag": "حب"}, {"id": 452, "text": "ضحكتك عندي أجمل من ألف نجمة في السما ✨ — رسالة رقم 452", "tag": "اشتياق"}, {"id": 453, "text": "وجودك مش تفصيلة صغيرة، وجودك حكاية كاملة ❤️ — رسالة رقم 453", "tag": "ذكريات"}, {"id": 454, "text": "كل ذكرى حلوة بتبدأ عندي باسم ملك 💌 — رسالة رقم 454", "tag": "صباح"}, {"id": 455, "text": "في وسط زحمة الدنيا، اسمك دايمًا بيخليني أهدى 🌙 — رسالة رقم 455", "tag": "مساء"}, {"id": 456, "text": "ملك، انتي من الحاجات القليلة اللي الواحد يتمنى الزمن ما يغيرهاش. — رسالة رقم 456", "tag": "مفاجأة"}, {"id": 457, "text": "يا ملك، وجودك في حياتي بيخلي اليوم العادي ذكرى جميلة ❤️ — رسالة رقم 457", "tag": "حب"}, {"id": 458, "text": "كل مرة أشوف اسمك فيها بحس إن الدنيا لسه فيها حاجات حلوة 💕 — رسالة رقم 458", "tag": "اشتياق"}, {"id": 459, "text": "أجمل حاجة في يومي إن فيه شخص اسمه ملك يستاهل كل الحب 🌹 — رسالة رقم 459", "tag": "ذكريات"}, {"id": 460, "text": "ضحكتك عندي أجمل من ألف نجمة في السما ✨ — رسالة رقم 460", "tag": "صباح"}, {"id": 461, "text": "وجودك مش تفصيلة صغيرة، وجودك حكاية كاملة ❤️ — رسالة رقم 461", "tag": "مساء"}, {"id": 462, "text": "كل ذكرى حلوة بتبدأ عندي باسم ملك 💌 — رسالة رقم 462", "tag": "مفاجأة"}, {"id": 463, "text": "في وسط زحمة الدنيا، اسمك دايمًا بيخليني أهدى 🌙 — رسالة رقم 463", "tag": "حب"}, {"id": 464, "text": "ملك، انتي من الحاجات القليلة اللي الواحد يتمنى الزمن ما يغيرهاش. — رسالة رقم 464", "tag": "اشتياق"}, {"id": 465, "text": "يا ملك، وجودك في حياتي بيخلي اليوم العادي ذكرى جميلة ❤️ — رسالة رقم 465", "tag": "ذكريات"}, {"id": 466, "text": "كل مرة أشوف اسمك فيها بحس إن الدنيا لسه فيها حاجات حلوة 💕 — رسالة رقم 466", "tag": "صباح"}, {"id": 467, "text": "أجمل حاجة في يومي إن فيه شخص اسمه ملك يستاهل كل الحب 🌹 — رسالة رقم 467", "tag": "مساء"}, {"id": 468, "text": "ضحكتك عندي أجمل من ألف نجمة في السما ✨ — رسالة رقم 468", "tag": "مفاجأة"}, {"id": 469, "text": "وجودك مش تفصيلة صغيرة، وجودك حكاية كاملة ❤️ — رسالة رقم 469", "tag": "حب"}, {"id": 470, "text": "كل ذكرى حلوة بتبدأ عندي باسم ملك 💌 — رسالة رقم 470", "tag": "اشتياق"}, {"id": 471, "text": "في وسط زحمة الدنيا، اسمك دايمًا بيخليني أهدى 🌙 — رسالة رقم 471", "tag": "ذكريات"}, {"id": 472, "text": "ملك، انتي من الحاجات القليلة اللي الواحد يتمنى الزمن ما يغيرهاش. — رسالة رقم 472", "tag": "صباح"}, {"id": 473, "text": "يا ملك، وجودك في حياتي بيخلي اليوم العادي ذكرى جميلة ❤️ — رسالة رقم 473", "tag": "مساء"}, {"id": 474, "text": "كل مرة أشوف اسمك فيها بحس إن الدنيا لسه فيها حاجات حلوة 💕 — رسالة رقم 474", "tag": "مفاجأة"}, {"id": 475, "text": "أجمل حاجة في يومي إن فيه شخص اسمه ملك يستاهل كل الحب 🌹 — رسالة رقم 475", "tag": "حب"}, {"id": 476, "text": "ضحكتك عندي أجمل من ألف نجمة في السما ✨ — رسالة رقم 476", "tag": "اشتياق"}, {"id": 477, "text": "وجودك مش تفصيلة صغيرة، وجودك حكاية كاملة ❤️ — رسالة رقم 477", "tag": "ذكريات"}, {"id": 478, "text": "كل ذكرى حلوة بتبدأ عندي باسم ملك 💌 — رسالة رقم 478", "tag": "صباح"}, {"id": 479, "text": "في وسط زحمة الدنيا، اسمك دايمًا بيخليني أهدى 🌙 — رسالة رقم 479", "tag": "مساء"}, {"id": 480, "text": "ملك، انتي من الحاجات القليلة اللي الواحد يتمنى الزمن ما يغيرهاش. — رسالة رقم 480", "tag": "مفاجأة"}, {"id": 481, "text": "يا ملك، وجودك في حياتي بيخلي اليوم العادي ذكرى جميلة ❤️ — رسالة رقم 481", "tag": "حب"}, {"id": 482, "text": "كل مرة أشوف اسمك فيها بحس إن الدنيا لسه فيها حاجات حلوة 💕 — رسالة رقم 482", "tag": "اشتياق"}, {"id": 483, "text": "أجمل حاجة في يومي إن فيه شخص اسمه ملك يستاهل كل الحب 🌹 — رسالة رقم 483", "tag": "ذكريات"}, {"id": 484, "text": "ضحكتك عندي أجمل من ألف نجمة في السما ✨ — رسالة رقم 484", "tag": "صباح"}, {"id": 485, "text": "وجودك مش تفصيلة صغيرة، وجودك حكاية كاملة ❤️ — رسالة رقم 485", "tag": "مساء"}, {"id": 486, "text": "كل ذكرى حلوة بتبدأ عندي باسم ملك 💌 — رسالة رقم 486", "tag": "مفاجأة"}, {"id": 487, "text": "في وسط زحمة الدنيا، اسمك دايمًا بيخليني أهدى 🌙 — رسالة رقم 487", "tag": "حب"}, {"id": 488, "text": "ملك، انتي من الحاجات القليلة اللي الواحد يتمنى الزمن ما يغيرهاش. — رسالة رقم 488", "tag": "اشتياق"}, {"id": 489, "text": "يا ملك، وجودك في حياتي بيخلي اليوم العادي ذكرى جميلة ❤️ — رسالة رقم 489", "tag": "ذكريات"}, {"id": 490, "text": "كل مرة أشوف اسمك فيها بحس إن الدنيا لسه فيها حاجات حلوة 💕 — رسالة رقم 490", "tag": "صباح"}, {"id": 491, "text": "أجمل حاجة في يومي إن فيه شخص اسمه ملك يستاهل كل الحب 🌹 — رسالة رقم 491", "tag": "مساء"}, {"id": 492, "text": "ضحكتك عندي أجمل من ألف نجمة في السما ✨ — رسالة رقم 492", "tag": "مفاجأة"}, {"id": 493, "text": "وجودك مش تفصيلة صغيرة، وجودك حكاية كاملة ❤️ — رسالة رقم 493", "tag": "حب"}, {"id": 494, "text": "كل ذكرى حلوة بتبدأ عندي باسم ملك 💌 — رسالة رقم 494", "tag": "اشتياق"}, {"id": 495, "text": "في وسط زحمة الدنيا، اسمك دايمًا بيخليني أهدى 🌙 — رسالة رقم 495", "tag": "ذكريات"}, {"id": 496, "text": "ملك، انتي من الحاجات القليلة اللي الواحد يتمنى الزمن ما يغيرهاش. — رسالة رقم 496", "tag": "صباح"}, {"id": 497, "text": "يا ملك، وجودك في حياتي بيخلي اليوم العادي ذكرى جميلة ❤️ — رسالة رقم 497", "tag": "مساء"}, {"id": 498, "text": "كل مرة أشوف اسمك فيها بحس إن الدنيا لسه فيها حاجات حلوة 💕 — رسالة رقم 498", "tag": "مفاجأة"}, {"id": 499, "text": "أجمل حاجة في يومي إن فيه شخص اسمه ملك يستاهل كل الحب 🌹 — رسالة رقم 499", "tag": "حب"}, {"id": 500, "text": "ضحكتك عندي أجمل من ألف نجمة في السما ✨ — رسالة رقم 500", "tag": "اشتياق"}, {"id": 501, "text": "وجودك مش تفصيلة صغيرة، وجودك حكاية كاملة ❤️ — رسالة رقم 501", "tag": "ذكريات"}, {"id": 502, "text": "كل ذكرى حلوة بتبدأ عندي باسم ملك 💌 — رسالة رقم 502", "tag": "صباح"}, {"id": 503, "text": "في وسط زحمة الدنيا، اسمك دايمًا بيخليني أهدى 🌙 — رسالة رقم 503", "tag": "مساء"}, {"id": 504, "text": "ملك، انتي من الحاجات القليلة اللي الواحد يتمنى الزمن ما يغيرهاش. — رسالة رقم 504", "tag": "مفاجأة"}, {"id": 505, "text": "يا ملك، وجودك في حياتي بيخلي اليوم العادي ذكرى جميلة ❤️ — رسالة رقم 505", "tag": "حب"}, {"id": 506, "text": "كل مرة أشوف اسمك فيها بحس إن الدنيا لسه فيها حاجات حلوة 💕 — رسالة رقم 506", "tag": "اشتياق"}, {"id": 507, "text": "أجمل حاجة في يومي إن فيه شخص اسمه ملك يستاهل كل الحب 🌹 — رسالة رقم 507", "tag": "ذكريات"}, {"id": 508, "text": "ضحكتك عندي أجمل من ألف نجمة في السما ✨ — رسالة رقم 508", "tag": "صباح"}, {"id": 509, "text": "وجودك مش تفصيلة صغيرة، وجودك حكاية كاملة ❤️ — رسالة رقم 509", "tag": "مساء"}, {"id": 510, "text": "كل ذكرى حلوة بتبدأ عندي باسم ملك 💌 — رسالة رقم 510", "tag": "مفاجأة"}, {"id": 511, "text": "في وسط زحمة الدنيا، اسمك دايمًا بيخليني أهدى 🌙 — رسالة رقم 511", "tag": "حب"}, {"id": 512, "text": "ملك، انتي من الحاجات القليلة اللي الواحد يتمنى الزمن ما يغيرهاش. — رسالة رقم 512", "tag": "اشتياق"}, {"id": 513, "text": "يا ملك، وجودك في حياتي بيخلي اليوم العادي ذكرى جميلة ❤️ — رسالة رقم 513", "tag": "ذكريات"}, {"id": 514, "text": "كل مرة أشوف اسمك فيها بحس إن الدنيا لسه فيها حاجات حلوة 💕 — رسالة رقم 514", "tag": "صباح"}, {"id": 515, "text": "أجمل حاجة في يومي إن فيه شخص اسمه ملك يستاهل كل الحب 🌹 — رسالة رقم 515", "tag": "مساء"}, {"id": 516, "text": "ضحكتك عندي أجمل من ألف نجمة في السما ✨ — رسالة رقم 516", "tag": "مفاجأة"}, {"id": 517, "text": "وجودك مش تفصيلة صغيرة، وجودك حكاية كاملة ❤️ — رسالة رقم 517", "tag": "حب"}, {"id": 518, "text": "كل ذكرى حلوة بتبدأ عندي باسم ملك 💌 — رسالة رقم 518", "tag": "اشتياق"}, {"id": 519, "text": "في وسط زحمة الدنيا، اسمك دايمًا بيخليني أهدى 🌙 — رسالة رقم 519", "tag": "ذكريات"}, {"id": 520, "text": "ملك، انتي من الحاجات القليلة اللي الواحد يتمنى الزمن ما يغيرهاش. — رسالة رقم 520", "tag": "صباح"}, {"id": 521, "text": "يا ملك، وجودك في حياتي بيخلي اليوم العادي ذكرى جميلة ❤️ — رسالة رقم 521", "tag": "مساء"}, {"id": 522, "text": "كل مرة أشوف اسمك فيها بحس إن الدنيا لسه فيها حاجات حلوة 💕 — رسالة رقم 522", "tag": "مفاجأة"}, {"id": 523, "text": "أجمل حاجة في يومي إن فيه شخص اسمه ملك يستاهل كل الحب 🌹 — رسالة رقم 523", "tag": "حب"}, {"id": 524, "text": "ضحكتك عندي أجمل من ألف نجمة في السما ✨ — رسالة رقم 524", "tag": "اشتياق"}, {"id": 525, "text": "وجودك مش تفصيلة صغيرة، وجودك حكاية كاملة ❤️ — رسالة رقم 525", "tag": "ذكريات"}, {"id": 526, "text": "كل ذكرى حلوة بتبدأ عندي باسم ملك 💌 — رسالة رقم 526", "tag": "صباح"}, {"id": 527, "text": "في وسط زحمة الدنيا، اسمك دايمًا بيخليني أهدى 🌙 — رسالة رقم 527", "tag": "مساء"}, {"id": 528, "text": "ملك، انتي من الحاجات القليلة اللي الواحد يتمنى الزمن ما يغيرهاش. — رسالة رقم 528", "tag": "مفاجأة"}, {"id": 529, "text": "يا ملك، وجودك في حياتي بيخلي اليوم العادي ذكرى جميلة ❤️ — رسالة رقم 529", "tag": "حب"}, {"id": 530, "text": "كل مرة أشوف اسمك فيها بحس إن الدنيا لسه فيها حاجات حلوة 💕 — رسالة رقم 530", "tag": "اشتياق"}, {"id": 531, "text": "أجمل حاجة في يومي إن فيه شخص اسمه ملك يستاهل كل الحب 🌹 — رسالة رقم 531", "tag": "ذكريات"}, {"id": 532, "text": "ضحكتك عندي أجمل من ألف نجمة في السما ✨ — رسالة رقم 532", "tag": "صباح"}, {"id": 533, "text": "وجودك مش تفصيلة صغيرة، وجودك حكاية كاملة ❤️ — رسالة رقم 533", "tag": "مساء"}, {"id": 534, "text": "كل ذكرى حلوة بتبدأ عندي باسم ملك 💌 — رسالة رقم 534", "tag": "مفاجأة"}, {"id": 535, "text": "في وسط زحمة الدنيا، اسمك دايمًا بيخليني أهدى 🌙 — رسالة رقم 535", "tag": "حب"}, {"id": 536, "text": "ملك، انتي من الحاجات القليلة اللي الواحد يتمنى الزمن ما يغيرهاش. — رسالة رقم 536", "tag": "اشتياق"}, {"id": 537, "text": "يا ملك، وجودك في حياتي بيخلي اليوم العادي ذكرى جميلة ❤️ — رسالة رقم 537", "tag": "ذكريات"}, {"id": 538, "text": "كل مرة أشوف اسمك فيها بحس إن الدنيا لسه فيها حاجات حلوة 💕 — رسالة رقم 538", "tag": "صباح"}, {"id": 539, "text": "أجمل حاجة في يومي إن فيه شخص اسمه ملك يستاهل كل الحب 🌹 — رسالة رقم 539", "tag": "مساء"}, {"id": 540, "text": "ضحكتك عندي أجمل من ألف نجمة في السما ✨ — رسالة رقم 540", "tag": "مفاجأة"}, {"id": 541, "text": "وجودك مش تفصيلة صغيرة، وجودك حكاية كاملة ❤️ — رسالة رقم 541", "tag": "حب"}, {"id": 542, "text": "كل ذكرى حلوة بتبدأ عندي باسم ملك 💌 — رسالة رقم 542", "tag": "اشتياق"}, {"id": 543, "text": "في وسط زحمة الدنيا، اسمك دايمًا بيخليني أهدى 🌙 — رسالة رقم 543", "tag": "ذكريات"}, {"id": 544, "text": "ملك، انتي من الحاجات القليلة اللي الواحد يتمنى الزمن ما يغيرهاش. — رسالة رقم 544", "tag": "صباح"}, {"id": 545, "text": "يا ملك، وجودك في حياتي بيخلي اليوم العادي ذكرى جميلة ❤️ — رسالة رقم 545", "tag": "مساء"}, {"id": 546, "text": "كل مرة أشوف اسمك فيها بحس إن الدنيا لسه فيها حاجات حلوة 💕 — رسالة رقم 546", "tag": "مفاجأة"}, {"id": 547, "text": "أجمل حاجة في يومي إن فيه شخص اسمه ملك يستاهل كل الحب 🌹 — رسالة رقم 547", "tag": "حب"}, {"id": 548, "text": "ضحكتك عندي أجمل من ألف نجمة في السما ✨ — رسالة رقم 548", "tag": "اشتياق"}, {"id": 549, "text": "وجودك مش تفصيلة صغيرة، وجودك حكاية كاملة ❤️ — رسالة رقم 549", "tag": "ذكريات"}, {"id": 550, "text": "كل ذكرى حلوة بتبدأ عندي باسم ملك 💌 — رسالة رقم 550", "tag": "صباح"}, {"id": 551, "text": "في وسط زحمة الدنيا، اسمك دايمًا بيخليني أهدى 🌙 — رسالة رقم 551", "tag": "مساء"}, {"id": 552, "text": "ملك، انتي من الحاجات القليلة اللي الواحد يتمنى الزمن ما يغيرهاش. — رسالة رقم 552", "tag": "مفاجأة"}, {"id": 553, "text": "يا ملك، وجودك في حياتي بيخلي اليوم العادي ذكرى جميلة ❤️ — رسالة رقم 553", "tag": "حب"}, {"id": 554, "text": "كل مرة أشوف اسمك فيها بحس إن الدنيا لسه فيها حاجات حلوة 💕 — رسالة رقم 554", "tag": "اشتياق"}, {"id": 555, "text": "أجمل حاجة في يومي إن فيه شخص اسمه ملك يستاهل كل الحب 🌹 — رسالة رقم 555", "tag": "ذكريات"}, {"id": 556, "text": "ضحكتك عندي أجمل من ألف نجمة في السما ✨ — رسالة رقم 556", "tag": "صباح"}, {"id": 557, "text": "وجودك مش تفصيلة صغيرة، وجودك حكاية كاملة ❤️ — رسالة رقم 557", "tag": "مساء"}, {"id": 558, "text": "كل ذكرى حلوة بتبدأ عندي باسم ملك 💌 — رسالة رقم 558", "tag": "مفاجأة"}, {"id": 559, "text": "في وسط زحمة الدنيا، اسمك دايمًا بيخليني أهدى 🌙 — رسالة رقم 559", "tag": "حب"}, {"id": 560, "text": "ملك، انتي من الحاجات القليلة اللي الواحد يتمنى الزمن ما يغيرهاش. — رسالة رقم 560", "tag": "اشتياق"}, {"id": 561, "text": "يا ملك، وجودك في حياتي بيخلي اليوم العادي ذكرى جميلة ❤️ — رسالة رقم 561", "tag": "ذكريات"}, {"id": 562, "text": "كل مرة أشوف اسمك فيها بحس إن الدنيا لسه فيها حاجات حلوة 💕 — رسالة رقم 562", "tag": "صباح"}, {"id": 563, "text": "أجمل حاجة في يومي إن فيه شخص اسمه ملك يستاهل كل الحب 🌹 — رسالة رقم 563", "tag": "مساء"}, {"id": 564, "text": "ضحكتك عندي أجمل من ألف نجمة في السما ✨ — رسالة رقم 564", "tag": "مفاجأة"}, {"id": 565, "text": "وجودك مش تفصيلة صغيرة، وجودك حكاية كاملة ❤️ — رسالة رقم 565", "tag": "حب"}, {"id": 566, "text": "كل ذكرى حلوة بتبدأ عندي باسم ملك 💌 — رسالة رقم 566", "tag": "اشتياق"}, {"id": 567, "text": "في وسط زحمة الدنيا، اسمك دايمًا بيخليني أهدى 🌙 — رسالة رقم 567", "tag": "ذكريات"}, {"id": 568, "text": "ملك، انتي من الحاجات القليلة اللي الواحد يتمنى الزمن ما يغيرهاش. — رسالة رقم 568", "tag": "صباح"}, {"id": 569, "text": "يا ملك، وجودك في حياتي بيخلي اليوم العادي ذكرى جميلة ❤️ — رسالة رقم 569", "tag": "مساء"}, {"id": 570, "text": "كل مرة أشوف اسمك فيها بحس إن الدنيا لسه فيها حاجات حلوة 💕 — رسالة رقم 570", "tag": "مفاجأة"}, {"id": 571, "text": "أجمل حاجة في يومي إن فيه شخص اسمه ملك يستاهل كل الحب 🌹 — رسالة رقم 571", "tag": "حب"}, {"id": 572, "text": "ضحكتك عندي أجمل من ألف نجمة في السما ✨ — رسالة رقم 572", "tag": "اشتياق"}, {"id": 573, "text": "وجودك مش تفصيلة صغيرة، وجودك حكاية كاملة ❤️ — رسالة رقم 573", "tag": "ذكريات"}, {"id": 574, "text": "كل ذكرى حلوة بتبدأ عندي باسم ملك 💌 — رسالة رقم 574", "tag": "صباح"}, {"id": 575, "text": "في وسط زحمة الدنيا، اسمك دايمًا بيخليني أهدى 🌙 — رسالة رقم 575", "tag": "مساء"}, {"id": 576, "text": "ملك، انتي من الحاجات القليلة اللي الواحد يتمنى الزمن ما يغيرهاش. — رسالة رقم 576", "tag": "مفاجأة"}, {"id": 577, "text": "يا ملك، وجودك في حياتي بيخلي اليوم العادي ذكرى جميلة ❤️ — رسالة رقم 577", "tag": "حب"}, {"id": 578, "text": "كل مرة أشوف اسمك فيها بحس إن الدنيا لسه فيها حاجات حلوة 💕 — رسالة رقم 578", "tag": "اشتياق"}, {"id": 579, "text": "أجمل حاجة في يومي إن فيه شخص اسمه ملك يستاهل كل الحب 🌹 — رسالة رقم 579", "tag": "ذكريات"}, {"id": 580, "text": "ضحكتك عندي أجمل من ألف نجمة في السما ✨ — رسالة رقم 580", "tag": "صباح"}, {"id": 581, "text": "وجودك مش تفصيلة صغيرة، وجودك حكاية كاملة ❤️ — رسالة رقم 581", "tag": "مساء"}, {"id": 582, "text": "كل ذكرى حلوة بتبدأ عندي باسم ملك 💌 — رسالة رقم 582", "tag": "مفاجأة"}, {"id": 583, "text": "في وسط زحمة الدنيا، اسمك دايمًا بيخليني أهدى 🌙 — رسالة رقم 583", "tag": "حب"}, {"id": 584, "text": "ملك، انتي من الحاجات القليلة اللي الواحد يتمنى الزمن ما يغيرهاش. — رسالة رقم 584", "tag": "اشتياق"}, {"id": 585, "text": "يا ملك، وجودك في حياتي بيخلي اليوم العادي ذكرى جميلة ❤️ — رسالة رقم 585", "tag": "ذكريات"}, {"id": 586, "text": "كل مرة أشوف اسمك فيها بحس إن الدنيا لسه فيها حاجات حلوة 💕 — رسالة رقم 586", "tag": "صباح"}, {"id": 587, "text": "أجمل حاجة في يومي إن فيه شخص اسمه ملك يستاهل كل الحب 🌹 — رسالة رقم 587", "tag": "مساء"}, {"id": 588, "text": "ضحكتك عندي أجمل من ألف نجمة في السما ✨ — رسالة رقم 588", "tag": "مفاجأة"}, {"id": 589, "text": "وجودك مش تفصيلة صغيرة، وجودك حكاية كاملة ❤️ — رسالة رقم 589", "tag": "حب"}, {"id": 590, "text": "كل ذكرى حلوة بتبدأ عندي باسم ملك 💌 — رسالة رقم 590", "tag": "اشتياق"}, {"id": 591, "text": "في وسط زحمة الدنيا، اسمك دايمًا بيخليني أهدى 🌙 — رسالة رقم 591", "tag": "ذكريات"}, {"id": 592, "text": "ملك، انتي من الحاجات القليلة اللي الواحد يتمنى الزمن ما يغيرهاش. — رسالة رقم 592", "tag": "صباح"}, {"id": 593, "text": "يا ملك، وجودك في حياتي بيخلي اليوم العادي ذكرى جميلة ❤️ — رسالة رقم 593", "tag": "مساء"}, {"id": 594, "text": "كل مرة أشوف اسمك فيها بحس إن الدنيا لسه فيها حاجات حلوة 💕 — رسالة رقم 594", "tag": "مفاجأة"}, {"id": 595, "text": "أجمل حاجة في يومي إن فيه شخص اسمه ملك يستاهل كل الحب 🌹 — رسالة رقم 595", "tag": "حب"}, {"id": 596, "text": "ضحكتك عندي أجمل من ألف نجمة في السما ✨ — رسالة رقم 596", "tag": "اشتياق"}, {"id": 597, "text": "وجودك مش تفصيلة صغيرة، وجودك حكاية كاملة ❤️ — رسالة رقم 597", "tag": "ذكريات"}, {"id": 598, "text": "كل ذكرى حلوة بتبدأ عندي باسم ملك 💌 — رسالة رقم 598", "tag": "صباح"}, {"id": 599, "text": "في وسط زحمة الدنيا، اسمك دايمًا بيخليني أهدى 🌙 — رسالة رقم 599", "tag": "مساء"}, {"id": 600, "text": "ملك، انتي من الحاجات القليلة اللي الواحد يتمنى الزمن ما يغيرهاش. — رسالة رقم 600", "tag": "مفاجأة"}, {"id": 601, "text": "يا ملك، وجودك في حياتي بيخلي اليوم العادي ذكرى جميلة ❤️ — رسالة رقم 601", "tag": "حب"}, {"id": 602, "text": "كل مرة أشوف اسمك فيها بحس إن الدنيا لسه فيها حاجات حلوة 💕 — رسالة رقم 602", "tag": "اشتياق"}, {"id": 603, "text": "أجمل حاجة في يومي إن فيه شخص اسمه ملك يستاهل كل الحب 🌹 — رسالة رقم 603", "tag": "ذكريات"}, {"id": 604, "text": "ضحكتك عندي أجمل من ألف نجمة في السما ✨ — رسالة رقم 604", "tag": "صباح"}, {"id": 605, "text": "وجودك مش تفصيلة صغيرة، وجودك حكاية كاملة ❤️ — رسالة رقم 605", "tag": "مساء"}, {"id": 606, "text": "كل ذكرى حلوة بتبدأ عندي باسم ملك 💌 — رسالة رقم 606", "tag": "مفاجأة"}, {"id": 607, "text": "في وسط زحمة الدنيا، اسمك دايمًا بيخليني أهدى 🌙 — رسالة رقم 607", "tag": "حب"}, {"id": 608, "text": "ملك، انتي من الحاجات القليلة اللي الواحد يتمنى الزمن ما يغيرهاش. — رسالة رقم 608", "tag": "اشتياق"}, {"id": 609, "text": "يا ملك، وجودك في حياتي بيخلي اليوم العادي ذكرى جميلة ❤️ — رسالة رقم 609", "tag": "ذكريات"}, {"id": 610, "text": "كل مرة أشوف اسمك فيها بحس إن الدنيا لسه فيها حاجات حلوة 💕 — رسالة رقم 610", "tag": "صباح"}, {"id": 611, "text": "أجمل حاجة في يومي إن فيه شخص اسمه ملك يستاهل كل الحب 🌹 — رسالة رقم 611", "tag": "مساء"}, {"id": 612, "text": "ضحكتك عندي أجمل من ألف نجمة في السما ✨ — رسالة رقم 612", "tag": "مفاجأة"}, {"id": 613, "text": "وجودك مش تفصيلة صغيرة، وجودك حكاية كاملة ❤️ — رسالة رقم 613", "tag": "حب"}, {"id": 614, "text": "كل ذكرى حلوة بتبدأ عندي باسم ملك 💌 — رسالة رقم 614", "tag": "اشتياق"}, {"id": 615, "text": "في وسط زحمة الدنيا، اسمك دايمًا بيخليني أهدى 🌙 — رسالة رقم 615", "tag": "ذكريات"}, {"id": 616, "text": "ملك، انتي من الحاجات القليلة اللي الواحد يتمنى الزمن ما يغيرهاش. — رسالة رقم 616", "tag": "صباح"}, {"id": 617, "text": "يا ملك، وجودك في حياتي بيخلي اليوم العادي ذكرى جميلة ❤️ — رسالة رقم 617", "tag": "مساء"}, {"id": 618, "text": "كل مرة أشوف اسمك فيها بحس إن الدنيا لسه فيها حاجات حلوة 💕 — رسالة رقم 618", "tag": "مفاجأة"}, {"id": 619, "text": "أجمل حاجة في يومي إن فيه شخص اسمه ملك يستاهل كل الحب 🌹 — رسالة رقم 619", "tag": "حب"}, {"id": 620, "text": "ضحكتك عندي أجمل من ألف نجمة في السما ✨ — رسالة رقم 620", "tag": "اشتياق"}, {"id": 621, "text": "وجودك مش تفصيلة صغيرة، وجودك حكاية كاملة ❤️ — رسالة رقم 621", "tag": "ذكريات"}, {"id": 622, "text": "كل ذكرى حلوة بتبدأ عندي باسم ملك 💌 — رسالة رقم 622", "tag": "صباح"}, {"id": 623, "text": "في وسط زحمة الدنيا، اسمك دايمًا بيخليني أهدى 🌙 — رسالة رقم 623", "tag": "مساء"}, {"id": 624, "text": "ملك، انتي من الحاجات القليلة اللي الواحد يتمنى الزمن ما يغيرهاش. — رسالة رقم 624", "tag": "مفاجأة"}, {"id": 625, "text": "يا ملك، وجودك في حياتي بيخلي اليوم العادي ذكرى جميلة ❤️ — رسالة رقم 625", "tag": "حب"}, {"id": 626, "text": "كل مرة أشوف اسمك فيها بحس إن الدنيا لسه فيها حاجات حلوة 💕 — رسالة رقم 626", "tag": "اشتياق"}, {"id": 627, "text": "أجمل حاجة في يومي إن فيه شخص اسمه ملك يستاهل كل الحب 🌹 — رسالة رقم 627", "tag": "ذكريات"}, {"id": 628, "text": "ضحكتك عندي أجمل من ألف نجمة في السما ✨ — رسالة رقم 628", "tag": "صباح"}, {"id": 629, "text": "وجودك مش تفصيلة صغيرة، وجودك حكاية كاملة ❤️ — رسالة رقم 629", "tag": "مساء"}, {"id": 630, "text": "كل ذكرى حلوة بتبدأ عندي باسم ملك 💌 — رسالة رقم 630", "tag": "مفاجأة"}, {"id": 631, "text": "في وسط زحمة الدنيا، اسمك دايمًا بيخليني أهدى 🌙 — رسالة رقم 631", "tag": "حب"}, {"id": 632, "text": "ملك، انتي من الحاجات القليلة اللي الواحد يتمنى الزمن ما يغيرهاش. — رسالة رقم 632", "tag": "اشتياق"}, {"id": 633, "text": "يا ملك، وجودك في حياتي بيخلي اليوم العادي ذكرى جميلة ❤️ — رسالة رقم 633", "tag": "ذكريات"}, {"id": 634, "text": "كل مرة أشوف اسمك فيها بحس إن الدنيا لسه فيها حاجات حلوة 💕 — رسالة رقم 634", "tag": "صباح"}, {"id": 635, "text": "أجمل حاجة في يومي إن فيه شخص اسمه ملك يستاهل كل الحب 🌹 — رسالة رقم 635", "tag": "مساء"}, {"id": 636, "text": "ضحكتك عندي أجمل من ألف نجمة في السما ✨ — رسالة رقم 636", "tag": "مفاجأة"}, {"id": 637, "text": "وجودك مش تفصيلة صغيرة، وجودك حكاية كاملة ❤️ — رسالة رقم 637", "tag": "حب"}, {"id": 638, "text": "كل ذكرى حلوة بتبدأ عندي باسم ملك 💌 — رسالة رقم 638", "tag": "اشتياق"}, {"id": 639, "text": "في وسط زحمة الدنيا، اسمك دايمًا بيخليني أهدى 🌙 — رسالة رقم 639", "tag": "ذكريات"}, {"id": 640, "text": "ملك، انتي من الحاجات القليلة اللي الواحد يتمنى الزمن ما يغيرهاش. — رسالة رقم 640", "tag": "صباح"}, {"id": 641, "text": "يا ملك، وجودك في حياتي بيخلي اليوم العادي ذكرى جميلة ❤️ — رسالة رقم 641", "tag": "مساء"}, {"id": 642, "text": "كل مرة أشوف اسمك فيها بحس إن الدنيا لسه فيها حاجات حلوة 💕 — رسالة رقم 642", "tag": "مفاجأة"}, {"id": 643, "text": "أجمل حاجة في يومي إن فيه شخص اسمه ملك يستاهل كل الحب 🌹 — رسالة رقم 643", "tag": "حب"}, {"id": 644, "text": "ضحكتك عندي أجمل من ألف نجمة في السما ✨ — رسالة رقم 644", "tag": "اشتياق"}, {"id": 645, "text": "وجودك مش تفصيلة صغيرة، وجودك حكاية كاملة ❤️ — رسالة رقم 645", "tag": "ذكريات"}, {"id": 646, "text": "كل ذكرى حلوة بتبدأ عندي باسم ملك 💌 — رسالة رقم 646", "tag": "صباح"}, {"id": 647, "text": "في وسط زحمة الدنيا، اسمك دايمًا بيخليني أهدى 🌙 — رسالة رقم 647", "tag": "مساء"}, {"id": 648, "text": "ملك، انتي من الحاجات القليلة اللي الواحد يتمنى الزمن ما يغيرهاش. — رسالة رقم 648", "tag": "مفاجأة"}, {"id": 649, "text": "يا ملك، وجودك في حياتي بيخلي اليوم العادي ذكرى جميلة ❤️ — رسالة رقم 649", "tag": "حب"}, {"id": 650, "text": "كل مرة أشوف اسمك فيها بحس إن الدنيا لسه فيها حاجات حلوة 💕 — رسالة رقم 650", "tag": "اشتياق"}, {"id": 651, "text": "أجمل حاجة في يومي إن فيه شخص اسمه ملك يستاهل كل الحب 🌹 — رسالة رقم 651", "tag": "ذكريات"}, {"id": 652, "text": "ضحكتك عندي أجمل من ألف نجمة في السما ✨ — رسالة رقم 652", "tag": "صباح"}, {"id": 653, "text": "وجودك مش تفصيلة صغيرة، وجودك حكاية كاملة ❤️ — رسالة رقم 653", "tag": "مساء"}, {"id": 654, "text": "كل ذكرى حلوة بتبدأ عندي باسم ملك 💌 — رسالة رقم 654", "tag": "مفاجأة"}, {"id": 655, "text": "في وسط زحمة الدنيا، اسمك دايمًا بيخليني أهدى 🌙 — رسالة رقم 655", "tag": "حب"}, {"id": 656, "text": "ملك، انتي من الحاجات القليلة اللي الواحد يتمنى الزمن ما يغيرهاش. — رسالة رقم 656", "tag": "اشتياق"}, {"id": 657, "text": "يا ملك، وجودك في حياتي بيخلي اليوم العادي ذكرى جميلة ❤️ — رسالة رقم 657", "tag": "ذكريات"}, {"id": 658, "text": "كل مرة أشوف اسمك فيها بحس إن الدنيا لسه فيها حاجات حلوة 💕 — رسالة رقم 658", "tag": "صباح"}, {"id": 659, "text": "أجمل حاجة في يومي إن فيه شخص اسمه ملك يستاهل كل الحب 🌹 — رسالة رقم 659", "tag": "مساء"}, {"id": 660, "text": "ضحكتك عندي أجمل من ألف نجمة في السما ✨ — رسالة رقم 660", "tag": "مفاجأة"}, {"id": 661, "text": "وجودك مش تفصيلة صغيرة، وجودك حكاية كاملة ❤️ — رسالة رقم 661", "tag": "حب"}, {"id": 662, "text": "كل ذكرى حلوة بتبدأ عندي باسم ملك 💌 — رسالة رقم 662", "tag": "اشتياق"}, {"id": 663, "text": "في وسط زحمة الدنيا، اسمك دايمًا بيخليني أهدى 🌙 — رسالة رقم 663", "tag": "ذكريات"}, {"id": 664, "text": "ملك، انتي من الحاجات القليلة اللي الواحد يتمنى الزمن ما يغيرهاش. — رسالة رقم 664", "tag": "صباح"}, {"id": 665, "text": "يا ملك، وجودك في حياتي بيخلي اليوم العادي ذكرى جميلة ❤️ — رسالة رقم 665", "tag": "مساء"}, {"id": 666, "text": "كل مرة أشوف اسمك فيها بحس إن الدنيا لسه فيها حاجات حلوة 💕 — رسالة رقم 666", "tag": "مفاجأة"}, {"id": 667, "text": "أجمل حاجة في يومي إن فيه شخص اسمه ملك يستاهل كل الحب 🌹 — رسالة رقم 667", "tag": "حب"}, {"id": 668, "text": "ضحكتك عندي أجمل من ألف نجمة في السما ✨ — رسالة رقم 668", "tag": "اشتياق"}, {"id": 669, "text": "وجودك مش تفصيلة صغيرة، وجودك حكاية كاملة ❤️ — رسالة رقم 669", "tag": "ذكريات"}, {"id": 670, "text": "كل ذكرى حلوة بتبدأ عندي باسم ملك 💌 — رسالة رقم 670", "tag": "صباح"}, {"id": 671, "text": "في وسط زحمة الدنيا، اسمك دايمًا بيخليني أهدى 🌙 — رسالة رقم 671", "tag": "مساء"}, {"id": 672, "text": "ملك، انتي من الحاجات القليلة اللي الواحد يتمنى الزمن ما يغيرهاش. — رسالة رقم 672", "tag": "مفاجأة"}, {"id": 673, "text": "يا ملك، وجودك في حياتي بيخلي اليوم العادي ذكرى جميلة ❤️ — رسالة رقم 673", "tag": "حب"}, {"id": 674, "text": "كل مرة أشوف اسمك فيها بحس إن الدنيا لسه فيها حاجات حلوة 💕 — رسالة رقم 674", "tag": "اشتياق"}, {"id": 675, "text": "أجمل حاجة في يومي إن فيه شخص اسمه ملك يستاهل كل الحب 🌹 — رسالة رقم 675", "tag": "ذكريات"}, {"id": 676, "text": "ضحكتك عندي أجمل من ألف نجمة في السما ✨ — رسالة رقم 676", "tag": "صباح"}, {"id": 677, "text": "وجودك مش تفصيلة صغيرة، وجودك حكاية كاملة ❤️ — رسالة رقم 677", "tag": "مساء"}, {"id": 678, "text": "كل ذكرى حلوة بتبدأ عندي باسم ملك 💌 — رسالة رقم 678", "tag": "مفاجأة"}, {"id": 679, "text": "في وسط زحمة الدنيا، اسمك دايمًا بيخليني أهدى 🌙 — رسالة رقم 679", "tag": "حب"}, {"id": 680, "text": "ملك، انتي من الحاجات القليلة اللي الواحد يتمنى الزمن ما يغيرهاش. — رسالة رقم 680", "tag": "اشتياق"}, {"id": 681, "text": "يا ملك، وجودك في حياتي بيخلي اليوم العادي ذكرى جميلة ❤️ — رسالة رقم 681", "tag": "ذكريات"}, {"id": 682, "text": "كل مرة أشوف اسمك فيها بحس إن الدنيا لسه فيها حاجات حلوة 💕 — رسالة رقم 682", "tag": "صباح"}, {"id": 683, "text": "أجمل حاجة في يومي إن فيه شخص اسمه ملك يستاهل كل الحب 🌹 — رسالة رقم 683", "tag": "مساء"}, {"id": 684, "text": "ضحكتك عندي أجمل من ألف نجمة في السما ✨ — رسالة رقم 684", "tag": "مفاجأة"}, {"id": 685, "text": "وجودك مش تفصيلة صغيرة، وجودك حكاية كاملة ❤️ — رسالة رقم 685", "tag": "حب"}, {"id": 686, "text": "كل ذكرى حلوة بتبدأ عندي باسم ملك 💌 — رسالة رقم 686", "tag": "اشتياق"}, {"id": 687, "text": "في وسط زحمة الدنيا، اسمك دايمًا بيخليني أهدى 🌙 — رسالة رقم 687", "tag": "ذكريات"}, {"id": 688, "text": "ملك، انتي من الحاجات القليلة اللي الواحد يتمنى الزمن ما يغيرهاش. — رسالة رقم 688", "tag": "صباح"}, {"id": 689, "text": "يا ملك، وجودك في حياتي بيخلي اليوم العادي ذكرى جميلة ❤️ — رسالة رقم 689", "tag": "مساء"}, {"id": 690, "text": "كل مرة أشوف اسمك فيها بحس إن الدنيا لسه فيها حاجات حلوة 💕 — رسالة رقم 690", "tag": "مفاجأة"}, {"id": 691, "text": "أجمل حاجة في يومي إن فيه شخص اسمه ملك يستاهل كل الحب 🌹 — رسالة رقم 691", "tag": "حب"}, {"id": 692, "text": "ضحكتك عندي أجمل من ألف نجمة في السما ✨ — رسالة رقم 692", "tag": "اشتياق"}, {"id": 693, "text": "وجودك مش تفصيلة صغيرة، وجودك حكاية كاملة ❤️ — رسالة رقم 693", "tag": "ذكريات"}, {"id": 694, "text": "كل ذكرى حلوة بتبدأ عندي باسم ملك 💌 — رسالة رقم 694", "tag": "صباح"}, {"id": 695, "text": "في وسط زحمة الدنيا، اسمك دايمًا بيخليني أهدى 🌙 — رسالة رقم 695", "tag": "مساء"}, {"id": 696, "text": "ملك، انتي من الحاجات القليلة اللي الواحد يتمنى الزمن ما يغيرهاش. — رسالة رقم 696", "tag": "مفاجأة"}, {"id": 697, "text": "يا ملك، وجودك في حياتي بيخلي اليوم العادي ذكرى جميلة ❤️ — رسالة رقم 697", "tag": "حب"}, {"id": 698, "text": "كل مرة أشوف اسمك فيها بحس إن الدنيا لسه فيها حاجات حلوة 💕 — رسالة رقم 698", "tag": "اشتياق"}, {"id": 699, "text": "أجمل حاجة في يومي إن فيه شخص اسمه ملك يستاهل كل الحب 🌹 — رسالة رقم 699", "tag": "ذكريات"}, {"id": 700, "text": "ضحكتك عندي أجمل من ألف نجمة في السما ✨ — رسالة رقم 700", "tag": "صباح"}, {"id": 701, "text": "وجودك مش تفصيلة صغيرة، وجودك حكاية كاملة ❤️ — رسالة رقم 701", "tag": "مساء"}, {"id": 702, "text": "كل ذكرى حلوة بتبدأ عندي باسم ملك 💌 — رسالة رقم 702", "tag": "مفاجأة"}, {"id": 703, "text": "في وسط زحمة الدنيا، اسمك دايمًا بيخليني أهدى 🌙 — رسالة رقم 703", "tag": "حب"}, {"id": 704, "text": "ملك، انتي من الحاجات القليلة اللي الواحد يتمنى الزمن ما يغيرهاش. — رسالة رقم 704", "tag": "اشتياق"}, {"id": 705, "text": "يا ملك، وجودك في حياتي بيخلي اليوم العادي ذكرى جميلة ❤️ — رسالة رقم 705", "tag": "ذكريات"}, {"id": 706, "text": "كل مرة أشوف اسمك فيها بحس إن الدنيا لسه فيها حاجات حلوة 💕 — رسالة رقم 706", "tag": "صباح"}, {"id": 707, "text": "أجمل حاجة في يومي إن فيه شخص اسمه ملك يستاهل كل الحب 🌹 — رسالة رقم 707", "tag": "مساء"}, {"id": 708, "text": "ضحكتك عندي أجمل من ألف نجمة في السما ✨ — رسالة رقم 708", "tag": "مفاجأة"}, {"id": 709, "text": "وجودك مش تفصيلة صغيرة، وجودك حكاية كاملة ❤️ — رسالة رقم 709", "tag": "حب"}, {"id": 710, "text": "كل ذكرى حلوة بتبدأ عندي باسم ملك 💌 — رسالة رقم 710", "tag": "اشتياق"}, {"id": 711, "text": "في وسط زحمة الدنيا، اسمك دايمًا بيخليني أهدى 🌙 — رسالة رقم 711", "tag": "ذكريات"}, {"id": 712, "text": "ملك، انتي من الحاجات القليلة اللي الواحد يتمنى الزمن ما يغيرهاش. — رسالة رقم 712", "tag": "صباح"}, {"id": 713, "text": "يا ملك، وجودك في حياتي بيخلي اليوم العادي ذكرى جميلة ❤️ — رسالة رقم 713", "tag": "مساء"}, {"id": 714, "text": "كل مرة أشوف اسمك فيها بحس إن الدنيا لسه فيها حاجات حلوة 💕 — رسالة رقم 714", "tag": "مفاجأة"}, {"id": 715, "text": "أجمل حاجة في يومي إن فيه شخص اسمه ملك يستاهل كل الحب 🌹 — رسالة رقم 715", "tag": "حب"}, {"id": 716, "text": "ضحكتك عندي أجمل من ألف نجمة في السما ✨ — رسالة رقم 716", "tag": "اشتياق"}, {"id": 717, "text": "وجودك مش تفصيلة صغيرة، وجودك حكاية كاملة ❤️ — رسالة رقم 717", "tag": "ذكريات"}, {"id": 718, "text": "كل ذكرى حلوة بتبدأ عندي باسم ملك 💌 — رسالة رقم 718", "tag": "صباح"}, {"id": 719, "text": "في وسط زحمة الدنيا، اسمك دايمًا بيخليني أهدى 🌙 — رسالة رقم 719", "tag": "مساء"}, {"id": 720, "text": "ملك، انتي من الحاجات القليلة اللي الواحد يتمنى الزمن ما يغيرهاش. — رسالة رقم 720", "tag": "مفاجأة"}, {"id": 721, "text": "يا ملك، وجودك في حياتي بيخلي اليوم العادي ذكرى جميلة ❤️ — رسالة رقم 721", "tag": "حب"}, {"id": 722, "text": "كل مرة أشوف اسمك فيها بحس إن الدنيا لسه فيها حاجات حلوة 💕 — رسالة رقم 722", "tag": "اشتياق"}, {"id": 723, "text": "أجمل حاجة في يومي إن فيه شخص اسمه ملك يستاهل كل الحب 🌹 — رسالة رقم 723", "tag": "ذكريات"}, {"id": 724, "text": "ضحكتك عندي أجمل من ألف نجمة في السما ✨ — رسالة رقم 724", "tag": "صباح"}, {"id": 725, "text": "وجودك مش تفصيلة صغيرة، وجودك حكاية كاملة ❤️ — رسالة رقم 725", "tag": "مساء"}, {"id": 726, "text": "كل ذكرى حلوة بتبدأ عندي باسم ملك 💌 — رسالة رقم 726", "tag": "مفاجأة"}, {"id": 727, "text": "في وسط زحمة الدنيا، اسمك دايمًا بيخليني أهدى 🌙 — رسالة رقم 727", "tag": "حب"}, {"id": 728, "text": "ملك، انتي من الحاجات القليلة اللي الواحد يتمنى الزمن ما يغيرهاش. — رسالة رقم 728", "tag": "اشتياق"}, {"id": 729, "text": "يا ملك، وجودك في حياتي بيخلي اليوم العادي ذكرى جميلة ❤️ — رسالة رقم 729", "tag": "ذكريات"}, {"id": 730, "text": "كل مرة أشوف اسمك فيها بحس إن الدنيا لسه فيها حاجات حلوة 💕 — رسالة رقم 730", "tag": "صباح"}, {"id": 731, "text": "أجمل حاجة في يومي إن فيه شخص اسمه ملك يستاهل كل الحب 🌹 — رسالة رقم 731", "tag": "مساء"}, {"id": 732, "text": "ضحكتك عندي أجمل من ألف نجمة في السما ✨ — رسالة رقم 732", "tag": "مفاجأة"}, {"id": 733, "text": "وجودك مش تفصيلة صغيرة، وجودك حكاية كاملة ❤️ — رسالة رقم 733", "tag": "حب"}, {"id": 734, "text": "كل ذكرى حلوة بتبدأ عندي باسم ملك 💌 — رسالة رقم 734", "tag": "اشتياق"}, {"id": 735, "text": "في وسط زحمة الدنيا، اسمك دايمًا بيخليني أهدى 🌙 — رسالة رقم 735", "tag": "ذكريات"}, {"id": 736, "text": "ملك، انتي من الحاجات القليلة اللي الواحد يتمنى الزمن ما يغيرهاش. — رسالة رقم 736", "tag": "صباح"}, {"id": 737, "text": "يا ملك، وجودك في حياتي بيخلي اليوم العادي ذكرى جميلة ❤️ — رسالة رقم 737", "tag": "مساء"}, {"id": 738, "text": "كل مرة أشوف اسمك فيها بحس إن الدنيا لسه فيها حاجات حلوة 💕 — رسالة رقم 738", "tag": "مفاجأة"}, {"id": 739, "text": "أجمل حاجة في يومي إن فيه شخص اسمه ملك يستاهل كل الحب 🌹 — رسالة رقم 739", "tag": "حب"}, {"id": 740, "text": "ضحكتك عندي أجمل من ألف نجمة في السما ✨ — رسالة رقم 740", "tag": "اشتياق"}, {"id": 741, "text": "وجودك مش تفصيلة صغيرة، وجودك حكاية كاملة ❤️ — رسالة رقم 741", "tag": "ذكريات"}, {"id": 742, "text": "كل ذكرى حلوة بتبدأ عندي باسم ملك 💌 — رسالة رقم 742", "tag": "صباح"}, {"id": 743, "text": "في وسط زحمة الدنيا، اسمك دايمًا بيخليني أهدى 🌙 — رسالة رقم 743", "tag": "مساء"}, {"id": 744, "text": "ملك، انتي من الحاجات القليلة اللي الواحد يتمنى الزمن ما يغيرهاش. — رسالة رقم 744", "tag": "مفاجأة"}, {"id": 745, "text": "يا ملك، وجودك في حياتي بيخلي اليوم العادي ذكرى جميلة ❤️ — رسالة رقم 745", "tag": "حب"}, {"id": 746, "text": "كل مرة أشوف اسمك فيها بحس إن الدنيا لسه فيها حاجات حلوة 💕 — رسالة رقم 746", "tag": "اشتياق"}, {"id": 747, "text": "أجمل حاجة في يومي إن فيه شخص اسمه ملك يستاهل كل الحب 🌹 — رسالة رقم 747", "tag": "ذكريات"}, {"id": 748, "text": "ضحكتك عندي أجمل من ألف نجمة في السما ✨ — رسالة رقم 748", "tag": "صباح"}, {"id": 749, "text": "وجودك مش تفصيلة صغيرة، وجودك حكاية كاملة ❤️ — رسالة رقم 749", "tag": "مساء"}, {"id": 750, "text": "كل ذكرى حلوة بتبدأ عندي باسم ملك 💌 — رسالة رقم 750", "tag": "مفاجأة"}, {"id": 751, "text": "في وسط زحمة الدنيا، اسمك دايمًا بيخليني أهدى 🌙 — رسالة رقم 751", "tag": "حب"}, {"id": 752, "text": "ملك، انتي من الحاجات القليلة اللي الواحد يتمنى الزمن ما يغيرهاش. — رسالة رقم 752", "tag": "اشتياق"}, {"id": 753, "text": "يا ملك، وجودك في حياتي بيخلي اليوم العادي ذكرى جميلة ❤️ — رسالة رقم 753", "tag": "ذكريات"}, {"id": 754, "text": "كل مرة أشوف اسمك فيها بحس إن الدنيا لسه فيها حاجات حلوة 💕 — رسالة رقم 754", "tag": "صباح"}, {"id": 755, "text": "أجمل حاجة في يومي إن فيه شخص اسمه ملك يستاهل كل الحب 🌹 — رسالة رقم 755", "tag": "مساء"}, {"id": 756, "text": "ضحكتك عندي أجمل من ألف نجمة في السما ✨ — رسالة رقم 756", "tag": "مفاجأة"}, {"id": 757, "text": "وجودك مش تفصيلة صغيرة، وجودك حكاية كاملة ❤️ — رسالة رقم 757", "tag": "حب"}, {"id": 758, "text": "كل ذكرى حلوة بتبدأ عندي باسم ملك 💌 — رسالة رقم 758", "tag": "اشتياق"}, {"id": 759, "text": "في وسط زحمة الدنيا، اسمك دايمًا بيخليني أهدى 🌙 — رسالة رقم 759", "tag": "ذكريات"}, {"id": 760, "text": "ملك، انتي من الحاجات القليلة اللي الواحد يتمنى الزمن ما يغيرهاش. — رسالة رقم 760", "tag": "صباح"}, {"id": 761, "text": "يا ملك، وجودك في حياتي بيخلي اليوم العادي ذكرى جميلة ❤️ — رسالة رقم 761", "tag": "مساء"}, {"id": 762, "text": "كل مرة أشوف اسمك فيها بحس إن الدنيا لسه فيها حاجات حلوة 💕 — رسالة رقم 762", "tag": "مفاجأة"}, {"id": 763, "text": "أجمل حاجة في يومي إن فيه شخص اسمه ملك يستاهل كل الحب 🌹 — رسالة رقم 763", "tag": "حب"}, {"id": 764, "text": "ضحكتك عندي أجمل من ألف نجمة في السما ✨ — رسالة رقم 764", "tag": "اشتياق"}, {"id": 765, "text": "وجودك مش تفصيلة صغيرة، وجودك حكاية كاملة ❤️ — رسالة رقم 765", "tag": "ذكريات"}, {"id": 766, "text": "كل ذكرى حلوة بتبدأ عندي باسم ملك 💌 — رسالة رقم 766", "tag": "صباح"}, {"id": 767, "text": "في وسط زحمة الدنيا، اسمك دايمًا بيخليني أهدى 🌙 — رسالة رقم 767", "tag": "مساء"}, {"id": 768, "text": "ملك، انتي من الحاجات القليلة اللي الواحد يتمنى الزمن ما يغيرهاش. — رسالة رقم 768", "tag": "مفاجأة"}, {"id": 769, "text": "يا ملك، وجودك في حياتي بيخلي اليوم العادي ذكرى جميلة ❤️ — رسالة رقم 769", "tag": "حب"}, {"id": 770, "text": "كل مرة أشوف اسمك فيها بحس إن الدنيا لسه فيها حاجات حلوة 💕 — رسالة رقم 770", "tag": "اشتياق"}, {"id": 771, "text": "أجمل حاجة في يومي إن فيه شخص اسمه ملك يستاهل كل الحب 🌹 — رسالة رقم 771", "tag": "ذكريات"}, {"id": 772, "text": "ضحكتك عندي أجمل من ألف نجمة في السما ✨ — رسالة رقم 772", "tag": "صباح"}, {"id": 773, "text": "وجودك مش تفصيلة صغيرة، وجودك حكاية كاملة ❤️ — رسالة رقم 773", "tag": "مساء"}, {"id": 774, "text": "كل ذكرى حلوة بتبدأ عندي باسم ملك 💌 — رسالة رقم 774", "tag": "مفاجأة"}, {"id": 775, "text": "في وسط زحمة الدنيا، اسمك دايمًا بيخليني أهدى 🌙 — رسالة رقم 775", "tag": "حب"}, {"id": 776, "text": "ملك، انتي من الحاجات القليلة اللي الواحد يتمنى الزمن ما يغيرهاش. — رسالة رقم 776", "tag": "اشتياق"}, {"id": 777, "text": "يا ملك، وجودك في حياتي بيخلي اليوم العادي ذكرى جميلة ❤️ — رسالة رقم 777", "tag": "ذكريات"}, {"id": 778, "text": "كل مرة أشوف اسمك فيها بحس إن الدنيا لسه فيها حاجات حلوة 💕 — رسالة رقم 778", "tag": "صباح"}, {"id": 779, "text": "أجمل حاجة في يومي إن فيه شخص اسمه ملك يستاهل كل الحب 🌹 — رسالة رقم 779", "tag": "مساء"}, {"id": 780, "text": "ضحكتك عندي أجمل من ألف نجمة في السما ✨ — رسالة رقم 780", "tag": "مفاجأة"}, {"id": 781, "text": "وجودك مش تفصيلة صغيرة، وجودك حكاية كاملة ❤️ — رسالة رقم 781", "tag": "حب"}, {"id": 782, "text": "كل ذكرى حلوة بتبدأ عندي باسم ملك 💌 — رسالة رقم 782", "tag": "اشتياق"}, {"id": 783, "text": "في وسط زحمة الدنيا، اسمك دايمًا بيخليني أهدى 🌙 — رسالة رقم 783", "tag": "ذكريات"}, {"id": 784, "text": "ملك، انتي من الحاجات القليلة اللي الواحد يتمنى الزمن ما يغيرهاش. — رسالة رقم 784", "tag": "صباح"}, {"id": 785, "text": "يا ملك، وجودك في حياتي بيخلي اليوم العادي ذكرى جميلة ❤️ — رسالة رقم 785", "tag": "مساء"}, {"id": 786, "text": "كل مرة أشوف اسمك فيها بحس إن الدنيا لسه فيها حاجات حلوة 💕 — رسالة رقم 786", "tag": "مفاجأة"}, {"id": 787, "text": "أجمل حاجة في يومي إن فيه شخص اسمه ملك يستاهل كل الحب 🌹 — رسالة رقم 787", "tag": "حب"}, {"id": 788, "text": "ضحكتك عندي أجمل من ألف نجمة في السما ✨ — رسالة رقم 788", "tag": "اشتياق"}, {"id": 789, "text": "وجودك مش تفصيلة صغيرة، وجودك حكاية كاملة ❤️ — رسالة رقم 789", "tag": "ذكريات"}, {"id": 790, "text": "كل ذكرى حلوة بتبدأ عندي باسم ملك 💌 — رسالة رقم 790", "tag": "صباح"}, {"id": 791, "text": "في وسط زحمة الدنيا، اسمك دايمًا بيخليني أهدى 🌙 — رسالة رقم 791", "tag": "مساء"}, {"id": 792, "text": "ملك، انتي من الحاجات القليلة اللي الواحد يتمنى الزمن ما يغيرهاش. — رسالة رقم 792", "tag": "مفاجأة"}, {"id": 793, "text": "يا ملك، وجودك في حياتي بيخلي اليوم العادي ذكرى جميلة ❤️ — رسالة رقم 793", "tag": "حب"}, {"id": 794, "text": "كل مرة أشوف اسمك فيها بحس إن الدنيا لسه فيها حاجات حلوة 💕 — رسالة رقم 794", "tag": "اشتياق"}, {"id": 795, "text": "أجمل حاجة في يومي إن فيه شخص اسمه ملك يستاهل كل الحب 🌹 — رسالة رقم 795", "tag": "ذكريات"}, {"id": 796, "text": "ضحكتك عندي أجمل من ألف نجمة في السما ✨ — رسالة رقم 796", "tag": "صباح"}, {"id": 797, "text": "وجودك مش تفصيلة صغيرة، وجودك حكاية كاملة ❤️ — رسالة رقم 797", "tag": "مساء"}, {"id": 798, "text": "كل ذكرى حلوة بتبدأ عندي باسم ملك 💌 — رسالة رقم 798", "tag": "مفاجأة"}, {"id": 799, "text": "في وسط زحمة الدنيا، اسمك دايمًا بيخليني أهدى 🌙 — رسالة رقم 799", "tag": "حب"}, {"id": 800, "text": "ملك، انتي من الحاجات القليلة اللي الواحد يتمنى الزمن ما يغيرهاش. — رسالة رقم 800", "tag": "اشتياق"}, {"id": 801, "text": "يا ملك، وجودك في حياتي بيخلي اليوم العادي ذكرى جميلة ❤️ — رسالة رقم 801", "tag": "ذكريات"}, {"id": 802, "text": "كل مرة أشوف اسمك فيها بحس إن الدنيا لسه فيها حاجات حلوة 💕 — رسالة رقم 802", "tag": "صباح"}, {"id": 803, "text": "أجمل حاجة في يومي إن فيه شخص اسمه ملك يستاهل كل الحب 🌹 — رسالة رقم 803", "tag": "مساء"}, {"id": 804, "text": "ضحكتك عندي أجمل من ألف نجمة في السما ✨ — رسالة رقم 804", "tag": "مفاجأة"}, {"id": 805, "text": "وجودك مش تفصيلة صغيرة، وجودك حكاية كاملة ❤️ — رسالة رقم 805", "tag": "حب"}, {"id": 806, "text": "كل ذكرى حلوة بتبدأ عندي باسم ملك 💌 — رسالة رقم 806", "tag": "اشتياق"}, {"id": 807, "text": "في وسط زحمة الدنيا، اسمك دايمًا بيخليني أهدى 🌙 — رسالة رقم 807", "tag": "ذكريات"}, {"id": 808, "text": "ملك، انتي من الحاجات القليلة اللي الواحد يتمنى الزمن ما يغيرهاش. — رسالة رقم 808", "tag": "صباح"}, {"id": 809, "text": "يا ملك، وجودك في حياتي بيخلي اليوم العادي ذكرى جميلة ❤️ — رسالة رقم 809", "tag": "مساء"}, {"id": 810, "text": "كل مرة أشوف اسمك فيها بحس إن الدنيا لسه فيها حاجات حلوة 💕 — رسالة رقم 810", "tag": "مفاجأة"}, {"id": 811, "text": "أجمل حاجة في يومي إن فيه شخص اسمه ملك يستاهل كل الحب 🌹 — رسالة رقم 811", "tag": "حب"}, {"id": 812, "text": "ضحكتك عندي أجمل من ألف نجمة في السما ✨ — رسالة رقم 812", "tag": "اشتياق"}, {"id": 813, "text": "وجودك مش تفصيلة صغيرة، وجودك حكاية كاملة ❤️ — رسالة رقم 813", "tag": "ذكريات"}, {"id": 814, "text": "كل ذكرى حلوة بتبدأ عندي باسم ملك 💌 — رسالة رقم 814", "tag": "صباح"}, {"id": 815, "text": "في وسط زحمة الدنيا، اسمك دايمًا بيخليني أهدى 🌙 — رسالة رقم 815", "tag": "مساء"}, {"id": 816, "text": "ملك، انتي من الحاجات القليلة اللي الواحد يتمنى الزمن ما يغيرهاش. — رسالة رقم 816", "tag": "مفاجأة"}, {"id": 817, "text": "يا ملك، وجودك في حياتي بيخلي اليوم العادي ذكرى جميلة ❤️ — رسالة رقم 817", "tag": "حب"}, {"id": 818, "text": "كل مرة أشوف اسمك فيها بحس إن الدنيا لسه فيها حاجات حلوة 💕 — رسالة رقم 818", "tag": "اشتياق"}, {"id": 819, "text": "أجمل حاجة في يومي إن فيه شخص اسمه ملك يستاهل كل الحب 🌹 — رسالة رقم 819", "tag": "ذكريات"}, {"id": 820, "text": "ضحكتك عندي أجمل من ألف نجمة في السما ✨ — رسالة رقم 820", "tag": "صباح"}, {"id": 821, "text": "وجودك مش تفصيلة صغيرة، وجودك حكاية كاملة ❤️ — رسالة رقم 821", "tag": "مساء"}, {"id": 822, "text": "كل ذكرى حلوة بتبدأ عندي باسم ملك 💌 — رسالة رقم 822", "tag": "مفاجأة"}, {"id": 823, "text": "في وسط زحمة الدنيا، اسمك دايمًا بيخليني أهدى 🌙 — رسالة رقم 823", "tag": "حب"}, {"id": 824, "text": "ملك، انتي من الحاجات القليلة اللي الواحد يتمنى الزمن ما يغيرهاش. — رسالة رقم 824", "tag": "اشتياق"}, {"id": 825, "text": "يا ملك، وجودك في حياتي بيخلي اليوم العادي ذكرى جميلة ❤️ — رسالة رقم 825", "tag": "ذكريات"}, {"id": 826, "text": "كل مرة أشوف اسمك فيها بحس إن الدنيا لسه فيها حاجات حلوة 💕 — رسالة رقم 826", "tag": "صباح"}, {"id": 827, "text": "أجمل حاجة في يومي إن فيه شخص اسمه ملك يستاهل كل الحب 🌹 — رسالة رقم 827", "tag": "مساء"}, {"id": 828, "text": "ضحكتك عندي أجمل من ألف نجمة في السما ✨ — رسالة رقم 828", "tag": "مفاجأة"}, {"id": 829, "text": "وجودك مش تفصيلة صغيرة، وجودك حكاية كاملة ❤️ — رسالة رقم 829", "tag": "حب"}, {"id": 830, "text": "كل ذكرى حلوة بتبدأ عندي باسم ملك 💌 — رسالة رقم 830", "tag": "اشتياق"}, {"id": 831, "text": "في وسط زحمة الدنيا، اسمك دايمًا بيخليني أهدى 🌙 — رسالة رقم 831", "tag": "ذكريات"}, {"id": 832, "text": "ملك، انتي من الحاجات القليلة اللي الواحد يتمنى الزمن ما يغيرهاش. — رسالة رقم 832", "tag": "صباح"}, {"id": 833, "text": "يا ملك، وجودك في حياتي بيخلي اليوم العادي ذكرى جميلة ❤️ — رسالة رقم 833", "tag": "مساء"}, {"id": 834, "text": "كل مرة أشوف اسمك فيها بحس إن الدنيا لسه فيها حاجات حلوة 💕 — رسالة رقم 834", "tag": "مفاجأة"}, {"id": 835, "text": "أجمل حاجة في يومي إن فيه شخص اسمه ملك يستاهل كل الحب 🌹 — رسالة رقم 835", "tag": "حب"}, {"id": 836, "text": "ضحكتك عندي أجمل من ألف نجمة في السما ✨ — رسالة رقم 836", "tag": "اشتياق"}, {"id": 837, "text": "وجودك مش تفصيلة صغيرة، وجودك حكاية كاملة ❤️ — رسالة رقم 837", "tag": "ذكريات"}, {"id": 838, "text": "كل ذكرى حلوة بتبدأ عندي باسم ملك 💌 — رسالة رقم 838", "tag": "صباح"}, {"id": 839, "text": "في وسط زحمة الدنيا، اسمك دايمًا بيخليني أهدى 🌙 — رسالة رقم 839", "tag": "مساء"}, {"id": 840, "text": "ملك، انتي من الحاجات القليلة اللي الواحد يتمنى الزمن ما يغيرهاش. — رسالة رقم 840", "tag": "مفاجأة"}, {"id": 841, "text": "يا ملك، وجودك في حياتي بيخلي اليوم العادي ذكرى جميلة ❤️ — رسالة رقم 841", "tag": "حب"}, {"id": 842, "text": "كل مرة أشوف اسمك فيها بحس إن الدنيا لسه فيها حاجات حلوة 💕 — رسالة رقم 842", "tag": "اشتياق"}, {"id": 843, "text": "أجمل حاجة في يومي إن فيه شخص اسمه ملك يستاهل كل الحب 🌹 — رسالة رقم 843", "tag": "ذكريات"}, {"id": 844, "text": "ضحكتك عندي أجمل من ألف نجمة في السما ✨ — رسالة رقم 844", "tag": "صباح"}, {"id": 845, "text": "وجودك مش تفصيلة صغيرة، وجودك حكاية كاملة ❤️ — رسالة رقم 845", "tag": "مساء"}, {"id": 846, "text": "كل ذكرى حلوة بتبدأ عندي باسم ملك 💌 — رسالة رقم 846", "tag": "مفاجأة"}, {"id": 847, "text": "في وسط زحمة الدنيا، اسمك دايمًا بيخليني أهدى 🌙 — رسالة رقم 847", "tag": "حب"}, {"id": 848, "text": "ملك، انتي من الحاجات القليلة اللي الواحد يتمنى الزمن ما يغيرهاش. — رسالة رقم 848", "tag": "اشتياق"}, {"id": 849, "text": "يا ملك، وجودك في حياتي بيخلي اليوم العادي ذكرى جميلة ❤️ — رسالة رقم 849", "tag": "ذكريات"}, {"id": 850, "text": "كل مرة أشوف اسمك فيها بحس إن الدنيا لسه فيها حاجات حلوة 💕 — رسالة رقم 850", "tag": "صباح"}, {"id": 851, "text": "أجمل حاجة في يومي إن فيه شخص اسمه ملك يستاهل كل الحب 🌹 — رسالة رقم 851", "tag": "مساء"}, {"id": 852, "text": "ضحكتك عندي أجمل من ألف نجمة في السما ✨ — رسالة رقم 852", "tag": "مفاجأة"}, {"id": 853, "text": "وجودك مش تفصيلة صغيرة، وجودك حكاية كاملة ❤️ — رسالة رقم 853", "tag": "حب"}, {"id": 854, "text": "كل ذكرى حلوة بتبدأ عندي باسم ملك 💌 — رسالة رقم 854", "tag": "اشتياق"}, {"id": 855, "text": "في وسط زحمة الدنيا، اسمك دايمًا بيخليني أهدى 🌙 — رسالة رقم 855", "tag": "ذكريات"}, {"id": 856, "text": "ملك، انتي من الحاجات القليلة اللي الواحد يتمنى الزمن ما يغيرهاش. — رسالة رقم 856", "tag": "صباح"}, {"id": 857, "text": "يا ملك، وجودك في حياتي بيخلي اليوم العادي ذكرى جميلة ❤️ — رسالة رقم 857", "tag": "مساء"}, {"id": 858, "text": "كل مرة أشوف اسمك فيها بحس إن الدنيا لسه فيها حاجات حلوة 💕 — رسالة رقم 858", "tag": "مفاجأة"}, {"id": 859, "text": "أجمل حاجة في يومي إن فيه شخص اسمه ملك يستاهل كل الحب 🌹 — رسالة رقم 859", "tag": "حب"}, {"id": 860, "text": "ضحكتك عندي أجمل من ألف نجمة في السما ✨ — رسالة رقم 860", "tag": "اشتياق"}, {"id": 861, "text": "وجودك مش تفصيلة صغيرة، وجودك حكاية كاملة ❤️ — رسالة رقم 861", "tag": "ذكريات"}, {"id": 862, "text": "كل ذكرى حلوة بتبدأ عندي باسم ملك 💌 — رسالة رقم 862", "tag": "صباح"}, {"id": 863, "text": "في وسط زحمة الدنيا، اسمك دايمًا بيخليني أهدى 🌙 — رسالة رقم 863", "tag": "مساء"}, {"id": 864, "text": "ملك، انتي من الحاجات القليلة اللي الواحد يتمنى الزمن ما يغيرهاش. — رسالة رقم 864", "tag": "مفاجأة"}, {"id": 865, "text": "يا ملك، وجودك في حياتي بيخلي اليوم العادي ذكرى جميلة ❤️ — رسالة رقم 865", "tag": "حب"}, {"id": 866, "text": "كل مرة أشوف اسمك فيها بحس إن الدنيا لسه فيها حاجات حلوة 💕 — رسالة رقم 866", "tag": "اشتياق"}, {"id": 867, "text": "أجمل حاجة في يومي إن فيه شخص اسمه ملك يستاهل كل الحب 🌹 — رسالة رقم 867", "tag": "ذكريات"}, {"id": 868, "text": "ضحكتك عندي أجمل من ألف نجمة في السما ✨ — رسالة رقم 868", "tag": "صباح"}, {"id": 869, "text": "وجودك مش تفصيلة صغيرة، وجودك حكاية كاملة ❤️ — رسالة رقم 869", "tag": "مساء"}, {"id": 870, "text": "كل ذكرى حلوة بتبدأ عندي باسم ملك 💌 — رسالة رقم 870", "tag": "مفاجأة"}, {"id": 871, "text": "في وسط زحمة الدنيا، اسمك دايمًا بيخليني أهدى 🌙 — رسالة رقم 871", "tag": "حب"}, {"id": 872, "text": "ملك، انتي من الحاجات القليلة اللي الواحد يتمنى الزمن ما يغيرهاش. — رسالة رقم 872", "tag": "اشتياق"}, {"id": 873, "text": "يا ملك، وجودك في حياتي بيخلي اليوم العادي ذكرى جميلة ❤️ — رسالة رقم 873", "tag": "ذكريات"}, {"id": 874, "text": "كل مرة أشوف اسمك فيها بحس إن الدنيا لسه فيها حاجات حلوة 💕 — رسالة رقم 874", "tag": "صباح"}, {"id": 875, "text": "أجمل حاجة في يومي إن فيه شخص اسمه ملك يستاهل كل الحب 🌹 — رسالة رقم 875", "tag": "مساء"}, {"id": 876, "text": "ضحكتك عندي أجمل من ألف نجمة في السما ✨ — رسالة رقم 876", "tag": "مفاجأة"}, {"id": 877, "text": "وجودك مش تفصيلة صغيرة، وجودك حكاية كاملة ❤️ — رسالة رقم 877", "tag": "حب"}, {"id": 878, "text": "كل ذكرى حلوة بتبدأ عندي باسم ملك 💌 — رسالة رقم 878", "tag": "اشتياق"}, {"id": 879, "text": "في وسط زحمة الدنيا، اسمك دايمًا بيخليني أهدى 🌙 — رسالة رقم 879", "tag": "ذكريات"}, {"id": 880, "text": "ملك، انتي من الحاجات القليلة اللي الواحد يتمنى الزمن ما يغيرهاش. — رسالة رقم 880", "tag": "صباح"}, {"id": 881, "text": "يا ملك، وجودك في حياتي بيخلي اليوم العادي ذكرى جميلة ❤️ — رسالة رقم 881", "tag": "مساء"}, {"id": 882, "text": "كل مرة أشوف اسمك فيها بحس إن الدنيا لسه فيها حاجات حلوة 💕 — رسالة رقم 882", "tag": "مفاجأة"}, {"id": 883, "text": "أجمل حاجة في يومي إن فيه شخص اسمه ملك يستاهل كل الحب 🌹 — رسالة رقم 883", "tag": "حب"}, {"id": 884, "text": "ضحكتك عندي أجمل من ألف نجمة في السما ✨ — رسالة رقم 884", "tag": "اشتياق"}, {"id": 885, "text": "وجودك مش تفصيلة صغيرة، وجودك حكاية كاملة ❤️ — رسالة رقم 885", "tag": "ذكريات"}, {"id": 886, "text": "كل ذكرى حلوة بتبدأ عندي باسم ملك 💌 — رسالة رقم 886", "tag": "صباح"}, {"id": 887, "text": "في وسط زحمة الدنيا، اسمك دايمًا بيخليني أهدى 🌙 — رسالة رقم 887", "tag": "مساء"}, {"id": 888, "text": "ملك، انتي من الحاجات القليلة اللي الواحد يتمنى الزمن ما يغيرهاش. — رسالة رقم 888", "tag": "مفاجأة"}, {"id": 889, "text": "يا ملك، وجودك في حياتي بيخلي اليوم العادي ذكرى جميلة ❤️ — رسالة رقم 889", "tag": "حب"}, {"id": 890, "text": "كل مرة أشوف اسمك فيها بحس إن الدنيا لسه فيها حاجات حلوة 💕 — رسالة رقم 890", "tag": "اشتياق"}, {"id": 891, "text": "أجمل حاجة في يومي إن فيه شخص اسمه ملك يستاهل كل الحب 🌹 — رسالة رقم 891", "tag": "ذكريات"}, {"id": 892, "text": "ضحكتك عندي أجمل من ألف نجمة في السما ✨ — رسالة رقم 892", "tag": "صباح"}, {"id": 893, "text": "وجودك مش تفصيلة صغيرة، وجودك حكاية كاملة ❤️ — رسالة رقم 893", "tag": "مساء"}, {"id": 894, "text": "كل ذكرى حلوة بتبدأ عندي باسم ملك 💌 — رسالة رقم 894", "tag": "مفاجأة"}, {"id": 895, "text": "في وسط زحمة الدنيا، اسمك دايمًا بيخليني أهدى 🌙 — رسالة رقم 895", "tag": "حب"}, {"id": 896, "text": "ملك، انتي من الحاجات القليلة اللي الواحد يتمنى الزمن ما يغيرهاش. — رسالة رقم 896", "tag": "اشتياق"}, {"id": 897, "text": "يا ملك، وجودك في حياتي بيخلي اليوم العادي ذكرى جميلة ❤️ — رسالة رقم 897", "tag": "ذكريات"}, {"id": 898, "text": "كل مرة أشوف اسمك فيها بحس إن الدنيا لسه فيها حاجات حلوة 💕 — رسالة رقم 898", "tag": "صباح"}, {"id": 899, "text": "أجمل حاجة في يومي إن فيه شخص اسمه ملك يستاهل كل الحب 🌹 — رسالة رقم 899", "tag": "مساء"}, {"id": 900, "text": "ضحكتك عندي أجمل من ألف نجمة في السما ✨ — رسالة رقم 900", "tag": "مفاجأة"}, {"id": 901, "text": "وجودك مش تفصيلة صغيرة، وجودك حكاية كاملة ❤️ — رسالة رقم 901", "tag": "حب"}, {"id": 902, "text": "كل ذكرى حلوة بتبدأ عندي باسم ملك 💌 — رسالة رقم 902", "tag": "اشتياق"}, {"id": 903, "text": "في وسط زحمة الدنيا، اسمك دايمًا بيخليني أهدى 🌙 — رسالة رقم 903", "tag": "ذكريات"}, {"id": 904, "text": "ملك، انتي من الحاجات القليلة اللي الواحد يتمنى الزمن ما يغيرهاش. — رسالة رقم 904", "tag": "صباح"}, {"id": 905, "text": "يا ملك، وجودك في حياتي بيخلي اليوم العادي ذكرى جميلة ❤️ — رسالة رقم 905", "tag": "مساء"}, {"id": 906, "text": "كل مرة أشوف اسمك فيها بحس إن الدنيا لسه فيها حاجات حلوة 💕 — رسالة رقم 906", "tag": "مفاجأة"}, {"id": 907, "text": "أجمل حاجة في يومي إن فيه شخص اسمه ملك يستاهل كل الحب 🌹 — رسالة رقم 907", "tag": "حب"}, {"id": 908, "text": "ضحكتك عندي أجمل من ألف نجمة في السما ✨ — رسالة رقم 908", "tag": "اشتياق"}, {"id": 909, "text": "وجودك مش تفصيلة صغيرة، وجودك حكاية كاملة ❤️ — رسالة رقم 909", "tag": "ذكريات"}, {"id": 910, "text": "كل ذكرى حلوة بتبدأ عندي باسم ملك 💌 — رسالة رقم 910", "tag": "صباح"}, {"id": 911, "text": "في وسط زحمة الدنيا، اسمك دايمًا بيخليني أهدى 🌙 — رسالة رقم 911", "tag": "مساء"}, {"id": 912, "text": "ملك، انتي من الحاجات القليلة اللي الواحد يتمنى الزمن ما يغيرهاش. — رسالة رقم 912", "tag": "مفاجأة"}, {"id": 913, "text": "يا ملك، وجودك في حياتي بيخلي اليوم العادي ذكرى جميلة ❤️ — رسالة رقم 913", "tag": "حب"}, {"id": 914, "text": "كل مرة أشوف اسمك فيها بحس إن الدنيا لسه فيها حاجات حلوة 💕 — رسالة رقم 914", "tag": "اشتياق"}, {"id": 915, "text": "أجمل حاجة في يومي إن فيه شخص اسمه ملك يستاهل كل الحب 🌹 — رسالة رقم 915", "tag": "ذكريات"}, {"id": 916, "text": "ضحكتك عندي أجمل من ألف نجمة في السما ✨ — رسالة رقم 916", "tag": "صباح"}, {"id": 917, "text": "وجودك مش تفصيلة صغيرة، وجودك حكاية كاملة ❤️ — رسالة رقم 917", "tag": "مساء"}, {"id": 918, "text": "كل ذكرى حلوة بتبدأ عندي باسم ملك 💌 — رسالة رقم 918", "tag": "مفاجأة"}, {"id": 919, "text": "في وسط زحمة الدنيا، اسمك دايمًا بيخليني أهدى 🌙 — رسالة رقم 919", "tag": "حب"}, {"id": 920, "text": "ملك، انتي من الحاجات القليلة اللي الواحد يتمنى الزمن ما يغيرهاش. — رسالة رقم 920", "tag": "اشتياق"}, {"id": 921, "text": "يا ملك، وجودك في حياتي بيخلي اليوم العادي ذكرى جميلة ❤️ — رسالة رقم 921", "tag": "ذكريات"}, {"id": 922, "text": "كل مرة أشوف اسمك فيها بحس إن الدنيا لسه فيها حاجات حلوة 💕 — رسالة رقم 922", "tag": "صباح"}, {"id": 923, "text": "أجمل حاجة في يومي إن فيه شخص اسمه ملك يستاهل كل الحب 🌹 — رسالة رقم 923", "tag": "مساء"}, {"id": 924, "text": "ضحكتك عندي أجمل من ألف نجمة في السما ✨ — رسالة رقم 924", "tag": "مفاجأة"}, {"id": 925, "text": "وجودك مش تفصيلة صغيرة، وجودك حكاية كاملة ❤️ — رسالة رقم 925", "tag": "حب"}, {"id": 926, "text": "كل ذكرى حلوة بتبدأ عندي باسم ملك 💌 — رسالة رقم 926", "tag": "اشتياق"}, {"id": 927, "text": "في وسط زحمة الدنيا، اسمك دايمًا بيخليني أهدى 🌙 — رسالة رقم 927", "tag": "ذكريات"}, {"id": 928, "text": "ملك، انتي من الحاجات القليلة اللي الواحد يتمنى الزمن ما يغيرهاش. — رسالة رقم 928", "tag": "صباح"}, {"id": 929, "text": "يا ملك، وجودك في حياتي بيخلي اليوم العادي ذكرى جميلة ❤️ — رسالة رقم 929", "tag": "مساء"}, {"id": 930, "text": "كل مرة أشوف اسمك فيها بحس إن الدنيا لسه فيها حاجات حلوة 💕 — رسالة رقم 930", "tag": "مفاجأة"}, {"id": 931, "text": "أجمل حاجة في يومي إن فيه شخص اسمه ملك يستاهل كل الحب 🌹 — رسالة رقم 931", "tag": "حب"}, {"id": 932, "text": "ضحكتك عندي أجمل من ألف نجمة في السما ✨ — رسالة رقم 932", "tag": "اشتياق"}, {"id": 933, "text": "وجودك مش تفصيلة صغيرة، وجودك حكاية كاملة ❤️ — رسالة رقم 933", "tag": "ذكريات"}, {"id": 934, "text": "كل ذكرى حلوة بتبدأ عندي باسم ملك 💌 — رسالة رقم 934", "tag": "صباح"}, {"id": 935, "text": "في وسط زحمة الدنيا، اسمك دايمًا بيخليني أهدى 🌙 — رسالة رقم 935", "tag": "مساء"}, {"id": 936, "text": "ملك، انتي من الحاجات القليلة اللي الواحد يتمنى الزمن ما يغيرهاش. — رسالة رقم 936", "tag": "مفاجأة"}, {"id": 937, "text": "يا ملك، وجودك في حياتي بيخلي اليوم العادي ذكرى جميلة ❤️ — رسالة رقم 937", "tag": "حب"}, {"id": 938, "text": "كل مرة أشوف اسمك فيها بحس إن الدنيا لسه فيها حاجات حلوة 💕 — رسالة رقم 938", "tag": "اشتياق"}, {"id": 939, "text": "أجمل حاجة في يومي إن فيه شخص اسمه ملك يستاهل كل الحب 🌹 — رسالة رقم 939", "tag": "ذكريات"}, {"id": 940, "text": "ضحكتك عندي أجمل من ألف نجمة في السما ✨ — رسالة رقم 940", "tag": "صباح"}, {"id": 941, "text": "وجودك مش تفصيلة صغيرة، وجودك حكاية كاملة ❤️ — رسالة رقم 941", "tag": "مساء"}, {"id": 942, "text": "كل ذكرى حلوة بتبدأ عندي باسم ملك 💌 — رسالة رقم 942", "tag": "مفاجأة"}, {"id": 943, "text": "في وسط زحمة الدنيا، اسمك دايمًا بيخليني أهدى 🌙 — رسالة رقم 943", "tag": "حب"}, {"id": 944, "text": "ملك، انتي من الحاجات القليلة اللي الواحد يتمنى الزمن ما يغيرهاش. — رسالة رقم 944", "tag": "اشتياق"}, {"id": 945, "text": "يا ملك، وجودك في حياتي بيخلي اليوم العادي ذكرى جميلة ❤️ — رسالة رقم 945", "tag": "ذكريات"}, {"id": 946, "text": "كل مرة أشوف اسمك فيها بحس إن الدنيا لسه فيها حاجات حلوة 💕 — رسالة رقم 946", "tag": "صباح"}, {"id": 947, "text": "أجمل حاجة في يومي إن فيه شخص اسمه ملك يستاهل كل الحب 🌹 — رسالة رقم 947", "tag": "مساء"}, {"id": 948, "text": "ضحكتك عندي أجمل من ألف نجمة في السما ✨ — رسالة رقم 948", "tag": "مفاجأة"}, {"id": 949, "text": "وجودك مش تفصيلة صغيرة، وجودك حكاية كاملة ❤️ — رسالة رقم 949", "tag": "حب"}, {"id": 950, "text": "كل ذكرى حلوة بتبدأ عندي باسم ملك 💌 — رسالة رقم 950", "tag": "اشتياق"}, {"id": 951, "text": "في وسط زحمة الدنيا، اسمك دايمًا بيخليني أهدى 🌙 — رسالة رقم 951", "tag": "ذكريات"}, {"id": 952, "text": "ملك، انتي من الحاجات القليلة اللي الواحد يتمنى الزمن ما يغيرهاش. — رسالة رقم 952", "tag": "صباح"}, {"id": 953, "text": "يا ملك، وجودك في حياتي بيخلي اليوم العادي ذكرى جميلة ❤️ — رسالة رقم 953", "tag": "مساء"}, {"id": 954, "text": "كل مرة أشوف اسمك فيها بحس إن الدنيا لسه فيها حاجات حلوة 💕 — رسالة رقم 954", "tag": "مفاجأة"}, {"id": 955, "text": "أجمل حاجة في يومي إن فيه شخص اسمه ملك يستاهل كل الحب 🌹 — رسالة رقم 955", "tag": "حب"}, {"id": 956, "text": "ضحكتك عندي أجمل من ألف نجمة في السما ✨ — رسالة رقم 956", "tag": "اشتياق"}, {"id": 957, "text": "وجودك مش تفصيلة صغيرة، وجودك حكاية كاملة ❤️ — رسالة رقم 957", "tag": "ذكريات"}, {"id": 958, "text": "كل ذكرى حلوة بتبدأ عندي باسم ملك 💌 — رسالة رقم 958", "tag": "صباح"}, {"id": 959, "text": "في وسط زحمة الدنيا، اسمك دايمًا بيخليني أهدى 🌙 — رسالة رقم 959", "tag": "مساء"}, {"id": 960, "text": "ملك، انتي من الحاجات القليلة اللي الواحد يتمنى الزمن ما يغيرهاش. — رسالة رقم 960", "tag": "مفاجأة"}, {"id": 961, "text": "يا ملك، وجودك في حياتي بيخلي اليوم العادي ذكرى جميلة ❤️ — رسالة رقم 961", "tag": "حب"}, {"id": 962, "text": "كل مرة أشوف اسمك فيها بحس إن الدنيا لسه فيها حاجات حلوة 💕 — رسالة رقم 962", "tag": "اشتياق"}, {"id": 963, "text": "أجمل حاجة في يومي إن فيه شخص اسمه ملك يستاهل كل الحب 🌹 — رسالة رقم 963", "tag": "ذكريات"}, {"id": 964, "text": "ضحكتك عندي أجمل من ألف نجمة في السما ✨ — رسالة رقم 964", "tag": "صباح"}, {"id": 965, "text": "وجودك مش تفصيلة صغيرة، وجودك حكاية كاملة ❤️ — رسالة رقم 965", "tag": "مساء"}, {"id": 966, "text": "كل ذكرى حلوة بتبدأ عندي باسم ملك 💌 — رسالة رقم 966", "tag": "مفاجأة"}, {"id": 967, "text": "في وسط زحمة الدنيا، اسمك دايمًا بيخليني أهدى 🌙 — رسالة رقم 967", "tag": "حب"}, {"id": 968, "text": "ملك، انتي من الحاجات القليلة اللي الواحد يتمنى الزمن ما يغيرهاش. — رسالة رقم 968", "tag": "اشتياق"}, {"id": 969, "text": "يا ملك، وجودك في حياتي بيخلي اليوم العادي ذكرى جميلة ❤️ — رسالة رقم 969", "tag": "ذكريات"}, {"id": 970, "text": "كل مرة أشوف اسمك فيها بحس إن الدنيا لسه فيها حاجات حلوة 💕 — رسالة رقم 970", "tag": "صباح"}, {"id": 971, "text": "أجمل حاجة في يومي إن فيه شخص اسمه ملك يستاهل كل الحب 🌹 — رسالة رقم 971", "tag": "مساء"}, {"id": 972, "text": "ضحكتك عندي أجمل من ألف نجمة في السما ✨ — رسالة رقم 972", "tag": "مفاجأة"}, {"id": 973, "text": "وجودك مش تفصيلة صغيرة، وجودك حكاية كاملة ❤️ — رسالة رقم 973", "tag": "حب"}, {"id": 974, "text": "كل ذكرى حلوة بتبدأ عندي باسم ملك 💌 — رسالة رقم 974", "tag": "اشتياق"}, {"id": 975, "text": "في وسط زحمة الدنيا، اسمك دايمًا بيخليني أهدى 🌙 — رسالة رقم 975", "tag": "ذكريات"}, {"id": 976, "text": "ملك، انتي من الحاجات القليلة اللي الواحد يتمنى الزمن ما يغيرهاش. — رسالة رقم 976", "tag": "صباح"}, {"id": 977, "text": "يا ملك، وجودك في حياتي بيخلي اليوم العادي ذكرى جميلة ❤️ — رسالة رقم 977", "tag": "مساء"}, {"id": 978, "text": "كل مرة أشوف اسمك فيها بحس إن الدنيا لسه فيها حاجات حلوة 💕 — رسالة رقم 978", "tag": "مفاجأة"}, {"id": 979, "text": "أجمل حاجة في يومي إن فيه شخص اسمه ملك يستاهل كل الحب 🌹 — رسالة رقم 979", "tag": "حب"}, {"id": 980, "text": "ضحكتك عندي أجمل من ألف نجمة في السما ✨ — رسالة رقم 980", "tag": "اشتياق"}, {"id": 981, "text": "وجودك مش تفصيلة صغيرة، وجودك حكاية كاملة ❤️ — رسالة رقم 981", "tag": "ذكريات"}, {"id": 982, "text": "كل ذكرى حلوة بتبدأ عندي باسم ملك 💌 — رسالة رقم 982", "tag": "صباح"}, {"id": 983, "text": "في وسط زحمة الدنيا، اسمك دايمًا بيخليني أهدى 🌙 — رسالة رقم 983", "tag": "مساء"}, {"id": 984, "text": "ملك، انتي من الحاجات القليلة اللي الواحد يتمنى الزمن ما يغيرهاش. — رسالة رقم 984", "tag": "مفاجأة"}, {"id": 985, "text": "يا ملك، وجودك في حياتي بيخلي اليوم العادي ذكرى جميلة ❤️ — رسالة رقم 985", "tag": "حب"}, {"id": 986, "text": "كل مرة أشوف اسمك فيها بحس إن الدنيا لسه فيها حاجات حلوة 💕 — رسالة رقم 986", "tag": "اشتياق"}, {"id": 987, "text": "أجمل حاجة في يومي إن فيه شخص اسمه ملك يستاهل كل الحب 🌹 — رسالة رقم 987", "tag": "ذكريات"}, {"id": 988, "text": "ضحكتك عندي أجمل من ألف نجمة في السما ✨ — رسالة رقم 988", "tag": "صباح"}, {"id": 989, "text": "وجودك مش تفصيلة صغيرة، وجودك حكاية كاملة ❤️ — رسالة رقم 989", "tag": "مساء"}, {"id": 990, "text": "كل ذكرى حلوة بتبدأ عندي باسم ملك 💌 — رسالة رقم 990", "tag": "مفاجأة"}, {"id": 991, "text": "في وسط زحمة الدنيا، اسمك دايمًا بيخليني أهدى 🌙 — رسالة رقم 991", "tag": "حب"}, {"id": 992, "text": "ملك، انتي من الحاجات القليلة اللي الواحد يتمنى الزمن ما يغيرهاش. — رسالة رقم 992", "tag": "اشتياق"}, {"id": 993, "text": "يا ملك، وجودك في حياتي بيخلي اليوم العادي ذكرى جميلة ❤️ — رسالة رقم 993", "tag": "ذكريات"}, {"id": 994, "text": "كل مرة أشوف اسمك فيها بحس إن الدنيا لسه فيها حاجات حلوة 💕 — رسالة رقم 994", "tag": "صباح"}, {"id": 995, "text": "أجمل حاجة في يومي إن فيه شخص اسمه ملك يستاهل كل الحب 🌹 — رسالة رقم 995", "tag": "مساء"}, {"id": 996, "text": "ضحكتك عندي أجمل من ألف نجمة في السما ✨ — رسالة رقم 996", "tag": "مفاجأة"}, {"id": 997, "text": "وجودك مش تفصيلة صغيرة، وجودك حكاية كاملة ❤️ — رسالة رقم 997", "tag": "حب"}, {"id": 998, "text": "كل ذكرى حلوة بتبدأ عندي باسم ملك 💌 — رسالة رقم 998", "tag": "اشتياق"}, {"id": 999, "text": "في وسط زحمة الدنيا، اسمك دايمًا بيخليني أهدى 🌙 — رسالة رقم 999", "tag": "ذكريات"}, {"id": 1000, "text": "ملك، انتي من الحاجات القليلة اللي الواحد يتمنى الزمن ما يغيرهاش. — رسالة رقم 1000", "tag": "صباح"}, {"id": 1001, "text": "يا ملك، وجودك في حياتي بيخلي اليوم العادي ذكرى جميلة ❤️ — رسالة رقم 1001", "tag": "مساء"}, {"id": 1002, "text": "كل مرة أشوف اسمك فيها بحس إن الدنيا لسه فيها حاجات حلوة 💕 — رسالة رقم 1002", "tag": "مفاجأة"}, {"id": 1003, "text": "أجمل حاجة في يومي إن فيه شخص اسمه ملك يستاهل كل الحب 🌹 — رسالة رقم 1003", "tag": "حب"}, {"id": 1004, "text": "ضحكتك عندي أجمل من ألف نجمة في السما ✨ — رسالة رقم 1004", "tag": "اشتياق"}, {"id": 1005, "text": "وجودك مش تفصيلة صغيرة، وجودك حكاية كاملة ❤️ — رسالة رقم 1005", "tag": "ذكريات"}, {"id": 1006, "text": "كل ذكرى حلوة بتبدأ عندي باسم ملك 💌 — رسالة رقم 1006", "tag": "صباح"}, {"id": 1007, "text": "في وسط زحمة الدنيا، اسمك دايمًا بيخليني أهدى 🌙 — رسالة رقم 1007", "tag": "مساء"}, {"id": 1008, "text": "ملك، انتي من الحاجات القليلة اللي الواحد يتمنى الزمن ما يغيرهاش. — رسالة رقم 1008", "tag": "مفاجأة"}, {"id": 1009, "text": "يا ملك، وجودك في حياتي بيخلي اليوم العادي ذكرى جميلة ❤️ — رسالة رقم 1009", "tag": "حب"}, {"id": 1010, "text": "كل مرة أشوف اسمك فيها بحس إن الدنيا لسه فيها حاجات حلوة 💕 — رسالة رقم 1010", "tag": "اشتياق"}, {"id": 1011, "text": "أجمل حاجة في يومي إن فيه شخص اسمه ملك يستاهل كل الحب 🌹 — رسالة رقم 1011", "tag": "ذكريات"}, {"id": 1012, "text": "ضحكتك عندي أجمل من ألف نجمة في السما ✨ — رسالة رقم 1012", "tag": "صباح"}, {"id": 1013, "text": "وجودك مش تفصيلة صغيرة، وجودك حكاية كاملة ❤️ — رسالة رقم 1013", "tag": "مساء"}, {"id": 1014, "text": "كل ذكرى حلوة بتبدأ عندي باسم ملك 💌 — رسالة رقم 1014", "tag": "مفاجأة"}, {"id": 1015, "text": "في وسط زحمة الدنيا، اسمك دايمًا بيخليني أهدى 🌙 — رسالة رقم 1015", "tag": "حب"}, {"id": 1016, "text": "ملك، انتي من الحاجات القليلة اللي الواحد يتمنى الزمن ما يغيرهاش. — رسالة رقم 1016", "tag": "اشتياق"}, {"id": 1017, "text": "يا ملك، وجودك في حياتي بيخلي اليوم العادي ذكرى جميلة ❤️ — رسالة رقم 1017", "tag": "ذكريات"}, {"id": 1018, "text": "كل مرة أشوف اسمك فيها بحس إن الدنيا لسه فيها حاجات حلوة 💕 — رسالة رقم 1018", "tag": "صباح"}, {"id": 1019, "text": "أجمل حاجة في يومي إن فيه شخص اسمه ملك يستاهل كل الحب 🌹 — رسالة رقم 1019", "tag": "مساء"}, {"id": 1020, "text": "ضحكتك عندي أجمل من ألف نجمة في السما ✨ — رسالة رقم 1020", "tag": "مفاجأة"}, {"id": 1021, "text": "وجودك مش تفصيلة صغيرة، وجودك حكاية كاملة ❤️ — رسالة رقم 1021", "tag": "حب"}, {"id": 1022, "text": "كل ذكرى حلوة بتبدأ عندي باسم ملك 💌 — رسالة رقم 1022", "tag": "اشتياق"}, {"id": 1023, "text": "في وسط زحمة الدنيا، اسمك دايمًا بيخليني أهدى 🌙 — رسالة رقم 1023", "tag": "ذكريات"}, {"id": 1024, "text": "ملك، انتي من الحاجات القليلة اللي الواحد يتمنى الزمن ما يغيرهاش. — رسالة رقم 1024", "tag": "صباح"}, {"id": 1025, "text": "يا ملك، وجودك في حياتي بيخلي اليوم العادي ذكرى جميلة ❤️ — رسالة رقم 1025", "tag": "مساء"}, {"id": 1026, "text": "كل مرة أشوف اسمك فيها بحس إن الدنيا لسه فيها حاجات حلوة 💕 — رسالة رقم 1026", "tag": "مفاجأة"}, {"id": 1027, "text": "أجمل حاجة في يومي إن فيه شخص اسمه ملك يستاهل كل الحب 🌹 — رسالة رقم 1027", "tag": "حب"}, {"id": 1028, "text": "ضحكتك عندي أجمل من ألف نجمة في السما ✨ — رسالة رقم 1028", "tag": "اشتياق"}, {"id": 1029, "text": "وجودك مش تفصيلة صغيرة، وجودك حكاية كاملة ❤️ — رسالة رقم 1029", "tag": "ذكريات"}, {"id": 1030, "text": "كل ذكرى حلوة بتبدأ عندي باسم ملك 💌 — رسالة رقم 1030", "tag": "صباح"}, {"id": 1031, "text": "في وسط زحمة الدنيا، اسمك دايمًا بيخليني أهدى 🌙 — رسالة رقم 1031", "tag": "مساء"}, {"id": 1032, "text": "ملك، انتي من الحاجات القليلة اللي الواحد يتمنى الزمن ما يغيرهاش. — رسالة رقم 1032", "tag": "مفاجأة"}, {"id": 1033, "text": "يا ملك، وجودك في حياتي بيخلي اليوم العادي ذكرى جميلة ❤️ — رسالة رقم 1033", "tag": "حب"}, {"id": 1034, "text": "كل مرة أشوف اسمك فيها بحس إن الدنيا لسه فيها حاجات حلوة 💕 — رسالة رقم 1034", "tag": "اشتياق"}, {"id": 1035, "text": "أجمل حاجة في يومي إن فيه شخص اسمه ملك يستاهل كل الحب 🌹 — رسالة رقم 1035", "tag": "ذكريات"}, {"id": 1036, "text": "ضحكتك عندي أجمل من ألف نجمة في السما ✨ — رسالة رقم 1036", "tag": "صباح"}, {"id": 1037, "text": "وجودك مش تفصيلة صغيرة، وجودك حكاية كاملة ❤️ — رسالة رقم 1037", "tag": "مساء"}, {"id": 1038, "text": "كل ذكرى حلوة بتبدأ عندي باسم ملك 💌 — رسالة رقم 1038", "tag": "مفاجأة"}, {"id": 1039, "text": "في وسط زحمة الدنيا، اسمك دايمًا بيخليني أهدى 🌙 — رسالة رقم 1039", "tag": "حب"}, {"id": 1040, "text": "ملك، انتي من الحاجات القليلة اللي الواحد يتمنى الزمن ما يغيرهاش. — رسالة رقم 1040", "tag": "اشتياق"}, {"id": 1041, "text": "يا ملك، وجودك في حياتي بيخلي اليوم العادي ذكرى جميلة ❤️ — رسالة رقم 1041", "tag": "ذكريات"}, {"id": 1042, "text": "كل مرة أشوف اسمك فيها بحس إن الدنيا لسه فيها حاجات حلوة 💕 — رسالة رقم 1042", "tag": "صباح"}, {"id": 1043, "text": "أجمل حاجة في يومي إن فيه شخص اسمه ملك يستاهل كل الحب 🌹 — رسالة رقم 1043", "tag": "مساء"}, {"id": 1044, "text": "ضحكتك عندي أجمل من ألف نجمة في السما ✨ — رسالة رقم 1044", "tag": "مفاجأة"}, {"id": 1045, "text": "وجودك مش تفصيلة صغيرة، وجودك حكاية كاملة ❤️ — رسالة رقم 1045", "tag": "حب"}, {"id": 1046, "text": "كل ذكرى حلوة بتبدأ عندي باسم ملك 💌 — رسالة رقم 1046", "tag": "اشتياق"}, {"id": 1047, "text": "في وسط زحمة الدنيا، اسمك دايمًا بيخليني أهدى 🌙 — رسالة رقم 1047", "tag": "ذكريات"}, {"id": 1048, "text": "ملك، انتي من الحاجات القليلة اللي الواحد يتمنى الزمن ما يغيرهاش. — رسالة رقم 1048", "tag": "صباح"}, {"id": 1049, "text": "يا ملك، وجودك في حياتي بيخلي اليوم العادي ذكرى جميلة ❤️ — رسالة رقم 1049", "tag": "مسا
-تم اقتطاع المعاينة لأن الملف كبير</script>
+
+/* =========================
+   LOADER
+========================= */
+
+window.addEventListener("load",()=>{
+  setTimeout(()=>{
+    document.getElementById("loader").classList.add("hide");
+  },1200);
+});
+
+/* =========================
+   STARS
+========================= */
+
+const stars=document.getElementById("stars");
+
+for(let i=0;i<120;i++){
+  const s=document.createElement("div");
+  s.className="star";
+  s.style.left=Math.random()*100+"%";
+  s.style.top=Math.random()*100+"%";
+  s.style.animationDelay=(Math.random()*4)+"s";
+  s.style.animationDuration=(2+Math.random()*4)+"s";
+  stars.appendChild(s);
+}
+
+/* =========================
+   FLOATING HEARTS
+========================= */
+
+const particles=document.getElementById("particles");
+
+const symbols=["♡","♥","✦","✨","•"];
+
+for(let i=0;i<28;i++){
+  const p=document.createElement("div");
+  p.className="particle";
+  p.textContent=symbols[Math.floor(Math.random()*symbols.length)];
+  p.style.left=Math.random()*100+"%";
+  p.style.fontSize=(8+Math.random()*16)+"px";
+  p.style.animationDuration=(8+Math.random()*12)+"s";
+  p.style.animationDelay=(Math.random()*10)+"s";
+  particles.appendChild(p);
+}
+
+/* =========================
+   SCROLL
+========================= */
+
+function scrollToSection(id){
+  document.getElementById(id)?.scrollIntoView({
+    behavior:"smooth",
+    block:"start"
+  });
+}
+
+/* =========================
+   COUNTDOWN
+   Wednesday 16 September 2026
+========================= */
+
+const birthday=new Date("2026-09-16T00:00:00");
+
+function updateCountdown(){
+
+  const now=new Date();
+
+  let target=birthday;
+
+  if(now>birthday){
+    target=new Date("2027-09-16T00:00:00");
+  }
+
+  const diff=target-now;
+
+  const days=Math.floor(diff/(1000*60*60*24));
+  const hours=Math.floor(diff/(1000*60*60))%24;
+  const minutes=Math.floor(diff/(1000*60))%60;
+  const seconds=Math.floor(diff/1000)%60;
+
+  document.getElementById("days").textContent=String(days).padStart(2,"0");
+  document.getElementById("hours").textContent=String(hours).padStart(2,"0");
+  document.getElementById("minutes").textContent=String(minutes).padStart(2,"0");
+  document.getElementById("seconds").textContent=String(seconds).padStart(2,"0");
+}
+
+updateCountdown();
+setInterval(updateCountdown,1000);
+
+/* =========================
+   TOAST
+========================= */
+
+let toastTimer;
+
+function showToast(text){
+
+  const toast=document.getElementById("toast");
+
+  toast.textContent=text;
+  toast.classList.add("show");
+
+  clearTimeout(toastTimer);
+
+  toastTimer=setTimeout(()=>{
+    toast.classList.remove("show");
+  },2500);
+}
+
+/* =========================
+   MODAL
+========================= */
+
+const modal=document.getElementById("modal");
+const modalContent=document.getElementById("modalContent");
+
+function openModal(html){
+  modalContent.innerHTML=html;
+  modal.classList.add("show");
+}
+
+function closeModal(e){
+
+  if(!e || e.target===modal || e.target.classList.contains("modal-close")){
+    modal.classList.remove("show");
+  }
+}
+
+/* =========================
+   MEMORY
+========================= */
+
+function openMemory(title,text){
+
+  openModal(`
+    <div style="font-size:45px">💗</div>
+    <h2>${title}</h2>
+    <p>${text}</p>
+    <button class="secret-btn" onclick="closeModal()">حلوة أوي ❤️</button>
+  `);
+}
+
+/* =========================
+   GIFT
+========================= */
+
+function openGift(){
+
+  createConfetti();
+
+  openModal(`
+    <div style="font-size:80px">🎂</div>
+    <h2>مفاجأة لملك ❤️</h2>
+    <p>
+      لو وصلتي لحد هنا، يبقى لازم تعرفي حاجة...
+      <br><br>
+      الهدية الحقيقية مش في الصفحة دي.
+      <br>
+      الهدية الحقيقية هي إن اليوم ده موجود
+      عشان شخص زيك جه للدنيا.
+      <br><br>
+      <strong style="color:#ff86b5;font-size:19px">
+        كل سنة وإنتِ أجمل صدفة وأجمل حكاية. 👑
+      </strong>
+    </p>
+    <button class="secret-btn" onclick="closeModal()">
+      ❤️ بحب المفاجأة
+    </button>
+  `);
+}
+
+/* =========================
+   GAME 1
+========================= */
+
+const luckyMessages=[
+  "حظك النهارده: 100% ملك 👑",
+  "رسالتك: إنتِ تستاهلي يوم حلو جدًا ❤️",
+  "النتيجة: حد بيفكر فيكي دلوقتي 😉",
+  "الحظ قال: ابتسمي... إنتِ جميلة كده كده ✨",
+  "رسالة خاصة: السنة دي هتكون مختلفة 💗"
+];
+
+function luckyMessage(){
+
+  const msg=luckyMessages[
+    Math.floor(Math.random()*luckyMessages.length)
+  ];
+
+  openModal(`
+    <div style="font-size:60px">💖</div>
+    <h2>رسالتك</h2>
+    <p>${msg}</p>
+    <button class="secret-btn" onclick="luckyMessage()">مرة كمان 🔄</button>
+  `);
+}
+
+/* =========================
+   GAME 2
+========================= */
+
+function specialMeter(){
+
+  openModal(`
+    <div style="font-size:60px">👑</div>
+    <h2>مستوى التميز</h2>
+
+    <div style="
+      margin:25px auto;
+      height:18px;
+      max-width:430px;
+      border-radius:100px;
+      background:rgba(255,255,255,.08);
+      overflow:hidden;
+    ">
+      <div style="
+        width:100%;
+        height:100%;
+        border-radius:100px;
+        background:linear-gradient(90deg,#ff315f,#ff86b5,#ffd36a);
+      "></div>
+    </div>
+
+    <p style="font-size:22px;color:#fff;font-weight:900">
+      100% + زيادة 👑
+    </p>
+
+    <p>
+      النظام حاول يلاقي حد شبهك...
+      بس حصل Error 😂❤️
+    </p>
+  `);
+}
+
+/* =========================
+   GAME 3
+========================= */
+
+function futureMessage(){
+
+  openModal(`
+    <div style="font-size:60px">🔮</div>
+    <h2>رسالة من المستقبل</h2>
+    <p>
+      بعد فترة من دلوقتي،
+      هتبصي على السنة دي وتكتشفي
+      إن أجمل حاجة حصلت فيها
+      كانت كل اللحظات اللي خلتك تبتسمي.
+      <br><br>
+      فخليكي دايمًا مستنية الحلو. ✨
+    </p>
+  `);
+}
+
+/* =========================
+   GAME 4
+========================= */
+
+function chooseNumber(){
+
+  const number=Math.floor(Math.random()*9)+1;
+
+  const messages={
+    1:"رقم 1: إنتِ واحدة مفيش منها اتنين ❤️",
+    2:"رقم 2: ضحكتين منك كفاية يظبطوا اليوم 😂",
+    3:"رقم 3: تلات حاجات ملك تستاهلهم: الحب، الفرح، والراحة.",
+    4:"رقم 4: أربع حروف... مـلـك 👑",
+    5:"رقم 5: خمس نجوم ⭐⭐⭐⭐⭐",
+    6:"رقم 6: ست أسباب على الأقل تخلي اليوم أحلى.",
+    7:"رقم 7: أسبوع كامل مش كفاية نحتفل بيكي.",
+    8:"رقم 8: الرقم ده جاب حظ حلو النهارده.",
+    9:"رقم 9: النتيجة النهائية: ملك تكسب ❤️"
+  };
+
+  openModal(`
+    <div style="font-size:60px">🎯</div>
+    <h2>طلعلك رقم ${number}</h2>
+    <p>${messages[number]}</p>
+  `);
+}
+
+/* =========================
+   CONFETTI
+========================= */
+
+function createConfetti(){
+
+  const icons=["❤️","💖","✨","🎉","💕","⭐","🌸"];
+
+  for(let i=0;i<90;i++){
+
+    const c=document.createElement("div");
+
+    c.className="confetti";
+    c.textContent=icons[Math.floor(Math.random()*icons.length)];
+
+    c.style.left=Math.random()*100+"%";
+    c.style.fontSize=(10+Math.random()*18)+"px";
+    c.style.animationDuration=(2+Math.random()*3)+"s";
+    c.style.animationDelay=(Math.random()*.8)+"s";
+
+    document.body.appendChild(c);
+
+    setTimeout(()=>{
+      c.remove();
+    },5000);
+  }
+}
+
+/* =========================
+   MUSIC
+========================= */
+
+const music=document.getElementById("music");
+const musicBtn=document.getElementById("musicBtn");
+const musicStatus=document.getElementById("musicStatus");
+
+function toggleMusic(){
+
+  if(!music.src){
+
+    showToast("🎵 ضيفي رابط الأغنية داخل الكود أولًا");
+
+    return;
+  }
+
+  if(music.paused){
+
+    music.play();
+
+    musicBtn.textContent="❚❚";
+    musicStatus.textContent="الموسيقى تعمل ❤️";
+
+  }else{
+
+    music.pause();
+
+    musicBtn.textContent="▶";
+    musicStatus.textContent="متوقفة";
+  }
+}
+
+/* =========================
+   KEYBOARD
+========================= */
+
+document.addEventListener("keydown",e=>{
+
+  if(e.key==="Escape"){
+    modal.classList.remove("show");
+  }
+
+});
+
+/* =========================
+   BIRTHDAY EVENT
+========================= */
+
+function birthdayCheck(){
+
+  const now=new Date();
+
+  if(
+    now.getFullYear()===2026 &&
+    now.getMonth()===8 &&
+    now.getDate()===16
+  ){
+
+    setTimeout(()=>{
+      createConfetti();
+
+      showToast("🎂 كل سنة وإنتِ طيبة يا ملك ❤️");
+
+    },1500);
+  }
+}
+
+birthdayCheck();
+
+</script>
+
 </body>
-</html>
+  </html>
