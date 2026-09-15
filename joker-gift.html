@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width,initial-scale=1,maximum-scale=1">
+
+<title>هدية الجوكر | ملك 🃏❤️</title>
+
+<link rel="preconnect"
+href="https://fonts.googleapis.com">
+
+<link rel="preconnect"
+href="https://fonts.gstatic.com"
+crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Playfair+Display:wght@700&display=swap"
+rel="stylesheet">
+
+<style>
+
+*{
+box-sizing:border-box;
+margin:0;
+padding:0;
+}
+
+body{
+
+min-height:100vh;
+
+font-family:"Cairo",sans-serif;
+
+color:white;
+
+overflow-x:hidden;
+
+background:
+
+radial-gradient(
+circle at 50% 20%,
+rgba(255,45,110,.2),
+transparent 35%
+),
+
+radial-gradient(
+circle at 20% 80%,
+rgba(119,65,255,.2),
+transparent 35%
+),
+
+linear-gradient(
+135deg,
+#030207,
+#120510,
+#050207
+);
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+padding:30px 18px;
+
+}
+
+.container{
+
+width:min(900px,100%);
+
+text-align:center;
+
+}
+
+.joker{
+
+font-size:75px;
+
+animation:float 2s ease-in-out infinite;
+
+}
+
+@keyframes float{
+
+0%,100%{
+transform:translateY(0) rotate(-5deg);
+}
+
+50%{
+transform:translateY(-15px) rotate(5deg);
+}
+
+}
+
+.badge{
+
+display:inline-block;
+
+padding:8px 15px;
+
+border-radius:999px;
+
+border:1px solid rgba(255,255,255,.12);
+
+background:rgba(255,255,255,.05);
+
+color:#ffd36a;
+
+font-size:11px;
+
+letter-spacing:2px;
+
+margin:20px 0;
+
+}
+
+h1{
+
+font-size:clamp(40px,8vw,75px);
+
+line-height:1.1;
+
+margin-bottom:20px;
+
+background:
+linear-gradient(
+135deg,
+#fff,
+#ff8ab9,
+#ffd36a
+);
+
+-webkit-background-clip:text;
+
+color:transparent;
+
+}
+
+.subtitle{
+
+font-size:15px;
+
+line-height:2;
+
+color:rgba(255,255,255,.6);
+
+max-width:650px;
+
+margin:auto;
+
+}
+
+.lock{
+
+margin:50px auto 25px;
+
+width:150px;
+
+height:150px;
+
+border-radius:50%;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+font-size:65px;
+
+background:
+
+radial-gradient(
+circle,
+rgba(255,79,145,.2),
+rgba(255,255,255,.03)
+);
+
+border:1px solid rgba(255,255,255,.13);
+
+box-shadow:
+0 0 70px rgba(255,79,145,.15);
+
+animation:pulse 2s infinite;
+
+}
+
+@keyframes pulse{
+
+0%,100%{
+transform:scale(1);
+}
+
+50%{
+transform:scale(1.06);
+}
+
+}
+
+.open{
+
+border:0;
+
+padding:16px 30px;
+
+border-radius:18px;
+
+font-family:inherit;
+
+font-weight:900;
+
+font-size:15px;
+
+cursor:pointer;
+
+background:
+linear-gradient(
+135deg,
+#ffd36a,
+#fff0ad
+);
+
+color:#160711;
+
+box-shadow:
+0 15px 50px rgba(255,211,106,.2);
+
+transition:.3s;
+
+}
+
+.open:hover{
+
+transform:
+translateY(-5px)
+scale(1.03);
+
+}
+
+.message{
+
+display:none;
+
+margin-top:35px;
+
+padding:40px 25px;
+
+border-radius:35px;
+
+background:
+linear-gradient(
+145deg,
+rgba(255,255,255,.07),
+rgba(255,255,255,.025)
+);
+
+border:1px solid rgba(255,255,255,.11);
+
+animation:appear .8s ease both;
+
+}
+
+.message.show{
+display:block;
+}
+
+@keyframes appear{
+
+from{
+opacity:0;
+transform:translateY(30px) scale(.96);
+}
+
+to{
+opacity:1;
+transform:none;
+}
+
+}
+
+.message h2{
+
+font-size:32px;
+
+margin-bottom:20px;
+
+color:#ffd36a;
+
+}
+
+.message p{
+
+font-size:15px;
+
+line-height:2.5;
+
+color:rgba(255,255,255,.72);
+
+}
+
+.back{
+
+display:inline-block;
+
+margin-top:30px;
+
+color:rgba(255,255,255,.5);
+
+font-size:12px;
+
+}
+
+.hearts{
+
+position:fixed;
+
+inset:0;
+
+pointer-events:none;
+
+overflow:hidden;
+
+}
+
+.heart{
+
+position:absolute;
+
+bottom:-40px;
+
+animation:rise linear forwards;
+
+opacity:.5;
+
+}
+
+@keyframes rise{
+
+to{
+
+transform:
+translateY(-110vh)
+rotate(30deg);
+
+opacity:0;
+
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="hearts" id="hearts"></div>
+
+<div class="container">
+
+<div class="joker">
+🃏
+</div>
+
+<div class="badge">
+THE JOKER GIFT
+</div>
+
+<h1>
+ملك...
+<br>
+دي هديتك ❤️
+</h1>
+
+<p class="subtitle">
+
+لو وصلتي للصفحة دي،
+فده معناه إنك خلصتي أول جزء من الحكاية.
+
+بس الجوكر كان مخبي حاجة أخيرة...
+
+</p>
+
+<div class="lock">
+🎁
+</div>
+
+<button class="open" id="openGift">
+افتحي الهدية ✨
+</button>
+
+<div class="message" id="message">
+
+<h2>
+كل سنة وإنتِ طيبة يا ملك 👑
+</h2>
+
+<p>
+
+يمكن الهدية دي عبارة عن صفحة على موقع...
+
+لكن الحقيقة إن كل تفصيلة فيها
+اتعملت عشان تخلي يومك مختلف.
+
+أتمنى الـ17 سنة الجديدة
+تكون بداية لسنة مليانة
+ضحك،
+نجاح،
+أيام حلوة،
+وذكريات تستاهل تفضل في القلب.
+
+ولو فيه حاجة واحدة
+نفسي تفضلي فاكرها من اليوم ده:
+
+<strong style="color:#ff8ab9">
+إنتِ تستاهلي الفرح.
+</strong>
+
+كل سنة وإنتِ طيبة يا ملك ❤️
+
+<br><br>
+
+<strong style="color:#ffd36a">
+عيد ميلاد سعيد يا أجمل ملكة 👑
+</strong>
+
+</p>
+
+<a class="back" href="index.html">
+← الرجوع للموقع
+</a>
+
+</div>
+
+</div>
+
+
+<script>
+
+const button=
+document.getElementById("openGift");
+
+const message=
+document.getElementById("message");
+
+button.addEventListener(
+"click",
+()=>{
+
+button.style.display="none";
+
+message.classList.add("show");
+
+createExplosion();
+
+}
+);
+
+
+function createHeart(){
+
+const h=
+document.createElement("div");
+
+h.className="heart";
+
+h.textContent=
+["♥","♡","❤","✨","✦"]
+[
+Math.floor(
+Math.random()*5
+)
+];
+
+h.style.left=
+Math.random()*100+"%";
+
+h.style.fontSize=
+(12+Math.random()*25)+"px";
+
+h.style.animationDuration=
+(5+Math.random()*6)+"s";
+
+document.body.appendChild(h);
+
+setTimeout(
+()=>{
+h.remove();
+},
+12000
+);
+
+}
+
+setInterval(
+createHeart,
+700
+);
+
+
+function createExplosion(){
+
+for(let i=0;i<70;i++){
+
+const h=
+document.createElement("div");
+
+h.className="heart";
+
+h.textContent=
+["♥","❤","✨","★","✦"]
+[
+Math.floor(
+Math.random()*5
+)
+];
+
+h.style.left=
+(30+Math.random()*40)+"%";
+
+h.style.bottom=
+"35%";
+
+h.style.fontSize=
+(12+Math.random()*25)+"px";
+
+h.style.animationDuration=
+(2+Math.random()*3)+"s";
+
+document.body.appendChild(h);
+
+setTimeout(
+()=>{
+h.remove();
+},
+6000
+);
+
+}
+
+}
+
+</script>
+
+</body>
+
+</html>
