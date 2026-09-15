@@ -1,0 +1,1733 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="theme-color" content="#050107">
+<title>ملك | مفاجأتك ❤️</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+<style>
+
+:root{
+ --pink:#ff4f91;
+ --pink2:#ff91bb;
+ --gold:#ffd66e;
+ --purple:#9b5cff;
+ --bg:#050107;
+ --card:rgba(255,255,255,.075);
+ --border:rgba(255,255,255,.14);
+}
+
+*{
+ box-sizing:border-box;
+ margin:0;
+ padding:0;
+}
+
+html,body{
+ width:100%;
+ min-height:100%;
+}
+
+body{
+ background:#050107;
+ color:white;
+ font-family:Cairo,sans-serif;
+ overflow-x:hidden;
+}
+
+button{
+ font-family:inherit;
+}
+
+.hidden{
+ display:none!important;
+}
+
+#cinematic{
+ position:fixed;
+ inset:0;
+ z-index:9999;
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ overflow:hidden;
+ background:
+   radial-gradient(circle at center,rgba(255,79,145,.16),transparent 35%),
+   radial-gradient(circle at 20% 20%,rgba(139,92,246,.1),transparent 30%),
+   #050107;
+}
+
+.cine-bg{
+ position:absolute;
+ inset:0;
+ overflow:hidden;
+}
+
+.cine-light{
+ position:absolute;
+ width:50vw;
+ height:50vw;
+ border-radius:50%;
+ filter:blur(80px);
+ opacity:.22;
+ background:var(--pink);
+ animation:lightMove 7s ease-in-out infinite alternate;
+}
+
+.cine-light.one{
+ top:-25%;
+ right:-15%;
+}
+
+.cine-light.two{
+ bottom:-30%;
+ left:-20%;
+ background:var(--purple);
+ animation-delay:-3s;
+}
+
+@keyframes lightMove{
+ from{transform:translate(0,0) scale(1)}
+ to{transform:translate(-40px,30px) scale(1.2)}
+}
+
+.cine-content{
+ position:relative;
+ z-index:2;
+ text-align:center;
+ width:min(850px,92%);
+}
+
+.cine-small{
+ color:var(--pink2);
+ font-size:14px;
+ letter-spacing:1px;
+ margin-bottom:20px;
+}
+
+.cine-title{
+ font-family:"Playfair Display",serif;
+ font-size:clamp(45px,10vw,100px);
+ background:linear-gradient(135deg,#fff,var(--pink2),var(--gold));
+ -webkit-background-clip:text;
+ color:transparent;
+ margin-bottom:25px;
+}
+
+.normal-count{
+ display:flex;
+ justify-content:center;
+ gap:10px;
+ flex-wrap:wrap;
+}
+
+.normal-count .box{
+ width:105px;
+ padding:20px 10px;
+ border:1px solid var(--border);
+ background:rgba(255,255,255,.055);
+ border-radius:24px;
+ backdrop-filter:blur(15px);
+}
+
+.normal-count strong{
+ display:block;
+ font-size:32px;
+ color:white;
+}
+
+.normal-count span{
+ color:#a99ca8;
+ font-size:11px;
+}
+
+.last-ten{
+ min-height:250px;
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ flex-direction:column;
+}
+
+.last-number{
+ font-family:"Playfair Display",serif;
+ font-size:clamp(130px,35vw,300px);
+ line-height:.8;
+ background:linear-gradient(180deg,#fff,var(--pink2),var(--gold));
+ -webkit-background-clip:text;
+ color:transparent;
+ filter:drop-shadow(0 0 30px rgba(255,79,145,.7));
+ animation:numberPulse .8s ease-in-out;
+}
+
+.last-label{
+ margin-top:35px;
+ color:#d9cdd5;
+ font-size:15px;
+}
+
+@keyframes numberPulse{
+
+ 0%{
+   transform:scale(.3);
+   opacity:0;
+ }
+
+ 55%{
+   transform:scale(1.15);
+   opacity:1;
+ }
+
+ 75%{
+   transform:scale(.95);
+ }
+
+ 100%{
+   transform:scale(1);
+ }
+}
+
+.shake{
+ animation:shake .25s infinite!important;
+}
+
+@keyframes shake{
+ 0%,100%{transform:translateX(0) scale(1)}
+ 25%{transform:translateX(-7px) scale(1.04)}
+ 75%{transform:translateX(7px) scale(1.04)}
+}
+
+.start-btn{
+ border:1px solid rgba(255,255,255,.18);
+ color:#210813;
+ background:linear-gradient(135deg,var(--pink2),var(--gold));
+ border-radius:18px;
+ padding:15px 28px;
+ font-weight:900;
+ cursor:pointer;
+ box-shadow:0 15px 40px rgba(255,79,145,.25);
+ transition:.3s;
+}
+
+.start-btn:hover{
+ transform:translateY(-4px) scale(1.02);
+}
+
+#reveal{
+ position:fixed;
+ inset:0;
+ z-index:9000;
+ display:none;
+ align-items:center;
+ justify-content:center;
+ text-align:center;
+ overflow:hidden;
+ background:
+  radial-gradient(circle at center,rgba(255,79,145,.2),transparent 40%),
+  #050107;
+}
+
+.reveal-content{
+ width:min(900px,92%);
+ animation:revealIn 1.5s ease both;
+}
+
+@keyframes revealIn{
+ from{
+   opacity:0;
+   transform:scale(.7);
+   filter:blur(15px);
+ }
+ to{
+   opacity:1;
+   transform:scale(1);
+   filter:blur(0);
+ }
+}
+
+.reveal-small{
+ color:var(--pink2);
+ font-size:16px;
+ margin-bottom:20px;
+}
+
+.reveal h1{
+ font-family:"Playfair Display",serif;
+ font-size:clamp(42px,9vw,90px);
+ line-height:1.1;
+ background:linear-gradient(135deg,#fff,var(--pink2),var(--gold));
+ -webkit-background-clip:text;
+ color:transparent;
+}
+
+.reveal h2{
+ font-size:clamp(25px,5vw,50px);
+ margin-top:25px;
+}
+
+.reveal p{
+ color:#cfc2cb;
+ line-height:2;
+ margin-top:18px;
+}
+
+.reveal-button{
+ margin-top:30px;
+ padding:14px 25px;
+ border:0;
+ border-radius:17px;
+ background:linear-gradient(135deg,var(--pink),var(--purple));
+ color:white;
+ font-weight:800;
+ cursor:pointer;
+}
+
+#photos{
+ position:fixed;
+ inset:0;
+ z-index:8000;
+ display:none;
+ background:#050107;
+ overflow:hidden;
+}
+
+.photo-bg{
+ position:absolute;
+ inset:0;
+ background-size:cover;
+ background-position:center;
+ transform:scale(1.08);
+ transition:background-image .7s;
+}
+
+.photo-bg::after{
+ content:"";
+ position:absolute;
+ inset:0;
+ background:
+  linear-gradient(180deg,rgba(0,0,0,.15),rgba(0,0,0,.82)),
+  radial-gradient(circle at center,transparent 20%,rgba(0,0,0,.5));
+}
+
+.photo-content{
+ position:absolute;
+ inset:0;
+ z-index:2;
+ display:flex;
+ flex-direction:column;
+ justify-content:flex-end;
+ align-items:center;
+ text-align:center;
+ padding:35px 20px 55px;
+}
+
+.photo-number{
+ color:var(--gold);
+ font-size:14px;
+ letter-spacing:3px;
+}
+
+.photo-title{
+ font-family:"Playfair Display",serif;
+ font-size:clamp(35px,8vw,75px);
+ margin:10px 0;
+ text-shadow:0 5px 30px rgba(0,0,0,.5);
+}
+
+.photo-text{
+ color:#eee;
+ max-width:650px;
+ line-height:2;
+}
+
+.photo-progress{
+ position:absolute;
+ top:20px;
+ left:20px;
+ right:20px;
+ display:flex;
+ gap:5px;
+ z-index:5;
+ direction:ltr;
+}
+
+.progress-line{
+ height:3px;
+ flex:1;
+ border-radius:10px;
+ background:rgba(255,255,255,.25);
+ overflow:hidden;
+}
+
+.progress-line.active{
+ background:var(--pink);
+ box-shadow:0 0 10px var(--pink);
+}
+
+.photo-next{
+ margin-top:22px;
+ border:1px solid rgba(255,255,255,.2);
+ color:white;
+ background:rgba(255,255,255,.1);
+ backdrop-filter:blur(15px);
+ border-radius:15px;
+ padding:10px 22px;
+ cursor:pointer;
+}
+
+#giftApp{
+ display:none;
+ min-height:100vh;
+ background:
+  radial-gradient(circle at 15% 15%,rgba(255,79,145,.1),transparent 30%),
+  radial-gradient(circle at 85% 20%,rgba(139,92,246,.1),transparent 30%),
+  #050107;
+ padding:30px 0 80px;
+}
+
+.app-wrap{
+ width:min(1100px,92%);
+ margin:auto;
+}
+
+.app-header{
+ text-align:center;
+ padding:50px 0 35px;
+}
+
+.app-header .crown{
+ font-size:55px;
+}
+
+.app-header h1{
+ font-family:"Playfair Display",serif;
+ font-size:clamp(42px,9vw,80px);
+ background:linear-gradient(135deg,#fff,var(--pink2),var(--gold));
+ -webkit-background-clip:text;
+ color:transparent;
+}
+
+.app-header p{
+ color:#b9acb6;
+ margin-top:12px;
+}
+
+.menu{
+ display:grid;
+ grid-template-columns:repeat(4,1fr);
+ gap:13px;
+}
+
+.menu-btn{
+ min-height:145px;
+ border:1px solid var(--border);
+ border-radius:25px;
+ background:linear-gradient(145deg,rgba(255,255,255,.08),rgba(255,255,255,.035));
+ color:white;
+ cursor:pointer;
+ transition:.35s;
+ padding:18px 12px;
+}
+
+.menu-btn:hover{
+ transform:translateY(-6px);
+ border-color:rgba(255,79,145,.45);
+ box-shadow:0 20px 50px rgba(0,0,0,.25);
+}
+
+.menu-btn .emoji{
+ display:block;
+ font-size:38px;
+ margin-bottom:10px;
+}
+
+.menu-btn strong{
+ display:block;
+ font-size:14px;
+}
+
+.menu-btn small{
+ display:block;
+ color:#9d919b;
+ margin-top:5px;
+}
+
+.final{
+ margin-top:20px;
+ border-radius:30px;
+ padding:40px 25px;
+ text-align:center;
+ border:1px solid rgba(255,79,145,.2);
+ background:
+  radial-gradient(circle at center,rgba(255,79,145,.13),transparent 65%),
+  rgba(255,255,255,.04);
+}
+
+.final h2{
+ font-family:"Playfair Display",serif;
+ font-size:38px;
+}
+
+.final p{
+ color:#bfb2bb;
+ margin:12px 0 22px;
+}
+
+.final button{
+ border:0;
+ border-radius:18px;
+ padding:15px 28px;
+ color:white;
+ background:linear-gradient(135deg,var(--pink),var(--purple));
+ cursor:pointer;
+ font-weight:900;
+}
+
+.app-footer{
+ text-align:center;
+ padding:50px 0 0;
+ color:#756a73;
+}
+
+.app-footer strong{
+ color:var(--pink2);
+}
+
+.overlay{
+ position:fixed;
+ inset:0;
+ z-index:9990;
+ display:none;
+ align-items:center;
+ justify-content:center;
+ padding:20px;
+ background:rgba(0,0,0,.78);
+ backdrop-filter:blur(18px);
+}
+
+.overlay.show{
+ display:flex;
+}
+
+.dialog{
+ width:min(650px,100%);
+ max-height:85vh;
+ overflow:auto;
+ padding:35px 25px;
+ border-radius:30px;
+ background:#130912;
+ border:1px solid var(--border);
+ text-align:center;
+ animation:dialogIn .4s ease;
+}
+
+@keyframes dialogIn{
+ from{
+  opacity:0;
+  transform:translateY(30px) scale(.95);
+ }
+ to{
+  opacity:1;
+  transform:none;
+ }
+}
+
+.dialog .big{
+ font-size:55px;
+}
+
+.dialog h2{
+ margin:10px 0 15px;
+ color:var(--pink2);
+}
+
+.dialog p{
+ color:#ddd0d9;
+ line-height:2.3;
+}
+
+.dialog img{
+ width:100%;
+ max-height:330px;
+ object-fit:cover;
+ border-radius:22px;
+ margin:15px 0;
+}
+
+.dialog button{
+ margin-top:20px;
+ border:0;
+ padding:11px 22px;
+ border-radius:14px;
+ background:rgba(255,255,255,.08);
+ color:white;
+ cursor:pointer;
+}
+
+.confetti{
+ position:fixed;
+ top:-30px;
+ z-index:10000;
+ pointer-events:none;
+ animation:fall linear forwards;
+}
+
+@keyframes fall{
+ to{
+  transform:translateY(110vh) rotate(720deg);
+  opacity:0;
+ }
+}
+
+@media(max-width:750px){
+
+ .normal-count .box{
+  width:82px;
+ }
+
+ .menu{
+  grid-template-columns:repeat(2,1fr);
+ }
+
+ .menu-btn{
+  min-height:130px;
+ }
+
+ .photo-content{
+  padding-bottom:40px;
+ }
+
+}
+
+@media(max-width:420px){
+
+ .normal-count .box{
+  width:72px;
+  padding:15px 7px;
+ }
+
+ .normal-count strong{
+  font-size:25px;
+ }
+
+ .menu{
+  gap:9px;
+ }
+
+ .menu-btn{
+  padding:13px 8px;
+ }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- =====================================================
+     CINEMATIC COUNTDOWN
+===================================================== -->
+
+<div id="cinematic">
+
+ <div class="cine-bg">
+   <div class="cine-light one"></div>
+   <div class="cine-light two"></div>
+ </div>
+
+ <div class="cine-content">
+
+   <div class="cine-small">
+     في لحظة واحدة... كل حاجة هتتغير ❤️
+   </div>
+
+   <div id="beforeCountdown">
+
+     <div class="cine-title">
+       مفاجأة ملك
+     </div>
+
+     <div class="normal-count">
+
+       <div class="box">
+         <strong id="cDays">00</strong>
+         <span>يوم</span>
+       </div>
+
+       <div class="box">
+         <strong id="cHours">00</strong>
+         <span>ساعة</span>
+       </div>
+
+       <div class="box">
+         <strong id="cMinutes">00</strong>
+         <span>دقيقة</span>
+       </div>
+
+       <div class="box">
+         <strong id="cSeconds">00</strong>
+         <span>ثانية</span>
+       </div>
+
+     </div>
+
+     <br>
+
+     <button class="start-btn" id="unlockBtn">
+       ✨ ابدئي التجربة
+     </button>
+
+   </div>
+
+   <div id="lastTen" class="last-ten hidden">
+
+     <div id="lastNumber" class="last-number">
+       10
+     </div>
+
+     <div class="last-label">
+       استعدي... ❤️
+     </div>
+
+   </div>
+
+ </div>
+
+</div>
+
+
+<!-- =====================================================
+     BIRTHDAY REVEAL
+===================================================== -->
+
+<div id="reveal">
+
+ <div class="reveal-content">
+
+   <div class="reveal-small">
+     ✨ وصلت اللحظة ✨
+   </div>
+
+   <h1>
+     النهارده أحلى يوم في الدنيا ❤️
+   </h1>
+
+   <h2>
+     عشان اتولدت أحسن بنت في الدنيا...
+   </h2>
+
+   <h1>
+     ملك خفاجي 👑
+   </h1>
+
+   <p>
+     كل سنة وإنتِ أجمل حكاية،
+     وأجمل صدفة،
+     وأجمل حاجة ممكن تحصل. ❤️
+   </p>
+
+   <button class="reveal-button" onclick="startPhotos()">
+     📸 شوفي أول جزء من المفاجأة
+   </button>
+
+ </div>
+
+</div>
+
+
+<!-- =====================================================
+     PHOTO + MUSIC EXPERIENCE
+===================================================== -->
+
+<div id="photos">
+
+ <div class="photo-bg" id="photoBg"></div>
+
+ <div class="photo-progress" id="photoProgress"></div>
+
+ <div class="photo-content">
+
+   <div class="photo-number" id="photoNumber">
+     01 / 12
+   </div>
+
+   <div class="photo-title" id="photoTitle">
+     ملك ❤️
+   </div>
+
+   <div class="photo-text" id="photoText">
+     أجمل بداية لأجمل حكاية.
+   </div>
+
+   <button class="photo-next" onclick="nextPhoto()">
+     التالي ✨
+   </button>
+
+ </div>
+
+</div>
+
+
+<!-- =====================================================
+     MAIN GIFT APP
+===================================================== -->
+
+<div id="giftApp">
+
+ <div class="app-wrap">
+
+   <header class="app-header">
+
+     <div class="crown">👑</div>
+
+     <h1>
+       ملك
+     </h1>
+
+     <p>
+       دي مش مجرد هدية...
+       دي شوية كلام من القلب مخصوص ليكي ❤️
+     </p>
+
+   </header>
+
+
+   <div class="menu">
+
+     <button class="menu-btn" onclick="openSection('letter')">
+       <span class="emoji">💌</span>
+       <strong>رسالة عيد الميلاد</strong>
+       <small>رسالة مخصوصة ليكي</small>
+     </button>
+
+     <button class="menu-btn" onclick="openSection('heart')">
+       <span class="emoji">❤️</span>
+       <strong>كلام من القلب</strong>
+       <small>من غير ترتيب</small>
+     </button>
+
+     <button class="menu-btn" onclick="openSection('why')">
+       <span class="emoji">💕</span>
+       <strong>ليه ملك مميزة؟</strong>
+       <small>أسباب كتير</small>
+     </button>
+
+     <button class="menu-btn" onclick="openSection('memories')">
+       <span class="emoji">📸</span>
+       <strong>ذكرياتنا</strong>
+       <small>12 لحظة</small>
+     </button>
+
+     <button class="menu-btn" onclick="openSection('eyes')">
+       <span class="emoji">👑</span>
+       <strong>ملك في عيني</strong>
+       <small>زي ما بشوفك</small>
+     </button>
+
+     <button class="menu-btn" onclick="openSection('twelve')">
+       <span class="emoji">✨</span>
+       <strong>12 رسالة</strong>
+       <small>رسالة لكل صورة</small>
+     </button>
+
+     <button class="menu-btn" onclick="openSection('birthday')">
+       <span class="emoji">🎂</span>
+       <strong>رسالة خاصة</strong>
+       <small>لعيد ميلادك</small>
+     </button>
+
+     <button class="menu-btn" onclick="openSection('surprise')">
+       <span class="emoji">🎁</span>
+       <strong>المفاجأة الأخيرة</strong>
+       <small>ممنوع الفضول 😌</small>
+     </button>
+
+   </div>
+
+
+   <div class="final">
+
+     <h2>
+       ولسه في مفاجأة أخيرة... 🎁
+     </h2>
+
+     <p>
+       لو وصلتي لحد هنا، يبقى تستحقي تعرفي آخر حاجة.
+     </p>
+
+     <button onclick="openSection('surprise')">
+       افتحي المفاجأة الأخيرة ❤️
+     </button>
+
+   </div>
+
+
+   <div class="app-footer">
+     صُممت بكل الحب لـ <strong>ملك خفاجي 👑</strong>
+   </div>
+
+ </div>
+
+</div>
+
+
+<!-- =====================================================
+     DIALOG
+===================================================== -->
+
+<div class="overlay" id="overlay">
+
+ <div class="dialog">
+
+   <div class="big" id="dialogEmoji">
+     ❤️
+   </div>
+
+   <h2 id="dialogTitle">
+     ملك
+   </h2>
+
+   <div id="dialogContent">
+     ...
+   </div>
+
+   <button onclick="closeSection()">
+     رجوع ❤️
+   </button>
+
+ </div>
+
+</div>
+
+
+<!-- =====================================================
+     AUDIO
+===================================================== -->
+
+<audio id="birthdayMusic" preload="auto">
+ <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+
+<script>
+
+/* =====================================================
+   SETTINGS
+===================================================== */
+
+const birthday = new Date("2026-09-16T00:00:00");
+
+const photoData = [
+
+ {
+   image:"photos/01.jpg",
+   title:"البداية ❤️",
+   text:"كل حكاية حلوة لازم يكون ليها بداية... ودي بداية حكايتك."
+ },
+
+ {
+   image:"photos/02.jpg",
+   title:"ضحكتك ✨",
+   text:"في ضحكات بتعدي، وفي ضحكة بتفضل في الذاكرة."
+ },
+
+ {
+   image:"photos/03.jpg",
+   title:"لحظة 💕",
+   text:"لحظة واحدة ممكن تكون سبب في ألف ذكرى."
+ },
+
+ {
+   image:"photos/04.jpg",
+   title:"ملك 👑",
+   text:"اسمك لوحده كفاية يخلي الكلام مختلف."
+ },
+
+ {
+   image:"photos/05.jpg",
+   title:"تفاصيلك 🌸",
+   text:"أجمل حاجة فيكي التفاصيل اللي محدش ياخد باله منها غير اللي بيحبك."
+ },
+
+ {
+   image:"photos/06.jpg",
+   title:"قلبك ❤️",
+   text:"القلب الحلو بيبان حتى من غير كلام."
+ },
+
+ {
+   image:"photos/07.jpg",
+   title:"ذكريات 💫",
+   text:"الصور مش مجرد صور... دي لحظات بتعيش أكتر مننا."
+ },
+
+ {
+   image:"photos/08.jpg",
+   title:"أجمل شخص 🫶",
+   text:"وجودك في حد ذاته حاجة تستاهل الاحتفال."
+ },
+
+ {
+   image:"photos/09.jpg",
+   title:"كل سنة 🎂",
+   text:"كل سنة جديدة من عمرك أتمنى تكون أحلى من اللي قبلها."
+ },
+
+ {
+   image:"photos/10.jpg",
+   title:"أمنية ✨",
+   text:"أتمنى كل أمنية في قلبك تلاقي طريقها ليكي."
+ },
+
+ {
+   image:"photos/11.jpg",
+   title:"حكاية 👑",
+   text:"والحكاية لسه ما خلصتش... لسه أجمل صفحاتها جاية."
+ },
+
+ {
+   image:"photos/12.jpg",
+   title:"النهاية؟ ❤️",
+   text:"لا... دي مش النهاية. دي بداية سنة جديدة من أجمل حكاية."
+ }
+
+];
+
+let photoIndex=0;
+let countdownStarted=false;
+let tenStarted=false;
+let photoTimer=null;
+
+
+/* =====================================================
+   ELEMENTS
+===================================================== */
+
+const cinematic=document.getElementById("cinematic");
+const beforeCountdown=document.getElementById("beforeCountdown");
+const lastTen=document.getElementById("lastTen");
+const lastNumber=document.getElementById("lastNumber");
+const reveal=document.getElementById("reveal");
+const photos=document.getElementById("photos");
+const giftApp=document.getElementById("giftApp");
+const music=document.getElementById("birthdayMusic");
+
+
+/* =====================================================
+   AUDIO UNLOCK
+===================================================== */
+
+document.getElementById("unlockBtn").addEventListener("click",()=>{
+
+ countdownStarted=true;
+
+ try{
+   music.volume=.75;
+ }catch(e){}
+
+ updateCountdown();
+
+});
+
+
+/* =====================================================
+   NORMAL COUNTDOWN
+===================================================== */
+
+function updateCountdown(){
+
+ const now=new Date();
+ const diff=birthday-now;
+
+ if(diff<=0){
+
+   if(!tenStarted){
+     startBirthday();
+   }
+
+   return;
+ }
+
+ const total=Math.floor(diff/1000);
+
+ const days=Math.floor(total/86400);
+ const hours=Math.floor((total%86400)/3600);
+ const minutes=Math.floor((total%3600)/60);
+ const seconds=total%60;
+
+ document.getElementById("cDays").textContent=
+   String(days).padStart(2,"0");
+
+ document.getElementById("cHours").textContent=
+   String(hours).padStart(2,"0");
+
+ document.getElementById("cMinutes").textContent=
+   String(minutes).padStart(2,"0");
+
+ document.getElementById("cSeconds").textContent=
+   String(seconds).padStart(2,"0");
+
+ if(total<=10 && !tenStarted){
+   startTenSeconds(total);
+ }
+}
+
+
+/* =====================================================
+   LAST 10 SECONDS
+===================================================== */
+
+function startTenSeconds(startNumber){
+
+ if(tenStarted) return;
+
+ tenStarted=true;
+
+ beforeCountdown.classList.add("hidden");
+ lastTen.classList.remove("hidden");
+
+ let number=startNumber;
+
+ if(number>10) number=10;
+
+ runNumber(number);
+}
+
+
+function runNumber(number){
+
+ if(number<0){
+   birthdayMoment();
+   return;
+ }
+
+ lastNumber.classList.remove("shake");
+
+ void lastNumber.offsetWidth;
+
+ lastNumber.textContent=number;
+
+ lastNumber.classList.add("shake");
+
+ speakArabicNumber(number);
+
+ beep(number);
+
+ if(number===0){
+
+   setTimeout(()=>{
+     birthdayMoment();
+   },800);
+
+   return;
+ }
+
+ setTimeout(()=>{
+   runNumber(number-1);
+ },1000);
+}
+
+
+/* =====================================================
+   SPEECH
+===================================================== */
+
+function speakArabicNumber(number){
+
+ if(!("speechSynthesis" in window)) return;
+
+ const words={
+   10:"عشرة",
+   9:"تسعة",
+   8:"ثمانية",
+   7:"سبعة",
+   6:"ستة",
+   5:"خمسة",
+   4:"أربعة",
+   3:"ثلاثة",
+   2:"اثنان",
+   1:"واحد",
+   0:"صفر"
+ };
+
+ window.speechSynthesis.cancel();
+
+ const utter=new SpeechSynthesisUtterance(words[number]);
+
+ utter.lang="ar-EG";
+ utter.rate=.72;
+ utter.pitch=1.18;
+ utter.volume=1;
+
+ const voices=window.speechSynthesis.getVoices();
+
+ const arabicVoice=
+   voices.find(v=>
+     v.lang &&
+     v.lang.toLowerCase().startsWith("ar")
+   );
+
+ if(arabicVoice){
+   utter.voice=arabicVoice;
+ }
+
+ window.speechSynthesis.speak(utter);
+}
+
+
+/* =====================================================
+   SIMPLE BEEP
+===================================================== */
+
+function beep(number){
+
+ try{
+
+   const AudioContext=
+     window.AudioContext ||
+     window.webkitAudioContext;
+
+   const ctx=new AudioContext();
+
+   const oscillator=ctx.createOscillator();
+   const gain=ctx.createGain();
+
+   oscillator.type="sine";
+
+   oscillator.frequency.value=
+     number<=3 ? 650 : 430;
+
+   gain.gain.value=.08;
+
+   oscillator.connect(gain);
+   gain.connect(ctx.destination);
+
+   oscillator.start();
+
+   oscillator.stop(ctx.currentTime+.16);
+
+ }catch(e){}
+
+}
+
+
+/* =====================================================
+   BIRTHDAY MOMENT
+===================================================== */
+
+function startBirthday(){
+
+ tenStarted=true;
+
+ beforeCountdown.classList.add("hidden");
+
+ lastTen.classList.add("hidden");
+
+ birthdayMoment();
+}
+
+
+function birthdayMoment(){
+
+ cinematic.style.display="none";
+
+ reveal.style.display="flex";
+
+ createConfetti();
+
+ try{
+
+   music.currentTime=0;
+
+   const promise=music.play();
+
+   if(promise && promise.catch){
+     promise.catch(()=>{});
+   }
+
+ }catch(e){}
+
+}
+
+
+/* =====================================================
+   CONFETTI
+===================================================== */
+
+function createConfetti(){
+
+ const symbols=["❤️","💕","💖","✨","🌸","⭐","👑","🎉"];
+
+ for(let i=0;i<90;i++){
+
+   const el=document.createElement("div");
+
+   el.className="confetti";
+
+   el.textContent=
+     symbols[Math.floor(Math.random()*symbols.length)];
+
+   el.style.left=Math.random()*100+"%";
+   el.style.fontSize=(12+Math.random()*25)+"px";
+
+   el.style.animationDuration=
+     (3+Math.random()*4)+"s";
+
+   el.style.animationDelay=
+     Math.random()*1.5+"s";
+
+   document.body.appendChild(el);
+
+   setTimeout(()=>{
+     el.remove();
+   },7000);
+ }
+}
+
+
+/* =====================================================
+   PHOTOS
+===================================================== */
+
+function startPhotos(){
+
+ reveal.style.display="none";
+
+ photos.style.display="block";
+
+ photoIndex=0;
+
+ buildProgress();
+
+ showPhoto();
+
+ try{
+
+   music.currentTime=0;
+
+   const p=music.play();
+
+   if(p && p.catch){
+     p.catch(()=>{});
+   }
+
+ }catch(e){}
+
+ startPhotoAuto();
+}
+
+
+function buildProgress(){
+
+ const progress=
+   document.getElementById("photoProgress");
+
+ progress.innerHTML="";
+
+ photoData.forEach((_,i)=>{
+
+   const line=document.createElement("div");
+
+   line.className="progress-line";
+
+   line.id="progress-"+i;
+
+   progress.appendChild(line);
+
+ });
+
+}
+
+
+function showPhoto(){
+
+ const item=photoData[photoIndex];
+
+ const bg=document.getElementById("photoBg");
+
+ bg.style.backgroundImage=
+   `url("${item.image}")`;
+
+ document.getElementById("photoNumber").textContent=
+   String(photoIndex+1).padStart(2,"0")+" / 12";
+
+ document.getElementById("photoTitle").textContent=
+   item.title;
+
+ document.getElementById("photoText").textContent=
+   item.text;
+
+ photoData.forEach((_,i)=>{
+
+   const line=document.getElementById("progress-"+i);
+
+   if(line){
+     line.classList.toggle("active",i<=photoIndex);
+   }
+
+ });
+
+}
+
+
+function nextPhoto(){
+
+ if(photoIndex>=photoData.length-1){
+
+   finishPhotos();
+
+   return;
+ }
+
+ photoIndex++;
+
+ showPhoto();
+
+ restartPhotoTimer();
+}
+
+
+function startPhotoAuto(){
+
+ clearInterval(photoTimer);
+
+ photoTimer=setInterval(()=>{
+
+   if(photos.style.display==="block"){
+     nextPhoto();
+   }
+
+ },5000);
+
+}
+
+
+function restartPhotoTimer(){
+
+ clearInterval(photoTimer);
+
+ photoTimer=setInterval(()=>{
+
+   if(photos.style.display==="block"){
+     nextPhoto();
+   }
+
+ },5000);
+
+}
+
+
+function finishPhotos(){
+
+ clearInterval(photoTimer);
+
+ photos.style.display="none";
+
+ giftApp.style.display="block";
+
+ window.scrollTo({
+   top:0,
+   behavior:"smooth"
+ });
+
+}
+
+
+/* =====================================================
+   MENU CONTENT
+===================================================== */
+
+function openSection(type){
+
+ const overlay=document.getElementById("overlay");
+ const emoji=document.getElementById("dialogEmoji");
+ const title=document.getElementById("dialogTitle");
+ const content=document.getElementById("dialogContent");
+
+ let data={};
+
+ if(type==="letter"){
+
+   data={
+    emoji:"💌",
+    title:"رسالة عيد ميلادك",
+    html:`
+      <p>
+      ملك...
+      <br><br>
+      كل سنة وإنتِ طيبة،
+      وكل سنة وإنتِ بخير،
+      وكل سنة وضحكتك منورة الدنيا.
+      <br><br>
+      أتمنى السنة الجديدة من عمرك تكون مليانة
+      فرحة ونجاح وراحة وحاجات حلوة كتير.
+      <br><br>
+      وأهم حاجة...
+      تفضلي دايمًا ملك زي ما إنتِ.
+      ❤️
+      </p>
+    `
+   };
+
+ }
+
+ else if(type==="heart"){
+
+   data={
+    emoji:"❤️",
+    title:"كلام من القلب",
+    html:`
+      <p>
+      ساعات الكلام بيبقى قليل قدام الإحساس.
+      <br><br>
+      بس لو فيه حاجة واحدة لازم تعرفيها،
+      فهي إنك شخص يستاهل يتحب ويتقدر ويتفرح بيه.
+      <br><br>
+      وجودك مش حاجة عادية...
+      وجودك فرق.
+      ❤️
+      </p>
+    `
+   };
+
+ }
+
+ else if(type==="why"){
+
+   data={
+    emoji:"💕",
+    title:"ليه ملك مميزة؟",
+    html:`
+      <p>
+      لأنك مش شبه حد.
+      <br><br>
+      لأن عندك طريقتك،
+      وضحكتك،
+      وتفاصيلك،
+      وطريقتك الخاصة في إنك تسيبي أثر.
+      <br><br>
+      وده بالضبط اللي بيخلي ملك...
+      ملك. 👑
+      </p>
+    `
+   };
+
+ }
+
+ else if(type==="memories"){
+
+   data={
+    emoji:"📸",
+    title:"ذكرياتنا",
+    html:`
+      <p>
+      الـ12 صورة اللي ظهروا قبل كده
+      مش مجرد صور.
+      <br><br>
+      كل صورة فيها لحظة،
+      وكل لحظة فيها إحساس،
+      وكل إحساس يستاهل يفضل موجود.
+      ❤️
+      </p>
+    `
+   };
+
+ }
+
+ else if(type==="eyes"){
+
+   data={
+    emoji:"👑",
+    title:"ملك في عيني",
+    html:`
+      <p>
+      في عيني؟
+      <br><br>
+      ملك هي البنت اللي لما تتذكرها
+      لازم تبتسم.
+      <br><br>
+      هي الضحكة،
+      والونس،
+      والتفاصيل الحلوة،
+      والحكاية اللي الواحد يحب يفضل يفتكرها.
+      <br><br>
+      👑❤️
+      </p>
+    `
+   };
+
+ }
+
+ else if(type==="twelve"){
+
+   data={
+    emoji:"✨",
+    title:"12 رسالة",
+    html:`
+      <p>
+      01 — أتمنى يومك يبقى جميل ❤️
+      <br>
+      02 — أتمنى ضحكتك ما تختفيش ✨
+      <br>
+      03 — أتمنى كل أمنياتك تتحقق 💕
+      <br>
+      04 — أتمنى السنة دي تكون مختلفة 👑
+      <br>
+      05 — أتمنى تفضلي مبسوطة 🌸
+      <br>
+      06 — أتمنى دايمًا تلاقي اللي يقدرك ❤️
+      <br>
+      07 — أتمنى كل خطوة تكون نجاح 💫
+      <br>
+      08 — أتمنى قلبك يفضل مطمن 🫶
+      <br>
+      09 — أتمنى تشوفي نفسك زي ما الناس الحلوة شايفاكي 👑
+      <br>
+      10 — أتمنى أجمل أيامك لسه جاية ✨
+      <br>
+      11 — أتمنى تفضلي ملك ❤️
+      <br>
+      12 — كل سنة وإنتِ أجمل حكاية 🎂
+      </p>
+    `
+   };
+
+ }
+
+ else if(type==="birthday"){
+
+   data={
+    emoji:"🎂",
+    title:"رسالة خاصة",
+    html:`
+      <p>
+      النهارده مش يوم عادي.
+      <br><br>
+      النهارده اليوم اللي الدنيا كسبت فيه ملك.
+      <br><br>
+      عشان كده...
+      كل سنة وإنتِ طيبة يا ملك خفاجي.
+      <br><br>
+      وإن شاء الله العمر الجاي
+      يبقى أحلى،
+      وأهدى،
+      وأجمل،
+      ومليان بكل حاجة بتحبيها.
+      <br><br>
+      🎂❤️👑
+      </p>
+    `
+   };
+
+ }
+
+ else if(type==="surprise"){
+
+   data={
+    emoji:"🎁",
+    title:"المفاجأة الأخيرة",
+    html:`
+      <p>
+      لو كنتِ متوقعة إن دي النهاية...
+      فأنا آسف 😌
+      <br><br>
+      لأن أجمل هدية مش الصندوق،
+      ولا الصورة،
+      ولا الأغنية.
+      <br><br>
+      أجمل هدية هي إنك تفضلي فاكرة
+      إن فيه حد حب يعملك يوم مخصوص
+      عشان يشوفك مبسوطة.
+      <br><br>
+      كل سنة وإنتِ ملك.
+      <br>
+      وكل سنة وإنتِ أجمل حكاية.
+      <br><br>
+      ❤️👑❤️
+      </p>
+    `
+   };
+
+ }
+
+ emoji.textContent=data.emoji;
+ title.textContent=data.title;
+ content.innerHTML=data.html;
+
+ overlay.classList.add("show");
+}
+
+
+function closeSection(){
+
+ document.getElementById("overlay")
+   .classList.remove("show");
+
+}
+
+
+/* =====================================================
+   CLOSE OUTSIDE
+===================================================== */
+
+document.getElementById("overlay").addEventListener("click",e=>{
+
+ if(e.target.id==="overlay"){
+   closeSection();
+ }
+
+});
+
+
+/* =====================================================
+   START LOGIC
+===================================================== */
+
+function initialCheck(){
+
+ const now=new Date();
+ const diff=birthday-now;
+
+ if(diff<=0){
+
+   cinematic.style.display="none";
+
+   birthdayMoment();
+
+   return;
+ }
+
+ updateCountdown();
+
+}
+
+
+initialCheck();
+
+setInterval(updateCountdown,1000);
+
+
+/* =====================================================
+   VOICES LOAD
+===================================================== */
+
+if("speechSynthesis" in window){
+
+ window.speechSynthesis.getVoices();
+
+ window.speechSynthesis.onvoiceschanged=()=>{
+   window.speechSynthesis.getVoices();
+ };
+
+}
+
+</script>
+
+</body>
+  </html>
