@@ -2,1058 +2,3689 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<meta name="theme-color" content="#08030a">
-<title>ملك | أجمل حكاية ❤️</title>
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+
+<meta name="theme-color" content="#09030b">
+<meta name="description" content="ملك خفاجي — حكاية تستحق أن تُحتفل بها">
+
+<title>ملك | حكاية تستحق الاحتفال 👑</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
+
+/* =========================================================
+   ROOT
+========================================================= */
+
 :root{
-  --pink:#ff4f91;
-  --pink2:#ff86b5;
-  --gold:#ffd36a;
-  --purple:#8b5cf6;
-  --bg:#08030a;
-  --bg2:#120713;
-  --card:rgba(255,255,255,.075);
-  --border:rgba(255,255,255,.13);
-  --text:#fff;
-  --muted:#cdbec8;
+    --bg:#08030a;
+    --bg2:#10050f;
+    --card:rgba(255,255,255,.055);
+    --card2:rgba(255,255,255,.085);
+
+    --pink:#ff4f91;
+    --pink2:#ff86b5;
+    --rose:#ffb2cd;
+
+    --purple:#8b5cf6;
+    --violet:#b58aff;
+
+    --gold:#ffd36a;
+    --white:#fff;
+    --muted:#b9aeb8;
+
+    --border:rgba(255,255,255,.10);
+
+    --shadow:
+        0 25px 80px rgba(0,0,0,.45);
+
+    --glow:
+        0 0 50px rgba(255,79,145,.20);
+
+    --radius:28px;
 }
 
+
+/* =========================================================
+   RESET
+========================================================= */
+
 *{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
 }
 
 html{
-  scroll-behavior:smooth;
+    scroll-behavior:smooth;
 }
 
 body{
-  font-family:Cairo,sans-serif;
-  background:
-    radial-gradient(circle at 20% 10%,rgba(255,79,145,.16),transparent 30%),
-    radial-gradient(circle at 85% 30%,rgba(139,92,246,.13),transparent 28%),
-    linear-gradient(135deg,var(--bg),var(--bg2));
-  color:var(--text);
-  overflow-x:hidden;
-  min-height:100vh;
+    background:
+        radial-gradient(circle at 20% 10%,rgba(255,79,145,.12),transparent 28%),
+        radial-gradient(circle at 85% 25%,rgba(139,92,246,.11),transparent 30%),
+        radial-gradient(circle at 50% 100%,rgba(255,211,106,.06),transparent 30%),
+        var(--bg);
+
+    color:var(--white);
+
+    font-family:"Cairo",sans-serif;
+
+    min-height:100vh;
+
+    overflow-x:hidden;
+}
+
+button,
+a{
+    font-family:inherit;
 }
 
 button{
-  font-family:inherit;
+    border:0;
+    cursor:pointer;
 }
 
+a{
+    color:inherit;
+    text-decoration:none;
+}
+
+
+/* =========================================================
+   LOADER
+========================================================= */
+
 #loader{
-  position:fixed;
-  inset:0;
-  background:#08030a;
-  z-index:99999;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  transition:opacity .8s,visibility .8s;
+    position:fixed;
+    inset:0;
+
+    z-index:99999;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-direction:column;
+
+    background:
+        radial-gradient(circle at center,rgba(255,79,145,.16),transparent 35%),
+        #08030a;
+
+    transition:
+        opacity .8s ease,
+        visibility .8s ease;
+}
+
+#loader.hide{
+    opacity:0;
+    visibility:hidden;
 }
 
 .loader-heart{
-  font-size:70px;
-  animation:heartbeat 1s infinite;
-  filter:drop-shadow(0 0 25px var(--pink));
+    width:100px;
+    height:100px;
+
+    display:grid;
+    place-items:center;
+
+    border-radius:50%;
+
+    background:
+        radial-gradient(circle,rgba(255,255,255,.13),transparent 65%);
+
+    box-shadow:
+        0 0 30px rgba(255,79,145,.35),
+        0 0 90px rgba(255,79,145,.15);
+
+    animation:loaderPulse 1.5s infinite;
 }
 
-@keyframes heartbeat{
-  0%,100%{transform:scale(1)}
-  25%{transform:scale(1.18)}
-  40%{transform:scale(.98)}
-  60%{transform:scale(1.14)}
+.loader-heart span{
+    font-size:48px;
+
+    filter:
+        drop-shadow(0 0 20px rgba(255,79,145,.7));
 }
 
-.stars,
-.hearts{
-  position:fixed;
-  inset:0;
-  pointer-events:none;
-  overflow:hidden;
-  z-index:0;
+.loader-title{
+    margin-top:25px;
+
+    font-family:"Playfair Display",serif;
+
+    font-size:28px;
+}
+
+.loader-sub{
+    color:var(--muted);
+    margin-top:6px;
+    font-size:13px;
+}
+
+.loader-line{
+    width:160px;
+    height:2px;
+
+    margin-top:25px;
+
+    background:rgba(255,255,255,.08);
+
+    overflow:hidden;
+    border-radius:20px;
+}
+
+.loader-line span{
+    display:block;
+    width:45%;
+    height:100%;
+
+    background:
+        linear-gradient(90deg,var(--pink),var(--gold));
+
+    animation:loading 1.5s infinite;
+}
+
+@keyframes loaderPulse{
+    0%,100%{
+        transform:scale(.92);
+    }
+
+    50%{
+        transform:scale(1.06);
+    }
+}
+
+@keyframes loading{
+    from{
+        transform:translateX(250%);
+    }
+
+    to{
+        transform:translateX(-250%);
+    }
+}
+
+
+/* =========================================================
+   BACKGROUND FX
+========================================================= */
+
+#stars{
+    position:fixed;
+    inset:0;
+
+    pointer-events:none;
+
+    z-index:-5;
 }
 
 .star{
-  position:absolute;
-  width:2px;
-  height:2px;
-  background:white;
-  border-radius:50%;
-  opacity:.5;
-  animation:twinkle 3s infinite;
+    position:absolute;
+
+    width:2px;
+    height:2px;
+
+    border-radius:50%;
+
+    background:white;
+
+    opacity:.4;
+
+    animation:twinkle var(--duration) infinite ease-in-out;
 }
 
 @keyframes twinkle{
-  0%,100%{opacity:.15}
-  50%{opacity:1}
+    0%,100%{
+        opacity:.1;
+        transform:scale(.6);
+    }
+
+    50%{
+        opacity:.9;
+        transform:scale(1.7);
+    }
+}
+
+.orb{
+    position:fixed;
+
+    border-radius:50%;
+
+    pointer-events:none;
+
+    filter:blur(80px);
+
+    opacity:.18;
+
+    z-index:-4;
+}
+
+.orb.one{
+    width:300px;
+    height:300px;
+
+    background:var(--pink);
+
+    top:5%;
+    left:-130px;
+}
+
+.orb.two{
+    width:350px;
+    height:350px;
+
+    background:var(--purple);
+
+    right:-160px;
+    top:35%;
+}
+
+.orb.three{
+    width:250px;
+    height:250px;
+
+    background:var(--gold);
+
+    left:30%;
+    bottom:-160px;
+
+    opacity:.07;
+}
+
+
+/* =========================================================
+   FLOATING HEARTS
+========================================================= */
+
+#hearts{
+    position:fixed;
+    inset:0;
+
+    pointer-events:none;
+
+    overflow:hidden;
+
+    z-index:5;
 }
 
 .float-heart{
-  position:absolute;
-  color:var(--pink);
-  opacity:.18;
-  animation:floatUp linear infinite;
-}
+    position:absolute;
 
-@keyframes floatUp{
-  from{
-    transform:translateY(110vh) rotate(0deg);
+    bottom:-50px;
+
+    font-size:var(--size);
+
     opacity:0;
-  }
-  20%{opacity:.25}
-  80%{opacity:.18}
-  to{
-    transform:translateY(-15vh) rotate(360deg);
-    opacity:0;
-  }
+
+    animation:
+        heartFloat var(--time) linear forwards;
 }
 
-nav{
-  position:fixed;
-  top:15px;
-  left:50%;
-  transform:translateX(-50%);
-  width:min(94%,900px);
-  padding:10px;
-  border:1px solid var(--border);
-  border-radius:24px;
-  background:rgba(10,4,12,.65);
-  backdrop-filter:blur(20px);
-  -webkit-backdrop-filter:blur(20px);
-  z-index:1000;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  box-shadow:0 15px 50px rgba(0,0,0,.35);
+@keyframes heartFloat{
+
+    0%{
+        transform:
+            translateY(0)
+            translateX(0)
+            rotate(0deg)
+            scale(.6);
+
+        opacity:0;
+    }
+
+    10%{
+        opacity:.7;
+    }
+
+    85%{
+        opacity:.35;
+    }
+
+    100%{
+        transform:
+            translateY(-115vh)
+            translateX(var(--move))
+            rotate(360deg)
+            scale(1.2);
+
+        opacity:0;
+    }
 }
 
-.logo{
-  font-weight:900;
-  font-size:19px;
-  color:white;
+
+/* =========================================================
+   NAV
+========================================================= */
+
+.nav{
+    position:fixed;
+
+    top:18px;
+    left:50%;
+
+    transform:translateX(-50%);
+
+    width:min(1120px,calc(100% - 28px));
+
+    height:68px;
+
+    z-index:1000;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    padding:0 16px 0 20px;
+
+    background:rgba(12,5,12,.68);
+
+    border:1px solid var(--border);
+
+    backdrop-filter:blur(25px);
+
+    border-radius:22px;
+
+    box-shadow:
+        0 15px 50px rgba(0,0,0,.3);
 }
 
-.logo span{
-  color:var(--pink);
+.brand{
+    display:flex;
+    align-items:center;
+    gap:11px;
+}
+
+.brand-icon{
+    width:42px;
+    height:42px;
+
+    display:grid;
+    place-items:center;
+
+    border-radius:14px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,79,145,.25),
+            rgba(139,92,246,.20)
+        );
+
+    border:1px solid rgba(255,255,255,.12);
+
+    font-size:20px;
+
+    box-shadow:
+        0 0 25px rgba(255,79,145,.12);
+}
+
+.brand-text strong{
+    display:block;
+
+    font-family:"Playfair Display",serif;
+
+    font-size:18px;
+}
+
+.brand-text small{
+    display:block;
+
+    color:#a99da8;
+
+    font-size:9px;
+
+    letter-spacing:.5px;
 }
 
 .nav-links{
-  display:flex;
-  gap:7px;
+    display:flex;
+    align-items:center;
+    gap:6px;
 }
 
-.nav-btn{
-  border:0;
-  background:rgba(255,255,255,.07);
-  color:white;
-  width:42px;
-  height:42px;
-  border-radius:14px;
-  cursor:pointer;
-  transition:.3s;
+.nav-links a{
+    color:#c9bdc7;
+
+    font-size:12px;
+
+    padding:10px 13px;
+
+    border-radius:13px;
+
+    transition:.3s;
 }
 
-.nav-btn:hover{
-  transform:translateY(-3px);
-  background:rgba(255,79,145,.18);
+.nav-links a:hover{
+    color:white;
+    background:rgba(255,255,255,.06);
 }
 
-section{
-  position:relative;
-  z-index:2;
-  width:min(1100px,92%);
-  margin:auto;
+.nav-gift{
+    padding:11px 16px !important;
+
+    color:white !important;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--pink),
+            var(--purple)
+        ) !important;
+
+    box-shadow:
+        0 8px 25px rgba(255,79,145,.22);
 }
+
+.menu-btn{
+    display:none;
+
+    width:42px;
+    height:42px;
+
+    border-radius:13px;
+
+    color:white;
+
+    background:rgba(255,255,255,.06);
+
+    font-size:20px;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
 
 .hero{
-  min-height:100vh;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  padding:100px 0 50px;
+    position:relative;
+
+    min-height:100vh;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    padding:
+        130px 20px
+        80px;
+
+    text-align:center;
 }
 
 .hero-content{
-  max-width:850px;
+    width:min(900px,100%);
+
+    position:relative;
+
+    z-index:2;
 }
 
-.badge{
-  display:inline-flex;
-  align-items:center;
-  gap:8px;
-  padding:9px 17px;
-  border-radius:999px;
-  background:rgba(255,79,145,.1);
-  border:1px solid rgba(255,79,145,.25);
-  color:var(--pink2);
-  font-size:13px;
-  margin-bottom:22px;
+.hero-kicker{
+    display:inline-flex;
+
+    align-items:center;
+    gap:8px;
+
+    padding:8px 14px;
+
+    border-radius:50px;
+
+    background:rgba(255,255,255,.045);
+
+    border:1px solid rgba(255,255,255,.09);
+
+    color:#d8ccd6;
+
+    font-size:11px;
+
+    margin-bottom:28px;
+
+    animation:fadeUp .9s both;
+}
+
+.hero-kicker i{
+    width:7px;
+    height:7px;
+
+    border-radius:50%;
+
+    background:var(--pink);
+
+    box-shadow:
+        0 0 15px var(--pink);
 }
 
 .hero h1{
-  font-family:"Playfair Display",serif;
-  font-size:clamp(70px,17vw,160px);
-  line-height:.85;
-  background:linear-gradient(135deg,#fff,var(--pink2),var(--gold));
-  -webkit-background-clip:text;
-  color:transparent;
-  text-shadow:0 0 60px rgba(255,79,145,.15);
+    font-family:"Playfair Display","Cairo",serif;
+
+    font-size:
+        clamp(72px,15vw,170px);
+
+    line-height:.85;
+
+    font-weight:500;
+
+    letter-spacing:-5px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fff 20%,
+            #ffd7e7 48%,
+            #ff76a8 75%,
+            #b996ff
+        );
+
+    -webkit-background-clip:text;
+    background-clip:text;
+
+    color:transparent;
+
+    filter:
+        drop-shadow(
+            0 15px 45px rgba(255,79,145,.18)
+        );
+
+    animation:heroTitle 1.2s .1s both;
 }
 
-.hero h2{
-  margin-top:25px;
-  font-size:clamp(25px,5vw,48px);
+.hero-title-small{
+    margin-top:15px;
+
+    font-size:
+        clamp(20px,4vw,36px);
+
+    font-weight:300;
+
+    color:#eee2ea;
+
+    animation:fadeUp 1s .25s both;
 }
 
-.hero p{
-  color:var(--muted);
-  font-size:16px;
-  line-height:2;
-  max-width:650px;
-  margin:20px auto 30px;
+.hero-description{
+    width:min(620px,100%);
+
+    margin:22px auto 0;
+
+    color:#a99da8;
+
+    line-height:2;
+
+    font-size:14px;
+
+    animation:fadeUp 1s .4s both;
 }
 
-.buttons{
-  display:flex;
-  justify-content:center;
-  gap:12px;
-  flex-wrap:wrap;
+.hero-actions{
+    margin-top:35px;
+
+    display:flex;
+
+    justify-content:center;
+
+    flex-wrap:wrap;
+
+    gap:12px;
+
+    animation:fadeUp 1s .55s both;
 }
 
-.primary-btn,
-.secondary-btn,
-.secret-btn{
-  border:0;
-  cursor:pointer;
-  border-radius:17px;
-  padding:14px 23px;
-  font-weight:800;
-  transition:.3s;
+.btn{
+    min-height:52px;
+
+    padding:0 22px;
+
+    border-radius:16px;
+
+    display:inline-flex;
+
+    align-items:center;
+    justify-content:center;
+
+    gap:9px;
+
+    font-size:13px;
+
+    transition:
+        transform .3s,
+        box-shadow .3s,
+        background .3s;
 }
 
-.primary-btn{
-  color:#210814;
-  background:linear-gradient(135deg,var(--pink2),var(--gold));
-  box-shadow:0 10px 35px rgba(255,79,145,.25);
+.btn:hover{
+    transform:translateY(-4px);
 }
 
-.secondary-btn{
-  color:white;
-  background:rgba(255,255,255,.07);
-  border:1px solid var(--border);
+.btn-primary{
+    color:white;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--pink),
+            var(--purple)
+        );
+
+    box-shadow:
+        0 15px 40px rgba(255,79,145,.2);
 }
 
-.primary-btn:hover,
-.secondary-btn:hover,
-.secret-btn:hover{
-  transform:translateY(-4px) scale(1.02);
+.btn-secondary{
+    color:#eee;
+
+    background:rgba(255,255,255,.055);
+
+    border:1px solid var(--border);
+
+    backdrop-filter:blur(15px);
+}
+
+.hero-bottom{
+    margin-top:70px;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    gap:10px;
+
+    color:#827580;
+
+    font-size:10px;
+
+    animation:fadeUp 1s .8s both;
+}
+
+.scroll-dot{
+    width:6px;
+    height:6px;
+
+    border-radius:50%;
+
+    background:var(--pink);
+
+    box-shadow:
+        0 0 15px var(--pink);
+}
+
+@keyframes heroTitle{
+    from{
+        opacity:0;
+        transform:translateY(35px) scale(.95);
+        filter:blur(15px);
+    }
+
+    to{
+        opacity:1;
+        transform:none;
+        filter:none;
+    }
+}
+
+@keyframes fadeUp{
+    from{
+        opacity:0;
+        transform:translateY(25px);
+    }
+
+    to{
+        opacity:1;
+        transform:none;
+    }
+}
+
+
+/* =========================================================
+   SECTION
+========================================================= */
+
+.section{
+    width:min(1120px,calc(100% - 30px));
+
+    margin:auto;
+
+    padding:100px 0;
+}
+
+.section-head{
+    margin-bottom:35px;
+}
+
+.section-tag{
+    color:var(--pink2);
+
+    font-size:11px;
+
+    font-weight:700;
+
+    letter-spacing:1px;
+
+    margin-bottom:8px;
 }
 
 .section-title{
-  text-align:center;
-  margin-bottom:35px;
+    font-family:"Playfair Display","Cairo",serif;
+
+    font-size:
+        clamp(30px,5vw,52px);
+
+    font-weight:500;
+
+    line-height:1.2;
 }
 
-.section-title small{
-  color:var(--pink2);
+.section-description{
+    max-width:620px;
+
+    margin-top:12px;
+
+    color:#958994;
+
+    line-height:1.9;
+
+    font-size:13px;
 }
 
-.section-title h2{
-  font-size:clamp(28px,6vw,46px);
-  margin-top:7px;
+
+/* =========================================================
+   EXPERIENCE CARD
+========================================================= */
+
+.experience{
+    display:grid;
+
+    grid-template-columns:
+        1.1fr
+        .9fr;
+
+    gap:20px;
+}
+
+.experience-main,
+.experience-side{
+    border:
+        1px solid var(--border);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.075),
+            rgba(255,255,255,.025)
+        );
+
+    border-radius:var(--radius);
+
+    box-shadow:var(--shadow);
+
+    overflow:hidden;
+
+    position:relative;
+}
+
+.experience-main{
+    min-height:450px;
+
+    padding:42px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:flex-end;
+}
+
+.experience-main::before{
+    content:"";
+
+    position:absolute;
+    inset:0;
+
+    background:
+        radial-gradient(
+            circle at 75% 20%,
+            rgba(255,79,145,.20),
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at 15% 80%,
+            rgba(139,92,246,.17),
+            transparent 35%
+        );
+}
+
+.big-number{
+    position:absolute;
+
+    top:25px;
+    left:35px;
+
+    font-family:"Playfair Display",serif;
+
+    font-size:130px;
+
+    line-height:1;
+
+    color:rgba(255,255,255,.025);
+}
+
+.experience-content{
+    position:relative;
+
+    z-index:2;
+}
+
+.experience-content h3{
+    font-family:"Playfair Display",serif;
+
+    font-size:38px;
+
+    margin-bottom:12px;
+}
+
+.experience-content p{
+    color:#a99da8;
+
+    line-height:2;
+
+    font-size:13px;
+
+    max-width:550px;
+}
+
+.experience-side{
+    padding:28px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:space-between;
+}
+
+.mini-label{
+    color:#897c87;
+
+    font-size:11px;
+}
+
+.quote{
+    font-family:"Playfair Display","Cairo",serif;
+
+    font-size:28px;
+
+    line-height:1.6;
+
+    color:#f3e9ef;
+}
+
+.signature{
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    color:#998c96;
+
+    font-size:11px;
+}
+
+.signature span{
+    width:30px;
+    height:1px;
+
+    background:var(--pink);
+}
+
+
+/* =========================================================
+   COUNTDOWN
+========================================================= */
+
+.countdown-card{
+    position:relative;
+
+    overflow:hidden;
+
+    border-radius:32px;
+
+    padding:45px 25px;
+
+    text-align:center;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(255,79,145,.12),
+            transparent 45%
+        ),
+        rgba(255,255,255,.035);
+
+    border:1px solid rgba(255,255,255,.09);
+
+    box-shadow:
+        0 30px 100px rgba(0,0,0,.35);
+}
+
+.countdown-card::after{
+    content:"";
+
+    position:absolute;
+
+    width:300px;
+    height:300px;
+
+    border-radius:50%;
+
+    border:1px solid rgba(255,255,255,.04);
+
+    left:50%;
+    top:50%;
+
+    transform:translate(-50%,-50%);
+}
+
+.countdown-label{
+    color:var(--pink2);
+
+    font-size:11px;
+
+    margin-bottom:20px;
 }
 
 .countdown{
-  padding:80px 0;
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:10px;
+
+    direction:ltr;
 }
 
-.count-grid{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:12px;
-  max-width:800px;
-  margin:auto;
+.time-box{
+    width:90px;
+
+    position:relative;
+
+    z-index:2;
 }
 
-.count-box{
-  padding:25px 10px;
-  border:1px solid var(--border);
-  border-radius:24px;
-  background:var(--card);
-  backdrop-filter:blur(15px);
+.time-box strong{
+    display:block;
+
+    font-family:"Playfair Display",serif;
+
+    font-size:50px;
+
+    line-height:1;
 }
 
-.count-box strong{
-  display:block;
-  font-size:35px;
-  color:var(--pink2);
+.time-box span{
+    display:block;
+
+    margin-top:8px;
+
+    color:#887b86;
+
+    font-size:9px;
 }
 
-.count-box span{
-  font-size:12px;
-  color:var(--muted);
+.time-separator{
+    font-size:30px;
+
+    color:var(--pink);
+
+    animation:blink 1s infinite;
 }
 
-.card{
-  background:linear-gradient(145deg,rgba(255,255,255,.09),rgba(255,255,255,.035));
-  border:1px solid var(--border);
-  border-radius:30px;
-  padding:30px;
-  box-shadow:0 20px 70px rgba(0,0,0,.25);
+@keyframes blink{
+    50%{
+        opacity:.25;
+    }
 }
+
+
+/* =========================================================
+   LETTER
+========================================================= */
 
 .letter{
-  padding:90px 0;
+    position:relative;
+
+    padding:60px;
+
+    border-radius:35px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.065),
+            rgba(255,255,255,.02)
+        );
+
+    border:1px solid var(--border);
+
+    overflow:hidden;
+
+    box-shadow:var(--shadow);
 }
 
-.letter-card{
-  max-width:850px;
-  margin:auto;
-  text-align:center;
+.letter::before{
+    content:"“";
+
+    position:absolute;
+
+    left:30px;
+    top:-30px;
+
+    font-family:"Playfair Display",serif;
+
+    font-size:220px;
+
+    color:rgba(255,79,145,.06);
 }
 
-.letter-card .icon{
-  font-size:50px;
-  margin-bottom:15px;
+.letter-top{
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:35px;
 }
 
-.letter-card p{
-  color:#eadfe6;
-  line-height:2.4;
-  font-size:17px;
+.letter-stamp{
+    width:60px;
+    height:60px;
+
+    border-radius:20px;
+
+    display:grid;
+    place-items:center;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,79,145,.2),
+            rgba(139,92,246,.15)
+        );
+
+    font-size:25px;
 }
 
-.memories{
-  padding:70px 0;
+.letter-date{
+    color:#786c76;
+
+    font-size:10px;
 }
 
-.memory-grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:18px;
+.letter h3{
+    font-family:"Playfair Display","Cairo",serif;
+
+    font-size:
+        clamp(30px,5vw,46px);
+
+    font-weight:500;
+
+    margin-bottom:22px;
+}
+
+.letter p{
+    color:#aaa0aa;
+
+    font-size:14px;
+
+    line-height:2.35;
+
+    max-width:780px;
+}
+
+.letter-highlight{
+    margin-top:25px;
+
+    color:#f2dce6 !important;
+
+    font-size:17px !important;
+
+    font-weight:600;
+}
+
+
+/* =========================================================
+   MEMORY TIMELINE
+========================================================= */
+
+.timeline{
+    position:relative;
+
+    margin-top:50px;
+}
+
+.timeline::before{
+    content:"";
+
+    position:absolute;
+
+    top:0;
+    bottom:0;
+
+    right:24px;
+
+    width:1px;
+
+    background:
+        linear-gradient(
+            var(--pink),
+            rgba(255,255,255,.05),
+            var(--purple)
+        );
 }
 
 .memory{
-  min-height:300px;
-  border-radius:27px;
-  overflow:hidden;
-  position:relative;
-  background-size:cover;
-  background-position:center;
-  border:1px solid var(--border);
+    position:relative;
+
+    padding-right:70px;
+
+    margin-bottom:28px;
 }
 
-.memory::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:linear-gradient(transparent 20%,rgba(0,0,0,.9));
+.memory-dot{
+    position:absolute;
+
+    right:17px;
+    top:15px;
+
+    width:15px;
+    height:15px;
+
+    border-radius:50%;
+
+    background:var(--bg);
+
+    border:3px solid var(--pink);
+
+    box-shadow:
+        0 0 20px rgba(255,79,145,.6);
+}
+
+.memory-card{
+    min-height:220px;
+
+    border-radius:28px;
+
+    overflow:hidden;
+
+    position:relative;
+
+    display:flex;
+
+    align-items:flex-end;
+
+    padding:28px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,79,145,.13),
+            rgba(139,92,246,.09)
+        );
+
+    border:1px solid var(--border);
+
+    transition:.4s;
+}
+
+.memory-card:hover{
+    transform:translateX(-7px);
+
+    border-color:
+        rgba(255,79,145,.3);
+}
+
+.memory-card::before{
+    content:"";
+
+    position:absolute;
+    inset:0;
+
+    background:
+        radial-gradient(
+            circle at 80% 20%,
+            rgba(255,255,255,.08),
+            transparent 30%
+        );
+}
+
+.memory-number{
+    position:absolute;
+
+    left:25px;
+    top:20px;
+
+    color:rgba(255,255,255,.07);
+
+    font-family:"Playfair Display",serif;
+
+    font-size:90px;
 }
 
 .memory-content{
-  position:absolute;
-  bottom:0;
-  right:0;
-  left:0;
-  z-index:2;
-  padding:22px;
+    position:relative;
+    z-index:2;
+}
+
+.memory-content small{
+    color:var(--pink2);
+
+    font-size:10px;
 }
 
 .memory-content h3{
-  margin-bottom:5px;
+    font-size:24px;
+
+    margin:5px 0;
 }
 
 .memory-content p{
-  color:#d7ccd3;
-  font-size:13px;
+    color:#a69aa5;
+
+    font-size:12px;
+
+    line-height:1.8;
+
+    max-width:620px;
 }
 
-.reasons{
-  padding:80px 0;
-}
+
+/* =========================================================
+   REASONS
+========================================================= */
 
 .reason-grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:15px;
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:14px;
 }
 
 .reason{
-  padding:25px;
-  border-radius:24px;
-  background:var(--card);
-  border:1px solid var(--border);
-  transition:.3s;
+    min-height:210px;
+
+    padding:28px;
+
+    border-radius:26px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.065),
+            rgba(255,255,255,.02)
+        );
+
+    border:1px solid var(--border);
+
+    position:relative;
+
+    overflow:hidden;
+
+    transition:.4s;
 }
 
 .reason:hover{
-  transform:translateY(-6px);
-  border-color:rgba(255,79,145,.35);
+    transform:translateY(-7px);
+
+    border-color:
+        rgba(255,79,145,.25);
+
+    box-shadow:
+        0 20px 60px rgba(0,0,0,.3);
 }
 
-.reason b{
-  font-size:30px;
+.reason-icon{
+    width:48px;
+    height:48px;
+
+    border-radius:16px;
+
+    display:grid;
+    place-items:center;
+
+    background:
+        rgba(255,79,145,.09);
+
+    font-size:21px;
+
+    margin-bottom:25px;
 }
 
 .reason h3{
-  margin:10px 0;
+    font-size:18px;
+
+    margin-bottom:8px;
 }
 
 .reason p{
-  color:var(--muted);
-  font-size:14px;
-  line-height:1.9;
+    color:#91858f;
+
+    font-size:11px;
+
+    line-height:1.9;
 }
 
-.games{
-  padding:80px 0;
+.reason-number{
+    position:absolute;
+
+    bottom:-20px;
+    left:12px;
+
+    font-size:80px;
+
+    font-family:"Playfair Display",serif;
+
+    color:rgba(255,255,255,.025);
 }
+
+
+/* =========================================================
+   GAME ZONE
+========================================================= */
 
 .game-grid{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:15px;
+    display:grid;
+
+    grid-template-columns:
+        repeat(2,1fr);
+
+    gap:16px;
 }
 
 .game{
-  padding:25px;
-  background:var(--card);
-  border:1px solid var(--border);
-  border-radius:24px;
-  text-align:center;
+    padding:30px;
+
+    border-radius:28px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.065),
+            rgba(255,255,255,.02)
+        );
+
+    border:1px solid var(--border);
+
+    position:relative;
+
+    overflow:hidden;
+
+    transition:.4s;
+}
+
+.game:hover{
+    transform:translateY(-5px);
+}
+
+.game-icon{
+    font-size:35px;
+
+    margin-bottom:18px;
+}
+
+.game h3{
+    font-size:20px;
+}
+
+.game p{
+    margin-top:8px;
+
+    color:#91858f;
+
+    font-size:11px;
+
+    line-height:1.8;
 }
 
 .game button{
-  margin-top:15px;
-  padding:10px 18px;
-  border:0;
-  border-radius:13px;
-  cursor:pointer;
-  background:linear-gradient(135deg,var(--pink),var(--purple));
-  color:white;
-  font-weight:700;
+    margin-top:20px;
+
+    padding:11px 16px;
+
+    border-radius:13px;
+
+    color:white;
+
+    background:
+        rgba(255,255,255,.07);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    transition:.3s;
 }
 
-.secret{
-  padding:90px 0;
-  text-align:center;
+.game button:hover{
+    background:var(--pink);
 }
 
-.secret-box{
-  max-width:700px;
-  margin:auto;
-  padding:50px 25px;
-  border-radius:35px;
-  background:
-    radial-gradient(circle at center,rgba(255,79,145,.13),transparent 60%),
-    var(--card);
-  border:1px solid rgba(255,79,145,.22);
-}
 
-.gift{
-  font-size:100px;
-  cursor:pointer;
-  display:inline-block;
-  animation:giftFloat 2s ease-in-out infinite;
-  filter:drop-shadow(0 15px 30px rgba(255,79,145,.3));
-}
-
-@keyframes giftFloat{
-  0%,100%{transform:translateY(0) rotate(-3deg)}
-  50%{transform:translateY(-12px) rotate(3deg)}
-}
-
-.secret-box h2{
-  margin:15px 0;
-}
-
-.secret-box p{
-  color:var(--muted);
-  margin-bottom:20px;
-}
-
-footer{
-  text-align:center;
-  padding:50px 20px;
-  color:#a998a5;
-  position:relative;
-  z-index:2;
-}
-
-footer strong{
-  color:var(--pink2);
-}
-
-.toast{
-  position:fixed;
-  bottom:25px;
-  left:50%;
-  transform:translate(-50%,120px);
-  padding:14px 20px;
-  border-radius:18px;
-  background:rgba(15,6,18,.9);
-  border:1px solid var(--border);
-  backdrop-filter:blur(15px);
-  z-index:9999;
-  transition:.4s;
-  box-shadow:0 15px 40px rgba(0,0,0,.4);
-}
-
-.toast.show{
-  transform:translate(-50%,0);
-}
+/* =========================================================
+   GAME MODAL
+========================================================= */
 
 .modal{
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,.75);
-  backdrop-filter:blur(15px);
-  z-index:9998;
-  display:none;
-  align-items:center;
-  justify-content:center;
-  padding:20px;
+    position:fixed;
+
+    inset:0;
+
+    z-index:10000;
+
+    display:none;
+
+    align-items:center;
+    justify-content:center;
+
+    padding:20px;
+
+    background:
+        rgba(0,0,0,.72);
+
+    backdrop-filter:blur(15px);
 }
 
 .modal.show{
-  display:flex;
+    display:flex;
 }
 
-.modal-card{
-  width:min(600px,100%);
-  padding:35px;
-  border-radius:30px;
-  background:#140914;
-  border:1px solid var(--border);
-  text-align:center;
-  animation:modalIn .4s;
+.modal-box{
+    width:min(500px,100%);
+
+    padding:35px;
+
+    border-radius:30px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #180b18,
+            #0d060d
+        );
+
+    border:1px solid var(--border);
+
+    box-shadow:
+        0 30px 100px rgba(0,0,0,.7);
+
+    position:relative;
+
+    animation:modalIn .4s both;
 }
 
 @keyframes modalIn{
-  from{transform:scale(.8);opacity:0}
-  to{transform:scale(1);opacity:1}
-}
+    from{
+        opacity:0;
+        transform:scale(.9) translateY(20px);
+    }
 
-.modal-card h2{
-  color:var(--pink2);
-  margin-bottom:15px;
-}
-
-.modal-card p{
-  line-height:2.2;
-  color:#e8dce4;
+    to{
+        opacity:1;
+        transform:none;
+    }
 }
 
 .close{
-  margin-top:20px;
-  border:0;
-  border-radius:14px;
-  padding:10px 22px;
-  cursor:pointer;
-  background:rgba(255,255,255,.08);
-  color:white;
+    position:absolute;
+
+    top:15px;
+    left:15px;
+
+    width:35px;
+    height:35px;
+
+    border-radius:11px;
+
+    color:white;
+
+    background:rgba(255,255,255,.06);
+
+    font-size:18px;
 }
 
-@media(max-width:700px){
-  nav{
-    top:8px;
-  }
+.modal-box h3{
+    font-family:"Playfair Display",serif;
 
-  .nav-links{
-    gap:4px;
-  }
+    font-size:30px;
 
-  .nav-btn{
+    margin-bottom:10px;
+}
+
+.modal-box p{
+    color:#a69aa5;
+
+    line-height:1.9;
+
+    font-size:13px;
+}
+
+.game-result{
+    margin-top:25px;
+
+    min-height:90px;
+
+    display:grid;
+    place-items:center;
+
+    padding:20px;
+
+    border-radius:20px;
+
+    background:
+        rgba(255,79,145,.06);
+
+    border:
+        1px solid rgba(255,79,145,.1);
+
+    text-align:center;
+
+    font-size:16px;
+}
+
+.modal-actions{
+    display:flex;
+
+    gap:10px;
+
+    margin-top:15px;
+}
+
+.modal-actions button{
+    flex:1;
+
+    min-height:45px;
+
+    border-radius:13px;
+
+    color:white;
+
+    background:rgba(255,255,255,.07);
+}
+
+
+/* =========================================================
+   SPECIAL SECTION
+========================================================= */
+
+.special{
+    padding:55px 35px;
+
+    text-align:center;
+
+    border-radius:35px;
+
+    position:relative;
+
+    overflow:hidden;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(255,79,145,.18),
+            transparent 50%
+        ),
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.07),
+            rgba(255,255,255,.025)
+        );
+
+    border:1px solid rgba(255,255,255,.1);
+
+    box-shadow:
+        0 30px 100px rgba(0,0,0,.4);
+}
+
+.special::before,
+.special::after{
+    content:"";
+
+    position:absolute;
+
+    width:180px;
+    height:180px;
+
+    border-radius:50%;
+
+    border:1px solid rgba(255,255,255,.05);
+}
+
+.special::before{
+    top:-90px;
+    right:-90px;
+}
+
+.special::after{
+    bottom:-90px;
+    left:-90px;
+}
+
+.special-crown{
+    font-size:45px;
+
+    filter:
+        drop-shadow(
+            0 0 25px rgba(255,211,106,.4)
+        );
+}
+
+.special h2{
+    font-family:"Playfair Display","Cairo",serif;
+
+    font-size:
+        clamp(32px,6vw,58px);
+
+    margin-top:15px;
+}
+
+.special p{
+    color:#a99da8;
+
+    max-width:600px;
+
+    margin:15px auto 25px;
+
+    font-size:13px;
+
+    line-height:2;
+}
+
+
+/* =========================================================
+   MUSIC PLAYER
+========================================================= */
+
+.music-player{
+    position:fixed;
+
+    bottom:20px;
+    left:20px;
+
+    z-index:900;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    padding:9px 12px;
+
+    border-radius:17px;
+
+    background:
+        rgba(12,5,12,.78);
+
+    border:1px solid var(--border);
+
+    backdrop-filter:blur(20px);
+
+    box-shadow:
+        0 15px 40px rgba(0,0,0,.3);
+}
+
+.music-btn{
     width:38px;
     height:38px;
-  }
 
-  .hero{
-    padding-top:110px;
-  }
+    border-radius:12px;
 
-  .count-grid{
-    grid-template-columns:repeat(2,1fr);
-  }
+    display:grid;
+    place-items:center;
 
-  .memory-grid,
-  .reason-grid{
-    grid-template-columns:1fr;
-  }
+    color:white;
 
-  .game-grid{
-    grid-template-columns:1fr;
-  }
-
-  .card{
-    padding:22px;
-  }
+    background:
+        linear-gradient(
+            135deg,
+            var(--pink),
+            var(--purple)
+        );
 }
+
+.music-info{
+    display:none;
+}
+
+.music-info strong{
+    display:block;
+    font-size:10px;
+}
+
+.music-info small{
+    display:block;
+    color:#827580;
+    font-size:8px;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer{
+    padding:80px 20px 35px;
+
+    text-align:center;
+
+    border-top:
+        1px solid rgba(255,255,255,.05);
+}
+
+.footer-logo{
+    font-family:"Playfair Display",serif;
+
+    font-size:35px;
+}
+
+.footer-text{
+    color:#746974;
+
+    margin-top:10px;
+
+    font-size:10px;
+
+    line-height:2;
+}
+
+.footer-heart{
+    margin-top:20px;
+
+    font-size:18px;
+
+    animation:heartBeat 1.4s infinite;
+}
+
+@keyframes heartBeat{
+
+    0%,100%{
+        transform:scale(1);
+    }
+
+    50%{
+        transform:scale(1.2);
+    }
+}
+
+
+/* =========================================================
+   TOAST
+========================================================= */
+
+.toast{
+    position:fixed;
+
+    top:100px;
+    right:50%;
+
+    transform:
+        translateX(50%)
+        translateY(-20px);
+
+    z-index:20000;
+
+    min-width:250px;
+
+    padding:14px 18px;
+
+    border-radius:15px;
+
+    background:
+        rgba(20,8,19,.9);
+
+    border:1px solid rgba(255,255,255,.1);
+
+    box-shadow:
+        0 20px 60px rgba(0,0,0,.4);
+
+    color:#eee;
+
+    text-align:center;
+
+    font-size:12px;
+
+    opacity:0;
+
+    pointer-events:none;
+
+    transition:.4s;
+}
+
+.toast.show{
+    opacity:1;
+
+    transform:
+        translateX(50%)
+        translateY(0);
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media(max-width:850px){
+
+    .nav{
+        height:62px;
+    }
+
+    .nav-links{
+        display:none;
+
+        position:absolute;
+
+        top:70px;
+        left:0;
+        right:0;
+
+        padding:10px;
+
+        border-radius:20px;
+
+        background:
+            rgba(12,5,12,.95);
+
+        border:1px solid var(--border);
+
+        flex-direction:column;
+
+        align-items:stretch;
+
+        backdrop-filter:blur(25px);
+    }
+
+    .nav-links.open{
+        display:flex;
+    }
+
+    .nav-links a{
+        text-align:center;
+    }
+
+    .menu-btn{
+        display:block;
+    }
+
+    .experience{
+        grid-template-columns:1fr;
+    }
+
+    .reason-grid{
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+
+    .game-grid{
+        grid-template-columns:1fr;
+    }
+
+    .letter{
+        padding:35px 24px;
+    }
+
+    .experience-main{
+        min-height:400px;
+
+        padding:30px;
+    }
+}
+
+
+@media(max-width:560px){
+
+    .section{
+        padding:75px 0;
+    }
+
+    .hero{
+        padding-top:120px;
+    }
+
+    .hero h1{
+        letter-spacing:-3px;
+    }
+
+    .hero-description{
+        font-size:12px;
+    }
+
+    .btn{
+        width:100%;
+    }
+
+    .hero-actions{
+        flex-direction:column;
+    }
+
+    .countdown{
+        gap:3px;
+    }
+
+    .time-box{
+        width:68px;
+    }
+
+    .time-box strong{
+        font-size:38px;
+    }
+
+    .time-separator{
+        font-size:22px;
+    }
+
+    .reason-grid{
+        grid-template-columns:1fr;
+    }
+
+    .memory{
+        padding-right:50px;
+    }
+
+    .timeline::before{
+        right:16px;
+    }
+
+    .memory-dot{
+        right:9px;
+    }
+
+    .special{
+        padding:45px 20px;
+    }
+
+    .music-player{
+        bottom:12px;
+        left:12px;
+    }
+
+}
+
+
+/* =========================================================
+   REVEAL ANIMATION
+========================================================= */
+
+.reveal{
+    opacity:0;
+
+    transform:translateY(35px);
+
+    transition:
+        opacity .8s ease,
+        transform .8s ease;
+}
+
+.reveal.visible{
+    opacity:1;
+
+    transform:none;
+}
+
+
+/* =========================================================
+   SECRET MODE
+========================================================= */
+
+.secret-mode{
+    position:fixed;
+
+    inset:0;
+
+    z-index:30000;
+
+    display:none;
+
+    place-items:center;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,79,145,.2),
+            rgba(0,0,0,.97)
+        );
+
+    text-align:center;
+
+    padding:25px;
+}
+
+.secret-mode.show{
+    display:grid;
+}
+
+.secret-content{
+    max-width:650px;
+
+    animation:modalIn .8s both;
+}
+
+.secret-content .emoji{
+    font-size:70px;
+}
+
+.secret-content h2{
+    font-family:"Playfair Display","Cairo",serif;
+
+    font-size:
+        clamp(35px,8vw,70px);
+
+    margin:20px 0;
+}
+
+.secret-content p{
+    color:#aaa0aa;
+
+    line-height:2;
+
+    font-size:14px;
+}
+
+.secret-close{
+    margin-top:30px;
+
+    padding:13px 25px;
+
+    border-radius:15px;
+
+    color:white;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--pink),
+            var(--purple)
+        );
+}
+
 </style>
 </head>
 
+
 <body>
 
+<!-- =======================================================
+     LOADER
+======================================================= -->
+
 <div id="loader">
-  <div class="loader-heart">❤️</div>
+
+    <div class="loader-heart">
+        <span>❤️</span>
+    </div>
+
+    <div class="loader-title">
+        ملك
+    </div>
+
+    <div class="loader-sub">
+        بنجهز لكِ حاجة مختلفة...
+    </div>
+
+    <div class="loader-line">
+        <span></span>
+    </div>
+
 </div>
 
-<div class="stars" id="stars"></div>
-<div class="hearts" id="hearts"></div>
 
-<nav>
-  <div class="logo">ملك <span>❤️</span></div>
+<!-- BACKGROUND -->
 
-  <div class="nav-links">
-    <button class="nav-btn" onclick="scrollToId('home')">🏠</button>
-    <button class="nav-btn" onclick="scrollToId('memories')">📸</button>
-    <button class="nav-btn" onclick="scrollToId('games')">🎮</button>
-    <button class="nav-btn" onclick="location.href='gift.html'">🎁</button>
-  </div>
-</nav>
+<div id="stars"></div>
 
-<main>
+<div class="orb one"></div>
+<div class="orb two"></div>
+<div class="orb three"></div>
 
-<section class="hero" id="home">
-  <div class="hero-content">
+<div id="hearts"></div>
 
-    <div class="badge">✨ حكاية تستحق أن تُحكى ✨</div>
 
-    <h1>ملك</h1>
+<!-- =======================================================
+     NAV
+======================================================= -->
 
-    <h2>أجمل حكاية ❤️</h2>
+<nav class="nav">
 
-    <p>
-      مش مجرد اسم...
-      دي حكاية فيها ضحكة، وذكريات، ومشاعر،
-      وشخص واحد قدر يخلي الدنيا أجمل.
-    </p>
+    <a href="#home" class="brand">
 
-    <div class="buttons">
-      <button class="primary-btn" onclick="scrollToId('letter')">
-        💌 افتحي رسالتي
-      </button>
+        <div class="brand-icon">
+            👑
+        </div>
 
-      <button class="secondary-btn" onclick="location.href='gift.html'">
-        🎁 عندي مفاجأة
-      </button>
-    </div>
+        <div class="brand-text">
 
-  </div>
-</section>
+            <strong>ملك</strong>
 
-<section class="countdown">
-  <div class="section-title">
-    <small>اللحظة المنتظرة</small>
-    <h2>لحد ما ييجي اليوم الكبير ❤️</h2>
-  </div>
+            <small>
+                حكاية تستحق الاحتفال
+            </small>
 
-  <div class="count-grid">
-    <div class="count-box">
-      <strong id="days">00</strong>
-      <span>يوم</span>
-    </div>
+        </div>
 
-    <div class="count-box">
-      <strong id="hours">00</strong>
-      <span>ساعة</span>
-    </div>
+    </a>
 
-    <div class="count-box">
-      <strong id="minutes">00</strong>
-      <span>دقيقة</span>
-    </div>
 
-    <div class="count-box">
-      <strong id="seconds">00</strong>
-      <span>ثانية</span>
-    </div>
-  </div>
-</section>
-
-<section class="letter" id="letter">
-
-  <div class="section-title">
-    <small>من قلبي ليكي</small>
-    <h2>رسالة صغيرة ❤️</h2>
-  </div>
-
-  <div class="card letter-card">
-
-    <div class="icon">💌</div>
-
-    <p>
-      ملك...
-      يمكن الكلام مهما كان حلو مش هيقدر يوصف مكانتك،
-      بس فيه حاجة واحدة متأكد منها...
-      إن وجودك في حياة أي حد نعمة كبيرة.
-      <br><br>
-      أتمنى كل سنة جديدة من عمرك تكون أحلى من اللي قبلها،
-      وتفضلي دايمًا مبتسمة،
-      وتلاقي حواليكي كل الحب والفرحة اللي تستحقيها.
-      <br><br>
-      كل سنة وإنتِ ملك...
-      مش بس بالاسم،
-      لكن بالمكانة اللي ليكي في القلوب. ❤️
-    </p>
-
-  </div>
-
-</section>
-
-<section class="memories" id="memories">
-
-  <div class="section-title">
-    <small>أجمل اللحظات</small>
-    <h2>ذكريات تستاهل تتخزن 📸</h2>
-  </div>
-
-  <div class="memory-grid">
-
-    <div class="memory" style="background-image:url('https://images.unsplash.com/photo-1518199266791-5375a83190b7?auto=format&fit=crop&w=900&q=85')">
-      <div class="memory-content">
-        <h3>لحظة جميلة ❤️</h3>
-        <p>في لحظات صغيرة بتفضل كبيرة في الذاكرة.</p>
-      </div>
-    </div>
-
-    <div class="memory" style="background-image:url('https://images.unsplash.com/photo-1494774157365-9e04c6720e47?auto=format&fit=crop&w=900&q=85')">
-      <div class="memory-content">
-        <h3>ضحكة لا تُنسى ✨</h3>
-        <p>بعض الضحكات تستحق صورة وذكرى.</p>
-      </div>
-    </div>
-
-    <div class="memory" style="background-image:url('https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?auto=format&fit=crop&w=900&q=85')">
-      <div class="memory-content">
-        <h3>حكاية مستمرة 👑</h3>
-        <p>وأجمل الحكايات لسه فيها صفحات جديدة.</p>
-      </div>
-    </div>
-
-  </div>
-
-</section>
-
-<section class="reasons">
-
-  <div class="section-title">
-    <small>ليه ملك؟</small>
-    <h2>حاجات كتير بتخليها مميزة 💕</h2>
-  </div>
-
-  <div class="reason-grid">
-
-    <div class="reason">
-      <b>🌸</b>
-      <h3>روحها</h3>
-      <p>فيها حاجة مختلفة تخلي وجودها لوحده يغير الجو.</p>
-    </div>
-
-    <div class="reason">
-      <b>❤️</b>
-      <h3>قلبها</h3>
-      <p>الطيبة الحقيقية مش محتاجة كلام كتير عشان تظهر.</p>
-    </div>
-
-    <div class="reason">
-      <b>✨</b>
-      <h3>تفاصيلها</h3>
-      <p>التفاصيل الصغيرة هي اللي بتخلي الشخص مستحيل يتنسى.</p>
-    </div>
-
-    <div class="reason">
-      <b>👑</b>
-      <h3>ملك</h3>
-      <p>اسمها لوحده كفاية يخلي الحكاية مختلفة.</p>
-    </div>
-
-    <div class="reason">
-      <b>🫶</b>
-      <h3>وجودها</h3>
-      <p>في ناس وجودهم راحة حتى من غير ما يعملوا حاجة.</p>
-    </div>
-
-    <div class="reason">
-      <b>💫</b>
-      <h3>الاختلاف</h3>
-      <p>مش لازم تكون شبه حد... كفاية تكون ملك.</p>
-    </div>
-
-  </div>
-
-</section>
-
-<section class="games" id="games">
-
-  <div class="section-title">
-    <small>وقت اللعب 😍</small>
-    <h2>ألعاب صغيرة لملك 🎮</h2>
-  </div>
-
-  <div class="game-grid">
-
-    <div class="game">
-      <div style="font-size:45px">❤️</div>
-      <h3>اضغطي على القلب</h3>
-      <p id="heartScore">0 ضغطة</p>
-      <button onclick="heartGame()">ابدئي</button>
-    </div>
-
-    <div class="game">
-      <div style="font-size:45px">🎁</div>
-      <h3>اختاري الصندوق</h3>
-      <p>مين فيهم فيه المفاجأة؟</p>
-      <button onclick="boxGame()">اختاري</button>
-    </div>
-
-    <div class="game">
-      <div style="font-size:45px">👑</div>
-      <h3>مين ملكة اليوم؟</h3>
-      <p>الإجابة سهلة جدًا 😌</p>
-      <button onclick="queenGame()">اعرفي</button>
-    </div>
-
-    <div class="game">
-      <div style="font-size:45px">✨</div>
-      <h3>رسالة عشوائية</h3>
-      <p>رسالة مخصوصة ليكي.</p>
-      <button onclick="randomMessage()">افتحي</button>
-    </div>
-
-  </div>
-
-</section>
-
-<section class="secret">
-
-  <div class="secret-box">
-
-    <div class="gift" onclick="location.href='gift.html'">🎁</div>
-
-    <h2>في حاجة مستخبية ليكي...</h2>
-
-    <p>
-      التجربة الحقيقية مستنياكي في الصفحة التانية.
-    </p>
-
-    <button class="secret-btn" onclick="location.href='gift.html'">
-      افتحي الصندوق ✨
+    <button class="menu-btn" id="menuBtn">
+        ☰
     </button>
 
-  </div>
+
+    <div class="nav-links" id="navLinks">
+
+        <a href="#story">
+            الحكاية
+        </a>
+
+        <a href="#letter">
+            الرسالة
+        </a>
+
+        <a href="#memories">
+            الذكريات
+        </a>
+
+        <a href="#reasons">
+            ليه ملك؟
+        </a>
+
+        <a href="#games">
+            الألعاب
+        </a>
+
+        <a
+            href="gift.html"
+            class="nav-gift"
+        >
+            🎁 المفاجأة
+        </a>
+
+    </div>
+
+</nav>
+
+
+<!-- =======================================================
+     HERO
+======================================================= -->
+
+<main id="home">
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <div class="hero-kicker">
+            <i></i>
+            يوم مختلف لشخص مختلف
+        </div>
+
+
+        <h1>
+            ملك
+        </h1>
+
+
+        <div class="hero-title-small">
+            حكاية تستحق الاحتفال ❤️
+        </div>
+
+
+        <p class="hero-description">
+
+            مش كل يوم بيتولد فيه شخص يقدر يسيب
+            أثر حلو في قلوب الناس...
+            والنهارده مش يوم عادي،
+            النهارده يوم ملك.
+
+        </p>
+
+
+        <div class="hero-actions">
+
+            <a
+                href="#story"
+                class="btn btn-primary"
+            >
+                ✨ ابدأ الحكاية
+            </a>
+
+
+            <a
+                href="gift.html"
+                class="btn btn-secondary"
+            >
+                🎁 روحي للمفاجأة
+            </a>
+
+        </div>
+
+
+        <div class="hero-bottom">
+
+            <span class="scroll-dot"></span>
+
+            انزلي واكتشفي الحكاية
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =======================================================
+     STORY
+======================================================= -->
+
+<section
+    class="section reveal"
+    id="story"
+>
+
+    <div class="section-head">
+
+        <div class="section-tag">
+            THE STORY
+        </div>
+
+        <h2 class="section-title">
+            مش مجرد عيد ميلاد...
+            <br>
+            دي حكاية كاملة.
+        </h2>
+
+        <p class="section-description">
+
+            في ناس عيد ميلادهم بيعدي كأي يوم،
+            وفي ناس اليوم ده نفسه بيبقى له معنى.
+            وملك من النوع التاني.
+
+        </p>
+
+    </div>
+
+
+    <div class="experience">
+
+        <div class="experience-main">
+
+            <div class="big-number">
+                01
+            </div>
+
+            <div class="experience-content">
+
+                <h3>
+                    ملك خفاجي
+                </h3>
+
+                <p>
+
+                    شخصية واحدة...
+                    لكن تفاصيلها كتير.
+                    ضحكة، كلمة، موقف، ذكرى،
+                    وحاجات صغيرة يمكن بالنسبة للعالم عادية،
+                    لكنها بالنسبة لحد بيحبها
+                    ممكن تكون أجمل حاجة في يومه.
+
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="experience-side">
+
+            <div>
+
+                <div class="mini-label">
+                    كلمة صغيرة
+                </div>
+
+                <div class="quote">
+
+                    بعض الناس
+                    بيجوا في حياتنا
+                    كأنهم صدفة...
+                    وبعدين نكتشف
+                    إنهم أجمل صدفة.
+
+                </div>
+
+            </div>
+
+
+            <div class="signature">
+
+                <span></span>
+
+                إلى ملك... 👑
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =======================================================
+     COUNTDOWN
+======================================================= -->
+
+<section class="section reveal">
+
+    <div class="countdown-card">
+
+        <div class="countdown-label">
+            ⏳ لحظة مختلفة تقترب
+        </div>
+
+
+        <div class="countdown" id="countdown">
+
+            <div class="time-box">
+
+                <strong id="minutes">
+                    10
+                </strong>
+
+                <span>
+                    دقيقة
+                </span>
+
+            </div>
+
+
+            <div class="time-separator">
+                :
+            </div>
+
+
+            <div class="time-box">
+
+                <strong id="seconds">
+                    00
+                </strong>
+
+                <span>
+                    ثانية
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <p style="
+            color:#857985;
+            font-size:10px;
+            margin-top:25px;
+        ">
+            العد يبدأ من لحظة فتح الصفحة
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- =======================================================
+     LETTER
+======================================================= -->
+
+<section
+    class="section reveal"
+    id="letter"
+>
+
+    <div class="section-head">
+
+        <div class="section-tag">
+            A LETTER
+        </div>
+
+        <h2 class="section-title">
+            رسالة من القلب
+        </h2>
+
+    </div>
+
+
+    <div class="letter">
+
+        <div class="letter-top">
+
+            <div class="letter-stamp">
+                💌
+            </div>
+
+            <div class="letter-date">
+                إلى ملك خفاجي
+            </div>
+
+        </div>
+
+
+        <h3>
+            يا ملك...
+        </h3>
+
+
+        <p>
+
+            يمكن الكلام أحيانًا مهما كان كتير
+            يفضل أقل من اللي الشخص يستحقه،
+            وعشان كده مش هقول كلام محفوظ
+            ولا جمل عادية تتقال في كل عيد ميلاد.
+
+        </p>
+
+
+        <p style="margin-top:18px">
+
+            هقول بس إن وجودك له قيمة،
+            وإن في تفاصيل صغيرة منك
+            ممكن تغيّر شكل يوم كامل.
+            ضحكتك، طريقتك، كلامك،
+            وحتى الحاجات اللي أنتِ شايفاها عادية.
+
+        </p>
+
+
+        <p
+            class="letter-highlight"
+        >
+
+            أتمنى السنة الجديدة من عمرك
+            تكون أهدى على قلبك،
+            وأجمل من كل اللي فات،
+            وتاخدي فيها من الدنيا
+            على قد جمال قلبك وأكثر. ❤️
+
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- =======================================================
+     MEMORIES
+======================================================= -->
+
+<section
+    class="section reveal"
+    id="memories"
+>
+
+    <div class="section-head">
+
+        <div class="section-tag">
+            MEMORIES
+        </div>
+
+        <h2 class="section-title">
+            تفاصيل صغيرة...
+            <br>
+            وذكريات كبيرة.
+        </h2>
+
+        <p class="section-description">
+
+            الذكريات الحلوة مش محتاجة تكون أحداث ضخمة.
+            أحيانًا لحظة بسيطة جدًا تفضل في القلب سنين.
+
+        </p>
+
+    </div>
+
+
+    <div class="timeline">
+
+
+        <div class="memory">
+
+            <div class="memory-dot"></div>
+
+            <div class="memory-card">
+
+                <div class="memory-number">
+                    01
+                </div>
+
+                <div class="memory-content">
+
+                    <small>
+                        MOMENT ONE
+                    </small>
+
+                    <h3>
+                        أول تفصيلة
+                    </h3>
+
+                    <p>
+                        كل حكاية حلوة بيكون ليها بداية،
+                        والبداية نفسها أحيانًا بتكون أجمل جزء.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="memory">
+
+            <div class="memory-dot"></div>
+
+            <div class="memory-card">
+
+                <div class="memory-number">
+                    02
+                </div>
+
+                <div class="memory-content">
+
+                    <small>
+                        MOMENT TWO
+                    </small>
+
+                    <h3>
+                        الضحكة اللي بتفضل
+                    </h3>
+
+                    <p>
+                        في ضحكات بتخلص بعد ثواني،
+                        وفي ضحكة واحدة ممكن تفضل فاكرها سنين.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="memory">
+
+            <div class="memory-dot"></div>
+
+            <div class="memory-card">
+
+                <div class="memory-number">
+                    03
+                </div>
+
+                <div class="memory-content">
+
+                    <small>
+                        MOMENT THREE
+                    </small>
+
+                    <h3>
+                        ولسه في حاجات جاية
+                    </h3>
+
+                    <p>
+                        أجمل الذكريات مش كلها حصلت لسه...
+                        ودي يمكن أحلى فكرة في الحكاية كلها.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- =======================================================
+     REASONS
+======================================================= -->
+
+<section
+    class="section reveal"
+    id="reasons"
+>
+
+    <div class="section-head">
+
+        <div class="section-tag">
+            WHY MALAK
+        </div>
+
+        <h2 class="section-title">
+            ليه ملك مميزة؟
+        </h2>
+
+        <p class="section-description">
+            مش هنحاول نحط شخص في كام كلمة...
+            بس فيه حاجات تستاهل تتقال.
+        </p>
+
+    </div>
+
+
+    <div class="reason-grid">
+
+
+        <div class="reason">
+
+            <div class="reason-icon">
+                ✨
+            </div>
+
+            <h3>
+                حضورها مختلف
+            </h3>
+
+            <p>
+                فيه ناس تدخل المكان...
+                ووجودها لوحده يخلي للمكان روح.
+            </p>
+
+            <div class="reason-number">
+                01
+            </div>
+
+        </div>
+
+
+        <div class="reason">
+
+            <div class="reason-icon">
+                ❤️
+            </div>
+
+            <h3>
+                قلبها
+            </h3>
+
+            <p>
+                أجمل حاجة في الشخص مش شكله،
+                لكن الأثر اللي بيسبه في قلوب اللي حواليه.
+            </p>
+
+            <div class="reason-number">
+                02
+            </div>
+
+        </div>
+
+
+        <div class="reason">
+
+            <div class="reason-icon">
+                🌙
+            </div>
+
+            <h3>
+                تفاصيلها
+            </h3>
+
+            <p>
+                التفاصيل الصغيرة هي اللي بتعمل
+                الشخصية الكبيرة.
+            </p>
+
+            <div class="reason-number">
+                03
+            </div>
+
+        </div>
+
+
+        <div class="reason">
+
+            <div class="reason-icon">
+                🦋
+            </div>
+
+            <h3>
+                مختلفة بطريقتها
+            </h3>
+
+            <p>
+                مش لازم الشخص يشبه حد عشان يكون جميل.
+                الاختلاف نفسه ممكن يكون أجمل حاجة.
+            </p>
+
+            <div class="reason-number">
+                04
+            </div>
+
+        </div>
+
+
+        <div class="reason">
+
+            <div class="reason-icon">
+                👑
+            </div>
+
+            <h3>
+                ملك تفضل ملك
+            </h3>
+
+            <p>
+                الاسم نفسه فيه حكاية...
+                والتاج مجرد رمز للحاجة اللي جواها.
+            </p>
+
+            <div class="reason-number">
+                05
+            </div>
+
+        </div>
+
+
+        <div class="reason">
+
+            <div class="reason-icon">
+                💫
+            </div>
+
+            <h3>
+                لسه البداية
+            </h3>
+
+            <p>
+                لأن أجمل فصل في أي حكاية
+                ممكن يكون الفصل اللي لسه ما اتكتبش.
+            </p>
+
+            <div class="reason-number">
+                06
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- =======================================================
+     GAMES
+======================================================= -->
+
+<section
+    class="section reveal"
+    id="games"
+>
+
+    <div class="section-head">
+
+        <div class="section-tag">
+            FUN ZONE
+        </div>
+
+        <h2 class="section-title">
+            نلعب شوية؟ 🎮
+        </h2>
+
+        <p class="section-description">
+            أربع حاجات صغيرة جوه الموقع...
+            جربيهم كلهم.
+        </p>
+
+    </div>
+
+
+    <div class="game-grid">
+
+
+        <div class="game">
+
+            <div class="game-icon">
+                💗
+            </div>
+
+            <h3>
+                اختبار ملك
+            </h3>
+
+            <p>
+                هل تقدري تعرفي الإجابة الصح؟
+            </p>
+
+            <button onclick="startQuiz()">
+                ابدأ الاختبار
+            </button>
+
+        </div>
+
+
+        <div class="game">
+
+            <div class="game-icon">
+                🎁
+            </div>
+
+            <h3>
+                اختاري صندوق
+            </h3>
+
+            <p>
+                واحد من الصناديق مخبي رسالة.
+            </p>
+
+            <button onclick="chooseBox()">
+                افتحي صندوق
+            </button>
+
+        </div>
+
+
+        <div class="game">
+
+            <div class="game-icon">
+                ✨
+            </div>
+
+            <h3>
+                رسالة عشوائية
+            </h3>
+
+            <p>
+                اضغطي وشوفي الرسالة اللي هتطلعلك.
+            </p>
+
+            <button onclick="randomMessage()">
+                أظهر الرسالة
+            </button>
+
+        </div>
+
+
+        <div class="game">
+
+            <div class="game-icon">
+                👑
+            </div>
+
+            <h3>
+                تاج ملك
+            </h3>
+
+            <p>
+                اضغطي 5 مرات واكتشفي السر.
+            </p>
+
+            <button onclick="crownGame()">
+                ابدأ
+            </button>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- =======================================================
+     SPECIAL
+======================================================= -->
+
+<section class="section reveal">
+
+    <div class="special">
+
+        <div class="special-crown">
+            👑
+        </div>
+
+        <h2>
+            ولسه المفاجأة الحقيقية...
+        </h2>
+
+        <p>
+
+            كل اللي شوفتيه لحد هنا
+            مجرد بداية.
+            فيه صفحة تانية معمولة للحظة مختلفة تمامًا.
+
+        </p>
+
+
+        <a
+            href="gift.html"
+            class="btn btn-primary"
+        >
+            🎁 افتحي المفاجأة الأخيرة
+        </a>
+
+    </div>
 
 </section>
 
 </main>
 
+
+<!-- =======================================================
+     FOOTER
+======================================================= -->
+
 <footer>
-  صُنع بكل الحب من أجل <strong>ملك خفاجي 👑❤️</strong>
+
+    <div class="footer-logo">
+        ملك
+    </div>
+
+    <div class="footer-text">
+
+        صُنعت بحب...
+        عشان يوم واحد يستحق كل التفاصيل.
+
+        <br>
+
+        عيد ميلاد سعيد يا ملك خفاجي ❤️
+
+    </div>
+
+    <div class="footer-heart">
+        ❤️
+    </div>
+
 </footer>
 
-<div class="toast" id="toast"></div>
 
-<div class="modal" id="modal">
-  <div class="modal-card">
-    <h2 id="modalTitle"></h2>
-    <p id="modalText"></p>
-    <button class="close" onclick="closeModal()">إغلاق ❤️</button>
-  </div>
+<!-- =======================================================
+     MUSIC
+======================================================= -->
+
+<div class="music-player">
+
+    <button
+        class="music-btn"
+        id="musicBtn"
+        onclick="toggleMusic()"
+    >
+        ▶
+    </button>
+
+    <div class="music-info">
+
+        <strong>
+            Birthday Mood
+        </strong>
+
+        <small>
+            Music
+        </small>
+
+    </div>
+
 </div>
+
+<audio
+    id="music"
+    loop
+    preload="none"
+>
+    <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+
+<!-- =======================================================
+     GAME MODAL
+======================================================= -->
+
+<div
+    class="modal"
+    id="gameModal"
+>
+
+    <div class="modal-box">
+
+        <button
+            class="close"
+            onclick="closeModal()"
+        >
+            ×
+        </button>
+
+        <h3 id="modalTitle">
+            لعبة
+        </h3>
+
+        <p id="modalDescription">
+            ...
+        </p>
+
+        <div
+            class="game-result"
+            id="gameResult"
+        >
+            اختاري وابدئي ❤️
+        </div>
+
+        <div
+            class="modal-actions"
+            id="modalActions"
+        ></div>
+
+    </div>
+
+</div>
+
+
+<!-- =======================================================
+     SECRET
+======================================================= -->
+
+<div
+    class="secret-mode"
+    id="secretMode"
+>
+
+    <div class="secret-content">
+
+        <div class="emoji">
+            👑❤️
+        </div>
+
+        <h2>
+            ملك...
+            إنتِ مش محتاجة تاج.
+        </h2>
+
+        <p>
+
+            لأن التاج مجرد حاجة بنحطها فوق الرأس،
+            لكن مكانك الحقيقي أجمل بكتير...
+            في القلب.
+
+        </p>
+
+        <button
+            class="secret-close"
+            onclick="closeSecret()"
+        >
+            ❤️ رجوع
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- =======================================================
+     TOAST
+======================================================= -->
+
+<div
+    class="toast"
+    id="toast"
+>
+</div>
+
 
 <script>
 
-const target = new Date("2026-09-16T00:00:00");
-
-function $(id){
-  return document.getElementById(id);
-}
-
-function scrollToId(id){
-  document.getElementById(id)?.scrollIntoView({
-    behavior:"smooth"
-  });
-}
-
-function updateCountdown(){
-
-  const now = new Date();
-  let diff = target-now;
-
-  if(diff<0) diff=0;
-
-  const totalSeconds=Math.floor(diff/1000);
-
-  const days=Math.floor(totalSeconds/86400);
-  const hours=Math.floor((totalSeconds%86400)/3600);
-  const minutes=Math.floor((totalSeconds%3600)/60);
-  const seconds=totalSeconds%60;
-
-  $("days").textContent=String(days).padStart(2,"0");
-  $("hours").textContent=String(hours).padStart(2,"0");
-  $("minutes").textContent=String(minutes).padStart(2,"0");
-  $("seconds").textContent=String(seconds).padStart(2,"0");
-}
-
-updateCountdown();
-setInterval(updateCountdown,1000);
-
-function showToast(text){
-
-  const t=$("toast");
-
-  t.textContent=text;
-  t.classList.add("show");
-
-  setTimeout(()=>{
-    t.classList.remove("show");
-  },2800);
-}
-
-function openModal(title,text){
-
-  $("modalTitle").textContent=title;
-  $("modalText").textContent=text;
-
-  $("modal").classList.add("show");
-}
-
-function closeModal(){
-  $("modal").classList.remove("show");
-}
-
-let score=0;
-
-function heartGame(){
-
-  score++;
-
-  $("heartScore").textContent=score+" ضغطة";
-
-  if(score===1){
-    showToast("بدأنا 😍");
-  }
-
-  if(score===5){
-    showToast("يا سلام على ملك ❤️");
-  }
-
-  if(score===10){
-    openModal(
-      "🏆 كسبتي!",
-      "واضح إن ملك مستعدة تكسب أي لعبة 😌❤️"
-    );
-  }
-}
-
-function boxGame(){
-
-  const n=Math.floor(Math.random()*3)+1;
-
-  openModal(
-    "🎁 الصندوق رقم "+n,
-    n===2
-      ?"لقيتي المفاجأة! ❤️"
-      :"قريبة جدًا... جربي تاني 😍"
-  );
-}
-
-function queenGame(){
-
-  openModal(
-    "👑 الإجابة",
-    "طبعًا ملك خفاجي... مين غيرها؟ ❤️"
-  );
-}
-
-function randomMessage(){
-
-  const messages=[
-    "وجودك لوحده سبب للفرحة ❤️",
-    "أتمنى ضحكتك تفضل منورة الدنيا دايمًا ✨",
-    "إنتِ تستحقي كل حاجة حلوة في الدنيا 👑",
-    "كل سنة وإنتِ أجمل وأقرب وأغلى ❤️",
-    "ملك... اسم على مسمى فعلًا 👑"
-  ];
-
-  const msg=messages[
-    Math.floor(Math.random()*messages.length)
-  ];
-
-  openModal("💌 رسالة ليكي",msg);
-}
-
-function createStars(){
-
-  const container=$("stars");
-
-  for(let i=0;i<90;i++){
-
-    const star=document.createElement("div");
-
-    star.className="star";
-
-    star.style.left=Math.random()*100+"%";
-    star.style.top=Math.random()*100+"%";
-    star.style.animationDelay=Math.random()*3+"s";
-
-    container.appendChild(star);
-  }
-}
-
-function createHearts(){
-
-  const container=$("hearts");
-
-  for(let i=0;i<22;i++){
-
-    const heart=document.createElement("div");
-
-    heart.className="float-heart";
-    heart.textContent=["❤️","💕","💗","💖","✨"][Math.floor(Math.random()*5)];
-
-    heart.style.left=Math.random()*100+"%";
-    heart.style.fontSize=(12+Math.random()*22)+"px";
-    heart.style.animationDuration=(8+Math.random()*12)+"s";
-    heart.style.animationDelay=(-Math.random()*15)+"s";
-
-    container.appendChild(heart);
-  }
-}
-
-createStars();
-createHearts();
+/* =========================================================
+   LOADER
+========================================================= */
 
 window.addEventListener("load",()=>{
 
-  setTimeout(()=>{
+    setTimeout(()=>{
 
-    $("loader").style.opacity="0";
-    $("loader").style.visibility="hidden";
+        document
+            .getElementById("loader")
+            .classList.add("hide");
 
-  },900);
-
-});
-
-$("modal").addEventListener("click",e=>{
-
-  if(e.target===$("modal")){
-    closeModal();
-  }
+    },1100);
 
 });
 
-</script>
 
-</body>
-        </html>
+/* =========================================================
+   STARS
+========================================================= */
+
+const stars =
+    document.getElementById("stars");
+
+for(let i=0;i<130;i++){
+
+    const star =
+        document.createElement("span");
+
+    star.className="star";
+
+    star.style.left =
+        Math.random()*100+"%";
+
+    star.style.top =
+        Math.random()*100+"%";
+
+    star.style.setProperty(
+        "--duration",
+        (2+Math.random()*5)+"s"
+    );
+
+    star.style.animationDelay =
+        Math.random()*5+"s";
+
+    stars.appendChild(star);
+}
+
+
+/* =========================================================
+   FLOATING HEARTS
+========================================================= */
+
+const heartContainer =
+    document.getElementById("hearts");
+
+const heartSymbols=[
+    "❤️",
+    "💕",
+    "💗",
+    "💖",
+    "💘",
+    "✨"
+];
+
+function createHeart(){
+
+    const heart =
+        document.createElement("div");
+
+    heart.className="float-heart";
+
+    heart.textContent =
+        heartSymbols[
+            Math.floor(
+                Math.random()*
+                heartSymbols.length
+            )
+        ];
+
+    heart.style.left =
+        Math.random()*100+"%";
+
+    heart.style.setProperty(
+        "--size",
+        (10+Math.random()*17)+"px"
+    );
+
+    heart.style.setProperty(
+        "--time",
+        (7+Math.random()*8)+"s"
+    );
+
+    heart.style.setProperty(
+        "--move",
+        (-100+Math.random()*200)+"px"
+    );
+
+    heartContainer.appendChild(heart);
+
+    setTimeout(()=>{
+        heart.remove();
+    },16000);
+}
+
+setInterval(createHeart,900);
+
+
+/* =========================================================
+   MOBILE MENU
+========================================================= */
+
+const menuBtn =
+    document.getElementById("menuBtn");
+
+const navLinks =
+    document.getElementById("navLinks");
+
+menuBtn.addEventListener("click",()=>{
+
+    navLinks.classList.toggle("open");
+
+});
+
+document
+    .querySelectorAll(".nav-links a")
+    .forEach(link=>{
+
+        link.addEventListener("click",()=>{
+
+            navLinks.classList.remove("open");
+
+        });
+
+    });
+
+
+/* =========================================================
+   SCROLL REVEAL
+========================================================= */
+
+const revealObserver =
+    new IntersectionObserver(
+        entries=>{
+
+            entries.forEach(entry=>{
+
+                if(entry.isIntersecting){
+
+                    entry.target
+                        .classList
+                        .add("visible");
+
+                }
+
+            });
+
+        },
+        {
+            threshold:.12
+        }
+    );
+
+document
+    .querySelectorAll(".reveal")
+    .forEach(el=>{
+        revealObserver.observe(el);
+    });
+
+
+/* =========================================================
+   10 MINUTE COUNTDOWN
+   يبدأ من لحظة فتح الصفحة
+========================================================= */
+
+const COUNTDOWN_TIME =
+    10 * 60 * 1000;
+
+const countdownEnd =
+    Date.now() + COUNTDOWN_TIME;
+
+let countdownFinished=false;
+let lastSecond=null;
+
+function updateCountdown(){
+
+    const remaining =
+        Math.max(
+            0,
+            countdownEnd-Date.now()
+        );
+
+    const totalSeconds =
+        Math.ceil(
+            remaining/1000
+        );
+
+    const minutes =
+        Math.floor(
+            totalSeconds/60
+        );
+
+    const seconds =
+        totalSeconds%60;
+
+    document
+        .getElementById("minutes")
+        .textContent =
+        String(minutes)
+        .padStart(2,"0");
+
+    document
+        .getElementById("seconds")
+        .textContent =
+        String(seconds)
+        .padStart(2,"0");
+
+
+    if(
+        totalSeconds<=10 &&
+        totalSeconds>0 &&
+        totalSeconds!==lastSecond
+    ){
+
+        lastSecond=totalSeconds;
+
+        pulseCountdown();
+
+    }
+
+
+    if(
+        remaining<=0 &&
+        !countdownFinished
+    ){
+
+        countdownFinished=true;
+
+        document
+            .getElementById("minutes")
+            .textContent="00";
+
+        document
+            .getElementById("seconds")
+            .textContent="00";
+
+        showToast(
+            "خلص الوقت... والمفاجأة مستنياكي 🎁❤️"
+        );
+
+    }
+
+}
+
+setInterval(
+    updateCountdown,
+    250
+);
+
+updateCountdown();
+
+
+function pulseCountdown(){
+
+    const box =
+        document.querySelector(
+            ".countdown-card"
+        );
+
+    box.animate(
+        [
+            {
+                transform:"scale(1)"
+            },
+            {
+                transform:"scale(1.025)"
+            },
+            {
+                transform:"scale(1)"
+            }
+        ],
+        {
+            duration:650
+        }
+    );
+}
+
+
+/* =========================================================
+   MUSIC
+========================================================= */
+
+const music =
+    document.getElementById("music");
+
+const musicBtn =
+    document.getElementById("musicBtn");
+
+let musicPlaying=false;
+
+function toggleMusic(){
+
+    if(!musicPlaying){
+
+        music.play()
+        .then(()=>{
+
+            musicPlaying=true;
+
+            musicBtn.textContent="⏸";
+
+        })
+        .catch(()=>{
+
+            showToast(
+                "ضيفي ملف music.mp3 بجانب index.html 🎵"
+            );
+
+        });
+
+    }else{
+
+        music.pause();
+
+        musicPlaying=false;
+
+        musicBtn.textContent="▶";
+
+    }
+
+}
+
+
+/* =========================================================
+   MODAL
+========================================================= */
+
+const modal =
+    document.getElementById("gameModal");
+
+const modalTitle =
+    document.getElementById("modalTitle");
+
+const modalDescription =
+    document.getElementById("modalDescription");
+
+const gameResult =
+    document.getElementById("gameResult");
+
+const modalActions =
+    document.getElementById("modalActions");
+
+function openModal(
+    title,
+    description
+){
+
+    modalTitle.textContent=title;
+
+    modalDescription.textContent=
+        description;
+
+    gameResult.innerHTML=
+        "اختاري إجابتك ❤️";
+
+    modalActions.innerHTML="";
+
+    modal.classList.add("show");
+
+}
+
+function closeModal(){
+
+    modal.classList.remove("show");
+
+}
+
+modal.addEventListener(
+    "click",
+    e=>{
+
+        if(e.target===modal){
+
+            closeModal();
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   GAME 1
+========================================================= */
+
+function startQuiz(){
+
+    openModal(
+        "اختبار ملك 👑",
+        "اختاري الجملة الأقرب لملك."
+    );
+
+    const options=[
+        "شخصية هادية ✨",
+        "روح جميلة ❤️",
+        "الاتنين مع بعض 👑"
+    ];
+
+    options.forEach(
+        option=>{
+
+            const btn =
+                document.createElement("button");
+
+            btn.textContent=option;
+
+            btn.onclick=()=>{
+
+                gameResult.innerHTML=
+                    "الإجابة الصحيحة: الاتنين مع بعض... ويمكن أكتر كمان ❤️";
+
+                showToast(
+                    "إجابة حلوة جدًا 👑"
+                );
+
+            };
+
+            modalActions.appendChild(btn);
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+   GAME 2
+========================================================= */
+
+function chooseBox(){
+
+    openModal(
+        "صناديق الحظ 🎁",
+        "اختاري صندوق واحد فقط..."
+    );
+
+    ["🎁","🎁","🎁"].forEach(
+        (emoji,index)=>{
+
+            const btn =
+                document.createElement("button");
+
+            btn.textContent=
+                "الصندوق "+(index+1);
+
+            btn.onclick=()=>{
+
+                const messages=[
+                    "لقيتي وردة مخبية 🌹",
+                    "لقيتي قلب ❤️",
+                    "لقيتي مفاجأة سرية 👑"
+                ];
+
+                gameResult.innerHTML=
+                    messages[index];
+
+                if(index===2){
+
+                    setTimeout(
+                        ()=>{
+                            closeModal();
+                            showSecret();
+                        },
+                        900
+                    );
+
+                }
+
+            };
+
+            modalActions.appendChild(btn);
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+   GAME 3
+========================================================= */
+
+function randomMessage(){
+
+    const messages=[
+
+        "أنتِ من أجمل التفاصيل في الحكاية ❤️",
+
+        "ربنا يكتبلك سنة كلها فرحة ✨",
+
+        "ابتسامتك لوحدها كفاية تغيّر يوم كامل 💗",
+
+        "النهارده يوم ملك... يعني النهارده يوم مميز 👑",
+
+        "لسه في حاجات أجمل بكتير جاية ليكي 💫",
+
+        "كل سنة وإنتِ أقرب لكل حاجة بتحلمي بيها ❤️"
+
+    ];
+
+    const message=
+        messages[
+            Math.floor(
+                Math.random()*messages.length
+            )
+        ];
+
+    openModal(
+        "رسالة ليكي 💌",
+        "رسالة اختارها الموقع مخصوص..."
+    );
+
+    gameResult.innerHTML=
+        message;
+
+    modalActions.innerHTML="";
+
+}
+
+
+/* =========================================================
+   GAME 4
+========================================================= */
+
+let crownClicks=0;
+
+function crownGame(){
+
+    crownClicks++;
+
+    if(crownClicks<
