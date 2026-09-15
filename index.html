@@ -2,32 +2,32 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
-<meta name="theme-color" content="#09030b">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="theme-color" content="#08030a">
 <title>ملك | أجمل حكاية ❤️</title>
 
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=Playfair+Display:wght@600;700;800&display=swap');
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
 
+<style>
 :root{
   --pink:#ff4f91;
   --pink2:#ff86b5;
   --gold:#ffd36a;
   --purple:#8b5cf6;
-  --red:#ff315f;
   --bg:#08030a;
-  --card:rgba(255,255,255,.065);
-  --border:rgba(255,255,255,.12);
+  --bg2:#120713;
+  --card:rgba(255,255,255,.075);
+  --border:rgba(255,255,255,.13);
   --text:#fff;
-  --muted:#c7b9c2;
-  --shadow:0 25px 80px rgba(0,0,0,.45);
+  --muted:#cdbec8;
 }
 
 *{
   box-sizing:border-box;
   margin:0;
   padding:0;
-  -webkit-tap-highlight-color:transparent;
 }
 
 html{
@@ -35,287 +35,195 @@ html{
 }
 
 body{
-  background:
-    radial-gradient(circle at 20% 10%,rgba(255,79,145,.18),transparent 30%),
-    radial-gradient(circle at 80% 30%,rgba(139,92,246,.15),transparent 28%),
-    radial-gradient(circle at 50% 90%,rgba(255,211,106,.08),transparent 35%),
-    var(--bg);
-  color:var(--text);
   font-family:Cairo,sans-serif;
+  background:
+    radial-gradient(circle at 20% 10%,rgba(255,79,145,.16),transparent 30%),
+    radial-gradient(circle at 85% 30%,rgba(139,92,246,.13),transparent 28%),
+    linear-gradient(135deg,var(--bg),var(--bg2));
+  color:var(--text);
   overflow-x:hidden;
+  min-height:100vh;
 }
 
 button{
   font-family:inherit;
-  cursor:pointer;
-  border:0;
 }
-
-a{
-  color:inherit;
-  text-decoration:none;
-}
-
-/* =========================
-   LOADER
-========================= */
 
 #loader{
   position:fixed;
   inset:0;
-  z-index:99999;
   background:#08030a;
+  z-index:99999;
   display:flex;
   align-items:center;
   justify-content:center;
-  flex-direction:column;
   transition:opacity .8s,visibility .8s;
 }
 
-#loader.hide{
-  opacity:0;
-  visibility:hidden;
-}
-
 .loader-heart{
-  width:75px;
-  height:75px;
-  position:relative;
-  animation:heartbeat 1.2s infinite;
-}
-
-.loader-heart:before,
-.loader-heart:after{
-  content:"";
-  position:absolute;
-  width:43px;
-  height:68px;
-  background:linear-gradient(180deg,#ff86b5,#ff315f);
-  border-radius:45px 45px 0 0;
-  top:0;
-}
-
-.loader-heart:before{
-  right:35px;
-  transform:rotate(45deg);
-  transform-origin:0 100%;
-}
-
-.loader-heart:after{
-  left:35px;
-  transform:rotate(-45deg);
-  transform-origin:100% 100%;
-}
-
-.loader-text{
-  margin-top:25px;
-  color:#fff;
-  font-size:14px;
-  letter-spacing:2px;
+  font-size:70px;
+  animation:heartbeat 1s infinite;
+  filter:drop-shadow(0 0 25px var(--pink));
 }
 
 @keyframes heartbeat{
-  0%,100%{transform:scale(.85)}
-  50%{transform:scale(1.08)}
+  0%,100%{transform:scale(1)}
+  25%{transform:scale(1.18)}
+  40%{transform:scale(.98)}
+  60%{transform:scale(1.14)}
 }
 
-/* =========================
-   BACKGROUND
-========================= */
-
-#stars,
-#particles{
+.stars,
+.hearts{
   position:fixed;
   inset:0;
   pointer-events:none;
-  z-index:-1;
   overflow:hidden;
+  z-index:0;
 }
 
 .star{
   position:absolute;
   width:2px;
   height:2px;
-  background:#fff;
+  background:white;
   border-radius:50%;
-  opacity:.7;
-  animation:twinkle 3s infinite alternate;
+  opacity:.5;
+  animation:twinkle 3s infinite;
 }
 
 @keyframes twinkle{
-  from{opacity:.15;transform:scale(.5)}
-  to{opacity:1;transform:scale(1.4)}
+  0%,100%{opacity:.15}
+  50%{opacity:1}
 }
 
-.particle{
+.float-heart{
   position:absolute;
-  bottom:-30px;
-  opacity:0;
+  color:var(--pink);
+  opacity:.18;
   animation:floatUp linear infinite;
 }
 
 @keyframes floatUp{
-  0%{transform:translateY(0) rotate(0);opacity:0}
-  10%{opacity:.8}
-  90%{opacity:.35}
-  100%{transform:translateY(-110vh) rotate(360deg);opacity:0}
+  from{
+    transform:translateY(110vh) rotate(0deg);
+    opacity:0;
+  }
+  20%{opacity:.25}
+  80%{opacity:.18}
+  to{
+    transform:translateY(-15vh) rotate(360deg);
+    opacity:0;
+  }
 }
 
-/* =========================
-   NAV
-========================= */
-
-.nav{
+nav{
   position:fixed;
   top:15px;
   left:50%;
   transform:translateX(-50%);
-  width:min(940px,calc(100% - 28px));
-  z-index:500;
-  padding:10px 14px;
+  width:min(94%,900px);
+  padding:10px;
   border:1px solid var(--border);
-  background:rgba(12,5,12,.7);
-  backdrop-filter:blur(22px);
-  -webkit-backdrop-filter:blur(22px);
   border-radius:24px;
+  background:rgba(10,4,12,.65);
+  backdrop-filter:blur(20px);
+  -webkit-backdrop-filter:blur(20px);
+  z-index:1000;
   display:flex;
   align-items:center;
   justify-content:space-between;
-  box-shadow:0 12px 50px rgba(0,0,0,.35);
+  box-shadow:0 15px 50px rgba(0,0,0,.35);
 }
 
 .logo{
-  display:flex;
-  align-items:center;
-  gap:9px;
   font-weight:900;
-}
-
-.logo-icon{
-  width:40px;
-  height:40px;
-  border-radius:14px;
-  display:grid;
-  place-items:center;
-  background:linear-gradient(135deg,#ff4f91,#8b5cf6);
-  box-shadow:0 8px 30px rgba(255,79,145,.3);
-  font-size:20px;
+  font-size:19px;
+  color:white;
 }
 
 .logo span{
-  color:#fff;
+  color:var(--pink);
 }
 
-.nav-actions{
+.nav-links{
   display:flex;
   gap:7px;
 }
 
 .nav-btn{
-  width:40px;
-  height:40px;
-  border-radius:13px;
+  border:0;
   background:rgba(255,255,255,.07);
-  color:#fff;
-  font-size:17px;
-  transition:.25s;
+  color:white;
+  width:42px;
+  height:42px;
+  border-radius:14px;
+  cursor:pointer;
+  transition:.3s;
 }
 
-.nav-btn:hover,
-.nav-btn:active{
-  background:rgba(255,79,145,.2);
-  transform:translateY(-2px);
+.nav-btn:hover{
+  transform:translateY(-3px);
+  background:rgba(255,79,145,.18);
 }
 
-/* =========================
-   HERO
-========================= */
+section{
+  position:relative;
+  z-index:2;
+  width:min(1100px,92%);
+  margin:auto;
+}
 
 .hero{
   min-height:100vh;
-  position:relative;
   display:flex;
   align-items:center;
   justify-content:center;
   text-align:center;
-  padding:110px 20px 70px;
-  overflow:hidden;
-}
-
-.hero-glow{
-  position:absolute;
-  width:450px;
-  height:450px;
-  border-radius:50%;
-  background:radial-gradient(circle,rgba(255,79,145,.25),transparent 70%);
-  filter:blur(20px);
-  animation:pulseGlow 5s ease-in-out infinite;
-}
-
-.hero-glow.two{
-  width:330px;
-  height:330px;
-  background:radial-gradient(circle,rgba(139,92,246,.2),transparent 70%);
-  right:5%;
-  top:20%;
-  animation-delay:1.5s;
-}
-
-@keyframes pulseGlow{
-  0%,100%{transform:scale(.9);opacity:.5}
-  50%{transform:scale(1.15);opacity:1}
+  padding:100px 0 50px;
 }
 
 .hero-content{
-  position:relative;
-  z-index:2;
-  max-width:900px;
+  max-width:850px;
 }
 
 .badge{
   display:inline-flex;
   align-items:center;
   gap:8px;
-  padding:8px 16px;
-  border-radius:100px;
-  background:rgba(255,255,255,.06);
-  border:1px solid rgba(255,255,255,.12);
-  color:#ffd9e7;
+  padding:9px 17px;
+  border-radius:999px;
+  background:rgba(255,79,145,.1);
+  border:1px solid rgba(255,79,145,.25);
+  color:var(--pink2);
   font-size:13px;
-  margin-bottom:25px;
-  box-shadow:0 10px 40px rgba(0,0,0,.25);
-}
-
-.badge i{
-  color:var(--gold);
+  margin-bottom:22px;
 }
 
 .hero h1{
-  font-size:clamp(58px,14vw,150px);
-  line-height:.9;
-  font-weight:900;
-  margin-bottom:20px;
-  background:linear-gradient(135deg,#fff 10%,#ffb3d0 38%,#ff4f91 65%,#ffd36a);
+  font-family:"Playfair Display",serif;
+  font-size:clamp(70px,17vw,160px);
+  line-height:.85;
+  background:linear-gradient(135deg,#fff,var(--pink2),var(--gold));
   -webkit-background-clip:text;
-  background-clip:text;
   color:transparent;
-  text-shadow:0 0 70px rgba(255,79,145,.18);
+  text-shadow:0 0 60px rgba(255,79,145,.15);
 }
 
-.hero-sub{
-  color:#e5dce1;
-  font-size:clamp(16px,3vw,23px);
-  line-height:1.9;
+.hero h2{
+  margin-top:25px;
+  font-size:clamp(25px,5vw,48px);
+}
+
+.hero p{
+  color:var(--muted);
+  font-size:16px;
+  line-height:2;
   max-width:650px;
-  margin:auto;
+  margin:20px auto 30px;
 }
 
-.hero-sub strong{
-  color:#ff86b5;
-}
-
-.hero-buttons{
-  margin-top:35px;
+.buttons{
   display:flex;
   justify-content:center;
   gap:12px;
@@ -323,389 +231,221 @@ a{
 }
 
 .primary-btn,
-.secondary-btn{
-  min-height:52px;
-  padding:0 25px;
+.secondary-btn,
+.secret-btn{
+  border:0;
+  cursor:pointer;
   border-radius:17px;
-  color:#fff;
+  padding:14px 23px;
   font-weight:800;
-  font-size:14px;
   transition:.3s;
 }
 
 .primary-btn{
-  background:linear-gradient(135deg,#ff4f91,#ff315f);
-  box-shadow:0 12px 35px rgba(255,49,95,.3);
+  color:#210814;
+  background:linear-gradient(135deg,var(--pink2),var(--gold));
+  box-shadow:0 10px 35px rgba(255,79,145,.25);
 }
 
 .secondary-btn{
-  background:rgba(255,255,255,.06);
+  color:white;
+  background:rgba(255,255,255,.07);
   border:1px solid var(--border);
 }
 
 .primary-btn:hover,
-.secondary-btn:hover{
+.secondary-btn:hover,
+.secret-btn:hover{
   transform:translateY(-4px) scale(1.02);
-}
-
-.scroll-hint{
-  position:absolute;
-  bottom:30px;
-  left:50%;
-  transform:translateX(-50%);
-  color:#95858e;
-  font-size:11px;
-}
-
-.scroll-hint span{
-  display:block;
-  margin-top:7px;
-  animation:down 1.5s infinite;
-}
-
-@keyframes down{
-  0%,100%{transform:translateY(0)}
-  50%{transform:translateY(7px)}
-}
-
-/* =========================
-   SECTIONS
-========================= */
-
-section{
-  width:min(1100px,calc(100% - 28px));
-  margin:auto;
-  padding:90px 0;
 }
 
 .section-title{
   text-align:center;
-  margin-bottom:40px;
+  margin-bottom:35px;
 }
 
-.eyebrow{
-  color:#ff86b5;
-  font-size:12px;
-  font-weight:800;
-  letter-spacing:1px;
-  margin-bottom:10px;
+.section-title small{
+  color:var(--pink2);
 }
 
 .section-title h2{
-  font-size:clamp(30px,6vw,55px);
-  line-height:1.2;
-  font-weight:900;
-}
-
-.section-title p{
-  color:var(--muted);
-  margin-top:12px;
-  font-size:14px;
-}
-
-/* =========================
-   COUNTDOWN
-========================= */
-
-.countdown-card{
-  position:relative;
-  overflow:hidden;
-  border:1px solid var(--border);
-  border-radius:32px;
-  padding:35px 20px;
-  background:
-    linear-gradient(135deg,rgba(255,79,145,.13),rgba(139,92,246,.08)),
-    rgba(255,255,255,.035);
-  box-shadow:var(--shadow);
-  text-align:center;
-}
-
-.countdown-card:before{
-  content:"";
-  position:absolute;
-  width:250px;
-  height:250px;
-  background:rgba(255,79,145,.13);
-  filter:blur(70px);
-  top:-120px;
-  left:-80px;
+  font-size:clamp(28px,6vw,46px);
+  margin-top:7px;
 }
 
 .countdown{
-  position:relative;
+  padding:80px 0;
+}
+
+.count-grid{
   display:grid;
   grid-template-columns:repeat(4,1fr);
   gap:12px;
-  max-width:760px;
-  margin:30px auto 0;
+  max-width:800px;
+  margin:auto;
 }
 
-.time-box{
-  padding:20px 8px;
-  border:1px solid rgba(255,255,255,.1);
-  background:rgba(0,0,0,.18);
-  border-radius:22px;
-}
-
-.time-number{
-  font-size:clamp(28px,7vw,52px);
-  font-weight:900;
-  color:#fff;
-  line-height:1;
-}
-
-.time-label{
-  color:#a99ca3;
-  font-size:11px;
-  margin-top:10px;
-}
-
-/* =========================
-   MESSAGE
-========================= */
-
-.love-card{
-  display:grid;
-  grid-template-columns:1fr 1.2fr;
-  gap:25px;
-  align-items:stretch;
-}
-
-.love-visual{
-  min-height:430px;
-  border-radius:32px;
-  overflow:hidden;
-  position:relative;
-  background:
-    linear-gradient(180deg,transparent,rgba(0,0,0,.7)),
-    url("https://images.unsplash.com/photo-1518199266791-5375a83190b7?auto=format&fit=crop&w=1000&q=85") center/cover;
+.count-box{
+  padding:25px 10px;
   border:1px solid var(--border);
-  box-shadow:var(--shadow);
+  border-radius:24px;
+  background:var(--card);
+  backdrop-filter:blur(15px);
 }
 
-.love-visual-content{
-  position:absolute;
-  bottom:25px;
-  right:25px;
-  left:25px;
+.count-box strong{
+  display:block;
+  font-size:35px;
+  color:var(--pink2);
 }
 
-.love-visual-content h3{
-  font-size:30px;
-  font-weight:900;
+.count-box span{
+  font-size:12px;
+  color:var(--muted);
 }
 
-.love-visual-content p{
-  color:#ddd;
-  font-size:13px;
+.card{
+  background:linear-gradient(145deg,rgba(255,255,255,.09),rgba(255,255,255,.035));
+  border:1px solid var(--border);
+  border-radius:30px;
+  padding:30px;
+  box-shadow:0 20px 70px rgba(0,0,0,.25);
 }
 
 .letter{
-  border:1px solid var(--border);
-  background:rgba(255,255,255,.045);
-  border-radius:32px;
-  padding:35px;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  box-shadow:var(--shadow);
+  padding:90px 0;
 }
 
-.letter-icon{
-  font-size:42px;
-  margin-bottom:18px;
+.letter-card{
+  max-width:850px;
+  margin:auto;
+  text-align:center;
 }
 
-.letter h3{
-  font-size:29px;
-  margin-bottom:18px;
+.letter-card .icon{
+  font-size:50px;
+  margin-bottom:15px;
 }
 
-.letter p{
-  color:#d2c6cd;
-  line-height:2.1;
-  font-size:14px;
+.letter-card p{
+  color:#eadfe6;
+  line-height:2.4;
+  font-size:17px;
 }
-
-.signature{
-  color:#ff86b5;
-  font-size:19px;
-  font-weight:900;
-  margin-top:25px;
-}
-
-/* =========================
-   MEMORIES
-========================= */
 
 .memories{
+  padding:70px 0;
+}
+
+.memory-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+}
+
+.memory{
+  min-height:300px;
+  border-radius:27px;
+  overflow:hidden;
+  position:relative;
+  background-size:cover;
+  background-position:center;
+  border:1px solid var(--border);
+}
+
+.memory::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(transparent 20%,rgba(0,0,0,.9));
+}
+
+.memory-content{
+  position:absolute;
+  bottom:0;
+  right:0;
+  left:0;
+  z-index:2;
+  padding:22px;
+}
+
+.memory-content h3{
+  margin-bottom:5px;
+}
+
+.memory-content p{
+  color:#d7ccd3;
+  font-size:13px;
+}
+
+.reasons{
+  padding:80px 0;
+}
+
+.reason-grid{
   display:grid;
   grid-template-columns:repeat(3,1fr);
   gap:15px;
 }
 
-.memory{
-  min-height:310px;
-  position:relative;
-  overflow:hidden;
-  border-radius:27px;
-  border:1px solid var(--border);
-  background:#160b12;
-  cursor:pointer;
-  transition:.4s;
-}
-
-.memory:hover{
-  transform:translateY(-8px);
-  box-shadow:0 25px 60px rgba(0,0,0,.5);
-}
-
-.memory:nth-child(1){
-  background:url("https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?auto=format&fit=crop&w=800&q=85") center/cover;
-}
-
-.memory:nth-child(2){
-  background:url("https://images.unsplash.com/photo-1494774157365-9e04c6720e47?auto=format&fit=crop&w=800&q=85") center/cover;
-}
-
-.memory:nth-child(3){
-  background:url("https://images.unsplash.com/photo-1518568814500-bf0f8d125f46?auto=format&fit=crop&w=800&q=85") center/cover;
-}
-
-.memory:after{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:linear-gradient(transparent 35%,rgba(0,0,0,.9));
-}
-
-.memory-content{
-  position:absolute;
-  z-index:2;
-  bottom:20px;
-  right:20px;
-  left:20px;
-}
-
-.memory-content span{
-  color:#ff86b5;
-  font-size:11px;
-}
-
-.memory-content h3{
-  margin-top:4px;
-  font-size:20px;
-}
-
-/* =========================
-   WHY MALAK
-========================= */
-
-.reasons{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:14px;
-}
-
 .reason{
-  padding:23px;
-  border-radius:23px;
+  padding:25px;
+  border-radius:24px;
   background:var(--card);
   border:1px solid var(--border);
   transition:.3s;
 }
 
 .reason:hover{
+  transform:translateY(-6px);
   border-color:rgba(255,79,145,.35);
-  transform:translateY(-4px);
 }
 
-.reason-icon{
-  width:48px;
-  height:48px;
-  border-radius:15px;
-  display:grid;
-  place-items:center;
-  background:rgba(255,79,145,.12);
-  font-size:22px;
-  margin-bottom:15px;
+.reason b{
+  font-size:30px;
 }
 
 .reason h3{
-  font-size:17px;
+  margin:10px 0;
 }
 
 .reason p{
-  color:#a99ca3;
-  font-size:12px;
+  color:var(--muted);
+  font-size:14px;
   line-height:1.9;
-  margin-top:6px;
 }
 
-/* =========================
-   GAMES
-========================= */
+.games{
+  padding:80px 0;
+}
 
 .game-grid{
   display:grid;
   grid-template-columns:repeat(2,1fr);
-  gap:16px;
+  gap:15px;
 }
 
 .game{
-  padding:28px;
-  min-height:210px;
+  padding:25px;
+  background:var(--card);
   border:1px solid var(--border);
-  border-radius:28px;
-  background:linear-gradient(145deg,rgba(255,255,255,.06),rgba(255,255,255,.02));
-  position:relative;
-  overflow:hidden;
-}
-
-.game:before{
-  content:"";
-  position:absolute;
-  width:150px;
-  height:150px;
-  border-radius:50%;
-  background:rgba(255,79,145,.12);
-  filter:blur(30px);
-  left:-50px;
-  top:-50px;
-}
-
-.game-icon{
-  font-size:38px;
-  position:relative;
-}
-
-.game h3{
-  position:relative;
-  margin:10px 0 5px;
-}
-
-.game p{
-  position:relative;
-  color:#a99ca3;
-  font-size:12px;
-  line-height:1.7;
+  border-radius:24px;
+  text-align:center;
 }
 
 .game button{
-  position:relative;
-  margin-top:17px;
+  margin-top:15px;
   padding:10px 18px;
-  border-radius:12px;
-  background:#fff;
-  color:#15080e;
-  font-weight:800;
+  border:0;
+  border-radius:13px;
+  cursor:pointer;
+  background:linear-gradient(135deg,var(--pink),var(--purple));
+  color:white;
+  font-weight:700;
 }
 
-/* =========================
-   SECRET
-========================= */
-
 .secret{
+  padding:90px 0;
   text-align:center;
 }
 
@@ -715,294 +455,139 @@ section{
   padding:50px 25px;
   border-radius:35px;
   background:
-    radial-gradient(circle at center,rgba(255,79,145,.15),transparent 55%),
-    rgba(255,255,255,.035);
-  border:1px solid var(--border);
-  box-shadow:var(--shadow);
+    radial-gradient(circle at center,rgba(255,79,145,.13),transparent 60%),
+    var(--card);
+  border:1px solid rgba(255,79,145,.22);
 }
 
-.lock{
-  font-size:60px;
-  animation:float 3s ease-in-out infinite;
+.gift{
+  font-size:100px;
+  cursor:pointer;
+  display:inline-block;
+  animation:giftFloat 2s ease-in-out infinite;
+  filter:drop-shadow(0 15px 30px rgba(255,79,145,.3));
 }
 
-@keyframes float{
-  0%,100%{transform:translateY(0)}
-  50%{transform:translateY(-10px)}
+@keyframes giftFloat{
+  0%,100%{transform:translateY(0) rotate(-3deg)}
+  50%{transform:translateY(-12px) rotate(3deg)}
 }
 
 .secret-box h2{
-  font-size:28px;
-  margin:15px 0 10px;
+  margin:15px 0;
 }
 
 .secret-box p{
-  color:#a99ca3;
-  font-size:13px;
+  color:var(--muted);
+  margin-bottom:20px;
 }
-
-.secret-btn{
-  margin-top:25px;
-  padding:14px 25px;
-  border-radius:15px;
-  color:#fff;
-  font-weight:900;
-  background:linear-gradient(135deg,#8b5cf6,#ff4f91);
-  box-shadow:0 10px 35px rgba(139,92,246,.25);
-}
-
-/* =========================
-   FOOTER
-========================= */
 
 footer{
   text-align:center;
-  padding:60px 20px 35px;
-  border-top:1px solid rgba(255,255,255,.07);
+  padding:50px 20px;
+  color:#a998a5;
+  position:relative;
+  z-index:2;
 }
 
-.footer-heart{
-  font-size:30px;
-  animation:heartbeat 1.2s infinite;
-  display:inline-block;
+footer strong{
+  color:var(--pink2);
 }
 
-footer h3{
-  margin:10px 0;
-  font-size:22px;
+.toast{
+  position:fixed;
+  bottom:25px;
+  left:50%;
+  transform:translate(-50%,120px);
+  padding:14px 20px;
+  border-radius:18px;
+  background:rgba(15,6,18,.9);
+  border:1px solid var(--border);
+  backdrop-filter:blur(15px);
+  z-index:9999;
+  transition:.4s;
+  box-shadow:0 15px 40px rgba(0,0,0,.4);
 }
 
-footer p{
-  color:#887b83;
-  font-size:11px;
+.toast.show{
+  transform:translate(-50%,0);
 }
-
-/* =========================
-   MODAL
-========================= */
 
 .modal{
   position:fixed;
   inset:0;
-  z-index:9000;
   background:rgba(0,0,0,.75);
   backdrop-filter:blur(15px);
-  display:flex;
+  z-index:9998;
+  display:none;
   align-items:center;
   justify-content:center;
   padding:20px;
-  opacity:0;
-  visibility:hidden;
-  transition:.35s;
 }
 
 .modal.show{
-  opacity:1;
-  visibility:visible;
+  display:flex;
 }
 
 .modal-card{
   width:min(600px,100%);
-  max-height:90vh;
-  overflow:auto;
+  padding:35px;
   border-radius:30px;
+  background:#140914;
   border:1px solid var(--border);
-  background:#12070e;
-  padding:30px;
   text-align:center;
-  transform:scale(.9) translateY(20px);
-  transition:.4s;
+  animation:modalIn .4s;
 }
 
-.modal.show .modal-card{
-  transform:scale(1) translateY(0);
-}
-
-.modal-close{
-  float:left;
-  width:36px;
-  height:36px;
-  border-radius:12px;
-  background:rgba(255,255,255,.08);
-  color:#fff;
+@keyframes modalIn{
+  from{transform:scale(.8);opacity:0}
+  to{transform:scale(1);opacity:1}
 }
 
 .modal-card h2{
-  margin:15px 0;
-  font-size:28px;
+  color:var(--pink2);
+  margin-bottom:15px;
 }
 
 .modal-card p{
-  color:#c8bbc2;
-  line-height:2;
-  font-size:14px;
+  line-height:2.2;
+  color:#e8dce4;
 }
 
-/* =========================
-   GIFT
-========================= */
-
-.gift{
-  font-size:90px;
-  cursor:pointer;
-  display:inline-block;
-  animation:giftShake 2s infinite;
-}
-
-@keyframes giftShake{
-  0%,70%,100%{transform:rotate(0)}
-  74%{transform:rotate(-7deg)}
-  78%{transform:rotate(7deg)}
-  82%{transform:rotate(-5deg)}
-  86%{transform:rotate(5deg)}
-}
-
-/* =========================
-   MUSIC
-========================= */
-
-.music-player{
-  position:fixed;
-  bottom:18px;
-  left:18px;
-  z-index:700;
-  display:flex;
-  align-items:center;
-  gap:10px;
-  padding:9px 12px;
-  border:1px solid var(--border);
-  background:rgba(15,6,12,.82);
-  backdrop-filter:blur(18px);
-  border-radius:20px;
-  box-shadow:0 12px 40px rgba(0,0,0,.35);
-}
-
-.music-button{
-  width:42px;
-  height:42px;
+.close{
+  margin-top:20px;
+  border:0;
   border-radius:14px;
-  background:linear-gradient(135deg,#ff4f91,#8b5cf6);
-  color:#fff;
+  padding:10px 22px;
+  cursor:pointer;
+  background:rgba(255,255,255,.08);
+  color:white;
 }
 
-.music-info{
-  max-width:150px;
-}
-
-.music-info strong{
-  display:block;
-  font-size:11px;
-}
-
-.music-info small{
-  color:#95858e;
-  font-size:9px;
-}
-
-/* =========================
-   TOAST
-========================= */
-
-.toast{
-  position:fixed;
-  top:90px;
-  left:50%;
-  transform:translate(-50%,-20px);
-  z-index:9990;
-  padding:12px 20px;
-  background:#fff;
-  color:#190a11;
-  border-radius:15px;
-  font-size:12px;
-  font-weight:800;
-  opacity:0;
-  visibility:hidden;
-  transition:.35s;
-  box-shadow:0 15px 50px rgba(0,0,0,.4);
-}
-
-.toast.show{
-  opacity:1;
-  visibility:visible;
-  transform:translate(-50%,0);
-}
-
-/* =========================
-   CONFETTI
-========================= */
-
-.confetti{
-  position:fixed;
-  top:-20px;
-  z-index:10000;
-  pointer-events:none;
-  animation:confettiFall 3s linear forwards;
-}
-
-@keyframes confettiFall{
-  to{
-    transform:translateY(110vh) rotate(720deg);
-    opacity:0;
-  }
-}
-
-/* =========================
-   RESPONSIVE
-========================= */
-
-@media(max-width:750px){
-
-  .nav{
-    top:9px;
-    border-radius:19px;
+@media(max-width:700px){
+  nav{
+    top:8px;
   }
 
-  .logo-icon{
-    width:36px;
-    height:36px;
+  .nav-links{
+    gap:4px;
   }
 
-  .logo{
-    font-size:13px;
+  .nav-btn{
+    width:38px;
+    height:38px;
   }
 
   .hero{
-    padding-top:115px;
+    padding-top:110px;
   }
 
-  .hero h1{
-    font-size:78px;
-  }
-
-  .hero-sub{
-    font-size:14px;
-  }
-
-  .countdown{
+  .count-grid{
     grid-template-columns:repeat(2,1fr);
   }
 
-  .love-card{
-    grid-template-columns:1fr;
-  }
-
-  .love-visual{
-    min-height:340px;
-  }
-
-  .letter{
-    padding:25px;
-  }
-
-  .memories{
-    grid-template-columns:1fr;
-  }
-
-  .memory{
-    min-height:280px;
-  }
-
-  .reasons{
+  .memory-grid,
+  .reason-grid{
     grid-template-columns:1fr;
   }
 
@@ -1010,23 +595,8 @@ footer p{
     grid-template-columns:1fr;
   }
 
-  section{
-    padding:65px 0;
-  }
-}
-
-@media(max-width:420px){
-  .hero h1{
-    font-size:67px;
-  }
-
-  .primary-btn,
-  .secondary-btn{
-    width:100%;
-  }
-
-  .music-info{
-    display:none;
+  .card{
+    padding:22px;
   }
 }
 </style>
@@ -1034,310 +604,250 @@ footer p{
 
 <body>
 
-<!-- LOADER -->
 <div id="loader">
-  <div class="loader-heart"></div>
-  <div class="loader-text">هدية صغيرة لشخص كبير في القلب...</div>
+  <div class="loader-heart">❤️</div>
 </div>
 
-<div id="stars"></div>
-<div id="particles"></div>
+<div class="stars" id="stars"></div>
+<div class="hearts" id="hearts"></div>
 
-<!-- NAV -->
-<nav class="nav">
-  <a href="#home" class="logo">
-    <div class="logo-icon">م</div>
-    <span>ملك ❤️</span>
-  </a>
+<nav>
+  <div class="logo">ملك <span>❤️</span></div>
 
-  <div class="nav-actions">
-    <button class="nav-btn" onclick="scrollToSection('letter')">💌</button>
-    <button class="nav-btn" onclick="scrollToSection('memories')">📸</button>
-    <button class="nav-btn" onclick="openGift()">🎁</button>
+  <div class="nav-links">
+    <button class="nav-btn" onclick="scrollToId('home')">🏠</button>
+    <button class="nav-btn" onclick="scrollToId('memories')">📸</button>
+    <button class="nav-btn" onclick="scrollToId('games')">🎮</button>
+    <button class="nav-btn" onclick="location.href='gift.html'">🎁</button>
   </div>
 </nav>
 
-<!-- HERO -->
-<header class="hero" id="home">
+<main>
 
-  <div class="hero-glow"></div>
-  <div class="hero-glow two"></div>
-
+<section class="hero" id="home">
   <div class="hero-content">
 
-    <div class="badge">
-      <i>✦</i>
-      رسالة خاصة إلى ملك
-      <i>✦</i>
-    </div>
+    <div class="badge">✨ حكاية تستحق أن تُحكى ✨</div>
 
     <h1>ملك</h1>
 
-    <p class="hero-sub">
-      في ناس بتمر في حياتنا...
-      <br>
-      وناس <strong>بتخلّي للحياة معنى تاني.</strong>
-      <br>
-      والنهارده الصفحة دي كلها معمولة عشان واحدة منهم.
+    <h2>أجمل حكاية ❤️</h2>
+
+    <p>
+      مش مجرد اسم...
+      دي حكاية فيها ضحكة، وذكريات، ومشاعر،
+      وشخص واحد قدر يخلي الدنيا أجمل.
     </p>
 
-    <div class="hero-buttons">
-      <button class="primary-btn" onclick="scrollToSection('letter')">
+    <div class="buttons">
+      <button class="primary-btn" onclick="scrollToId('letter')">
         💌 افتحي رسالتي
       </button>
 
-      <button class="secondary-btn" onclick="openGift()">
+      <button class="secondary-btn" onclick="location.href='gift.html'">
         🎁 عندي مفاجأة
       </button>
     </div>
 
   </div>
+</section>
 
-  <div class="scroll-hint">
-    انزلي واكتشفي الحكاية
-    <span>⌄</span>
-  </div>
-</header>
-
-<!-- COUNTDOWN -->
-<section id="birthday">
-
+<section class="countdown">
   <div class="section-title">
-    <div class="eyebrow">THE SPECIAL DAY</div>
-    <h2>العد التنازلي ليوم ملك 🎂</h2>
-    <p>يوم الأربعاء مش يوم عادي... ده يوم اتولدت فيه ملك.</p>
+    <small>اللحظة المنتظرة</small>
+    <h2>لحد ما ييجي اليوم الكبير ❤️</h2>
   </div>
 
-  <div class="countdown-card">
-
-    <div class="badge">🎉 عيد ميلاد ملك — 16 سبتمبر 2026</div>
-
-    <div class="countdown">
-
-      <div class="time-box">
-        <div class="time-number" id="days">00</div>
-        <div class="time-label">يوم</div>
-      </div>
-
-      <div class="time-box">
-        <div class="time-number" id="hours">00</div>
-        <div class="time-label">ساعة</div>
-      </div>
-
-      <div class="time-box">
-        <div class="time-number" id="minutes">00</div>
-        <div class="time-label">دقيقة</div>
-      </div>
-
-      <div class="time-box">
-        <div class="time-number" id="seconds">00</div>
-        <div class="time-label">ثانية</div>
-      </div>
-
+  <div class="count-grid">
+    <div class="count-box">
+      <strong id="days">00</strong>
+      <span>يوم</span>
     </div>
 
+    <div class="count-box">
+      <strong id="hours">00</strong>
+      <span>ساعة</span>
+    </div>
+
+    <div class="count-box">
+      <strong id="minutes">00</strong>
+      <span>دقيقة</span>
+    </div>
+
+    <div class="count-box">
+      <strong id="seconds">00</strong>
+      <span>ثانية</span>
+    </div>
   </div>
 </section>
 
-<!-- LETTER -->
-<section id="letter">
+<section class="letter" id="letter">
 
   <div class="section-title">
-    <div class="eyebrow">A LETTER FOR YOU</div>
-    <h2>رسالة من القلب ❤️</h2>
-    <p>الكلام ده مخصوص ليكي.</p>
+    <small>من قلبي ليكي</small>
+    <h2>رسالة صغيرة ❤️</h2>
   </div>
 
-  <div class="love-card">
+  <div class="card letter-card">
 
-    <div class="love-visual">
-      <div class="love-visual-content">
-        <span>FOR MY FAVORITE PERSON</span>
-        <h3>ملك ❤️</h3>
-        <p>بعض الأشخاص لا يحتاجون سببًا لكي يصبحوا مميزين.</p>
-      </div>
-    </div>
+    <div class="icon">💌</div>
 
-    <div class="letter">
-
-      <div class="letter-icon">💌</div>
-
-      <h3>إلى ملك...</h3>
-
-      <p>
-        مش عارف أبدأ الكلام إزاي، لأن مهما كتبت مش هيكون كفاية.
-        بس اللي أعرفه إن وجودك في حياتي له معنى كبير جدًا.
-        <br><br>
-        النهارده مش مجرد عيد ميلادك...
-        النهارده فرصة أقولك إنك شخص يستاهل كل حاجة حلوة في الدنيا.
-        تستاهلي الضحكة اللي مابتخلصش،
-        والأيام اللي مافيهاش زعل،
-        والناس اللي تفضل جنبك بجد.
-        <br><br>
-        أتمنى السنة الجديدة من عمرك تكون أجمل من كل اللي فات،
-        وكل أمنية مخبيّاها في قلبك تلاقي طريقها ليكي.
-        <br><br>
-        <strong style="color:#ff86b5">
-          كل سنة وإنتِ ملك... والاسم لوحده حكاية. ❤️
-        </strong>
-      </p>
-
-      <div class="signature">
-        — من شخص شايفك مختلفة عن الكل ❤️
-      </div>
-
-    </div>
+    <p>
+      ملك...
+      يمكن الكلام مهما كان حلو مش هيقدر يوصف مكانتك،
+      بس فيه حاجة واحدة متأكد منها...
+      إن وجودك في حياة أي حد نعمة كبيرة.
+      <br><br>
+      أتمنى كل سنة جديدة من عمرك تكون أحلى من اللي قبلها،
+      وتفضلي دايمًا مبتسمة،
+      وتلاقي حواليكي كل الحب والفرحة اللي تستحقيها.
+      <br><br>
+      كل سنة وإنتِ ملك...
+      مش بس بالاسم،
+      لكن بالمكانة اللي ليكي في القلوب. ❤️
+    </p>
 
   </div>
+
 </section>
 
-<!-- MEMORIES -->
-<section id="memories">
+<section class="memories" id="memories">
 
   <div class="section-title">
-    <div class="eyebrow">OUR LITTLE WORLD</div>
-    <h2>لحظات تستاهل تتخزن ✨</h2>
-    <p>اضغطي على أي صورة.</p>
+    <small>أجمل اللحظات</small>
+    <h2>ذكريات تستاهل تتخزن 📸</h2>
   </div>
 
-  <div class="memories">
+  <div class="memory-grid">
 
-    <div class="memory" onclick="openMemory('لحظة جميلة','في لحظات صغيرة جدًا... بس بتفضل في القلب وقت طويل.')">
+    <div class="memory" style="background-image:url('https://images.unsplash.com/photo-1518199266791-5375a83190b7?auto=format&fit=crop&w=900&q=85')">
       <div class="memory-content">
-        <span>MEMORY 01</span>
-        <h3>أجمل التفاصيل</h3>
+        <h3>لحظة جميلة ❤️</h3>
+        <p>في لحظات صغيرة بتفضل كبيرة في الذاكرة.</p>
       </div>
     </div>
 
-    <div class="memory" onclick="openMemory('ضحكة ملك','في ضحكات معينة بتقدر تغيّر يوم كامل... وضحكتك واحدة منها.')">
+    <div class="memory" style="background-image:url('https://images.unsplash.com/photo-1494774157365-9e04c6720e47?auto=format&fit=crop&w=900&q=85')">
       <div class="memory-content">
-        <span>MEMORY 02</span>
-        <h3>الضحكة اللي بتفرق</h3>
+        <h3>ضحكة لا تُنسى ✨</h3>
+        <p>بعض الضحكات تستحق صورة وذكرى.</p>
       </div>
     </div>
 
-    <div class="memory" onclick="openMemory('حكاية لسه بتبدأ','وأجمل حاجة إن الحكايات الحلوة مش لازم يكون لها نهاية.')">
+    <div class="memory" style="background-image:url('https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?auto=format&fit=crop&w=900&q=85')">
       <div class="memory-content">
-        <span>MEMORY 03</span>
-        <h3>لسه في ذكريات أكتر</h3>
+        <h3>حكاية مستمرة 👑</h3>
+        <p>وأجمل الحكايات لسه فيها صفحات جديدة.</p>
       </div>
     </div>
 
   </div>
+
 </section>
 
-<!-- REASONS -->
-<section id="reasons">
+<section class="reasons">
 
   <div class="section-title">
-    <div class="eyebrow">WHY YOU?</div>
-    <h2>ليه ملك مختلفة؟ 👑</h2>
-    <p>أسباب كتير... بس دول شوية منهم.</p>
+    <small>ليه ملك؟</small>
+    <h2>حاجات كتير بتخليها مميزة 💕</h2>
   </div>
 
-  <div class="reasons">
+  <div class="reason-grid">
 
     <div class="reason">
-      <div class="reason-icon">✨</div>
-      <h3>وجودك له تأثير</h3>
-      <p>في ناس وجودها عادي، وفي ناس بمجرد وجودها المكان كله بيتغير.</p>
+      <b>🌸</b>
+      <h3>روحها</h3>
+      <p>فيها حاجة مختلفة تخلي وجودها لوحده يغير الجو.</p>
     </div>
 
     <div class="reason">
-      <div class="reason-icon">😂</div>
-      <h3>ضحكتك</h3>
-      <p>لأن في ضحكات بتعدّي، وضحكات بتفضل معلقة في الذاكرة.</p>
+      <b>❤️</b>
+      <h3>قلبها</h3>
+      <p>الطيبة الحقيقية مش محتاجة كلام كتير عشان تظهر.</p>
     </div>
 
     <div class="reason">
-      <div class="reason-icon">❤️</div>
-      <h3>قلبك</h3>
-      <p>الحاجات الجميلة مش كلها بتبان من أول مرة، لكن القلب الحلو بيبان.</p>
+      <b>✨</b>
+      <h3>تفاصيلها</h3>
+      <p>التفاصيل الصغيرة هي اللي بتخلي الشخص مستحيل يتنسى.</p>
     </div>
 
     <div class="reason">
-      <div class="reason-icon">👑</div>
-      <h3>اسمك</h3>
-      <p>مش محتاجين نشرح ليه الاسم ده لوحده مناسب ليكي.</p>
+      <b>👑</b>
+      <h3>ملك</h3>
+      <p>اسمها لوحده كفاية يخلي الحكاية مختلفة.</p>
     </div>
 
     <div class="reason">
-      <div class="reason-icon">🌙</div>
-      <h3>تفاصيلك</h3>
-      <p>التفاصيل الصغيرة أحيانًا هي أكتر حاجة بتخلّي الشخص مميز.</p>
+      <b>🫶</b>
+      <h3>وجودها</h3>
+      <p>في ناس وجودهم راحة حتى من غير ما يعملوا حاجة.</p>
     </div>
 
     <div class="reason">
-      <div class="reason-icon">💫</div>
-      <h3>إنتِ إنتِ</h3>
-      <p>وأحلى سبب في الآخر إنك مش محتاجة تكوني حد تاني.</p>
+      <b>💫</b>
+      <h3>الاختلاف</h3>
+      <p>مش لازم تكون شبه حد... كفاية تكون ملك.</p>
     </div>
 
   </div>
+
 </section>
 
-<!-- GAMES -->
-<section id="games">
+<section class="games" id="games">
 
   <div class="section-title">
-    <div class="eyebrow">LET'S PLAY</div>
-    <h2>وقت اللعب 🎮</h2>
-    <p>عشان الهدية مش كلام وبس.</p>
+    <small>وقت اللعب 😍</small>
+    <h2>ألعاب صغيرة لملك 🎮</h2>
   </div>
 
   <div class="game-grid">
 
     <div class="game">
-      <div class="game-icon">💖</div>
-      <h3>اختبري حظك</h3>
-      <p>اضغطي وشوفي الرسالة اللي هتطلعلك.</p>
-      <button onclick="luckyMessage()">جربي حظك ✨</button>
+      <div style="font-size:45px">❤️</div>
+      <h3>اضغطي على القلب</h3>
+      <p id="heartScore">0 ضغطة</p>
+      <button onclick="heartGame()">ابدئي</button>
     </div>
 
     <div class="game">
-      <div class="game-icon">💝</div>
-      <h3>قد إيه إنتِ مميزة؟</h3>
-      <p>مقياس غير علمي إطلاقًا... لكنه أكيد صادق 😂</p>
-      <button onclick="specialMeter()">احسبي النسبة ❤️</button>
+      <div style="font-size:45px">🎁</div>
+      <h3>اختاري الصندوق</h3>
+      <p>مين فيهم فيه المفاجأة؟</p>
+      <button onclick="boxGame()">اختاري</button>
     </div>
 
     <div class="game">
-      <div class="game-icon">🔮</div>
-      <h3>رسالة من المستقبل</h3>
-      <p>اضغطي وشوفي رسالة صغيرة من المستقبل.</p>
-      <button onclick="futureMessage()">افتحيها 🔮</button>
+      <div style="font-size:45px">👑</div>
+      <h3>مين ملكة اليوم؟</h3>
+      <p>الإجابة سهلة جدًا 😌</p>
+      <button onclick="queenGame()">اعرفي</button>
     </div>
 
     <div class="game">
-      <div class="game-icon">🎯</div>
-      <h3>اختاري رقم</h3>
-      <p>كل رقم وراه مفاجأة صغيرة.</p>
-      <button onclick="chooseNumber()">اختاري 🎯</button>
+      <div style="font-size:45px">✨</div>
+      <h3>رسالة عشوائية</h3>
+      <p>رسالة مخصوصة ليكي.</p>
+      <button onclick="randomMessage()">افتحي</button>
     </div>
 
   </div>
+
 </section>
 
-<!-- SECRET GIFT -->
-<section class="secret" id="secret">
-
-  <div class="section-title">
-    <div class="eyebrow">ONE LAST THING</div>
-    <h2>في حاجة مستخبية... 🎁</h2>
-    <p>مش هتظهر غير لما تضغطي.</p>
-  </div>
+<section class="secret">
 
   <div class="secret-box">
 
-    <div class="gift" onclick="openGift()">🎁</div>
+    <div class="gift" onclick="location.href='gift.html'">🎁</div>
 
-    <h2>صندوق ملك السري</h2>
+    <h2>في حاجة مستخبية ليكي...</h2>
 
     <p>
-      ممنوع فتحه إلا لو مستعدة لمفاجأة صغيرة ❤️
+      التجربة الحقيقية مستنياكي في الصفحة التانية.
     </p>
 
-    <button class="secret-btn" onclick="openGift()">
+    <button class="secret-btn" onclick="location.href='gift.html'">
       افتحي الصندوق ✨
     </button>
 
@@ -1345,421 +855,205 @@ footer p{
 
 </section>
 
+</main>
+
 <footer>
-  <div class="footer-heart">❤️</div>
-  <h3>كل سنة وإنتِ طيبة يا ملك</h3>
-  <p>صُنعت بحب مخصوص ليوم مميز.</p>
+  صُنع بكل الحب من أجل <strong>ملك خفاجي 👑❤️</strong>
 </footer>
 
-<!-- MUSIC -->
-<div class="music-player">
-  <button class="music-button" id="musicBtn" onclick="toggleMusic()">▶</button>
-  <div class="music-info">
-    <strong>أغنية ملك 🎵</strong>
-    <small id="musicStatus">اضغطي للتشغيل</small>
-  </div>
-</div>
-
-<audio id="music" loop>
-  <!-- ضعي رابط الأغنية هنا لاحقًا -->
-</audio>
-
-<!-- TOAST -->
 <div class="toast" id="toast"></div>
 
-<!-- MODAL -->
-<div class="modal" id="modal" onclick="closeModal(event)">
+<div class="modal" id="modal">
   <div class="modal-card">
-
-    <button class="modal-close" onclick="closeModal()">×</button>
-
-    <div id="modalContent"></div>
-
+    <h2 id="modalTitle"></h2>
+    <p id="modalText"></p>
+    <button class="close" onclick="closeModal()">إغلاق ❤️</button>
   </div>
 </div>
 
 <script>
 
-/* =========================
-   LOADER
-========================= */
+const target = new Date("2026-09-16T00:00:00");
 
-window.addEventListener("load",()=>{
-  setTimeout(()=>{
-    document.getElementById("loader").classList.add("hide");
-  },1200);
-});
-
-/* =========================
-   STARS
-========================= */
-
-const stars=document.getElementById("stars");
-
-for(let i=0;i<120;i++){
-  const s=document.createElement("div");
-  s.className="star";
-  s.style.left=Math.random()*100+"%";
-  s.style.top=Math.random()*100+"%";
-  s.style.animationDelay=(Math.random()*4)+"s";
-  s.style.animationDuration=(2+Math.random()*4)+"s";
-  stars.appendChild(s);
+function $(id){
+  return document.getElementById(id);
 }
 
-/* =========================
-   FLOATING HEARTS
-========================= */
-
-const particles=document.getElementById("particles");
-
-const symbols=["♡","♥","✦","✨","•"];
-
-for(let i=0;i<28;i++){
-  const p=document.createElement("div");
-  p.className="particle";
-  p.textContent=symbols[Math.floor(Math.random()*symbols.length)];
-  p.style.left=Math.random()*100+"%";
-  p.style.fontSize=(8+Math.random()*16)+"px";
-  p.style.animationDuration=(8+Math.random()*12)+"s";
-  p.style.animationDelay=(Math.random()*10)+"s";
-  particles.appendChild(p);
-}
-
-/* =========================
-   SCROLL
-========================= */
-
-function scrollToSection(id){
+function scrollToId(id){
   document.getElementById(id)?.scrollIntoView({
-    behavior:"smooth",
-    block:"start"
+    behavior:"smooth"
   });
 }
 
-/* =========================
-   COUNTDOWN
-   Wednesday 16 September 2026
-========================= */
-
-const birthday=new Date("2026-09-16T00:00:00");
-
 function updateCountdown(){
 
-  const now=new Date();
+  const now = new Date();
+  let diff = target-now;
 
-  let target=birthday;
+  if(diff<0) diff=0;
 
-  if(now>birthday){
-    target=new Date("2027-09-16T00:00:00");
-  }
+  const totalSeconds=Math.floor(diff/1000);
 
-  const diff=target-now;
+  const days=Math.floor(totalSeconds/86400);
+  const hours=Math.floor((totalSeconds%86400)/3600);
+  const minutes=Math.floor((totalSeconds%3600)/60);
+  const seconds=totalSeconds%60;
 
-  const days=Math.floor(diff/(1000*60*60*24));
-  const hours=Math.floor(diff/(1000*60*60))%24;
-  const minutes=Math.floor(diff/(1000*60))%60;
-  const seconds=Math.floor(diff/1000)%60;
-
-  document.getElementById("days").textContent=String(days).padStart(2,"0");
-  document.getElementById("hours").textContent=String(hours).padStart(2,"0");
-  document.getElementById("minutes").textContent=String(minutes).padStart(2,"0");
-  document.getElementById("seconds").textContent=String(seconds).padStart(2,"0");
+  $("days").textContent=String(days).padStart(2,"0");
+  $("hours").textContent=String(hours).padStart(2,"0");
+  $("minutes").textContent=String(minutes).padStart(2,"0");
+  $("seconds").textContent=String(seconds).padStart(2,"0");
 }
 
 updateCountdown();
 setInterval(updateCountdown,1000);
 
-/* =========================
-   TOAST
-========================= */
-
-let toastTimer;
-
 function showToast(text){
 
-  const toast=document.getElementById("toast");
+  const t=$("toast");
 
-  toast.textContent=text;
-  toast.classList.add("show");
+  t.textContent=text;
+  t.classList.add("show");
 
-  clearTimeout(toastTimer);
-
-  toastTimer=setTimeout(()=>{
-    toast.classList.remove("show");
-  },2500);
+  setTimeout(()=>{
+    t.classList.remove("show");
+  },2800);
 }
 
-/* =========================
-   MODAL
-========================= */
+function openModal(title,text){
 
-const modal=document.getElementById("modal");
-const modalContent=document.getElementById("modalContent");
+  $("modalTitle").textContent=title;
+  $("modalText").textContent=text;
 
-function openModal(html){
-  modalContent.innerHTML=html;
-  modal.classList.add("show");
+  $("modal").classList.add("show");
 }
 
-function closeModal(e){
+function closeModal(){
+  $("modal").classList.remove("show");
+}
 
-  if(!e || e.target===modal || e.target.classList.contains("modal-close")){
-    modal.classList.remove("show");
+let score=0;
+
+function heartGame(){
+
+  score++;
+
+  $("heartScore").textContent=score+" ضغطة";
+
+  if(score===1){
+    showToast("بدأنا 😍");
+  }
+
+  if(score===5){
+    showToast("يا سلام على ملك ❤️");
+  }
+
+  if(score===10){
+    openModal(
+      "🏆 كسبتي!",
+      "واضح إن ملك مستعدة تكسب أي لعبة 😌❤️"
+    );
   }
 }
 
-/* =========================
-   MEMORY
-========================= */
+function boxGame(){
 
-function openMemory(title,text){
+  const n=Math.floor(Math.random()*3)+1;
 
-  openModal(`
-    <div style="font-size:45px">💗</div>
-    <h2>${title}</h2>
-    <p>${text}</p>
-    <button class="secret-btn" onclick="closeModal()">حلوة أوي ❤️</button>
-  `);
+  openModal(
+    "🎁 الصندوق رقم "+n,
+    n===2
+      ?"لقيتي المفاجأة! ❤️"
+      :"قريبة جدًا... جربي تاني 😍"
+  );
 }
 
-/* =========================
-   GIFT
-========================= */
+function queenGame(){
 
-function openGift(){
-
-  createConfetti();
-
-  openModal(`
-    <div style="font-size:80px">🎂</div>
-    <h2>مفاجأة لملك ❤️</h2>
-    <p>
-      لو وصلتي لحد هنا، يبقى لازم تعرفي حاجة...
-      <br><br>
-      الهدية الحقيقية مش في الصفحة دي.
-      <br>
-      الهدية الحقيقية هي إن اليوم ده موجود
-      عشان شخص زيك جه للدنيا.
-      <br><br>
-      <strong style="color:#ff86b5;font-size:19px">
-        كل سنة وإنتِ أجمل صدفة وأجمل حكاية. 👑
-      </strong>
-    </p>
-    <button class="secret-btn" onclick="closeModal()">
-      ❤️ بحب المفاجأة
-    </button>
-  `);
+  openModal(
+    "👑 الإجابة",
+    "طبعًا ملك خفاجي... مين غيرها؟ ❤️"
+  );
 }
 
-/* =========================
-   GAME 1
-========================= */
+function randomMessage(){
 
-const luckyMessages=[
-  "حظك النهارده: 100% ملك 👑",
-  "رسالتك: إنتِ تستاهلي يوم حلو جدًا ❤️",
-  "النتيجة: حد بيفكر فيكي دلوقتي 😉",
-  "الحظ قال: ابتسمي... إنتِ جميلة كده كده ✨",
-  "رسالة خاصة: السنة دي هتكون مختلفة 💗"
-];
-
-function luckyMessage(){
-
-  const msg=luckyMessages[
-    Math.floor(Math.random()*luckyMessages.length)
+  const messages=[
+    "وجودك لوحده سبب للفرحة ❤️",
+    "أتمنى ضحكتك تفضل منورة الدنيا دايمًا ✨",
+    "إنتِ تستحقي كل حاجة حلوة في الدنيا 👑",
+    "كل سنة وإنتِ أجمل وأقرب وأغلى ❤️",
+    "ملك... اسم على مسمى فعلًا 👑"
   ];
 
-  openModal(`
-    <div style="font-size:60px">💖</div>
-    <h2>رسالتك</h2>
-    <p>${msg}</p>
-    <button class="secret-btn" onclick="luckyMessage()">مرة كمان 🔄</button>
-  `);
+  const msg=messages[
+    Math.floor(Math.random()*messages.length)
+  ];
+
+  openModal("💌 رسالة ليكي",msg);
 }
 
-/* =========================
-   GAME 2
-========================= */
+function createStars(){
 
-function specialMeter(){
-
-  openModal(`
-    <div style="font-size:60px">👑</div>
-    <h2>مستوى التميز</h2>
-
-    <div style="
-      margin:25px auto;
-      height:18px;
-      max-width:430px;
-      border-radius:100px;
-      background:rgba(255,255,255,.08);
-      overflow:hidden;
-    ">
-      <div style="
-        width:100%;
-        height:100%;
-        border-radius:100px;
-        background:linear-gradient(90deg,#ff315f,#ff86b5,#ffd36a);
-      "></div>
-    </div>
-
-    <p style="font-size:22px;color:#fff;font-weight:900">
-      100% + زيادة 👑
-    </p>
-
-    <p>
-      النظام حاول يلاقي حد شبهك...
-      بس حصل Error 😂❤️
-    </p>
-  `);
-}
-
-/* =========================
-   GAME 3
-========================= */
-
-function futureMessage(){
-
-  openModal(`
-    <div style="font-size:60px">🔮</div>
-    <h2>رسالة من المستقبل</h2>
-    <p>
-      بعد فترة من دلوقتي،
-      هتبصي على السنة دي وتكتشفي
-      إن أجمل حاجة حصلت فيها
-      كانت كل اللحظات اللي خلتك تبتسمي.
-      <br><br>
-      فخليكي دايمًا مستنية الحلو. ✨
-    </p>
-  `);
-}
-
-/* =========================
-   GAME 4
-========================= */
-
-function chooseNumber(){
-
-  const number=Math.floor(Math.random()*9)+1;
-
-  const messages={
-    1:"رقم 1: إنتِ واحدة مفيش منها اتنين ❤️",
-    2:"رقم 2: ضحكتين منك كفاية يظبطوا اليوم 😂",
-    3:"رقم 3: تلات حاجات ملك تستاهلهم: الحب، الفرح، والراحة.",
-    4:"رقم 4: أربع حروف... مـلـك 👑",
-    5:"رقم 5: خمس نجوم ⭐⭐⭐⭐⭐",
-    6:"رقم 6: ست أسباب على الأقل تخلي اليوم أحلى.",
-    7:"رقم 7: أسبوع كامل مش كفاية نحتفل بيكي.",
-    8:"رقم 8: الرقم ده جاب حظ حلو النهارده.",
-    9:"رقم 9: النتيجة النهائية: ملك تكسب ❤️"
-  };
-
-  openModal(`
-    <div style="font-size:60px">🎯</div>
-    <h2>طلعلك رقم ${number}</h2>
-    <p>${messages[number]}</p>
-  `);
-}
-
-/* =========================
-   CONFETTI
-========================= */
-
-function createConfetti(){
-
-  const icons=["❤️","💖","✨","🎉","💕","⭐","🌸"];
+  const container=$("stars");
 
   for(let i=0;i<90;i++){
 
-    const c=document.createElement("div");
+    const star=document.createElement("div");
 
-    c.className="confetti";
-    c.textContent=icons[Math.floor(Math.random()*icons.length)];
+    star.className="star";
 
-    c.style.left=Math.random()*100+"%";
-    c.style.fontSize=(10+Math.random()*18)+"px";
-    c.style.animationDuration=(2+Math.random()*3)+"s";
-    c.style.animationDelay=(Math.random()*.8)+"s";
+    star.style.left=Math.random()*100+"%";
+    star.style.top=Math.random()*100+"%";
+    star.style.animationDelay=Math.random()*3+"s";
 
-    document.body.appendChild(c);
-
-    setTimeout(()=>{
-      c.remove();
-    },5000);
+    container.appendChild(star);
   }
 }
 
-/* =========================
-   MUSIC
-========================= */
+function createHearts(){
 
-const music=document.getElementById("music");
-const musicBtn=document.getElementById("musicBtn");
-const musicStatus=document.getElementById("musicStatus");
+  const container=$("hearts");
 
-function toggleMusic(){
+  for(let i=0;i<22;i++){
 
-  if(!music.src){
+    const heart=document.createElement("div");
 
-    showToast("🎵 ضيفي رابط الأغنية داخل الكود أولًا");
+    heart.className="float-heart";
+    heart.textContent=["❤️","💕","💗","💖","✨"][Math.floor(Math.random()*5)];
 
-    return;
-  }
+    heart.style.left=Math.random()*100+"%";
+    heart.style.fontSize=(12+Math.random()*22)+"px";
+    heart.style.animationDuration=(8+Math.random()*12)+"s";
+    heart.style.animationDelay=(-Math.random()*15)+"s";
 
-  if(music.paused){
-
-    music.play();
-
-    musicBtn.textContent="❚❚";
-    musicStatus.textContent="الموسيقى تعمل ❤️";
-
-  }else{
-
-    music.pause();
-
-    musicBtn.textContent="▶";
-    musicStatus.textContent="متوقفة";
+    container.appendChild(heart);
   }
 }
 
-/* =========================
-   KEYBOARD
-========================= */
+createStars();
+createHearts();
 
-document.addEventListener("keydown",e=>{
+window.addEventListener("load",()=>{
 
-  if(e.key==="Escape"){
-    modal.classList.remove("show");
+  setTimeout(()=>{
+
+    $("loader").style.opacity="0";
+    $("loader").style.visibility="hidden";
+
+  },900);
+
+});
+
+$("modal").addEventListener("click",e=>{
+
+  if(e.target===$("modal")){
+    closeModal();
   }
 
 });
 
-/* =========================
-   BIRTHDAY EVENT
-========================= */
-
-function birthdayCheck(){
-
-  const now=new Date();
-
-  if(
-    now.getFullYear()===2026 &&
-    now.getMonth()===8 &&
-    now.getDate()===16
-  ){
-
-    setTimeout(()=>{
-      createConfetti();
-
-      showToast("🎂 كل سنة وإنتِ طيبة يا ملك ❤️");
-
-    },1500);
-  }
-}
-
-birthdayCheck();
-
 </script>
 
 </body>
-  </html>
+        </html>
