@@ -8,7 +8,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=Playfair+Display:wght@600;700;800&family=Amiri:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 
 <style>
 :root{
@@ -55,8 +55,7 @@ body.intro-lock{
   overflow:hidden;
 }
 
-button,
-input{
+button, input{
   font-family:inherit;
 }
 
@@ -69,10 +68,7 @@ a{
   text-decoration:none;
 }
 
-/* =========================================================
-   GLOBAL BACKGROUND
-========================================================= */
-
+/* GLOBAL BACKGROUND */
 #ambient{
   position:fixed;
   inset:0;
@@ -120,62 +116,36 @@ a{
   pointer-events:none;
 }
 
-/* =========================================================
-   INTRO - MOST IMPORTANT
-========================================================= */
-
+/* INTRO SCREEN */
 #birthdayIntro{
   position:fixed;
   inset:0;
   z-index:100000;
-
   display:flex;
   align-items:center;
   justify-content:center;
-
   background:
-    radial-gradient(
-      circle at 50% 42%,
-      rgba(255,77,145,.24),
-      transparent 25%
-    ),
-    radial-gradient(
-      circle at 20% 85%,
-      rgba(137,92,255,.18),
-      transparent 28%
-    ),
+    radial-gradient(circle at 50% 42%, rgba(255,77,145,.24), transparent 25%),
+    radial-gradient(circle at 20% 85%, rgba(137,92,255,.18), transparent 28%),
     #050107;
-
   opacity:1;
   visibility:visible;
-
-  transition:
-    opacity 1.1s ease,
-    visibility 1.1s ease,
-    transform 1.1s ease;
+  transition: opacity .8s ease, visibility .8s ease, transform .8s ease;
 }
 
 #birthdayIntro.hide{
   opacity:0;
   visibility:hidden;
-  transform:scale(1.06);
+  transform:scale(1.1);
   pointer-events:none;
 }
 
 .intro-stars{
   position:absolute;
   inset:0;
-
-  background-image:
-    radial-gradient(
-      circle,
-      rgba(255,255,255,.8) 1px,
-      transparent 1.5px
-    );
-
+  background-image: radial-gradient(circle, rgba(255,255,255,.8) 1px, transparent 1.5px);
   background-size:70px 70px;
   opacity:.23;
-
   animation:introStars 18s linear infinite;
 }
 
@@ -186,24 +156,15 @@ a{
   left:50%;
   top:43%;
   transform:translate(-50%,-50%);
-
-  background:
-    radial-gradient(
-      circle,
-      rgba(255,77,145,.14),
-      transparent 65%
-    );
-
+  background: radial-gradient(circle, rgba(255,77,145,.14), transparent 65%);
   filter:blur(15px);
 }
 
 .intro-content{
   position:relative;
   z-index:10;
-
   width:min(95%,760px);
   text-align:center;
-
   animation:introContentIn 1.2s ease both;
 }
 
@@ -211,51 +172,31 @@ a{
   display:inline-flex;
   align-items:center;
   gap:8px;
-
   padding:7px 14px;
   margin-bottom:12px;
-
   border:1px solid rgba(255,215,106,.2);
   border-radius:999px;
-
   color:var(--gold);
   background:rgba(255,215,106,.045);
-
   font-size:11px;
   letter-spacing:2px;
 }
 
 .intro-title{
   font-family:"Playfair Display",serif;
-
   font-size:clamp(39px,9vw,82px);
   line-height:1;
-
   margin-bottom:8px;
-
   color:#fff;
 }
 
 .intro-title span{
   display:block;
-
-  background:
-    linear-gradient(
-      110deg,
-      #ff4d91,
-      #ffd1e0,
-      #ff8fba,
-      #ffd76a,
-      #ff4d91
-    );
-
+  background: linear-gradient(110deg, #ff4d91, #ffd1e0, #ff8fba, #ffd76a, #ff4d91);
   background-size:300% auto;
-
   -webkit-background-clip:text;
   background-clip:text;
-
   color:transparent;
-
   animation:introGradient 4s linear infinite;
 }
 
@@ -264,338 +205,152 @@ a{
   font-size:14px;
 }
 
-/* =========================================================
-   CAKE
-========================================================= */
-
+/* CAKE */
 .cake-scene{
   position:relative;
-
   width:390px;
   height:310px;
-
   margin:5px auto -3px;
-
   animation:cakeFloat 3s ease-in-out infinite;
 }
 
 .cake-halo{
   position:absolute;
-
   width:330px;
   height:190px;
-
   left:50%;
   top:75px;
-
   transform:translateX(-50%);
-
   border-radius:50%;
-
-  background:
-    radial-gradient(
-      circle,
-      rgba(255,77,145,.27),
-      transparent 68%
-    );
-
+  background: radial-gradient(circle, rgba(255,77,145,.27), transparent 68%);
   filter:blur(18px);
 }
 
-/* plate */
-
 .plate{
   position:absolute;
-
   left:50%;
   bottom:19px;
-
   transform:translateX(-50%);
-
   width:325px;
   height:28px;
-
   border-radius:50%;
-
-  background:
-    linear-gradient(
-      180deg,
-      #fff,
-      #e5dce2 55%,
-      #aaa0a7
-    );
-
-  box-shadow:
-    0 18px 35px rgba(0,0,0,.45),
-    0 0 25px rgba(255,255,255,.08);
+  background: linear-gradient(180deg, #fff, #e5dce2 55%, #aaa0a7);
+  box-shadow: 0 18px 35px rgba(0,0,0,.45), 0 0 25px rgba(255,255,255,.08);
 }
-
-/* cake body */
 
 .cake-body{
   position:absolute;
-
   left:50%;
   bottom:43px;
-
   transform:translateX(-50%);
-
   width:270px;
   height:105px;
-
-  border-radius:
-    17px
-    17px
-    28px
-    28px;
-
-  background:
-    linear-gradient(
-      145deg,
-      #ff9cbd 0%,
-      #f05a91 45%,
-      #bd245e 100%
-    );
-
-  box-shadow:
-    inset 0 -17px 30px rgba(0,0,0,.2),
-    inset 0 8px 15px rgba(255,255,255,.18),
-    0 15px 40px rgba(255,40,120,.16);
+  border-radius: 17px 17px 28px 28px;
+  background: linear-gradient(145deg, #ff9cbd 0%, #f05a91 45%, #bd245e 100%);
+  box-shadow: inset 0 -17px 30px rgba(0,0,0,.2), inset 0 8px 15px rgba(255,255,255,.18), 0 15px 40px rgba(255,40,120,.16);
 }
 
 .cake-line{
   position:absolute;
-
   left:0;
   right:0;
-
   height:7px;
-
   border-radius:20px;
-
   background:rgba(255,255,255,.28);
 }
 
-.cake-line.one{
-  top:32px;
-}
-
-.cake-line.two{
-  top:69px;
-  background:rgba(255,255,255,.17);
-}
-
-/* cake top */
+.cake-line.one{ top:32px; }
+.cake-line.two{ top:69px; background:rgba(255,255,255,.17); }
 
 .cake-top{
   position:absolute;
-
   left:50%;
   bottom:132px;
-
   transform:translateX(-50%);
-
   width:270px;
   height:75px;
-
-  border-radius:
-    50%
-    50%
-    20px
-    20px;
-
-  background:
-    linear-gradient(
-      180deg,
-      #fff,
-      #ffe6ef 65%,
-      #ffc8db
-    );
-
-  box-shadow:
-    0 8px 25px rgba(0,0,0,.18);
+  border-radius: 50% 50% 20px 20px;
+  background: linear-gradient(180deg, #fff, #ffe6ef 65%, #ffc8db);
+  box-shadow: 0 8px 25px rgba(0,0,0,.18);
 }
 
 .frost{
   position:absolute;
-
   bottom:-13px;
-
   width:44px;
   height:38px;
-
   background:#fff;
-
-  border-radius:
-    0 0 50% 50%;
+  border-radius: 0 0 50% 50%;
 }
 
 .frost.f1{left:42px}
 .frost.f2{left:112px}
 .frost.f3{right:42px}
 
-/* =========================================================
-   17 CANDLES - EVENLY DISTRIBUTED
-========================================================= */
-
 .candle{
   position:absolute;
-
   width:10px;
   height:45px;
-
   z-index:30;
-
   border-radius:6px;
-
-  background:
-    repeating-linear-gradient(
-      45deg,
-      #ffffff 0 5px,
-      #ff4d91 5px 10px
-    );
-
-  box-shadow:
-    0 4px 12px rgba(255,77,145,.28);
+  background: repeating-linear-gradient(45deg, #ffffff 0 5px, #ff4d91 5px 10px);
+  box-shadow: 0 4px 12px rgba(255,77,145,.28);
 }
 
-/*
-  Back row:
-  9 candles
-  All sit directly above cake top.
-*/
+.back{ bottom:181px; }
+.b1{left:83px} .b2{left:106px} .b3{left:129px} .b4{left:152px} .b5{left:175px} .b6{left:198px} .b7{left:221px} .b8{left:244px} .b9{left:267px}
 
-.back{
-  bottom:181px;
-}
-
-/*
-  9 positions
-*/
-
-.b1{left:83px}
-.b2{left:106px}
-.b3{left:129px}
-.b4{left:152px}
-.b5{left:175px}
-.b6{left:198px}
-.b7{left:221px}
-.b8{left:244px}
-.b9{left:267px}
-
-/*
-  Front row:
-  8 candles
-*/
-
-.front{
-  bottom:157px;
-}
-
-.f1c{left:94px}
-.f2c{left:117px}
-.f3c{left:140px}
-.f4c{left:163px}
-.f5c{left:186px}
-.f6c{left:209px}
-.f7c{left:232px}
-.f8c{left:255px}
-
-/* flames */
+.front{ bottom:157px; }
+.f1c{left:94px} .f2c{left:117px} .f3c{left:140px} .f4c{left:163px} .f5c{left:186px} .f6c{left:209px} .f7c{left:232px} .f8c{left:255px}
 
 .candle::before{
   content:"";
-
   position:absolute;
-
   width:12px;
   height:19px;
-
   left:50%;
   top:-19px;
-
   transform:translateX(-50%);
-
-  border-radius:
-    55%
-    45%
-    55%
-    45%;
-
-  background:
-    linear-gradient(
-      180deg,
-      #fff,
-      #ffd76a 45%,
-      #ff7525
-    );
-
-  filter:
-    drop-shadow(
-      0 0 9px #ffd76a
-    );
-
-  animation:
-    flame .5s ease-in-out infinite alternate;
+  border-radius: 55% 45% 55% 45%;
+  background: linear-gradient(180deg, #fff, #ffd76a 45%, #ff7525);
+  filter: drop-shadow(0 0 9px #ffd76a);
+  animation: flame .5s ease-in-out infinite alternate;
 }
 
 .candle::after{
   content:"";
-
   position:absolute;
-
   width:20px;
   height:20px;
-
   left:50%;
   top:-18px;
-
   transform:translateX(-50%);
-
   border-radius:50%;
-
-  background:
-    rgba(255,215,106,.08);
-
+  background: rgba(255,215,106,.08);
   filter:blur(5px);
 }
-
-/* =========================================================
-   INTRO TIMER
-========================================================= */
 
 .intro-timer-area{
   display:flex;
   flex-direction:column;
   align-items:center;
-
   margin-top:-1px;
 }
 
 #introTimer{
   width:64px;
   height:64px;
-
   display:flex;
   align-items:center;
   justify-content:center;
-
   border-radius:50%;
-
   border:2px solid rgba(255,255,255,.2);
-
-  background:
-    rgba(255,255,255,.045);
-
+  background: rgba(255,255,255,.045);
   color:#fff;
-
   font-size:27px;
   font-weight:900;
-
-  box-shadow:
-    0 0 35px rgba(255,77,145,.2);
-
-  transition:transform .12s ease;
+  box-shadow: 0 0 35px rgba(255,77,145,.2);
+  transition:transform .15s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .intro-timer-area small{
@@ -604,19 +359,12 @@ a{
   margin-top:5px;
 }
 
-/* =========================================================
-   MAIN SITE
-========================================================= */
-
+/* MAIN SITE & NAV */
 #mainSite{
   opacity:0;
   visibility:hidden;
   transform:translateY(20px);
-
-  transition:
-    opacity 1.2s ease,
-    transform 1.2s ease,
-    visibility 1.2s ease;
+  transition: opacity 1.2s ease, transform 1.2s ease, visibility 1.2s ease;
 }
 
 #mainSite.show{
@@ -625,69 +373,39 @@ a{
   transform:none;
 }
 
-/* =========================================================
-   NAV
-========================================================= */
-
 .navbar{
   position:fixed;
-
   top:15px;
   left:50%;
-
   transform:translateX(-50%);
-
   width:min(1150px,94%);
-
   z-index:500;
-
   padding:10px 12px;
-
   display:flex;
   align-items:center;
   justify-content:space-between;
-
-  border:
-    1px solid
-    rgba(255,255,255,.11);
-
+  border: 1px solid rgba(255,255,255,.11);
   border-radius:23px;
-
-  background:
-    rgba(7,2,10,.72);
-
+  background: rgba(7,2,10,.72);
   backdrop-filter:blur(22px);
-
-  box-shadow:
-    0 15px 55px rgba(0,0,0,.35);
+  box-shadow: 0 15px 55px rgba(0,0,0,.35);
 }
 
 .brand{
   display:flex;
   align-items:center;
   gap:9px;
-
   font-weight:900;
 }
 
 .brand-icon{
   width:40px;
   height:40px;
-
   display:grid;
   place-items:center;
-
   border-radius:14px;
-
-  background:
-    linear-gradient(
-      135deg,
-      #ff4d91,
-      #895cff
-    );
-
-  box-shadow:
-    0 8px 25px rgba(255,77,145,.25);
+  background: linear-gradient(135deg, #ff4d91, #895cff);
+  box-shadow: 0 8px 25px rgba(255,77,145,.25);
 }
 
 .nav-menu{
@@ -697,13 +415,9 @@ a{
 
 .nav-menu a{
   padding:9px 12px;
-
   border-radius:13px;
-
   color:#c9bac5;
-
   font-size:12px;
-
   transition:.3s;
 }
 
@@ -713,135 +427,73 @@ a{
 }
 
 @media(max-width:760px){
-  .nav-menu{
-    display:none;
-  }
+  .nav-menu{ display:none; }
 }
 
-/* =========================================================
-   HERO
-========================================================= */
-
+/* HERO */
 .hero{
   min-height:100vh;
-
   position:relative;
-
   display:flex;
   align-items:center;
   justify-content:center;
-
   text-align:center;
-
-  padding:
-    135px
-    20px
-    80px;
-
+  padding: 135px 20px 80px;
   overflow:hidden;
 }
 
 .hero-grid{
   position:absolute;
   inset:0;
-
   background-image:
-    linear-gradient(
-      rgba(255,255,255,.025) 1px,
-      transparent 1px
-    ),
-    linear-gradient(
-      90deg,
-      rgba(255,255,255,.025) 1px,
-      transparent 1px
-    );
-
-  background-size:
-    60px 60px;
-
-  mask-image:
-    linear-gradient(
-      to bottom,
-      black,
-      transparent
-    );
-
+    linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
+  background-size: 60px 60px;
+  mask-image: linear-gradient(to bottom, black, transparent);
   opacity:.4;
 }
 
 .hero-content{
   position:relative;
   z-index:4;
-
   width:min(950px,100%);
 }
 
 .hero-badge{
   display:inline-flex;
-
   padding:8px 15px;
-
   border-radius:999px;
-
   color:#ffd76a;
-
   border:1px solid rgba(255,215,106,.18);
-
   background:rgba(255,215,106,.04);
-
   font-size:12px;
-
   margin-bottom:20px;
 }
 
 .hero h1{
   font-family:"Playfair Display",serif;
-
-  font-size:
-    clamp(60px,13vw,130px);
-
+  font-size: clamp(60px,13vw,130px);
   line-height:.85;
-
-  background:
-    linear-gradient(
-      120deg,
-      #fff,
-      #ff8fba,
-      #fff,
-      #ffd76a
-    );
-
+  background: linear-gradient(120deg, #fff, #ff8fba, #fff, #ffd76a);
   background-size:300% auto;
-
   -webkit-background-clip:text;
   background-clip:text;
-
   color:transparent;
-
-  animation:
-    heroGradient 5s linear infinite;
-
+  animation: heroGradient 5s linear infinite;
   margin-bottom:25px;
 }
 
 .hero h2{
-  font-size:
-    clamp(20px,4vw,36px);
-
+  font-size: clamp(20px,4vw,36px);
   margin-bottom:15px;
 }
 
 .hero-text{
   max-width:760px;
-
   margin:auto;
-
   color:#cdbec9;
-
   line-height:2;
-
-  font-size:
-    clamp(14px,2vw,18px);
+  font-size: clamp(14px,2vw,18px);
 }
 
 .hero-actions{
@@ -849,7 +501,6 @@ a{
   justify-content:center;
   flex-wrap:wrap;
   gap:11px;
-
   margin-top:28px;
 }
 
@@ -858,447 +509,303 @@ a{
   align-items:center;
   justify-content:center;
   gap:8px;
-
   padding:13px 21px;
-
   border-radius:16px;
-
   font-weight:900;
-
   transition:.3s;
 }
 
-.button:hover{
-  transform:translateY(-4px);
-}
+.button:hover{ transform:translateY(-4px); }
 
 .button-main{
   color:#17050d;
-
-  background:
-    linear-gradient(
-      135deg,
-      #ff71a8,
-      #ffd4e3
-    );
-
-  box-shadow:
-    0 12px 35px rgba(255,77,145,.25);
+  background: linear-gradient(135deg, #ff71a8, #ffd4e3);
+  box-shadow: 0 12px 35px rgba(255,77,145,.25);
 }
 
 .button-dark{
   color:#fff;
-
-  border:
-    1px solid
-    rgba(255,255,255,.12);
-
-  background:
-    rgba(255,255,255,.055);
+  border: 1px solid rgba(255,255,255,.12);
+  background: rgba(255,255,255,.055);
 }
 
 .hero-scroll{
   margin-top:42px;
-
   color:#746572;
-
   font-size:11px;
-
-  animation:
-    bounce 2s infinite;
+  animation: bounce 2s infinite;
 }
 
-/* =========================================================
-   SECTION
-========================================================= */
-
+/* SECTIONS GENERAL */
 .section{
   width:min(1150px,92%);
-
   margin:auto;
-
-  padding:
-    95px
-    0;
+  padding: 95px 0;
 }
 
 .section-title{
   text-align:center;
-
   margin-bottom:42px;
 }
 
 .section-kicker{
   color:#ff8fba;
-
   font-size:11px;
-
   font-weight:900;
-
   letter-spacing:2px;
-
   margin-bottom:8px;
 }
 
 .section-title h2{
-  font-size:
-    clamp(29px,5vw,52px);
-
+  font-size: clamp(29px,5vw,52px);
   margin-bottom:10px;
 }
 
 .section-title p{
   color:#a997a5;
-
   max-width:720px;
-
   margin:auto;
-
   line-height:1.9;
 }
 
-/* =========================================================
-   LOVE MESSAGE
-========================================================= */
+/* POETRY SECTION */
+.poetry-grid{
+  display:grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap:22px;
+}
 
+.poem-card{
+  position:relative;
+  padding:35px 30px;
+  border-radius:30px;
+  background: linear-gradient(145deg, rgba(255,77,145,.06), rgba(137,92,255,.04));
+  border:1px solid rgba(255,255,255,.09);
+  box-shadow: var(--shadow);
+  transition: transform .35s ease, border-color .35s ease;
+  overflow:hidden;
+}
+
+.poem-card:hover{
+  transform: translateY(-5px);
+  border-color: rgba(255,143,186,.3);
+}
+
+.poem-tag{
+  display:inline-block;
+  font-size:11px;
+  color:var(--gold);
+  border:1px solid rgba(255,215,106,.2);
+  padding:4px 12px;
+  border-radius:99px;
+  margin-bottom:15px;
+  background:rgba(255,215,106,.03);
+}
+
+.poem-title{
+  font-family: 'Amiri', serif;
+  font-size:26px;
+  color:var(--pink2);
+  margin-bottom:15px;
+}
+
+.poem-lines{
+  font-family: 'Amiri', serif;
+  font-size:18px;
+  line-height:2.1;
+  color:#eae0e7;
+}
+
+.poem-lines p{
+  margin-bottom:8px;
+}
+
+@media(max-width:768px){
+  .poetry-grid{ grid-template-columns: 1fr; }
+}
+
+/* LOVE MESSAGE */
 .love-card{
   position:relative;
-
-  padding:
-    clamp(25px,5vw,55px);
-
-  border:
-    1px solid
-    rgba(255,255,255,.1);
-
+  padding: clamp(25px,5vw,55px);
+  border: 1px solid rgba(255,255,255,.1);
   border-radius:35px;
-
-  background:
-    linear-gradient(
-      135deg,
-      rgba(255,77,145,.07),
-      rgba(137,92,255,.05)
-    ),
-    rgba(255,255,255,.035);
-
+  background: linear-gradient(135deg, rgba(255,77,145,.07), rgba(137,92,255,.05)), rgba(255,255,255,.035);
   box-shadow:var(--shadow);
-
   overflow:hidden;
 }
 
 .love-card::before{
   content:"♥";
-
   position:absolute;
-
   left:-45px;
   top:-75px;
-
   font-size:230px;
-
   color:rgba(255,77,145,.035);
-
   transform:rotate(-15deg);
 }
 
 .love-card p{
   position:relative;
-
   color:#e5d8e1;
-
   line-height:2.2;
-
   font-size:16px;
-
   margin-bottom:18px;
 }
 
 .love-sign{
   position:relative;
-
   margin-top:28px;
-
   color:#ffd76a;
-
   font-weight:900;
-
   font-size:18px;
 }
 
-/* =========================================================
-   WISHES
-========================================================= */
-
+/* WISHES */
 .wish-grid{
   display:grid;
-
-  grid-template-columns:
-    repeat(4,1fr);
-
+  grid-template-columns: repeat(4,1fr);
   gap:15px;
 }
 
 .wish{
   min-height:175px;
-
   padding:22px;
-
-  border:
-    1px solid
-    rgba(255,255,255,.09);
-
+  border: 1px solid rgba(255,255,255,.09);
   border-radius:25px;
-
-  background:
-    rgba(255,255,255,.045);
-
+  background: rgba(255,255,255,.045);
   transition:.35s;
-
   position:relative;
-
   overflow:hidden;
 }
 
 .wish:hover{
   transform:translateY(-7px);
-
-  background:
-    rgba(255,255,255,.075);
-
-  border-color:
-    rgba(255,143,186,.2);
+  background: rgba(255,255,255,.075);
+  border-color: rgba(255,143,186,.2);
 }
 
 .wish-number{
   color:#ffd76a;
-
   font-size:11px;
-
   font-weight:900;
 }
 
 .wish-icon{
   font-size:26px;
-
   margin:10px 0;
 }
 
 .wish h3{
   font-size:16px;
-
   margin-bottom:6px;
 }
 
 .wish p{
   color:#aFA0AB;
-
   font-size:12px;
-
   line-height:1.8;
 }
 
-@media(max-width:950px){
-  .wish-grid{
-    grid-template-columns:
-      repeat(2,1fr);
-  }
-}
+@media(max-width:950px){ .wish-grid{ grid-template-columns: repeat(2,1fr); } }
+@media(max-width:550px){ .wish-grid{ grid-template-columns:1fr; } }
 
-@media(max-width:550px){
-  .wish-grid{
-    grid-template-columns:1fr;
-  }
-}
-
-/* =========================================================
-   PHOTO GALLERY
-========================================================= */
-
+/* PHOTO GALLERY */
 .photo-gallery{
   display:grid;
-
-  grid-template-columns:
-    repeat(12,1fr);
-
+  grid-template-columns: repeat(12,1fr);
   grid-auto-rows:145px;
-
   gap:12px;
 }
 
 .photo-card{
   position:relative;
-
   overflow:hidden;
-
   border-radius:23px;
-
-  border:
-    1px solid
-    rgba(255,255,255,.09);
-
+  border: 1px solid rgba(255,255,255,.09);
   background:#140814;
 }
 
-.photo-card:nth-child(1){
-  grid-column:span 5;
-  grid-row:span 2;
-}
-
-.photo-card:nth-child(2){
-  grid-column:span 3;
-  grid-row:span 2;
-}
-
-.photo-card:nth-child(3),
-.photo-card:nth-child(4),
-.photo-card:nth-child(5){
-  grid-column:span 4;
-}
-
-.photo-card:nth-child(n+6){
-  grid-column:span 3;
-}
+.photo-card:nth-child(1){ grid-column:span 5; grid-row:span 2; }
+.photo-card:nth-child(2){ grid-column:span 3; grid-row:span 2; }
+.photo-card:nth-child(3), .photo-card:nth-child(4), .photo-card:nth-child(5){ grid-column:span 4; }
+.photo-card:nth-child(n+6){ grid-column:span 3; }
 
 .photo-card img{
   width:100%;
   height:100%;
-
   display:block;
-
   object-fit:cover;
-
-  transition:
-    transform .8s ease,
-    filter .8s ease;
+  transition: transform .8s ease, filter .8s ease;
 }
 
 .photo-card::after{
   content:"";
-
   position:absolute;
   inset:0;
-
-  background:
-    linear-gradient(
-      transparent 50%,
-      rgba(0,0,0,.7)
-    );
-
+  background: linear-gradient(transparent 50%, rgba(0,0,0,.7));
   pointer-events:none;
 }
 
 .photo-card:hover img{
   transform:scale(1.1);
-
-  filter:
-    saturate(1.15)
-    contrast(1.05);
+  filter: saturate(1.15) contrast(1.05);
 }
 
 .photo-caption{
   position:absolute;
-
   right:13px;
   bottom:11px;
-
   z-index:2;
-
   color:#fff;
-
   font-size:11px;
-
   font-weight:800;
 }
 
 @media(max-width:700px){
-
-  .photo-gallery{
-    grid-template-columns:repeat(2,1fr);
-
-    grid-auto-rows:180px;
-  }
-
-  .photo-card:nth-child(n){
-    grid-column:span 1;
-    grid-row:span 1;
-  }
-
-  .photo-card:first-child{
-    grid-column:span 2;
-    grid-row:span 2;
-  }
-
+  .photo-gallery{ grid-template-columns:repeat(2,1fr); grid-auto-rows:180px; }
+  .photo-card:nth-child(n){ grid-column:span 1; grid-row:span 1; }
+  .photo-card:first-child{ grid-column:span 2; grid-row:span 2; }
 }
 
-/* =========================================================
-   SECRETS
-========================================================= */
-
+/* SECRETS */
 .secret-grid{
   display:grid;
-
-  grid-template-columns:
-    repeat(3,1fr);
-
+  grid-template-columns: repeat(3,1fr);
   gap:17px;
 }
 
 .secret{
   min-height:235px;
-
   padding:25px;
-
   display:flex;
   flex-direction:column;
   align-items:center;
   justify-content:center;
-
   text-align:center;
-
-  border:
-    1px solid
-    rgba(255,255,255,.1);
-
+  border: 1px solid rgba(255,255,255,.1);
   border-radius:28px;
-
-  background:
-    linear-gradient(
-      145deg,
-      rgba(255,77,145,.055),
-      rgba(137,92,255,.045)
-    );
+  background: linear-gradient(145deg, rgba(255,77,145,.055), rgba(137,92,255,.045));
 }
 
 .secret-icon{
   width:62px;
   height:62px;
-
   display:grid;
   place-items:center;
-
   border-radius:20px;
-
-  background:
-    rgba(255,255,255,.06);
-
+  background: rgba(255,255,255,.06);
   font-size:27px;
-
   margin-bottom:13px;
 }
 
-.secret h3{
-  margin-bottom:8px;
-}
+.secret h3{ margin-bottom:8px; }
 
 .secret-result{
   color:#a99aa6;
-
   font-size:12px;
-
   line-height:1.8;
-
   min-height:45px;
-
   display:flex;
   align-items:center;
   justify-content:center;
@@ -1306,780 +813,329 @@ a{
 
 .secret button{
   margin-top:15px;
-
   padding:9px 16px;
-
   border-radius:13px;
-
   color:#fff;
-
-  border:
-    1px solid
-    rgba(255,77,145,.2);
-
-  background:
-    rgba(255,77,145,.1);
+  border: 1px solid rgba(255,77,145,.2);
+  background: rgba(255,77,145,.1);
 }
 
-@media(max-width:800px){
-  .secret-grid{
-    grid-template-columns:
-      1fr 1fr;
-  }
-}
+@media(max-width:800px){ .secret-grid{ grid-template-columns: 1fr 1fr; } }
+@media(max-width:550px){ .secret-grid{ grid-template-columns: 1fr; } }
 
-@media(max-width:550px){
-  .secret-grid{
-    grid-template-columns:1fr;
-  }
-}
-
-/* =========================================================
-   INTERACTIVE MEMORY
-========================================================= */
-
+/* INTERACTIVE MEMORY */
 .memory-box{
   display:grid;
-
-  grid-template-columns:
-    1fr 1fr;
-
+  grid-template-columns: 1fr 1fr;
   gap:18px;
 }
 
 .memory-panel{
   min-height:300px;
-
   padding:30px;
-
-  border:
-    1px solid
-    rgba(255,255,255,.1);
-
+  border: 1px solid rgba(255,255,255,.1);
   border-radius:30px;
-
-  background:
-    rgba(255,255,255,.045);
+  background: rgba(255,255,255,.045);
 }
 
-.memory-panel h3{
-  margin-bottom:10px;
-}
-
-.memory-panel p{
-  color:#aFA0AB;
-
-  line-height:1.9;
-
-  font-size:13px;
-}
+.memory-panel h3{ margin-bottom:10px; }
+.memory-panel p{ color:#aFA0AB; line-height:1.9; font-size:13px; }
 
 .memory-button{
   margin-top:22px;
-
   padding:11px 18px;
-
   border-radius:14px;
-
   color:#fff;
-
-  border:
-    1px solid
-    rgba(255,255,255,.1);
-
-  background:
-    rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.1);
+  background: rgba(255,255,255,.06);
 }
 
 .memory-output{
   margin-top:22px;
-
   min-height:70px;
-
   padding:17px;
-
   border-radius:18px;
-
-  background:
-    rgba(0,0,0,.2);
-
+  background: rgba(0,0,0,.2);
   color:#e9dce5;
-
   line-height:1.9;
-
   font-size:13px;
 }
 
-@media(max-width:700px){
-  .memory-box{
-    grid-template-columns:1fr;
-  }
-}
+@media(max-width:700px){ .memory-box{ grid-template-columns:1fr; } }
 
-/* =========================================================
-   MINI GAME
-========================================================= */
-
+/* MINI GAME */
 .game-card{
   max-width:850px;
-
   margin:auto;
-
   text-align:center;
-
-  padding:
-    clamp(25px,5vw,50px);
-
+  padding: clamp(25px,5vw,50px);
   border-radius:35px;
-
-  border:
-    1px solid
-    rgba(255,255,255,.1);
-
-  background:
-    radial-gradient(
-      circle at center,
-      rgba(255,77,145,.08),
-      transparent 60%
-    ),
-    rgba(255,255,255,.035);
-
+  border: 1px solid rgba(255,255,255,.1);
+  background: radial-gradient(circle at center, rgba(255,77,145,.08), transparent 60%), rgba(255,255,255,.035);
   box-shadow:var(--shadow);
 }
 
 .game-hearts{
   display:flex;
-
   justify-content:center;
-
   flex-wrap:wrap;
-
   gap:10px;
-
   margin:25px auto;
-
   max-width:520px;
 }
 
 .game-heart{
   width:58px;
   height:58px;
-
   border-radius:18px;
-
-  background:
-    rgba(255,255,255,.06);
-
-  border:
-    1px solid
-    rgba(255,255,255,.1);
-
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.1);
   color:#ff7eac;
-
   font-size:23px;
-
   transition:.25s;
 }
 
 .game-heart:hover{
-  transform:
-    translateY(-5px)
-    scale(1.05);
-
-  background:
-    rgba(255,77,145,.12);
+  transform: translateY(-5px) scale(1.05);
+  background: rgba(255,77,145,.12);
 }
 
 .game-score{
   color:#ffd76a;
-
   font-weight:900;
-
   margin-top:15px;
 }
 
-/* =========================================================
-   COUNTDOWN
-========================================================= */
-
+/* COUNTDOWN */
 .birthday-countdown{
   text-align:center;
-
-  padding:
-    45px 20px;
-
+  padding: 45px 20px;
   border-radius:35px;
-
-  border:
-    1px solid
-    rgba(255,215,106,.13);
-
-  background:
-    radial-gradient(
-      circle at center,
-      rgba(255,77,145,.11),
-      transparent 60%
-    ),
-    rgba(255,255,255,.03);
+  border: 1px solid rgba(255,215,106,.13);
+  background: radial-gradient(circle at center, rgba(255,77,145,.11), transparent 60%), rgba(255,255,255,.03);
 }
 
 .countdown-grid{
   display:grid;
-
-  grid-template-columns:
-    repeat(4,1fr);
-
+  grid-template-columns: repeat(4,1fr);
   max-width:720px;
-
   margin:30px auto 0;
-
   gap:12px;
 }
 
 .count-unit{
   padding:19px 10px;
-
   border-radius:20px;
-
-  background:
-    rgba(0,0,0,.22);
-
-  border:
-    1px solid
-    rgba(255,255,255,.09);
+  background: rgba(0,0,0,.22);
+  border: 1px solid rgba(255,255,255,.09);
 }
 
 .count-unit strong{
   display:block;
-
-  font-size:
-    clamp(28px,5vw,48px);
-
+  font-size: clamp(28px,5vw,48px);
   color:#ffd76a;
-
   line-height:1;
 }
 
 .count-unit span{
   display:block;
-
   margin-top:8px;
-
   color:#8f7e8a;
-
   font-size:10px;
 }
 
-@media(max-width:550px){
-  .countdown-grid{
-    grid-template-columns:
-      repeat(2,1fr);
-  }
-}
+@media(max-width:550px){ .countdown-grid{ grid-template-columns: repeat(2,1fr); } }
 
-/* =========================================================
-   FINAL
-========================================================= */
-
+/* FINAL & JOKER */
 .final-section{
   min-height:75vh;
-
   display:flex;
   align-items:center;
   justify-content:center;
-
   text-align:center;
 }
 
 .final-card{
   width:100%;
-
-  padding:
-    70px 25px;
-
+  padding: 70px 25px;
   border-radius:42px;
-
-  border:
-    1px solid
-    rgba(255,77,145,.13);
-
-  background:
-    radial-gradient(
-      circle at center,
-      rgba(255,77,145,.12),
-      transparent 60%
-    ),
-    rgba(255,255,255,.03);
+  border: 1px solid rgba(255,77,145,.13);
+  background: radial-gradient(circle at center, rgba(255,77,145,.12), transparent 60%), rgba(255,255,255,.03);
 }
 
 .final-heart{
   font-size:65px;
-
-  animation:
-    finalPulse 1.6s infinite;
+  animation: finalPulse 1.6s infinite;
 }
 
 .final-card h2{
   font-family:"Playfair Display",serif;
-
-  font-size:
-    clamp(39px,7vw,75px);
-
+  font-size: clamp(39px,7vw,75px);
   margin:13px 0 15px;
 }
 
 .final-card p{
   max-width:700px;
-
   margin:auto;
-
   color:#bcaeb9;
-
   line-height:2;
 }
 
-/* =========================================================
-   JOKER
-========================================================= */
-
-.joker-zone{
-  text-align:center;
-}
+.joker-zone{ text-align:center; }
 
 .joker-button{
   display:inline-flex;
-
   align-items:center;
   justify-content:center;
-
   gap:10px;
-
   padding:15px 25px;
-
   border-radius:18px;
-
-  background:
-    linear-gradient(
-      135deg,
-      #754aff,
-      #ff4d91
-    );
-
-  box-shadow:
-    0 18px 45px
-    rgba(117,74,255,.2);
-
+  background: linear-gradient(135deg, #754aff, #ff4d91);
+  box-shadow: 0 18px 45px rgba(117,74,255,.2);
   font-weight:900;
-
   transition:.35s;
 }
 
-.joker-button:hover{
-  transform:
-    translateY(-5px)
-    scale(1.02);
-}
+.joker-button:hover{ transform: translateY(-5px) scale(1.02); }
 
-/* =========================================================
-   MUSIC
-========================================================= */
-
+/* MUSIC & TOAST */
 .music-button{
   position:fixed;
-
   left:17px;
   bottom:17px;
-
   z-index:900;
-
   width:57px;
   height:57px;
-
   border-radius:18px;
-
   color:#fff;
-
-  background:
-    linear-gradient(
-      135deg,
-      #ff4d91,
-      #895cff
-    );
-
-  box-shadow:
-    0 15px 40px rgba(0,0,0,.45);
-
+  background: linear-gradient(135deg, #ff4d91, #895cff);
+  box-shadow: 0 15px 40px rgba(0,0,0,.45);
   font-size:21px;
+  border:none;
 }
 
-.music-button.playing{
-  animation:
-    musicGlow 1.5s infinite;
-}
+.music-button.playing{ animation: musicGlow 1.5s infinite; }
 
 .music-message{
   position:fixed;
-
   left:20px;
   bottom:82px;
-
   z-index:899;
-
   padding:9px 13px;
-
   border-radius:13px;
-
   color:#d8cad3;
-
-  background:
-    rgba(7,2,10,.85);
-
-  border:
-    1px solid
-    rgba(255,255,255,.1);
-
+  background: rgba(7,2,10,.85);
+  border: 1px solid rgba(255,255,255,.1);
   font-size:10px;
-
   opacity:0;
-
   transform:translateY(10px);
-
   transition:.4s;
-
   pointer-events:none;
 }
 
-.music-message.show{
-  opacity:1;
-  transform:none;
-}
-
-/* =========================================================
-   TOAST
-========================================================= */
+.music-message.show{ opacity:1; transform:none; }
 
 #toast{
   position:fixed;
-
   left:50%;
   bottom:25px;
-
   z-index:2000;
-
-  transform:
-    translate(-50%,30px);
-
-  padding:
-    12px 19px;
-
+  transform: translate(-50%,30px);
+  padding: 12px 19px;
   border-radius:16px;
-
-  background:
-    rgba(15,7,18,.9);
-
-  border:
-    1px solid
-    rgba(255,255,255,.11);
-
+  background: rgba(15,7,18,.9);
+  border: 1px solid rgba(255,255,255,.11);
   color:#fff;
-
   font-size:12px;
-
   opacity:0;
-
   pointer-events:none;
-
   transition:.4s;
-
   backdrop-filter:blur(15px);
 }
 
-#toast.show{
-  opacity:1;
+#toast.show{ opacity:1; transform: translate(-50%,0); }
 
-  transform:
-    translate(-50%,0);
-}
-
-/* =========================================================
-   HEARTS
-========================================================= */
-
+/* ANIMATIONS */
 .float-heart{
   position:fixed;
-
   bottom:-30px;
-
   z-index:700;
-
   pointer-events:none;
-
   color:#ff4d91;
-
-  filter:
-    drop-shadow(
-      0 0 9px
-      rgba(255,77,145,.7)
-    );
-
-  animation:
-    floatHeart linear forwards;
+  filter: drop-shadow(0 0 9px rgba(255,77,145,.7));
+  animation: floatHeart linear forwards;
 }
-
-/* =========================================================
-   CONFETTI
-========================================================= */
 
 .confetti{
   position:fixed;
-
   top:-20px;
-
   z-index:3000;
-
-  width:7px;
-  height:12px;
-
+  width:8px;
+  height:14px;
   pointer-events:none;
-
-  animation:
-    confettiFall linear forwards;
+  border-radius:3px;
+  animation: confettiFall linear forwards;
 }
 
-/* =========================================================
-   FOOTER
-========================================================= */
-
 .footer{
-  padding:
-    20px
-    20px
-    60px;
-
+  padding: 20px 20px 60px;
   text-align:center;
-
   color:#6f5e6c;
-
   font-size:10px;
 }
 
-/* =========================================================
-   ANIMATIONS
-========================================================= */
-
-@keyframes introStars{
-  from{
-    transform:translateY(0);
-  }
-
-  to{
-    transform:translateY(-70px);
-  }
-}
-
-@keyframes introContentIn{
-  from{
-    opacity:0;
-    transform:translateY(25px) scale(.98);
-  }
-
-  to{
-    opacity:1;
-    transform:none;
-  }
-}
-
-@keyframes introGradient{
-  from{
-    background-position:0%;
-  }
-
-  to{
-    background-position:300%;
-  }
-}
-
-@keyframes cakeFloat{
-  0%,100%{
-    transform:translateY(0);
-  }
-
-  50%{
-    transform:translateY(-8px);
-  }
-}
-
-@keyframes flame{
-  from{
-    transform:
-      translateX(-50%)
-      rotate(-4deg)
-      scale(.9);
-  }
-
-  to{
-    transform:
-      translateX(-50%)
-      rotate(4deg)
-      scale(1.08);
-  }
-}
-
-@keyframes heroGradient{
-  from{
-    background-position:0%;
-  }
-
-  to{
-    background-position:300%;
-  }
-}
-
-@keyframes bounce{
-  0%,100%{
-    transform:translateY(0);
-  }
-
-  50%{
-    transform:translateY(8px);
-  }
-}
-
-@keyframes finalPulse{
-  0%,100%{
-    transform:scale(1);
-  }
-
-  50%{
-    transform:scale(1.12);
-  }
-}
-
-@keyframes musicGlow{
-  0%,100%{
-    box-shadow:
-      0 15px 40px rgba(0,0,0,.45);
-  }
-
-  50%{
-    box-shadow:
-      0 15px 45px
-      rgba(255,77,145,.55);
-  }
-}
+@keyframes introStars{ from{ transform:translateY(0); } to{ transform:translateY(-70px); } }
+@keyframes introContentIn{ from{ opacity:0; transform:translateY(25px) scale(.98); } to{ opacity:1; transform:none; } }
+@keyframes introGradient{ from{ background-position:0%; } to{ background-position:300%; } }
+@keyframes cakeFloat{ 0%,100%{ transform:translateY(0); } 50%{ transform:translateY(-8px); } }
+@keyframes flame{ from{ transform: translateX(-50%) rotate(-4deg) scale(.9); } to{ transform: translateX(-50%) rotate(4deg) scale(1.08); } }
+@keyframes heroGradient{ from{ background-position:0%; } to{ background-position:300%; } }
+@keyframes bounce{ 0%,100%{ transform:translateY(0); } 50%{ transform:translateY(8px); } }
+@keyframes finalPulse{ 0%,100%{ transform:scale(1); } 50%{ transform:scale(1.12); } }
+@keyframes musicGlow{ 0%,100%{ box-shadow: 0 15px 40px rgba(0,0,0,.45); } 50%{ box-shadow: 0 15px 45px rgba(255,77,145,.55); } }
 
 @keyframes floatHeart{
-  0%{
-    opacity:0;
-    transform:
-      translateY(0)
-      scale(.6);
-  }
-
-  12%{
-    opacity:1;
-  }
-
-  100%{
-    opacity:0;
-
-    transform:
-      translateY(-110vh)
-      translateX(var(--drift))
-      rotate(25deg)
-      scale(1.5);
-  }
+  0%{ opacity:0; transform: translateY(0) scale(.6); }
+  12%{ opacity:1; }
+  100%{ opacity:0; transform: translateY(-110vh) translateX(var(--drift)) rotate(25deg) scale(1.5); }
 }
 
 @keyframes confettiFall{
-  0%{
-    transform:
-      translateY(0)
-      rotate(0deg);
-    opacity:1;
-  }
-
-  100%{
-    transform:
-      translateY(110vh)
-      rotate(720deg);
-    opacity:0;
-  }
+  0%{ transform: translateY(0) rotate(0deg); opacity:1; }
+  100%{ transform: translateY(110vh) rotate(720deg); opacity:0; }
 }
 
-/* =========================================================
-   RESPONSIVE CAKE
-========================================================= */
-
 @media(max-width:500px){
-
-  .cake-scene{
-    width:350px;
-    transform:scale(.88);
-    margin-top:-5px;
-    margin-bottom:-28px;
-  }
-
-  .intro-title{
-    font-size:43px;
-  }
-
-  .intro-description{
-    font-size:12px;
-  }
-
+  .cake-scene{ width:350px; transform:scale(.88); margin-top:-5px; margin-bottom:-28px; }
+  .intro-title{ font-size:43px; }
+  .intro-description{ font-size:12px; }
 }
 </style>
 </head>
 
 <body class="intro-lock">
 
-<!-- =======================================================
-     BACKGROUND
-======================================================= -->
-
+<!-- BACKGROUND -->
 <div id="ambient">
   <div class="ambient-orb a"></div>
   <div class="ambient-orb b"></div>
   <div class="ambient-orb c"></div>
 </div>
-
 <div id="stars"></div>
 
-<!-- =======================================================
-     10 SECOND INTRO
-     IMPORTANT:
-     هذا العنصر مستقل تمامًا عن الموقع
-======================================================= -->
-
+<!-- 10 SECOND INTRO -->
 <div id="birthdayIntro">
-
   <div class="intro-stars"></div>
   <div class="intro-light"></div>
-
   <div class="intro-content">
+    <div class="intro-label">✨ A VERY SPECIAL DAY ✨</div>
+    <h1 class="intro-title">عيد ميلاد <span>ملك ❤️</span></h1>
+    <p class="intro-description">استني 10 ثواني بس... وهنبدأ الحكاية</p>
 
-    <div class="intro-label">
-      ✨ A VERY SPECIAL DAY ✨
-    </div>
-
-    <h1 class="intro-title">
-      عيد ميلاد
-      <span>ملك ❤️</span>
-    </h1>
-
-    <p class="intro-description">
-      استني 10 ثواني بس... وهنبدأ الحكاية
-    </p>
-
-    <!-- ================= CAKE ================= -->
-
+    <!-- CAKE -->
     <div class="cake-scene">
-
       <div class="cake-halo"></div>
-
-      <!-- 9 BACK CANDLES -->
-
+      <!-- BACK CANDLES -->
       <div class="candle back b1"></div>
       <div class="candle back b2"></div>
       <div class="candle back b3"></div>
@@ -2089,9 +1145,7 @@ a{
       <div class="candle back b7"></div>
       <div class="candle back b8"></div>
       <div class="candle back b9"></div>
-
-      <!-- 8 FRONT CANDLES -->
-
+      <!-- FRONT CANDLES -->
       <div class="candle front f1c"></div>
       <div class="candle front f2c"></div>
       <div class="candle front f3c"></div>
@@ -2100,585 +1154,404 @@ a{
       <div class="candle front f6c"></div>
       <div class="candle front f7c"></div>
       <div class="candle front f8c"></div>
-
-      <!-- CAKE TOP -->
-
+      <!-- CAKE TOP & BODY -->
       <div class="cake-top">
-
         <div class="frost f1"></div>
         <div class="frost f2"></div>
         <div class="frost f3"></div>
-
       </div>
-
-      <!-- CAKE BODY -->
-
       <div class="cake-body">
-
         <div class="cake-line one"></div>
         <div class="cake-line two"></div>
-
       </div>
-
       <div class="plate"></div>
-
     </div>
 
-    <!-- ================= TIMER ================= -->
-
+    <!-- TIMER -->
     <div class="intro-timer-area">
-
       <div id="introTimer">10</div>
-
-      <small>
-        ثواني ونفتح الحكاية...
-      </small>
-
+      <small>ثواني ونفتح الحكاية...</small>
     </div>
-
   </div>
-
 </div>
 
-
-<!-- =======================================================
-     MAIN SITE
-======================================================= -->
-
+<!-- MAIN SITE -->
 <div id="mainSite">
 
-<!-- =======================================================
-     NAVBAR
-======================================================= -->
-
+<!-- NAVBAR -->
 <nav class="navbar">
-
   <a href="#home" class="brand">
     <span class="brand-icon">♥</span>
     <span>ملك</span>
   </a>
-
   <div class="nav-menu">
-
     <a href="#letter">الرسالة</a>
+    <a href="#poetry">أشعار لملك</a>
     <a href="#wishes">الأمنيات</a>
     <a href="#photos">الصور</a>
     <a href="#secrets">الأسرار</a>
     <a href="#game">اللعبة</a>
-
   </div>
-
 </nav>
 
-
-<!-- =======================================================
-     HERO
-======================================================= -->
-
+<!-- HERO -->
 <header class="hero" id="home">
-
   <div class="hero-grid"></div>
-
   <div class="hero-content">
-
-    <div class="hero-badge">
-      🎂 سنة جديدة من حكاية ملك
-    </div>
-
+    <div class="hero-badge">🎂 سنة جديدة من حكاية ملك</div>
     <h1>ملك</h1>
-
-    <h2>
-      النهارده يومك إنتِ ❤️
-    </h2>
-
+    <h2>النهارده يومك إنتِ ❤️</h2>
     <p class="hero-text">
-      مش كل يوم بيكون له معنى،
-      بس في أيام وجود شخص معين بيخليها مختلفة.
-      والنهارده واحد من الأيام دي.
+      مش كل يوم بيكون له معنى، بس في أيام وجود شخص معين بيخليها مختلفة تمامًا.
+      والنهارده اليوم اللي اتولدت فيه أميرة المكان ونور كل اللحظات.
     </p>
-
     <div class="hero-actions">
+      <a href="#poetry" class="button button-main">📜 اقرأي الأشعار</a>
+      <a href="#letter" class="button button-dark">💌 الرسالة</a>
+    </div>
+    <div class="hero-scroll">انزلي... لسه في قصائد وحاجات كتير ❤️ ↓</div>
+  </div>
+</header>
 
-      <a href="#letter" class="button button-main">
-        💌 شوفي الرسالة
-      </a>
+<!-- POETRY SECTION -->
+<section class="section" id="poetry">
+  <div class="section-title">
+    <div class="section-kicker">WORDS OF POETRY</div>
+    <h2>قصائد وأبيات شعر لملك 📜✨</h2>
+    <p>كلمات كُتبت مخصوص لتصف جمال وحضور ملك في يومها الخاص.</p>
+  </div>
 
-      <a href="#photos" class="button button-dark">
-        📸 الذكريات
-      </a>
+  <div class="poetry-grid">
 
+    <div class="poem-card">
+      <span class="poem-tag">قصيدة 01</span>
+      <h3 class="poem-title">يا نَجْمَةَ العَامِ الجَدِيد</h3>
+      <div class="poem-lines">
+        <p>مَلَكٌ وَبِالأَسْمَاءِ تَزْهُو الأَبْجَدِيَّة</p>
+        <p>نُورٌ يُضِيءُ العُمْرَ كَالشَّمْسِ البَهِيَّة</p>
+        <p>فِي يَوْمِ مِيلَادِكِ تَشْدُو الأُغْنِيَات</p>
+        <p>وَتُزْهِرُ الأَيَّامُ حُبًّا وَعَطِيَّة</p>
+      </div>
     </div>
 
-    <div class="hero-scroll">
-      انزلي... لسه في حاجات كتير ❤️ ↓
+    <div class="poem-card">
+      <span class="poem-tag">قصيدة 02</span>
+      <h3 class="poem-title">ابتسامة تختصر الوجود</h3>
+      <div class="poem-lines">
+        <p>تَبْتَسِمِينَ فَيَضْحَكُ الزَّهْرُ الخَجُول</p>
+        <p>وَتُزْهِرُ الدُّنْيَا وَيَسْتَحي الأُفُول</p>
+        <p>يا مَلَكًا سَارَتْ عَلَى أَرْضِ المُنَى</p>
+        <p>عِيدُكِ فَرْحَةٌ تُحَاكِي كُلَّ جِيل</p>
+      </div>
+    </div>
+
+    <div class="poem-card">
+      <span class="poem-tag">قصيدة 03</span>
+      <h3 class="poem-title">سيدة كل الأيام</h3>
+      <div class="poem-lines">
+        <p>كُلُّ العُيُونِ إِذَا رَأَتْكِ تَبَسَّمَتْ</p>
+        <p>وَالأَرْضُ مِنْ سِحْرِ الحُضُورِ تَنَفَّسَتْ</p>
+        <p>يا مَنْ أَتَيْتِ لِتَملَئِي الكَوْنَ ضِيَاء</p>
+        <p>عَاشَتْ سِنِينُكِ بِالهَنَاءِ وَتَوَّجَتْ</p>
+      </div>
+    </div>
+
+    <div class="poem-card">
+      <span class="poem-tag">قصيدة 04</span>
+      <h3 class="poem-title">في عيد ميلادكِ</h3>
+      <div class="poem-lines">
+        <p>غَنَّى الحَمَامُ وَأَنْشَدَتْ كُلُّ الطُّيُور</p>
+        <p>وَمَشَى النَّسِيمُ يُعَطِّرُ الدُّنْيَا عُطُور</p>
+        <p>اليَوْمَ عِيدُكِ يا مَلَكْ، يَا نَفْحَةً</p>
+        <p>تَمْلَا الفُؤَادَ مَحَبَّةً، تَمْلَا السُّرُور</p>
+      </div>
+    </div>
+
+    <div class="poem-card">
+      <span class="poem-tag">قصيدة 05</span>
+      <h3 class="poem-title">عَزْفٌ عَلَى أَوْتَارِ الحُبّ</h3>
+      <div class="poem-lines">
+        <p>مَلَكٌ تَمْشِي فَيُزْهِرُ الأَمَلُ</p>
+        <p>وفي عَيْنَيْهَا يَسْكُنُ الغَزَلُ</p>
+        <p>عِيدُكِ اليَوْمَ إِشْرَاقَةُ غَدٍ</p>
+        <p>وَبِكِ المُنَى وَالْمُجْدُ يَكْتَمِلُ</p>
+      </div>
+    </div>
+
+    <div class="poem-card">
+      <span class="poem-tag">قصيدة 06</span>
+      <h3 class="poem-title">نُورٌ فِي المَسَاء</h3>
+      <div class="poem-lines">
+        <p>يَا ضِحْكَةً تَرْوِي حَكَاَيَاتِ المَنَى</p>
+        <p>يَا فَرْحَةً صَارَتْ لِأَيَّامِي سَنَا</p>
+        <p>كُلُّ العَامِ وَأَنْتِ يَا مَلَكُ المُنَى</p>
+        <p>أَحْلَى الحَضُورِ وَأَعْذَبُ النَفَحَاتِ هُنَا</p>
+      </div>
     </div>
 
   </div>
+</section>
 
-</header>
-
-
-<!-- =======================================================
-     LETTER
-======================================================= -->
-
+<!-- LETTER -->
 <section class="section" id="letter">
-
   <div class="section-title">
-
-    <div class="section-kicker">
-      FROM THE HEART
-    </div>
-
-    <h2>
-      رسالة صغيرة
-    </h2>
-
-    <p>
-      مش محتاجة كلام كتير... المهم إن الكلام يوصل.
-    </p>
-
+    <div class="section-kicker">FROM THE HEART</div>
+    <h2>رسالة حب وتقدير ❤️</h2>
+    <p>مش محتاجة كلام معقد... المهم إن الشعور الصادق يوصل.</p>
   </div>
 
   <div class="love-card">
-
     <p>
-      يا ملك، كل سنة وإنتِ بخير وبألف خير.
-      أتمنى السنة الجديدة تكون أخف على قلبك،
-      وأجمل في تفاصيلها، ومليانة حاجات تفرحك.
+      يا ملك، كل سنة وإنتِ طيبة وبألف صحة وسعادة وراحة بال. 
+      أتمنى السنة الجديدة دي من حياتك تكون أرق وأخف على قلبك، ومليانة بشاير خير وتوفيق في كل خطوة بتخطيها.
     </p>
-
     <p>
-      أتمنى كل حاجة نفسك فيها تلاقي طريقها ليكي،
-      وكل حلم مستنياه يبقى أقرب،
-      وكل لحظة صعبة عدت تتحول بعد فترة لذكرى
-      تخليكي تقولي: الحمد لله إنها عدت.
+      أتمنى كل حاجة جميلة نفسك فيها تلاقي طريقها ليكي بسهولة، وكل أمنية خبيتيها في سرك تتقبل وتتحقق. 
+      وكل لحظة تعب أو ضيق عدت عليكي قبل كده تتبدل بفرحة كبيرة تخليكي تسجدي شكر وتنسي أي حزن.
     </p>
-
     <p>
-      خليكي دايمًا فاكرة إنك تستحقي الفرح،
-      وتستحقي الناس اللي تحافظ على قلبك،
-      وتستحقي أيام حلوة شبه روحك.
+      افتسكري دايمًا إنك إنسانة مميزة جداً، وجودك بيضفي لمسة بهجة في أي مكان وتفاصيلك العفوية بتخلي الحياة ألطف. 
+      تستحقي كل حاجة حلوة في العالم ده، وتستحقي الناس اللي تتمنى تشوف ابتسامتك دايمًا.
     </p>
-
     <p>
-      ومهما كبرت السنين،
-      أتمنى تفضل الضحكة اللي فيكي زي ما هي...
-      بسيطة، حلوة، وقادرة تغير اليوم كله.
+      مهما مرت السنين وكبرت الأحلام، أتمنى تفضل روحك النقية وزي ما هي، وضحكتك الدافية تنور الدنيا.
     </p>
-
-    <div class="love-sign">
-      كل سنة وإنتِ ملك ❤️
-    </div>
-
+    <div class="love-sign">كل سنة وإنتِ ملك القلوب ❤️</div>
   </div>
-
 </section>
 
-
-<!-- =======================================================
-     WISHES
-======================================================= -->
-
+<!-- WISHES -->
 <section class="section" id="wishes">
-
   <div class="section-title">
-
-    <div class="section-kicker">
-      BIRTHDAY WISHES
-    </div>
-
-    <h2>
-      أمنيات للسنة الجديدة ✨
-    </h2>
-
-    <p>
-      حاجات كتير أتمنى السنة دي تجيبها معاها.
-    </p>
-
+    <div class="section-kicker">BIRTHDAY WISHES</div>
+    <h2>أمنيات 12 للسنة الجديدة ✨</h2>
+    <p>دعوات وأمنيات خاصة نتمناها ليكي في عامك الجديد.</p>
   </div>
 
   <div class="wish-grid">
-
     <div class="wish">
       <div class="wish-number">01</div>
       <div class="wish-icon">😊</div>
-      <h3>ضحكة كتير</h3>
-      <p>يا رب السنة دي يكون فيها أسباب أكتر للضحك.</p>
+      <h3>ضحكة صافية</h3>
+      <p>يا رب السنة دي تكون مليانة أسباب تخليكي تضحكي من قلبك دايمًا.</p>
     </div>
-
     <div class="wish">
       <div class="wish-number">02</div>
       <div class="wish-icon">🌙</div>
-      <h3>راحة</h3>
-      <p>قلب هادي ونوم مرتاح وبال مطمن.</p>
+      <h3>راحة بال</h3>
+      <p>قلب هادي، ونوم مرتاح، وفكر بعيد عن التوتر والقلق.</p>
     </div>
-
     <div class="wish">
       <div class="wish-number">03</div>
       <div class="wish-icon">🎓</div>
-      <h3>نجاح</h3>
-      <p>كل خطوة تقربك من اللي نفسك توصلي له.</p>
+      <h3>نجاح باهر</h3>
+      <p>كل خطوة تخطيها تكون خطوة جديدة نحو تحقيق أحلامك العظيمة.</p>
     </div>
-
     <div class="wish">
       <div class="wish-number">04</div>
       <div class="wish-icon">⭐</div>
-      <h3>أحلام</h3>
-      <p>حلم ورا حلم يتحولوا لحقيقة.</p>
+      <h3>تحقيق الأماني</h3>
+      <p>حلم ورا حلم يتحول لحقيقة قدام عينيكي بكل سهولة.</p>
     </div>
-
     <div class="wish">
       <div class="wish-number">05</div>
       <div class="wish-icon">❤️</div>
-      <h3>حب</h3>
-      <p>حب صادق يخلي قلبك مطمن.</p>
+      <h3>محبة وود</h3>
+      <p>ناس تحبك بصدق، وتخاف على زقك، وتتمنى ليكي الخير دايمًا.</p>
     </div>
-
     <div class="wish">
       <div class="wish-number">06</div>
       <div class="wish-icon">🕊️</div>
-      <h3>أمان</h3>
-      <p>ناس وجودهم راحة مش قلق.</p>
+      <h3>سلام نفسي</h3>
+      <p>تكوني دايمًا في راحة وتصالح مع نفسك ومع كل اللي حواليكي.</p>
     </div>
-
     <div class="wish">
       <div class="wish-number">07</div>
       <div class="wish-icon">🌷</div>
-      <h3>أيام جميلة</h3>
-      <p>كل يوم يحمل تفصيلة حلوة.</p>
+      <h3>أيام وردية</h3>
+      <p>كل يوم يصادفك يحمل تفصيلة حلوة تجبر خاطرك.</p>
     </div>
-
     <div class="wish">
       <div class="wish-number">08</div>
       <div class="wish-icon">💫</div>
-      <h3>مفاجآت</h3>
-      <p>أخبار حلوة تيجي من حيث لا تتوقعي.</p>
+      <h3>مفاجآت قادمة</h3>
+      <p>أخبار مبهجة تيجي ليكي من حيث لا تحتسبي وتغير مودك للأفضل.</p>
     </div>
-
     <div class="wish">
       <div class="wish-number">09</div>
       <div class="wish-icon">🌍</div>
-      <h3>مغامرات</h3>
-      <p>أماكن جديدة وذكريات جديدة.</p>
+      <h3>رحلات وتجارب</h3>
+      <p>أماكن جديدة تكتشفيها وتصنعي فيها أجمل الذكريات.</p>
     </div>
-
     <div class="wish">
       <div class="wish-number">10</div>
       <div class="wish-icon">📸</div>
-      <h3>ذكريات</h3>
-      <p>لحظات تستاهل تتحفظ.</p>
+      <h3>لحظات توثق</h3>
+      <p>أوقات جميله مع ناس بتحبيهم تفضل محفورة في ذاكرتك طول العمر.</p>
     </div>
-
     <div class="wish">
       <div class="wish-number">11</div>
       <div class="wish-icon">👑</div>
-      <h3>قوة</h3>
-      <p>تفضلي قوية حتى في الأيام الصعبة.</p>
+      <h3>قوة وصلابة</h3>
+      <p>تفضلي دايمًا قوية وقادرة تتخطى أي صعوبة بمنتهى الثقة.</p>
     </div>
-
     <div class="wish">
       <div class="wish-number">12</div>
       <div class="wish-icon">🎁</div>
-      <h3>فرحة</h3>
-      <p>هدايا ومفاجآت أكتر من المتوقع.</p>
+      <h3>فرحة مدوية</h3>
+      <p>سنة مليانة هدايا ومفاجآت تتجاوز كل توقعاتك الحلوة.</p>
     </div>
-
   </div>
-
 </section>
 
-
-<!-- =======================================================
-     PHOTOS
-======================================================= -->
-
+<!-- PHOTOS -->
 <section class="section" id="photos">
-
   <div class="section-title">
-
-    <div class="section-kicker">
-      12 MOMENTS
-    </div>
-
-    <h2>
-      12 صورة من الحكاية 📸
-    </h2>
-
-    <p>
-      كل صورة هنا ليها إحساس مختلف.
-    </p>
-
+    <div class="section-kicker">MEMORIES</div>
+    <h2>12 ذكرة مصورة 📸</h2>
+    <p>كل معرض هنا بيحكي حكاية ولحظة مميزة.</p>
   </div>
 
   <div class="photo-gallery">
-
     <div class="photo-card">
       <img src="01.jpg" alt="ملك 01">
-      <span class="photo-caption">01 • بداية</span>
+      <span class="photo-caption">01 • بداية الحكاية</span>
     </div>
-
     <div class="photo-card">
       <img src="02.jpg" alt="ملك 02">
-      <span class="photo-caption">02 • ضحكة</span>
+      <span class="photo-caption">02 • ضحكة صافية</span>
     </div>
-
     <div class="photo-card">
       <img src="03.jpg" alt="ملك 03">
-      <span class="photo-caption">03 • لحظة</span>
+      <span class="photo-caption">03 • لحظة دافية</span>
     </div>
-
     <div class="photo-card">
       <img src="04.jpg" alt="ملك 04">
-      <span class="photo-caption">04 • ذكرى</span>
+      <span class="photo-caption">04 • ذكرى للزمن</span>
     </div>
-
     <div class="photo-card">
       <img src="05.jpg" alt="ملك 05">
-      <span class="photo-caption">05 • تفاصيل</span>
+      <span class="photo-caption">05 • تفاصيل صغيرة</span>
     </div>
-
     <div class="photo-card">
       <img src="06.jpg" alt="ملك 06">
-      <span class="photo-caption">06 • لحظة جميلة</span>
+      <span class="photo-caption">06 • ملامح فرحة</span>
     </div>
-
     <div class="photo-card">
       <img src="07.jpg" alt="ملك 07">
-      <span class="photo-caption">07 • ابتسامة</span>
+      <span class="photo-caption">07 • ابتسامة ملكية</span>
     </div>
-
     <div class="photo-card">
       <img src="08.jpg" alt="ملك 08">
-      <span class="photo-caption">08 • وقت حلو</span>
+      <span class="photo-caption">08 • وقت ممتع</span>
     </div>
-
     <div class="photo-card">
       <img src="09.jpg" alt="ملك 09">
-      <span class="photo-caption">09 • ذكرى</span>
+      <span class="photo-caption">09 • يوم مميز</span>
     </div>
-
     <div class="photo-card">
       <img src="10.jpg" alt="ملك 10">
-      <span class="photo-caption">10 • لحظة</span>
+      <span class="photo-caption">10 • خطوة جديدة</span>
     </div>
-
     <div class="photo-card">
       <img src="11.jpg" alt="ملك 11">
-      <span class="photo-caption">11 • تفصيلة</span>
+      <span class="photo-caption">11 • أمل جديد</span>
     </div>
-
     <div class="photo-card">
       <img src="12.jpg" alt="ملك 12">
-      <span class="photo-caption">12 • الحكاية</span>
+      <span class="photo-caption">12 • الختام الجميل</span>
     </div>
-
   </div>
-
 </section>
 
-
-<!-- =======================================================
-     SECRETS
-======================================================= -->
-
+<!-- SECRETS -->
 <section class="section" id="secrets">
-
   <div class="section-title">
-
-    <div class="section-kicker">
-      PRIVATE
-    </div>
-
-    <h2>
-      أسرار صغيرة 🔐
-    </h2>
-
-    <p>
-      كل زرار مخبي حاجة مختلفة.
-    </p>
-
+    <div class="section-kicker">PRIVATE BOXES</div>
+    <h2>أسرار ورسائل مخفية 🔐</h2>
+    <p>اضغطي على الكروت عشان تكتشفي الرسائل المستخبية.</p>
   </div>
 
   <div class="secret-grid">
-
     <div class="secret">
       <div class="secret-icon">🔐</div>
-      <h3>سر صغير</h3>
-      <div class="secret-result" id="secret1">
-        لسه مقفول...
-      </div>
-      <button onclick="openSecret(1)">
-        افتحي
-      </button>
+      <h3>سر الأيام</h3>
+      <div class="secret-result" id="secret1">اضغطي للفتح...</div>
+      <button onclick="openSecret(1)">افتحي</button>
     </div>
 
     <div class="secret">
       <div class="secret-icon">💌</div>
-      <h3>رسالة مخفية</h3>
-      <div class="secret-result" id="secret2">
-        لسه مقفول...
-      </div>
-      <button onclick="openSecret(2)">
-        افتحي
-      </button>
+      <h3>رسالة خاصة</h3>
+      <div class="secret-result" id="secret2">اضغطي للفتح...</div>
+      <button onclick="openSecret(2)">افتحي</button>
     </div>
 
     <div class="secret">
       <div class="secret-icon">🌙</div>
-      <h3>بالليل</h3>
-      <div class="secret-result" id="secret3">
-        لسه مقفول...
-      </div>
-      <button onclick="openSecret(3)">
-        افتحي
-      </button>
+      <h3>هدوء الليل</h3>
+      <div class="secret-result" id="secret3">اضغطي للفتح...</div>
+      <button onclick="openSecret(3)">افتحي</button>
     </div>
 
     <div class="secret">
       <div class="secret-icon">❤️</div>
-      <h3>من القلب</h3>
-      <div class="secret-result" id="secret4">
-        لسه مقفول...
-      </div>
-      <button onclick="openSecret(4)">
-        افتحي
-      </button>
+      <h3>من الأعماق</h3>
+      <div class="secret-result" id="secret4">اضغطي للفتح...</div>
+      <button onclick="openSecret(4)">افتحي</button>
     </div>
 
     <div class="secret">
       <div class="secret-icon">✨</div>
-      <h3>الأمنية</h3>
-      <div class="secret-result" id="secret5">
-        لسه مقفول...
-      </div>
-      <button onclick="openSecret(5)">
-        افتحي
-      </button>
+      <h3>أمنية السر</h3>
+      <div class="secret-result" id="secret5">اضغطي للفتح...</div>
+      <button onclick="openSecret(5)">افتحي</button>
     </div>
 
     <div class="secret">
       <div class="secret-icon">👑</div>
-      <h3>آخر سر</h3>
-      <div class="secret-result" id="secret6">
-        لسه مقفول...
-      </div>
-      <button onclick="openSecret(6)">
-        افتحي
-      </button>
+      <h3>السر الملكي</h3>
+      <div class="secret-result" id="secret6">اضغطي للفتح...</div>
+      <button onclick="openSecret(6)">افتحي</button>
     </div>
-
   </div>
-
 </section>
 
-
-<!-- =======================================================
-     MEMORIES
-======================================================= -->
-
+<!-- INTERACTIVE MEMORY -->
 <section class="section">
-
   <div class="section-title">
-
-    <div class="section-kicker">
-      LITTLE DETAILS
-    </div>
-
-    <h2>
-      تفاصيل صغيرة بتفرق
-    </h2>
-
+    <div class="section-kicker">LITTLE DETAILS</div>
+    <h2>تفاصيل تترك أثراً 🌸</h2>
   </div>
 
   <div class="memory-box">
-
     <div class="memory-panel">
-
-      <h3>
-        ❤️ ليه ملك مختلفة؟
-      </h3>
-
-      <p>
-        لأن أوقات أكتر حاجة بتخلي الشخص مميز
-        مش حاجة كبيرة، لكن تفاصيل صغيرة محدش غيره بيعملها.
-      </p>
-
-      <button
-        class="memory-button"
-        onclick="randomMemory()">
-        ✨ قوليلي تفصيلة
-      </button>
-
-      <div
-        class="memory-output"
-        id="memoryOutput">
-        اضغطي الزرار...
-      </div>
-
+      <h3>❤️ ليه ملك مميزة؟</h3>
+      <p>عشان أبسط الأشياء لما بتصدر منك بيكون ليها طعم وتأثير مختلف تمامًا.</p>
+      <button class="memory-button" onclick="randomMemory()">✨ اكتشفي السبب</button>
+      <div class="memory-output" id="memoryOutput">اضغطي الزرار...</div>
     </div>
 
     <div class="memory-panel">
-
-      <h3>
-        🌷 لو السنة الجديدة تتكلم
-      </h3>
-
-      <p>
-        كانت هتقولك إن اللي فات انتهى،
-        وإن اللي جاي لسه فاضي...
-        وإنتِ اللي هتمليه بالذكريات.
-      </p>
-
-      <button
-        class="memory-button"
-        onclick="newChapter()">
-        📖 افتحي صفحة جديدة
-      </button>
-
-      <div
-        class="memory-output"
-        id="chapterOutput">
-        الصفحة لسه بيضا...
-      </div>
-
+      <h3>📖 بداية فصل جديد</h3>
+      <p>كل سنة جديدة هي كتاب بيفتح صفحاته البيضا مستني تكتب فيها أجمل الحكايات.</p>
+      <button class="memory-button" onclick="newChapter()">📖 افتحي صفحة جديدة</button>
+      <div class="memory-output" id="chapterOutput">الصفحة لسه بيضا...</div>
     </div>
-
   </div>
-
 </section>
 
-
-<!-- =======================================================
-     GAME
-======================================================= -->
-
+<!-- MINI GAME -->
 <section class="section" id="game">
-
   <div class="section-title">
-
-    <div class="section-kicker">
-      MINI GAME
-    </div>
-
-    <h2>
-      لعبة صغيرة 🎮
-    </h2>
-
-    <p>
-      اختاري القلوب وخلي عداد الفرحة يوصل للآخر.
-    </p>
-
+    <div class="section-kicker">MINI GAME</div>
+    <h2>تجميع القلوب 🎮</h2>
+    <p>اجمعي القلوب المخبأة لتكتمل فرحة اليوم!</p>
   </div>
 
   <div class="game-card">
-
-    <h3>
-      اجمعي 7 قلوب ❤️
-    </h3>
-
+    <h3>اجمعي 7 قلوب ❤️</h3>
     <div class="game-hearts">
-
       <button class="game-heart" onclick="collectHeart(this)">❤️</button>
       <button class="game-heart" onclick="collectHeart(this)">💗</button>
       <button class="game-heart" onclick="collectHeart(this)">💖</button>
@@ -2691,685 +1564,351 @@ a{
       <button class="game-heart" onclick="collectHeart(this)">❤️</button>
       <button class="game-heart" onclick="collectHeart(this)">♥️</button>
       <button class="game-heart" onclick="collectHeart(this)">♡</button>
-
     </div>
-
-    <div class="game-score">
-      القلوب: <span id="heartScore">0</span> / 7
-    </div>
-
+    <div class="game-score">القلوب المجمعة: <span id="heartScore">0</span> / 7</div>
   </div>
-
 </section>
 
-
-<!-- =======================================================
-     BIRTHDAY COUNTDOWN
-======================================================= -->
-
+<!-- BIRTHDAY COUNTDOWN -->
 <section class="section">
-
   <div class="birthday-countdown">
-
-    <div class="section-kicker">
-      NEXT CHAPTER
-    </div>
-
-    <h2>
-      لحد بداية عيد الميلاد القادم 🎂
-    </h2>
-
+    <div class="section-kicker">NEXT CHAPTER</div>
+    <h2>العداد التنازلي للعام القادم 🎂</h2>
     <div class="countdown-grid">
-
       <div class="count-unit">
         <strong id="days">00</strong>
         <span>يوم</span>
       </div>
-
       <div class="count-unit">
         <strong id="hours">00</strong>
         <span>ساعة</span>
       </div>
-
       <div class="count-unit">
         <strong id="minutes">00</strong>
         <span>دقيقة</span>
       </div>
-
       <div class="count-unit">
         <strong id="seconds">00</strong>
         <span>ثانية</span>
       </div>
-
     </div>
-
   </div>
-
 </section>
 
-
-<!-- =======================================================
-     JOKER
-======================================================= -->
-
+<!-- JOKER -->
 <section class="section">
-
   <div class="joker-zone">
-
     <div class="section-title">
-
-      <div class="section-kicker">
-        ONE MORE THING
-      </div>
-
-      <h2>
-        ولسه في حاجة تانية...
-      </h2>
-
-      <p>
-        الهدية الحقيقية ليها عالم خاص بيها.
-      </p>
-
+      <div class="section-kicker">SURPRISE</div>
+      <h2>ولسه في مفاجأة تانية... 🎁</h2>
+      <p>الهدية الكبيرة مستنياكي في مكان تاني خالص!</p>
     </div>
-
-    <a
-      href="joker-gift.html"
-      class="joker-button">
-
-      🎁 افتحي هدية الجوكر
-
-    </a>
-
+    <a href="joker-gift.html" class="joker-button">🎁 افتحي هدية الجوكر</a>
   </div>
-
 </section>
 
-
-<!-- =======================================================
-     FINAL
-======================================================= -->
-
+<!-- FINAL -->
 <section class="section final-section">
-
   <div class="final-card">
-
-    <div class="final-heart">
-      ❤️
-    </div>
-
-    <h2>
-      كل سنة وإنتِ ملك
-    </h2>
-
+    <div class="final-heart">❤️</div>
+    <h2>كل سنة وإنتِ بخير يا ملك</h2>
     <p>
-      يا رب السنة الجديدة تكون بداية لحاجات أجمل،
-      وضحكات أكتر، وأيام أهدى،
-      وذكريات تستاهل تتحفظ.
-      <br><br>
-      عيد ميلاد سعيد يا ملك ✨
+      يا رب عامك الجديد يكون بداية لكل حاجة جميلة تمنيتيها، ويكون مليان راحة، أمل، وضحكات من القلب.<br><br>
+      عيد ميلاد سعيد ✨
     </p>
-
   </div>
-
 </section>
-
 
 <footer class="footer">
-  صُنعت بحب مخصوص لملك ❤️
+  صُنعت بكل الحب والاهتمام مخصوص لملك ❤️
 </footer>
 
 </div>
 
+<!-- MUSIC & AUDIO -->
+<audio id="birthdayMusic" src="music/birthday.mp3" preload="auto" loop></audio>
 
-<!-- =======================================================
-     MUSIC
-======================================================= -->
-
-<audio
-  id="birthdayMusic"
-  src="music/birthday.mp3"
-  preload="auto"
-  loop>
-</audio>
-
-<button
-  id="musicButton"
-  class="music-button"
-  aria-label="الموسيقى">
-
-  🎵
-
-</button>
-
-<div
-  id="musicMessage"
-  class="music-message">
-
-  اضغطي 🎵 لتشغيل الموسيقى
-
-</div>
-
-
-<!-- TOAST -->
+<button id="musicButton" class="music-button" aria-label="الموسيقى">🎵</button>
+<div id="musicMessage" class="music-message">اضغطي 🎵 لتشغيل الموسيقى</div>
 
 <div id="toast"></div>
 
-
+<!-- SCRIPTS -->
 <script>
-
-/* =========================================================
-   1) THE 10 SECOND TIMER
-   ---------------------------------------------------------
-   مهم جدًا:
-   - مستقل عن باقي الموقع.
-   - لا يعتمد على setInterval.
-   - يعتمد على Date.now().
-   - يبدأ من 10.
-   - بعد 10000ms بالضبط يفتح الصفحة.
-========================================================= */
-
 (function(){
-
   "use strict";
 
-  const INTRO_DURATION = 10000;
+  let secondsLeft = 10;
+  const intro = document.getElementById("birthdayIntro");
+  const timer = document.getElementById("introTimer");
+  const main = document.getElementById("mainSite");
 
-  const intro =
-    document.getElementById("birthdayIntro");
+  if(!intro || !timer) return;
 
-  const timer =
-    document.getElementById("introTimer");
-
-  const main =
-    document.getElementById("mainSite");
-
-  if(!intro || !timer){
-
-    console.error(
-      "INTRO TIMER ERROR: elements not found."
-    );
-
-    return;
-
-  }
-
-  let completed = false;
-
-  const startTime = Date.now();
-
-  const finishTime =
-    startTime + INTRO_DURATION;
-
-
-  function updateTimer(){
-
-    if(completed){
-      return;
+  // setInterval مضمون للعمل بمرونة على كل المتصفحات
+  const countdownInterval = setInterval(() => {
+    secondsLeft--;
+    
+    if(secondsLeft >= 0) {
+      timer.textContent = secondsLeft;
+      timer.style.transform = "scale(1.2)";
+      setTimeout(() => { timer.style.transform = "scale(1)"; }, 150);
     }
 
-    const now =
-      Date.now();
-
-    const remaining =
-      Math.max(
-        0,
-        finishTime - now
-      );
-
-    const seconds =
-      Math.ceil(
-        remaining / 1000
-      );
-
-
-    if(timer.textContent !== String(seconds)){
-
-      timer.textContent =
-        String(seconds);
-
-      timer.style.transform =
-        "scale(1.13)";
-
-      setTimeout(function(){
-
-        timer.style.transform =
-          "scale(1)";
-
-      },100);
-
+    if (secondsLeft <= 0) {
+      clearInterval(countdownInterval);
+      finishIntro();
     }
-
-
-    if(remaining > 0){
-
-      setTimeout(
-        updateTimer,
-        50
-      );
-
-    }
-
-  }
-
+  }, 1000);
 
   function finishIntro(){
+    // إطلاق احتفال ألعاب نارية (Blast Effect) عند الانتهاء
+    createExplosionConfetti();
 
-    if(completed){
-      return;
-    }
+    setTimeout(() => {
+      intro.classList.add("hide");
+      document.body.classList.remove("intro-lock");
+      if(main) main.classList.add("show");
+      startWebsite();
 
-    completed = true;
-
-    timer.textContent = "0";
-
-    intro.classList.add("hide");
-
-    document.body.classList.remove(
-      "intro-lock"
-    );
-
-    if(main){
-
-      main.classList.add("show");
-
-    }
-
-
-    startWebsite();
-
-
-    setTimeout(function(){
-
-      if(intro){
-
-        intro.remove();
-
-      }
-
-    },1300);
-
+      setTimeout(() => {
+        if(intro) intro.remove();
+      }, 1000);
+    }, 300);
   }
 
+  function createExplosionConfetti() {
+    for (let i = 0; i < 60; i++) {
+      const c = document.createElement("div");
+      c.className = "confetti";
+      c.style.left = "50vw";
+      c.style.top = "50vh";
+      c.style.backgroundColor = ['#ff4d91', '#895cff', '#ffd76a', '#ffffff'][Math.floor(Math.random()*4)];
+      c.style.transform = `translate(${(Math.random() - 0.5) * 800}px, ${(Math.random() - 0.5) * 800}px) rotate(${Math.random() * 360}deg)`;
+      c.style.transition = "transform 1.2s ease-out, opacity 1.2s ease-out";
+      document.body.appendChild(c);
 
-  /* START */
+      setTimeout(() => {
+        c.style.opacity = "0";
+      }, 100);
 
-  timer.textContent = "10";
-
-  updateTimer();
-
-
-  /*
-    هذا هو المؤقت النهائي.
-    حتى لو حصل أي تأخير في setTimeout،
-    Date.now() يضمن إن الانتقال لا يعتمد
-    على عدد مرات التكرار.
-  */
-
-  setTimeout(
-    finishIntro,
-    INTRO_DURATION
-  );
-
-
-  window.finishBirthdayIntro =
-    finishIntro;
+      setTimeout(() => c.remove(), 1300);
+    }
+  }
 
 })();
 
-
-/* =========================================================
-   2) START WEBSITE
-========================================================= */
-
 let websiteStarted = false;
-
 function startWebsite(){
-
-  if(websiteStarted){
-    return;
-  }
-
+  if(websiteStarted) return;
   websiteStarted = true;
-
   createStars();
-
   startFloatingHearts();
-
   tryAutoMusic();
-
+  startCountdown();
 }
-
-
-/* =========================================================
-   3) STARS
-========================================================= */
 
 function createStars(){
-
-  const container =
-    document.getElementById("stars");
-
-  if(!container){
-    return;
-  }
-
-  const fragment =
-    document.createDocumentFragment();
-
-  for(let i=0;i<80;i++){
-
-    const star =
-      document.createElement("span");
-
-    star.style.position =
-      "absolute";
-
-    star.style.left =
-      Math.random()*100 + "%";
-
-    star.style.top =
-      Math.random()*100 + "%";
-
-    const size =
-      1 + Math.random()*2;
-
-    star.style.width =
-      size + "px";
-
-    star.style.height =
-      size + "px";
-
-    star.style.borderRadius =
-      "50%";
-
-    star.style.background =
-      "rgba(255,255,255,.7)";
-
-    star.style.opacity =
-      .2 + Math.random()*.7;
-
+  const container = document.getElementById("stars");
+  if(!container) return;
+  const fragment = document.createDocumentFragment();
+  for(let i=0; i<80; i++){
+    const star = document.createElement("span");
+    star.style.position = "absolute";
+    star.style.left = Math.random()*100 + "%";
+    star.style.top = Math.random()*100 + "%";
+    const size = 1 + Math.random()*2;
+    star.style.width = size + "px";
+    star.style.height = size + "px";
+    star.style.borderRadius = "50%";
+    star.style.background = "rgba(255,255,255,.7)";
+    star.style.opacity = .2 + Math.random()*.7;
     fragment.appendChild(star);
-
   }
-
-  container.appendChild(
-    fragment
-  );
-
+  container.appendChild(fragment);
 }
 
-
-/* =========================================================
-   4) MUSIC
-========================================================= */
-
-const music =
-  document.getElementById(
-    "birthdayMusic"
-  );
-
-const musicButton =
-  document.getElementById(
-    "musicButton"
-  );
-
-const musicMessage =
-  document.getElementById(
-    "musicMessage"
-  );
-
+/* MUSIC SYSTEM */
+const music = document.getElementById("birthdayMusic");
+const musicButton = document.getElementById("musicButton");
+const musicMessage = document.getElementById("musicMessage");
 
 function tryAutoMusic(){
-
-  if(!music){
-    return;
-  }
-
+  if(!music) return;
   music.volume = .65;
-
-  const attempt =
-    music.play();
-
+  const attempt = music.play();
   if(attempt){
-
-    attempt.then(function(){
-
-      setMusicPlaying(true);
-
-    }).catch(function(){
-
-      setMusicPlaying(false);
-
-      showMusicMessage();
-
-    });
-
+    attempt.then(() => setMusicPlaying(true))
+           .catch(() => { setMusicPlaying(false); showMusicMessage(); });
   }
-
 }
-
 
 function setMusicPlaying(state){
-
-  if(!musicButton){
-    return;
-  }
-
+  if(!musicButton) return;
   if(state){
-
-    musicButton.textContent =
-      "⏸️";
-
-    musicButton.classList.add(
-      "playing"
-    );
-
-  }else{
-
-    musicButton.textContent =
-      "🎵";
-
-    musicButton.classList.remove(
-      "playing"
-    );
-
+    musicButton.textContent = "⏸️";
+    musicButton.classList.add("playing");
+  } else {
+    musicButton.textContent = "🎵";
+    musicButton.classList.remove("playing");
   }
-
 }
-
 
 function showMusicMessage(){
-
-  if(!musicMessage){
-    return;
-  }
-
-  musicMessage.classList.add(
-    "show"
-  );
-
-  setTimeout(function(){
-
-    musicMessage.classList.remove(
-      "show"
-    );
-
-  },4500);
-
+  if(!musicMessage) return;
+  musicMessage.classList.add("show");
+  setTimeout(() => musicMessage.classList.remove("show"), 4500);
 }
-
 
 if(musicButton){
-
-  musicButton.addEventListener(
-    "click",
-    function(){
-
-      if(!music){
-        return;
-      }
-
-      if(music.paused){
-
-        music.play()
-          .then(function(){
-
-            setMusicPlaying(true);
-
-          })
-          .catch(function(){
-
-            showMusicMessage();
-
-          });
-
-      }else{
-
-        music.pause();
-
-        setMusicPlaying(false);
-
-      }
-
+  musicButton.addEventListener("click", () => {
+    if(!music) return;
+    if(music.paused){
+      music.play().then(() => setMusicPlaying(true)).catch(() => showMusicMessage());
+    } else {
+      music.pause();
+      setMusicPlaying(false);
     }
-  );
-
+  });
 }
 
-
-/* =========================================================
-   5) SECRET SYSTEM
-========================================================= */
-
+/* SECRETS SYSTEM */
 const secretMessages = {
-
-  1:
-    "أجمل حاجة فيكي إنك بتخلي التفاصيل الصغيرة ليها قيمة. ❤️",
-
-  2:
-    "في كلام كتير ممكن يتقال، بس أوقات وجود الشخص نفسه بيكون أحلى من أي كلام.",
-
-  3:
-    "بالليل، وسط هدوء الدنيا، بعض الذكريات بتبقى أوضح وأجمل.",
-
-  4:
-    "من القلب: يا رب كل حاجة جاية تكون أحن من كل حاجة فاتت.",
-
-  5:
-    "الأمنية المخفية: السنة الجديدة تكون سنة تحقق فيها ملك حاجة كانت مستنياها من زمان. ✨",
-
-  6:
-    "آخر سر: أجمل جزء في الحكاية لسه ما اتكتبش. 👑"
-
+  1: "أجمل حاجة فيكي إن وجودك بيدي انطباع بالهدوء والسلام للناس اللي حواليكي. ❤️",
+  2: "الكلام أوقات ما بيعبرش عن قد إيه الضحكة والروح الحلوة بتسيب أثر طيب.",
+  3: "في أوقات الهدوء بالليل، الأفكار الحلوة والذكريات الجميلة هي اللي بتفضل.",
+  4: "دعوة من القلب: يا رب كل الأيام الجاية تحمل ليكي الفرحة والخير الدائم.",
+  5: "أمنية خفية: السنة دي تكون سنة الجبر وتدفق الأرزاق والأحلام المحققة لملك. ✨",
+  6: "السر الملكي: أجمل فصول قصتك لسه متبدأش، والقادم أجمل بكثير! 👑"
 };
 
-
 function openSecret(number){
-
-  const element =
-    document.getElementById(
-      "secret" + number
-    );
-
-  if(!element){
-    return;
-  }
-
-  element.textContent =
-    secretMessages[number];
-
-  element.style.color =
-    "#ffd2e1";
-
-  element.style.fontWeight =
-    "600";
-
-  showToast(
-    "🔓 السر اتفتح"
-  );
-
+  const element = document.getElementById("secret" + number);
+  if(!element) return;
+  element.textContent = secretMessages[number];
+  element.style.color = "#ffd2e1";
+  element.style.fontWeight = "600";
+  showToast("🔓 تم فتح السر بنجاح");
 }
+window.openSecret = openSecret;
 
-
-window.openSecret =
-  openSecret;
-
-
-/* =========================================================
-   6) RANDOM MEMORIES
-========================================================= */
-
+/* MEMORIES & CHAPTERS */
 const memories = [
-
-  "الضحكة اللي بتيجي فجأة وتغير شكل اليوم كله. 😊",
-
-  "طريقة الكلام اللي بتخلي أي حوار عادي يبقى له طعم تاني.",
-
-  "التفاصيل الصغيرة اللي ممكن تعدي عادي، بس تفضل في الذاكرة.",
-
-  "لما تكوني مبسوطة، بيبان ده في كل حاجة حواليكي.",
-
-  "حتى اللحظات الهادية ليها شكل مختلف لما تكون الذكرى حلوة.",
-
-  "أوقات أجمل الذكريات بتبدأ من حاجة بسيطة جدًا.",
-
-  "في ناس وجودها بيعمل فرق من غير ما تحاول... وإنتِ واحدة منهم.",
-
-  "أجمل حاجة إن كل شخص له طريقته الخاصة في ترك أثر... وإنتِ ليكي طريقتك."
-
+  "ابتسامتك العفوية اللي بتغير مود المكان في ثواني. 😊",
+  "طريقتك البسيطة والرقيقة في التعامل مع كل الأمور.",
+  "قدرتك على إعطاء الطاقة الإيجابية بكلمة بسيطة منك.",
+  "ذوقك الرفيع واهتمامك بالتفاصيل الصغيرة.",
+  "هدوئك في الأوقات الصعبة وحكمتك الجميلة.",
+  "روحك اللي بتفضل زي الأطفال في نائها ونقائها."
 ];
 
-
 function randomMemory(){
-
-  const output =
-    document.getElementById(
-      "memoryOutput"
-    );
-
-  if(!output){
-    return;
-  }
-
-  const index =
-    Math.floor(
-      Math.random() *
-      memories.length
-    );
-
-  output.textContent =
-    memories[index];
-
-  showToast(
-    "✨ تفصيلة جديدة"
-  );
-
+  const output = document.getElementById("memoryOutput");
+  if(!output) return;
+  const index = Math.floor(Math.random() * memories.length);
+  output.textContent = memories[index];
+  showToast("✨ تم إظهار التفصيلة");
 }
+window.randomMemory = randomMemory;
 
-
-window.randomMemory =
-  randomMemory;
-
-
-/* =========================================================
-   7) NEW CHAPTER
-========================================================= */
+const chapters = [
+  "صفحة جديدة عنوانها: نجاحات وتفوق وأماني محققة. ✨",
+  "فصل مليان رحلات، ضحك، وأوقات ما بتتنساش.",
+  "بداية سطر جديد مليان راحة بال وسعادة دائمة.",
+  "صفحة مكتوب فيها: جبر خاطر وفرحة من وسع."
+];
 
 function newChapter(){
+  const output = document.getElementById("chapterOutput");
+  if(!output) return;
+  const index = Math.floor(Math.random() * chapters.length);
+  output.textContent = chapters[index];
+  showToast("📖 تم فتح الصفحة الجديدة");
+}
+window.newChapter = newChapter;
 
-  const output =
-    document.getElementById(
-      "chapterOutput"
-    );
+/* GAME SYSTEM */
+let collectedCount = 0;
+function collectHeart(btn){
+  if(btn.dataset.collected) return;
+  btn.dataset.collected = "true";
+  btn.style.opacity = "0.3";
+  btn.style.transform = "scale(0.8)";
+  collectedCount++;
+  
+  const scoreEl = document.getElementById("heartScore");
+  if(scoreEl) scoreEl.textContent = collectedCount;
 
-  if(!output){
-    return;
+  createConfetti();
+
+  if(collectedCount >= 7){
+    showToast("🎉 مبروك! كملتي تجميع القلوب وحصلتي على الفرحة كاملة ❤️");
+  } else {
+    showToast("❤️ جمّعتِ قلب جديد!");
+  }
+}
+window.collectHeart = collectHeart;
+
+/* TOAST SYSTEM */
+function showToast(text){
+  const toast = document.getElementById("toast");
+  if(!toast) return;
+  toast.textContent = text;
+  toast.classList.add("show");
+  setTimeout(() => toast.classList.remove("show"), 3000);
+}
+
+/* FLOATING HEARTS & CONFETTI */
+function startFloatingHearts(){
+  setInterval(() => {
+    const heart = document.createElement("div");
+    heart.className = "float-heart";
+    heart.innerHTML = "❤️";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.setProperty("--drift", (Math.random() * 200 - 100) + "px");
+    heart.style.animationDuration = (4 + Math.random() * 4) + "s";
+    document.body.appendChild(heart);
+    setTimeout(() => heart.remove(), 8000);
+  }, 1500);
+}
+
+function createConfetti(){
+  for(let i=0; i<15; i++){
+    const confetti = document.createElement("div");
+    confetti.className = "confetti";
+    confetti.style.left = Math.random() * 100 + "vw";
+    confetti.style.backgroundColor = ['#ff4d91', '#895cff', '#ffd76a', '#fff'][Math.floor(Math.random()*4)];
+    confetti.style.animationDuration = (2 + Math.random() * 3) + "s";
+    document.body.appendChild(confetti);
+    setTimeout(() => confetti.remove(), 5000);
+  }
+}
+
+/* COUNTDOWN TIMER TO NEXT BIRTHDAY */
+function startCountdown(){
+  const nextBirthday = new Date();
+  nextBirthday.setFullYear(nextBirthday.getFullYear() + 1);
+
+  function update(){
+    const now = new Date();
+    const diff = nextBirthday - now;
+    if(diff <= 0) return;
+
+    const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const h = Math.floor((diff / (1000 * 60 * 60)) % 24);
+    const m = Math.floor((diff / 1000 / 60) % 60);
+    const s = Math.floor((diff / 1000) % 60);
+
+    document.getElementById("days").textContent = String(d).padStart(2, '0');
+    document.getElementById("hours").textContent = String(h).padStart(2, '0');
+    document.getElementById("minutes").textContent = String(m).padStart(2, '0');
+    document.getElementById("seconds").textContent = String(s).padStart(2, '0');
   }
 
-  const messages = [
+  update();
+  setInterval(update, 1000);
+}
+</script>
 
-    "صفحة جديدة... عنوانها: حاجات حلوة جاية. ✨",
-
-    "الفصل الجديد بدأ، والباقي بيتكتب يوم بيوم.",
-
-    "اللي جاي ل
+</body>
+</html>
