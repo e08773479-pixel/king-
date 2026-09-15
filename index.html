@@ -2,1568 +2,1521 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
 
 <title>ملك | يومها الكبير 👑</title>
 
-<meta name="theme-color" content="#08030d">
-<meta name="description" content="هدية عيد ميلاد خاصة لملك ❤️">
+<meta name="theme-color" content="#07030b">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
 
 <style>
 
-/* =========================================================
-   RESET
-========================================================= */
-
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+margin:0;
+padding:0;
+box-sizing:border-box;
 }
 
 html{
-    scroll-behavior:smooth;
+scroll-behavior:smooth;
 }
 
 body{
-    font-family:"Cairo",sans-serif;
-    background:#07030b;
-    color:#fff;
-    overflow-x:hidden;
+font-family:"Cairo",sans-serif;
+background:#07030b;
+color:#fff;
+overflow-x:hidden;
 }
 
-button{
-    font-family:inherit;
+button,
+a{
+font-family:inherit;
 }
 
 a{
-    color:inherit;
-    text-decoration:none;
+text-decoration:none;
+color:inherit;
 }
-
-/* =========================================================
-   VARIABLES
-========================================================= */
 
 :root{
-    --bg:#07030b;
-    --bg2:#100617;
-    --panel:rgba(255,255,255,.055);
-    --panel2:rgba(255,255,255,.085);
-    --line:rgba(255,255,255,.12);
-
-    --pink:#ff4f91;
-    --pink2:#ff8ab9;
-    --purple:#8f5cff;
-    --gold:#ffd36a;
-    --gold2:#fff0ad;
-    --white:#fff;
-
-    --shadow:0 30px 100px rgba(0,0,0,.45);
+--bg:#07030b;
+--pink:#ff4f91;
+--pink2:#ff8ab9;
+--purple:#8f5cff;
+--gold:#ffd36a;
+--gold2:#fff0ad;
+--line:rgba(255,255,255,.11);
+--glass:rgba(255,255,255,.055);
 }
 
-/* =========================================================
-   INTRO
-========================================================= */
+/* =====================================================
+INTRO
+===================================================== */
 
 .intro{
-    position:fixed;
-    inset:0;
-    z-index:99999;
-    background:
-        radial-gradient(circle at 50% 35%,rgba(255,79,145,.18),transparent 30%),
-        radial-gradient(circle at 20% 80%,rgba(143,92,255,.16),transparent 30%),
-        linear-gradient(135deg,#040207,#100513 50%,#050207);
+position:fixed;
+inset:0;
+z-index:99999;
+display:flex;
+align-items:center;
+justify-content:center;
+overflow:hidden;
 
-    display:flex;
-    align-items:center;
-    justify-content:center;
+background:
+radial-gradient(circle at 50% 30%,rgba(255,79,145,.18),transparent 32%),
+radial-gradient(circle at 15% 80%,rgba(143,92,255,.15),transparent 30%),
+linear-gradient(135deg,#030207,#100513 50%,#050207);
 
-    overflow:hidden;
-
-    transition:
-        opacity 1.3s ease,
-        visibility 1.3s ease,
-        transform 1.3s ease;
+transition:opacity 1.3s ease,visibility 1.3s ease,transform 1.3s ease;
 }
 
 .intro.hide{
-    opacity:0;
-    visibility:hidden;
-    transform:scale(1.08);
-    pointer-events:none;
-}
-
-.intro::before{
-    content:"";
-    position:absolute;
-    width:700px;
-    height:700px;
-    border-radius:50%;
-    background:radial-gradient(circle,rgba(255,79,145,.12),transparent 65%);
-    animation:introGlow 4s ease-in-out infinite;
-}
-
-@keyframes introGlow{
-    0%,100%{transform:scale(.85);opacity:.6}
-    50%{transform:scale(1.15);opacity:1}
+opacity:0;
+visibility:hidden;
+transform:scale(1.07);
+pointer-events:none;
 }
 
 .intro-content{
-    width:min(92%,700px);
-    text-align:center;
-    position:relative;
-    z-index:5;
+width:min(94%,720px);
+text-align:center;
+position:relative;
+z-index:5;
 }
 
 .intro-small{
-    font-size:12px;
-    letter-spacing:4px;
-    color:var(--gold);
-    margin-bottom:20px;
-    text-transform:uppercase;
-    animation:fadeUp 1.2s both;
+font-size:11px;
+letter-spacing:4px;
+color:var(--gold);
+margin-bottom:18px;
+animation:up 1s both;
 }
 
 .intro-title{
-    font-size:clamp(34px,8vw,74px);
-    line-height:1.15;
-    font-weight:900;
-    margin-bottom:15px;
-    background:linear-gradient(135deg,#fff,var(--gold2),var(--pink2));
-    -webkit-background-clip:text;
-    color:transparent;
-    animation:fadeUp 1.4s .2s both;
+font-size:clamp(34px,8vw,70px);
+font-weight:900;
+line-height:1.1;
+
+background:linear-gradient(135deg,#fff,var(--gold2),var(--pink2));
+-webkit-background-clip:text;
+color:transparent;
+
+animation:up 1s .15s both;
 }
 
 .intro-sub{
-    color:rgba(255,255,255,.72);
-    font-size:15px;
-    line-height:2;
-    margin-bottom:35px;
-    animation:fadeUp 1.4s .35s both;
+font-size:14px;
+color:rgba(255,255,255,.65);
+line-height:2;
+margin-top:15px;
+animation:up 1s .3s both;
 }
 
-/* =========================================================
-   CAKE
-========================================================= */
+@keyframes up{
+from{
+opacity:0;
+transform:translateY(30px);
+}
+to{
+opacity:1;
+transform:none;
+}
+}
+
+/* =====================================================
+CAKE
+===================================================== */
 
 .cake-area{
-    position:relative;
-    width:330px;
-    max-width:90vw;
-    height:220px;
-    margin:10px auto 25px;
-    animation:cakeIn 1.5s .5s both;
+position:relative;
+width:340px;
+height:235px;
+max-width:95vw;
+margin:20px auto;
+animation:cakeIn 1.3s .4s both;
 }
 
 @keyframes cakeIn{
-    from{
-        opacity:0;
-        transform:translateY(40px) scale(.7);
-    }
-    to{
-        opacity:1;
-        transform:none;
-    }
+from{
+opacity:0;
+transform:translateY(45px) scale(.7);
+}
+to{
+opacity:1;
+transform:none;
+}
 }
 
 .cake-candles{
-    position:absolute;
-    width:270px;
-    left:50%;
-    transform:translateX(-50%);
-    bottom:130px;
+position:absolute;
+bottom:140px;
+left:50%;
+transform:translateX(-50%);
 
-    display:flex;
-    align-items:flex-end;
-    justify-content:center;
-    gap:4px;
-    z-index:5;
+width:285px;
+
+display:flex;
+justify-content:center;
+align-items:flex-end;
+gap:4px;
+
+z-index:10;
 }
 
 .candle{
-    position:relative;
-    width:10px;
-    height:48px;
-    border-radius:5px 5px 2px 2px;
+position:relative;
+width:10px;
+height:48px;
+border-radius:5px 5px 2px 2px;
 
-    background:
-        repeating-linear-gradient(
-            135deg,
-            #ff5d9d 0 5px,
-            #ffd36a 5px 10px
-        );
-
-    box-shadow:
-        0 0 10px rgba(255,79,145,.5);
+background:repeating-linear-gradient(
+135deg,
+#ff5d9d 0 5px,
+#ffd36a 5px 10px
+);
 }
 
 .candle:nth-child(even){
-    height:55px;
-    background:
-        repeating-linear-gradient(
-            135deg,
-            #9c69ff 0 5px,
-            #ffd36a 5px 10px
-        );
+height:55px;
+
+background:repeating-linear-gradient(
+135deg,
+#8f5cff 0 5px,
+#ffd36a 5px 10px
+);
 }
 
 .candle::before{
-    content:"";
-    position:absolute;
-    top:-23px;
-    left:50%;
-    width:11px;
-    height:20px;
-    transform:translateX(-50%);
-    border-radius:50% 50% 50% 50%;
-    background:linear-gradient(#fff5a5,#ff8b32);
-    box-shadow:
-        0 0 10px #ffb347,
-        0 0 25px rgba(255,179,71,.9);
-    animation:flame .55s ease-in-out infinite alternate;
+content:"";
+position:absolute;
+top:-22px;
+left:50%;
+transform:translateX(-50%);
+
+width:11px;
+height:19px;
+
+border-radius:50%;
+
+background:linear-gradient(#fff6a6,#ff812d);
+
+box-shadow:
+0 0 12px #ffae45,
+0 0 28px rgba(255,174,69,.8);
+
+animation:flame .55s infinite alternate;
 }
 
 @keyframes flame{
-    from{
-        transform:translateX(-50%) scale(.8) rotate(-4deg);
-    }
-    to{
-        transform:translateX(-50%) scale(1.08) rotate(4deg);
-    }
+from{
+transform:translateX(-50%) scale(.82) rotate(-5deg);
+}
+to{
+transform:translateX(-50%) scale(1.08) rotate(5deg);
+}
 }
 
 .cake-top{
-    position:absolute;
-    left:50%;
-    transform:translateX(-50%);
-    bottom:90px;
-    width:245px;
-    height:65px;
-    border-radius:50%;
-    background:
-        linear-gradient(135deg,#ff76aa,#d82d72);
-    box-shadow:
-        0 15px 40px rgba(255,79,145,.3),
-        inset 0 -10px 15px rgba(0,0,0,.18);
-}
+position:absolute;
+left:50%;
+bottom:98px;
+transform:translateX(-50%);
 
-.cake-top::before{
-    content:"";
-    position:absolute;
-    inset:8px 12px;
-    border-radius:50%;
-    border:2px solid rgba(255,255,255,.3);
+width:250px;
+height:65px;
+
+border-radius:50%;
+
+background:linear-gradient(135deg,#ff76aa,#d82d72);
+
+box-shadow:
+0 15px 40px rgba(255,79,145,.35),
+inset 0 -10px 15px rgba(0,0,0,.2);
 }
 
 .cake-middle{
-    position:absolute;
-    left:50%;
-    transform:translateX(-50%);
-    bottom:50px;
-    width:265px;
-    height:70px;
-    background:linear-gradient(135deg,#a33cff,#6421a8);
-    border-radius:0 0 25px 25px;
-    box-shadow:0 20px 35px rgba(0,0,0,.3);
+position:absolute;
+left:50%;
+bottom:55px;
+transform:translateX(-50%);
+
+width:270px;
+height:70px;
+
+background:linear-gradient(135deg,#a33cff,#6421a8);
+
+border-radius:0 0 25px 25px;
+
+box-shadow:0 20px 35px rgba(0,0,0,.4);
 }
 
 .cake-bottom{
-    position:absolute;
-    left:50%;
-    transform:translateX(-50%);
-    bottom:20px;
-    width:290px;
-    height:60px;
-    background:linear-gradient(135deg,#ff5c9c,#a92068);
-    border-radius:0 0 30px 30px;
-    box-shadow:0 25px 50px rgba(0,0,0,.45);
-}
+position:absolute;
+left:50%;
+bottom:23px;
+transform:translateX(-50%);
 
-.cake-decoration{
-    position:absolute;
-    bottom:73px;
-    left:50%;
-    transform:translateX(-50%);
-    width:245px;
-    display:flex;
-    justify-content:space-around;
-    color:var(--gold);
-    font-size:20px;
-    z-index:10;
+width:295px;
+height:60px;
+
+background:linear-gradient(135deg,#ff5c9c,#a92068);
+
+border-radius:0 0 30px 30px;
+
+box-shadow:0 25px 50px rgba(0,0,0,.5);
 }
 
 .cake-number{
-    position:absolute;
-    bottom:62px;
-    left:50%;
-    transform:translateX(-50%);
-    z-index:11;
+position:absolute;
+left:50%;
+bottom:68px;
+transform:translateX(-50%);
 
-    font-family:"Playfair Display",serif;
-    font-size:45px;
-    font-weight:700;
-    color:#fff;
-    text-shadow:
-        0 0 15px rgba(255,211,106,.8),
-        0 0 35px rgba(255,79,145,.7);
+font-family:"Playfair Display",serif;
+font-size:45px;
+font-weight:700;
+
+z-index:15;
+
+color:#fff;
+
+text-shadow:
+0 0 15px rgba(255,211,106,.9),
+0 0 35px rgba(255,79,145,.7);
 }
 
-/* =========================================================
-   INTRO TIMER
-========================================================= */
+/* =====================================================
+INTRO TIMER
+===================================================== */
 
 .intro-timer{
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    gap:10px;
-    margin-top:10px;
+display:flex;
+align-items:center;
+justify-content:center;
+gap:12px;
+margin-top:10px;
 }
 
 .timer-circle{
-    width:58px;
-    height:58px;
-    border-radius:50%;
-    border:1px solid rgba(255,255,255,.2);
-    background:rgba(255,255,255,.05);
+width:60px;
+height:60px;
 
-    display:flex;
-    align-items:center;
-    justify-content:center;
+display:flex;
+align-items:center;
+justify-content:center;
 
-    color:var(--gold);
-    font-weight:800;
-    font-size:17px;
+border-radius:50%;
 
-    box-shadow:0 0 30px rgba(255,79,145,.15);
+border:1px solid rgba(255,255,255,.18);
+background:rgba(255,255,255,.05);
+
+font-weight:900;
+font-size:18px;
+
+color:var(--gold);
+
+box-shadow:0 0 35px rgba(255,79,145,.18);
 }
 
 .timer-text{
-    font-size:12px;
-    color:rgba(255,255,255,.5);
+font-size:11px;
+color:rgba(255,255,255,.5);
+text-align:right;
 }
 
-/* =========================================================
-   BACKGROUND PARTICLES
-========================================================= */
+/* =====================================================
+PARTICLES
+===================================================== */
 
 .particles{
-    position:fixed;
-    inset:0;
-    pointer-events:none;
-    z-index:1;
+position:fixed;
+inset:0;
+pointer-events:none;
+z-index:1;
 }
 
 .particle{
-    position:absolute;
-    width:3px;
-    height:3px;
-    border-radius:50%;
-    background:#fff;
-    opacity:.5;
-    animation:starFloat linear infinite;
+position:absolute;
+width:3px;
+height:3px;
+border-radius:50%;
+background:#fff;
+opacity:.5;
+
+animation:particleMove linear infinite;
 }
 
-@keyframes starFloat{
-    from{
-        transform:translateY(110vh) scale(.4);
-    }
-    to{
-        transform:translateY(-10vh) scale(1.2);
-    }
+@keyframes particleMove{
+from{
+transform:translateY(105vh);
+}
+to{
+transform:translateY(-10vh);
+}
 }
 
-/* =========================================================
-   MAIN
-========================================================= */
+/* =====================================================
+SITE
+===================================================== */
 
 .site{
-    opacity:0;
-    transform:scale(.985);
-    transition:
-        opacity 1.4s ease,
-        transform 1.4s ease;
+opacity:0;
+transform:scale(.985);
+
+transition:
+opacity 1.4s ease,
+transform 1.4s ease;
 }
 
 .site.ready{
-    opacity:1;
-    transform:none;
+opacity:1;
+transform:none;
 }
 
-/* =========================================================
-   NAVBAR
-========================================================= */
+/* =====================================================
+NAV
+===================================================== */
 
 .nav{
-    position:fixed;
-    top:15px;
-    left:50%;
-    transform:translateX(-50%);
-    width:min(94%,1150px);
-    z-index:500;
+position:fixed;
+top:12px;
+left:50%;
+transform:translateX(-50%);
 
-    padding:10px 14px;
+width:min(94%,1150px);
 
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
+z-index:500;
 
-    background:rgba(12,5,18,.66);
-    backdrop-filter:blur(25px);
-    -webkit-backdrop-filter:blur(25px);
+display:flex;
+align-items:center;
+justify-content:space-between;
 
-    border:1px solid rgba(255,255,255,.1);
-    border-radius:22px;
+padding:10px 14px;
 
-    box-shadow:0 15px 50px rgba(0,0,0,.3);
+background:rgba(10,5,16,.72);
+backdrop-filter:blur(25px);
+-webkit-backdrop-filter:blur(25px);
+
+border:1px solid rgba(255,255,255,.1);
+border-radius:22px;
+
+box-shadow:0 20px 60px rgba(0,0,0,.3);
 }
 
 .logo{
-    display:flex;
-    align-items:center;
-    gap:10px;
+display:flex;
+align-items:center;
+gap:10px;
 }
 
 .logo-icon{
-    width:40px;
-    height:40px;
-    border-radius:14px;
+width:42px;
+height:42px;
 
-    display:flex;
-    align-items:center;
-    justify-content:center;
+border-radius:14px;
 
-    background:linear-gradient(135deg,var(--pink),var(--purple));
-    box-shadow:0 0 25px rgba(255,79,145,.3);
+display:flex;
+align-items:center;
+justify-content:center;
 
-    font-size:20px;
+background:linear-gradient(135deg,var(--pink),var(--purple));
+
+box-shadow:0 0 25px rgba(255,79,145,.3);
 }
 
 .logo-text{
-    font-weight:800;
-    font-size:14px;
+font-size:14px;
+font-weight:900;
 }
 
 .logo-sub{
-    font-size:9px;
-    color:rgba(255,255,255,.45);
+font-size:9px;
+color:rgba(255,255,255,.4);
 }
 
 .music-button{
-    border:1px solid rgba(255,255,255,.13);
-    background:rgba(255,255,255,.05);
-    color:#fff;
+border:1px solid rgba(255,255,255,.1);
+background:rgba(255,255,255,.05);
+color:#fff;
 
-    border-radius:14px;
-    padding:9px 14px;
+border-radius:14px;
+padding:9px 14px;
 
-    cursor:pointer;
-    transition:.3s;
+cursor:pointer;
 }
 
-.music-button:hover{
-    background:rgba(255,255,255,.1);
-    transform:translateY(-2px);
-}
-
-/* =========================================================
-   HERO
-========================================================= */
+/* =====================================================
+HERO
+===================================================== */
 
 .hero{
-    min-height:100vh;
-    padding:150px 20px 80px;
+min-height:100vh;
 
-    display:flex;
-    align-items:center;
-    justify-content:center;
+padding:145px 20px 80px;
 
-    position:relative;
-    overflow:hidden;
+display:flex;
+align-items:center;
+
+position:relative;
+overflow:hidden;
 }
 
 .hero::before{
-    content:"";
-    position:absolute;
-    width:700px;
-    height:700px;
-    border-radius:50%;
+content:"";
 
-    background:
-        radial-gradient(
-            circle,
-            rgba(255,79,145,.14),
-            transparent 68%
-        );
+position:absolute;
 
-    top:-250px;
-    right:-200px;
-}
+width:700px;
+height:700px;
 
-.hero::after{
-    content:"";
-    position:absolute;
-    width:600px;
-    height:600px;
-    border-radius:50%;
+border-radius:50%;
 
-    background:
-        radial-gradient(
-            circle,
-            rgba(143,92,255,.12),
-            transparent 70%
-        );
+background:radial-gradient(
+circle,
+rgba(255,79,145,.14),
+transparent 70%
+);
 
-    bottom:-300px;
-    left:-200px;
+top:-300px;
+right:-200px;
 }
 
 .hero-inner{
-    width:min(1200px,100%);
-    display:grid;
-    grid-template-columns:1fr 1.1fr;
-    gap:60px;
-    align-items:center;
-    position:relative;
-    z-index:3;
+width:min(1200px,100%);
+margin:auto;
+
+display:grid;
+grid-template-columns:1fr 1.1fr;
+
+gap:60px;
+
+align-items:center;
+
+position:relative;
+z-index:3;
 }
 
 .hero-copy{
-    order:1;
+order:1;
 }
 
 .eyebrow{
-    display:inline-flex;
-    align-items:center;
-    gap:8px;
+display:inline-flex;
 
-    padding:8px 14px;
-    border-radius:999px;
+padding:8px 14px;
 
-    background:rgba(255,255,255,.05);
-    border:1px solid rgba(255,255,255,.1);
+border-radius:999px;
 
-    color:var(--gold);
-    font-size:11px;
-    margin-bottom:22px;
+background:rgba(255,255,255,.05);
+border:1px solid rgba(255,255,255,.1);
+
+color:var(--gold);
+
+font-size:11px;
+
+margin-bottom:20px;
 }
 
 .hero h1{
-    font-size:clamp(45px,7vw,90px);
-    line-height:1.02;
-    font-weight:900;
-    margin-bottom:25px;
+font-size:clamp(48px,7vw,92px);
+line-height:1;
+font-weight:900;
+
+margin-bottom:25px;
 }
 
 .gradient-text{
-    background:linear-gradient(
-        135deg,
-        #fff,
-        var(--pink2),
-        var(--gold)
-    );
+background:linear-gradient(
+135deg,
+#fff,
+var(--pink2),
+var(--gold)
+);
 
-    -webkit-background-clip:text;
-    color:transparent;
+-webkit-background-clip:text;
+color:transparent;
 }
 
 .hero-desc{
-    max-width:600px;
-    color:rgba(255,255,255,.66);
-    font-size:16px;
-    line-height:2;
+max-width:600px;
+
+font-size:16px;
+line-height:2;
+
+color:rgba(255,255,255,.65);
 }
 
 .hero-buttons{
-    display:flex;
-    flex-wrap:wrap;
-    gap:12px;
-    margin-top:30px;
+display:flex;
+flex-wrap:wrap;
+gap:12px;
+
+margin-top:30px;
 }
 
 .btn{
-    border:0;
-    cursor:pointer;
+padding:14px 22px;
 
-    padding:14px 22px;
-    border-radius:15px;
+border-radius:15px;
 
-    font-weight:800;
-    color:#fff;
+font-weight:800;
 
-    transition:.3s;
+border:0;
+
+cursor:pointer;
+
+transition:.3s;
 }
 
 .btn-primary{
-    background:linear-gradient(135deg,var(--pink),var(--purple));
-    box-shadow:0 15px 35px rgba(255,79,145,.2);
+background:linear-gradient(
+135deg,
+var(--pink),
+var(--purple)
+);
+
+box-shadow:0 15px 35px rgba(255,79,145,.2);
 }
 
 .btn-secondary{
-    background:rgba(255,255,255,.05);
-    border:1px solid rgba(255,255,255,.1);
+background:rgba(255,255,255,.05);
+border:1px solid rgba(255,255,255,.1);
 }
 
 .btn:hover{
-    transform:translateY(-4px);
+transform:translateY(-4px);
 }
 
-/* =========================================================
-   HERO PHOTO WALL
-========================================================= */
+/* =====================================================
+PHOTO WALL
+===================================================== */
 
 .photo-wall{
-    height:600px;
-    position:relative;
+height:590px;
+position:relative;
 }
 
 .wall-main{
-    position:absolute;
-    width:62%;
-    height:76%;
+position:absolute;
 
-    right:8%;
-    top:8%;
+width:62%;
+height:76%;
 
-    border-radius:35px;
-    overflow:hidden;
+right:8%;
+top:8%;
 
-    border:1px solid rgba(255,255,255,.15);
+border-radius:35px;
 
-    box-shadow:
-        0 35px 100px rgba(0,0,0,.55),
-        0 0 60px rgba(255,79,145,.12);
+overflow:hidden;
 
-    transform:rotate(2deg);
+border:1px solid rgba(255,255,255,.14);
+
+box-shadow:
+0 35px 100px rgba(0,0,0,.55),
+0 0 60px rgba(255,79,145,.12);
+
+transform:rotate(2deg);
 }
 
 .wall-main img,
 .wall-card img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    display:block;
+width:100%;
+height:100%;
+object-fit:cover;
+display:block;
 }
 
 .wall-card{
-    position:absolute;
-    width:29%;
-    height:30%;
+position:absolute;
 
-    border-radius:24px;
-    overflow:hidden;
+width:29%;
+height:30%;
 
-    border:1px solid rgba(255,255,255,.15);
+border-radius:24px;
 
-    box-shadow:0 25px 60px rgba(0,0,0,.5);
+overflow:hidden;
+
+border:1px solid rgba(255,255,255,.14);
+
+box-shadow:0 25px 60px rgba(0,0,0,.5);
 }
 
 .wall-card.one{
-    left:0;
-    top:7%;
-    transform:rotate(-8deg);
+left:0;
+top:7%;
+transform:rotate(-8deg);
 }
 
 .wall-card.two{
-    left:5%;
-    bottom:15%;
-    transform:rotate(7deg);
+left:5%;
+bottom:15%;
+transform:rotate(7deg);
 }
 
 .wall-card.three{
-    right:0;
-    bottom:2%;
-    transform:rotate(-5deg);
+right:0;
+bottom:2%;
+transform:rotate(-5deg);
 }
 
 .wall-card.four{
-    right:3%;
-    top:0;
-    width:23%;
-    height:22%;
-    transform:rotate(7deg);
+right:3%;
+top:0;
+
+width:23%;
+height:22%;
+
+transform:rotate(7deg);
 }
 
-.photo-shine{
-    position:absolute;
-    inset:0;
-    background:linear-gradient(
-        120deg,
-        transparent 20%,
-        rgba(255,255,255,.2) 50%,
-        transparent 80%
-    );
-    transform:translateX(-120%);
-    animation:shine 6s infinite;
-}
-
-@keyframes shine{
-    0%,60%{transform:translateX(-120%)}
-    80%,100%{transform:translateX(120%)}
-}
-
-/* =========================================================
-   SECTION
-========================================================= */
+/* =====================================================
+SECTION
+===================================================== */
 
 .section{
-    width:min(1200px,92%);
-    margin:auto;
-    padding:110px 0;
-    position:relative;
+width:min(1200px,92%);
+margin:auto;
+
+padding:110px 0;
+position:relative;
 }
 
 .section-head{
-    max-width:720px;
-    margin-bottom:55px;
+max-width:720px;
+margin-bottom:55px;
 }
 
 .section-label{
-    color:var(--pink2);
-    font-size:11px;
-    letter-spacing:3px;
-    margin-bottom:13px;
+font-size:11px;
+letter-spacing:3px;
+color:var(--pink2);
+margin-bottom:12px;
 }
 
 .section-title{
-    font-size:clamp(30px,5vw,55px);
-    line-height:1.2;
-    margin-bottom:15px;
+font-size:clamp(30px,5vw,55px);
+line-height:1.2;
+
+margin-bottom:15px;
 }
 
 .section-desc{
-    color:rgba(255,255,255,.56);
-    line-height:2;
+font-size:14px;
+line-height:2;
+color:rgba(255,255,255,.55);
 }
 
-/* =========================================================
-   COUNTDOWN
-========================================================= */
+/* =====================================================
+COUNTDOWN
+===================================================== */
 
 .countdown-section{
-    text-align:center;
+text-align:center;
 }
 
 .countdown-box{
-    padding:45px 25px;
+padding:45px 25px;
 
-    background:
-        linear-gradient(
-            135deg,
-            rgba(255,79,145,.08),
-            rgba(143,92,255,.07)
-        );
+border-radius:35px;
 
-    border:1px solid rgba(255,255,255,.1);
-    border-radius:35px;
+background:
+linear-gradient(
+135deg,
+rgba(255,79,145,.08),
+rgba(143,92,255,.07)
+);
 
-    box-shadow:var(--shadow);
+border:1px solid rgba(255,255,255,.1);
+
+box-shadow:
+0 30px 100px rgba(0,0,0,.4);
 }
 
 .countdown-title{
-    font-size:22px;
-    margin-bottom:30px;
+font-size:22px;
+margin-bottom:30px;
 }
 
 .countdown{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:15px;
-    max-width:750px;
-    margin:auto;
+display:grid;
+grid-template-columns:repeat(4,1fr);
+
+gap:15px;
+
+max-width:750px;
+
+margin:auto;
 }
 
 .time-card{
-    min-height:130px;
+min-height:130px;
 
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    justify-content:center;
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:center;
 
-    background:rgba(255,255,255,.045);
-    border:1px solid rgba(255,255,255,.1);
-    border-radius:24px;
+background:rgba(255,255,255,.045);
+
+border:1px solid rgba(255,255,255,.1);
+
+border-radius:24px;
 }
 
 .time-number{
-    font-family:"Playfair Display",serif;
-    font-size:clamp(35px,7vw,65px);
-    font-weight:700;
+font-family:"Playfair Display",serif;
 
-    background:linear-gradient(
-        135deg,
-        #fff,
-        var(--gold),
-        var(--pink2)
-    );
+font-size:clamp(35px,7vw,65px);
 
-    -webkit-background-clip:text;
-    color:transparent;
+background:linear-gradient(
+135deg,
+#fff,
+var(--gold),
+var(--pink2)
+);
+
+-webkit-background-clip:text;
+color:transparent;
 }
 
 .time-label{
-    color:rgba(255,255,255,.45);
-    font-size:11px;
-    margin-top:5px;
+font-size:11px;
+color:rgba(255,255,255,.45);
 }
 
-/* =========================================================
-   MUSIC
-========================================================= */
-
-.music-section{
-    padding-top:40px;
-}
+/* =====================================================
+MUSIC
+===================================================== */
 
 .music-card{
-    display:flex;
-    align-items:center;
-    gap:25px;
+display:flex;
+align-items:center;
+gap:22px;
 
-    padding:25px;
+padding:25px;
 
-    border-radius:28px;
+border-radius:28px;
 
-    background:rgba(255,255,255,.045);
-    border:1px solid rgba(255,255,255,.1);
+background:rgba(255,255,255,.045);
+
+border:1px solid rgba(255,255,255,.1);
 }
 
 .music-disc{
-    width:80px;
-    height:80px;
-    min-width:80px;
+width:80px;
+height:80px;
+min-width:80px;
 
-    border-radius:50%;
+border-radius:50%;
 
-    background:
-        radial-gradient(circle,#fff 0 5%,transparent 6%),
-        conic-gradient(
-            var(--pink),
-            var(--purple),
-            var(--gold),
-            var(--pink)
-        );
+background:
+radial-gradient(circle,#fff 0 5%,transparent 6%),
+conic-gradient(
+var(--pink),
+var(--purple),
+var(--gold),
+var(--pink)
+);
 
-    box-shadow:0 0 35px rgba(255,79,145,.25);
-
-    animation:disc 5s linear infinite;
-    animation-play-state:paused;
+animation:disc 5s linear infinite;
+animation-play-state:paused;
 }
 
 .music-disc.playing{
-    animation-play-state:running;
+animation-play-state:running;
 }
 
 @keyframes disc{
-    to{transform:rotate(360deg)}
+to{
+transform:rotate(360deg);
+}
 }
 
 .music-info{
-    flex:1;
+flex:1;
 }
 
 .music-info h3{
-    margin-bottom:5px;
+margin-bottom:5px;
 }
 
 .music-info p{
-    color:rgba(255,255,255,.48);
-    font-size:12px;
+font-size:12px;
+color:rgba(255,255,255,.45);
 }
 
 .music-play{
-    width:55px;
-    height:55px;
-    border-radius:50%;
-    border:0;
-    cursor:pointer;
+width:55px;
+height:55px;
 
-    background:linear-gradient(135deg,var(--pink),var(--purple));
-    color:#fff;
-    font-size:20px;
+border:0;
+border-radius:50%;
+
+background:linear-gradient(
+135deg,
+var(--pink),
+var(--purple)
+);
+
+color:#fff;
+
+font-size:18px;
+
+cursor:pointer;
 }
 
-/* =========================================================
-   PHOTO JOURNEY
-========================================================= */
+/* =====================================================
+MEMORIES
+===================================================== */
 
 .photo-grid{
-    display:grid;
-    grid-template-columns:repeat(12,1fr);
-    gap:16px;
+display:grid;
+grid-template-columns:repeat(12,1fr);
+gap:16px;
 }
 
 .memory{
-    position:relative;
-    height:390px;
-    border-radius:28px;
-    overflow:hidden;
+height:390px;
 
-    border:1px solid rgba(255,255,255,.1);
+position:relative;
 
-    cursor:pointer;
+overflow:hidden;
 
-    box-shadow:0 25px 60px rgba(0,0,0,.35);
+border-radius:28px;
 
-    transition:.5s;
+border:1px solid rgba(255,255,255,.1);
+
+cursor:pointer;
+
+box-shadow:0 25px 60px rgba(0,0,0,.35);
+
+transition:.5s;
 }
 
 .memory:hover{
-    transform:translateY(-10px) scale(1.015);
-}
-
-.memory:nth-child(1),
-.memory:nth-child(4),
-.memory:nth-child(7),
-.memory:nth-child(10){
-    grid-column:span 5;
-}
-
-.memory:nth-child(2),
-.memory:nth-child(3),
-.memory:nth-child(5),
-.memory:nth-child(6),
-.memory:nth-child(8),
-.memory:nth-child(9),
-.memory:nth-child(11),
-.memory:nth-child(12){
-    grid-column:span 3.5;
+transform:translateY(-10px);
 }
 
 .memory img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
+width:100%;
+height:100%;
 
-    transition:1s;
+object-fit:cover;
+
+transition:1s;
 }
 
 .memory:hover img{
-    transform:scale(1.08);
+transform:scale(1.08);
 }
 
 .memory::after{
-    content:"";
-    position:absolute;
-    inset:0;
+content:"";
 
-    background:
-        linear-gradient(
-            to top,
-            rgba(0,0,0,.8),
-            transparent 60%
-        );
+position:absolute;
+inset:0;
+
+background:linear-gradient(
+to top,
+rgba(0,0,0,.85),
+transparent 65%
+);
 }
 
 .memory-info{
-    position:absolute;
-    bottom:20px;
-    right:20px;
-    left:20px;
-    z-index:2;
+position:absolute;
+
+right:20px;
+left:20px;
+bottom:20px;
+
+z-index:2;
 }
 
 .memory-number{
-    color:var(--gold);
-    font-size:10px;
-    letter-spacing:3px;
+font-size:10px;
+letter-spacing:3px;
+color:var(--gold);
 }
 
 .memory-title{
-    font-size:22px;
-    font-weight:800;
+font-size:21px;
+font-weight:800;
 }
 
-/* =========================================================
-   17 WISHES
-========================================================= */
+/* =====================================================
+17 WISHES
+===================================================== */
 
 .wishes{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:15px;
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:15px;
 }
 
 .wish{
-    min-height:150px;
-    padding:25px;
+min-height:150px;
 
-    border-radius:25px;
+padding:25px;
 
-    background:linear-gradient(
-        145deg,
-        rgba(255,255,255,.055),
-        rgba(255,255,255,.025)
-    );
+border-radius:25px;
 
-    border:1px solid rgba(255,255,255,.09);
+background:
+linear-gradient(
+145deg,
+rgba(255,255,255,.055),
+rgba(255,255,255,.025)
+);
 
-    position:relative;
-    overflow:hidden;
+border:1px solid rgba(255,255,255,.09);
 
-    transition:.4s;
+position:relative;
+
+overflow:hidden;
+
+transition:.4s;
 }
 
 .wish:hover{
-    transform:translateY(-7px);
-    border-color:rgba(255,79,145,.35);
+transform:translateY(-7px);
+
+border-color:
+rgba(255,79,145,.35);
 }
 
 .wish-number{
-    font-family:"Playfair Display",serif;
-    color:rgba(255,255,255,.16);
-    font-size:45px;
-    position:absolute;
-    left:15px;
-    top:5px;
+position:absolute;
+
+left:15px;
+top:5px;
+
+font-family:"Playfair Display",serif;
+
+font-size:45px;
+
+color:rgba(255,255,255,.13);
 }
 
 .wish-icon{
-    font-size:25px;
-    margin-bottom:12px;
+font-size:25px;
+margin-bottom:10px;
 }
 
 .wish p{
-    color:rgba(255,255,255,.7);
-    line-height:1.9;
-    font-size:13px;
+font-size:13px;
+
+line-height:1.9;
+
+color:rgba(255,255,255,.68);
 }
 
-/* =========================================================
-   LETTER
-========================================================= */
+/* =====================================================
+LETTER
+===================================================== */
 
 .letter{
-    position:relative;
+padding:70px 8%;
 
-    padding:70px 8%;
+border-radius:40px;
 
-    border-radius:40px;
+background:
+radial-gradient(
+circle at 20% 20%,
+rgba(255,79,145,.12),
+transparent 35%
+),
+linear-gradient(
+135deg,
+rgba(255,255,255,.06),
+rgba(255,255,255,.025)
+);
 
-    background:
-        radial-gradient(
-            circle at 20% 20%,
-            rgba(255,79,145,.12),
-            transparent 35%
-        ),
-        linear-gradient(
-            135deg,
-            rgba(255,255,255,.06),
-            rgba(255,255,255,.025)
-        );
+border:1px solid rgba(255,255,255,.1);
 
-    border:1px solid rgba(255,255,255,.1);
-
-    box-shadow:var(--shadow);
-}
-
-.letter::before{
-    content:"“";
-    position:absolute;
-    top:-30px;
-    right:30px;
-
-    font-family:Georgia,serif;
-    font-size:160px;
-    color:rgba(255,79,145,.12);
+box-shadow:0 30px 100px rgba(0,0,0,.4);
 }
 
 .letter-title{
-    font-size:32px;
-    margin-bottom:25px;
+font-size:32px;
+margin-bottom:25px;
 }
 
 .letter-text{
-    font-size:16px;
-    color:rgba(255,255,255,.72);
-    line-height:2.4;
-    white-space:pre-line;
+font-size:16px;
+line-height:2.4;
+color:rgba(255,255,255,.72);
+white-space:pre-line;
 }
 
-/* =========================================================
-   SECRET CARDS
-========================================================= */
+/* =====================================================
+SECRET
+===================================================== */
 
 .secret-grid{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:20px;
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:20px;
 }
 
 .secret-card{
-    min-height:250px;
-    perspective:1000px;
-    cursor:pointer;
+min-height:250px;
+perspective:1000px;
+cursor:pointer;
 }
 
 .secret-inner{
-    position:relative;
-    width:100%;
-    height:100%;
-    min-height:250px;
+position:relative;
 
-    transition:transform .8s;
-    transform-style:preserve-3d;
+width:100%;
+height:100%;
+min-height:250px;
+
+transition:transform .8s;
+
+transform-style:preserve-3d;
 }
 
 .secret-card.open .secret-inner{
-    transform:rotateY(180deg);
+transform:rotateY(180deg);
 }
 
 .secret-front,
 .secret-back{
-    position:absolute;
-    inset:0;
+position:absolute;
+inset:0;
 
-    backface-visibility:hidden;
+backface-visibility:hidden;
 
-    border-radius:30px;
-    padding:30px;
+border-radius:30px;
 
-    border:1px solid rgba(255,255,255,.1);
+padding:30px;
 
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    justify-content:center;
-    text-align:center;
+display:flex;
+flex-direction:column;
+
+align-items:center;
+justify-content:center;
+
+text-align:center;
+
+border:1px solid rgba(255,255,255,.1);
 }
 
 .secret-front{
-    background:
-        linear-gradient(
-            145deg,
-            rgba(255,79,145,.1),
-            rgba(143,92,255,.08)
-        );
+background:
+linear-gradient(
+145deg,
+rgba(255,79,145,.1),
+rgba(143,92,255,.08)
+);
 }
 
 .secret-back{
-    transform:rotateY(180deg);
-    background:
-        linear-gradient(
-            145deg,
-            rgba(255,211,106,.08),
-            rgba(255,79,145,.1)
-        );
+transform:rotateY(180deg);
+
+background:
+linear-gradient(
+145deg,
+rgba(255,211,106,.08),
+rgba(255,79,145,.1)
+);
 }
 
 .secret-icon{
-    font-size:48px;
-    margin-bottom:20px;
+font-size:48px;
+margin-bottom:18px;
 }
 
 .secret-front p,
 .secret-back p{
-    color:rgba(255,255,255,.65);
-    line-height:2;
+font-size:13px;
+line-height:2;
+color:rgba(255,255,255,.65);
 }
 
-/* =========================================================
-   FINAL SCENE
-========================================================= */
+/* =====================================================
+JOKER GIFT SECTION
+===================================================== */
 
-.final-section{
-    min-height:80vh;
+.joker-area{
+text-align:center;
 
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    text-align:center;
-
-    overflow:hidden;
+padding:120px 20px;
 }
 
-.final-card{
-    width:min(850px,100%);
+.joker-box{
+width:min(900px,100%);
 
-    padding:70px 30px;
+margin:auto;
 
-    position:relative;
+padding:70px 30px;
 
-    border-radius:45px;
+border-radius:45px;
 
-    background:
-        radial-gradient(
-            circle at center,
-            rgba(255,79,145,.13),
-            transparent 65%
-        );
+position:relative;
+overflow:hidden;
 
-    border:1px solid rgba(255,255,255,.08);
+background:
+radial-gradient(
+circle at center,
+rgba(255,79,145,.13),
+transparent 65%
+);
+
+border:1px solid rgba(255,255,255,.09);
 }
 
-.final-crown{
-    font-size:60px;
-    animation:crownFloat 2.5s ease-in-out infinite;
+.joker-symbol{
+font-size:70px;
+
+animation:jokerFloat 2.5s ease-in-out infinite;
 }
 
-@keyframes crownFloat{
-    0%,100%{transform:translateY(0)}
-    50%{transform:translateY(-12px)}
+@keyframes jokerFloat{
+0%,100%{
+transform:translateY(0) rotate(-3deg);
+}
+50%{
+transform:translateY(-12px) rotate(3deg);
+}
 }
 
-.final-card h2{
-    font-size:clamp(38px,7vw,75px);
-    margin:15px 0;
+.joker-box h2{
+font-size:clamp(35px,6vw,65px);
+
+margin:15px 0;
 }
 
-.final-card p{
-    color:rgba(255,255,255,.6);
-    line-height:2;
-    max-width:600px;
-    margin:auto;
+.joker-box p{
+max-width:650px;
+
+margin:auto;
+
+line-height:2;
+
+color:rgba(255,255,255,.58);
 }
 
-.celebrate-btn{
-    margin-top:30px;
+.joker-button{
+display:inline-block;
 
-    padding:16px 30px;
+margin-top:30px;
 
-    border:0;
-    border-radius:18px;
+padding:17px 30px;
 
-    cursor:pointer;
+border-radius:18px;
 
-    color:#160711;
-    background:linear-gradient(
-        135deg,
-        var(--gold),
-        var(--gold2)
-    );
+font-weight:900;
 
-    font-weight:900;
+color:#17070f;
 
-    box-shadow:
-        0 15px 40px rgba(255,211,106,.15);
+background:
+linear-gradient(
+135deg,
+var(--gold),
+var(--gold2)
+);
 
-    transition:.3s;
+box-shadow:
+0 15px 50px rgba(255,211,106,.18);
+
+transition:.3s;
 }
 
-.celebrate-btn:hover{
-    transform:translateY(-5px) scale(1.03);
+.joker-button:hover{
+transform:translateY(-5px) scale(1.03);
 }
 
-/* =========================================================
-   FOOTER
-========================================================= */
-
-footer{
-    padding:50px 20px 80px;
-    text-align:center;
-
-    color:rgba(255,255,255,.4);
-    font-size:12px;
-}
-
-.footer-heart{
-    color:var(--pink);
-    font-size:18px;
-}
-
-/* =========================================================
-   LIGHTBOX
-========================================================= */
+/* =====================================================
+LIGHTBOX
+===================================================== */
 
 .lightbox{
-    position:fixed;
-    inset:0;
-    z-index:9999;
+position:fixed;
+inset:0;
 
-    background:rgba(0,0,0,.92);
-    backdrop-filter:blur(20px);
+z-index:9999;
 
-    display:flex;
-    align-items:center;
-    justify-content:center;
+background:rgba(0,0,0,.94);
 
-    opacity:0;
-    visibility:hidden;
+backdrop-filter:blur(20px);
 
-    transition:.4s;
+display:flex;
+align-items:center;
+justify-content:center;
 
-    padding:20px;
+padding:20px;
+
+opacity:0;
+visibility:hidden;
+
+transition:.4s;
 }
 
 .lightbox.show{
-    opacity:1;
-    visibility:visible;
+opacity:1;
+visibility:visible;
 }
 
 .lightbox img{
-    max-width:95%;
-    max-height:85vh;
+max-width:95%;
+max-height:85vh;
 
-    border-radius:25px;
+border-radius:25px;
 
-    box-shadow:
-        0 30px 100px rgba(0,0,0,.8);
+box-shadow:0 30px 100px rgba(0,0,0,.8);
 }
 
 .close-lightbox{
-    position:absolute;
-    top:20px;
-    right:20px;
+position:absolute;
 
-    width:45px;
-    height:45px;
+top:20px;
+right:20px;
 
-    border-radius:50%;
-    border:1px solid rgba(255,255,255,.15);
+width:45px;
+height:45px;
 
-    background:rgba(255,255,255,.08);
-    color:#fff;
+border-radius:50%;
 
-    font-size:22px;
-    cursor:pointer;
+background:rgba(255,255,255,.08);
+
+border:1px solid rgba(255,255,255,.15);
+
+color:#fff;
+
+font-size:24px;
+
+cursor:pointer;
 }
 
-/* =========================================================
-   TOAST
-========================================================= */
+/* =====================================================
+TOAST
+===================================================== */
 
 .toast{
-    position:fixed;
-    bottom:25px;
-    left:50%;
-    transform:translateX(-50%) translateY(100px);
+position:fixed;
 
-    z-index:10000;
+bottom:25px;
+left:50%;
 
-    background:rgba(20,8,25,.9);
-    border:1px solid rgba(255,255,255,.12);
+transform:translateX(-50%) translateY(100px);
 
-    padding:14px 20px;
-    border-radius:16px;
+z-index:10000;
 
-    box-shadow:0 20px 50px rgba(0,0,0,.4);
+background:rgba(20,8,25,.92);
 
-    opacity:0;
-    transition:.4s;
+border:1px solid rgba(255,255,255,.12);
+
+padding:14px 20px;
+
+border-radius:16px;
+
+opacity:0;
+
+transition:.4s;
 }
 
 .toast.show{
-    opacity:1;
-    transform:translateX(-50%) translateY(0);
+opacity:1;
+transform:translateX(-50%) translateY(0);
 }
 
-/* =========================================================
-   CONFETTI
-========================================================= */
+/* =====================================================
+CONFETTI
+===================================================== */
 
 .confetti{
-    position:fixed;
-    top:-20px;
+position:fixed;
 
-    width:8px;
-    height:14px;
+top:-20px;
 
-    z-index:10001;
+z-index:10001;
 
-    pointer-events:none;
+pointer-events:none;
 
-    animation:confettiFall 3.5s linear forwards;
+animation:confettiFall 3.5s linear forwards;
 }
 
 @keyframes confettiFall{
-    to{
-        transform:
-            translateY(110vh)
-            rotate(720deg);
-        opacity:0;
-    }
+to{
+transform:
+translateY(110vh)
+rotate(720deg);
+
+opacity:0;
+}
 }
 
-/* =========================================================
-   FLOATING HEART
-========================================================= */
+/* =====================================================
+HEARTS
+===================================================== */
 
 .floating-heart{
-    position:fixed;
-    bottom:-30px;
-    z-index:2;
+position:fixed;
 
-    pointer-events:none;
+bottom:-30px;
 
-    font-size:15px;
+z-index:2;
 
-    animation:heartRise linear forwards;
+pointer-events:none;
+
+animation:heartRise linear forwards;
 }
 
 @keyframes heartRise{
-    0%{
-        transform:translateY(0) scale(.7) rotate(0);
-        opacity:0;
-    }
-    15%{
-        opacity:.6;
-    }
-    100%{
-        transform:
-            translateY(-110vh)
-            scale(1.4)
-            rotate(30deg);
-        opacity:0;
-    }
+0%{
+transform:translateY(0) scale(.7);
+opacity:0;
 }
 
-/* =========================================================
-   REVEAL
-========================================================= */
+15%{
+opacity:.6;
+}
+
+100%{
+transform:
+translateY(-110vh)
+scale(1.4)
+rotate(30deg);
+
+opacity:0;
+}
+}
+
+/* =====================================================
+REVEAL
+===================================================== */
 
 .reveal{
-    opacity:0;
-    transform:translateY(35px);
-    transition:
-        opacity .9s ease,
-        transform .9s ease;
+opacity:0;
+
+transform:translateY(35px);
+
+transition:
+opacity .9s ease,
+transform .9s ease;
 }
 
 .reveal.visible{
-    opacity:1;
-    transform:none;
+opacity:1;
+transform:none;
 }
 
-/* =========================================================
-   RESPONSIVE
-========================================================= */
+/* =====================================================
+RESPONSIVE
+===================================================== */
 
 @media(max-width:900px){
 
-    .hero-inner{
-        grid-template-columns:1fr;
-        gap:40px;
-    }
+.hero-inner{
+grid-template-columns:1fr;
+gap:40px;
+}
 
-    .hero-copy{
-        order:0;
-        text-align:center;
-    }
+.hero-copy{
+order:0;
+text-align:center;
+}
 
-    .hero-desc{
-        margin:auto;
-    }
+.hero-desc{
+margin:auto;
+}
 
-    .hero-buttons{
-        justify-content:center;
-    }
+.hero-buttons{
+justify-content:center;
+}
 
-    .photo-wall{
-        height:480px;
-    }
+.photo-wall{
+height:470px;
+}
 
-    .wishes{
-        grid-template-columns:repeat(2,1fr);
-    }
+.wishes{
+grid-template-columns:repeat(2,1fr);
+}
 
-    .secret-grid{
-        grid-template-columns:1fr;
-    }
+.secret-grid{
+grid-template-columns:1fr;
+}
 
-    .memory:nth-child(n){
-        grid-column:span 6;
-    }
 }
 
 @media(max-width:600px){
 
-    .nav{
-        top:8px;
-        border-radius:18px;
-    }
-
-    .logo-text{
-        font-size:12px;
-    }
-
-    .music-button{
-        padding:8px 10px;
-        font-size:11px;
-    }
-
-    .hero{
-        padding-top:120px;
-    }
-
-    .photo-wall{
-        height:390px;
-    }
-
-    .wall-main{
-        width:62%;
-        height:75%;
-    }
-
-    .wall-card{
-        width:29%;
-        height:28%;
-    }
-
-    .countdown{
-        grid-template-columns:repeat(2,1fr);
-    }
-
-    .time-card{
-        min-height:110px;
-    }
-
-    .music-card{
-        padding:18px;
-        gap:15px;
-    }
-
-    .music-disc{
-        width:60px;
-        height:60px;
-        min-width:60px;
-    }
-
-    .memory:nth-child(n){
-        grid-column:span 12;
-        height:420px;
-    }
-
-    .wishes{
-        grid-template-columns:1fr;
-    }
-
-    .letter{
-        padding:45px 25px;
-    }
-
-    .intro-title{
-        font-size:35px;
-    }
-
-    .cake-area{
-        transform:scale(.82);
-        margin-left:auto;
-        margin-right:auto;
-    }
+.nav{
+top:7px;
+border-radius:18px;
 }
 
-/* =========================================================
-   REDUCED MOTION
-========================================================= */
+.logo-text{
+font-size:12px;
+}
 
-@media(prefers-reduced-motion:reduce){
+.music-button{
+font-size:10px;
+padding:8px 10px;
+}
 
-    *,
-    *::before,
-    *::after{
-        animation-duration:.01ms!important;
-        animation-iteration-count:1!important;
-        scroll-behavior:auto!important;
-    }
+.hero{
+padding-top:120px;
+}
+
+.hero h1{
+font-size:50px;
+}
+
+.photo-wall{
+height:390px;
+}
+
+.countdown{
+grid-template-columns:repeat(2,1fr);
+}
+
+.time-card{
+min-height:105px;
+}
+
+.music-card{
+padding:18px;
+gap:15px;
+}
+
+.music-disc{
+width:60px;
+height:60px;
+min-width:60px;
+}
+
+.memory{
+grid-column:span 12!important;
+height:420px;
+}
+
+.wishes{
+grid-template-columns:1fr;
+}
+
+.letter{
+padding:45px 25px;
+}
+
+.intro-title{
+font-size:35px;
+}
+
+.cake-area{
+transform:scale(.82);
+margin-left:auto;
+margin-right:auto;
+}
+
+.joker-box{
+padding:55px 20px;
+}
+
 }
 
 </style>
@@ -1571,1138 +1524,1441 @@ footer{
 
 <body>
 
-<!-- =======================================================
-     INTRO
-======================================================= -->
+<!-- =====================================================
+INTRO
+===================================================== -->
 
 <div class="intro" id="intro">
 
-    <div class="particles" id="introParticles"></div>
+<div class="particles" id="introParticles"></div>
 
-    <div class="intro-content">
+<div class="intro-content">
 
-        <div class="intro-small">
-            A SPECIAL DAY FOR SOMEONE SPECIAL
-        </div>
+<div class="intro-small">
+A SPECIAL BIRTHDAY EXPERIENCE
+</div>
 
-        <h1 class="intro-title">
-            النهارده مش يوم عادي...
-        </h1>
+<h1 class="intro-title">
+النهارده يوم ملك 👑
+</h1>
 
-        <p class="intro-sub">
-            النهارده يوم اتولدت فيه حكاية جميلة اسمها
-            <strong style="color:#ffd36a">ملك</strong> 👑
-        </p>
+<p class="intro-sub">
+مش كل يوم يستاهل موقع كامل...
+<br>
+بس يوم ملك يستاهل أكتر من كده.
+</p>
 
-        <div class="cake-area">
+<div class="cake-area">
 
-            <div class="cake-candles" id="candles"></div>
+<div class="cake-candles" id="candles"></div>
 
-            <div class="cake-top"></div>
+<div class="cake-top"></div>
 
-            <div class="cake-middle"></div>
+<div class="cake-middle"></div>
 
-            <div class="cake-bottom"></div>
+<div class="cake-bottom"></div>
 
-            <div class="cake-decoration">
-                <span>✦</span>
-                <span>♡</span>
-                <span>✦</span>
-                <span>♡</span>
-                <span>✦</span>
-            </div>
+<div class="cake-number">
+17
+</div>
 
-            <div class="cake-number">
-                17
-            </div>
+</div>
 
-        </div>
+<div class="intro-timer">
 
-        <div class="intro-timer">
+<div class="timer-circle" id="introTimer">
+10
+</div>
 
-            <div class="timer-circle" id="introTimer">
-                10
-            </div>
+<div class="timer-text">
+ثواني بسيطة...
+<br>
+والاحتفال هيبدأ ✨
+</div>
 
-            <div class="timer-text">
-                استني بس...
-                <br>
-                في حاجة كبيرة جاية ✨
-            </div>
+</div>
 
-        </div>
-
-    </div>
+</div>
 
 </div>
 
 
-<!-- =======================================================
-     MAIN SITE
-======================================================= -->
+<!-- =====================================================
+MAIN SITE
+===================================================== -->
 
 <div class="site" id="site">
 
-    <!-- PARTICLES -->
-    <div class="particles" id="particles"></div>
+<div class="particles" id="particles"></div>
 
 
-    <!-- NAV -->
-    <nav class="nav">
+<!-- NAV -->
 
-        <div class="logo">
+<nav class="nav">
 
-            <div class="logo-icon">
-                👑
-            </div>
+<div class="logo">
 
-            <div>
-                <div class="logo-text">
-                    ملك
-                </div>
+<div class="logo-icon">
+👑
+</div>
 
-                <div class="logo-sub">
-                    يومها الكبير
-                </div>
-            </div>
+<div>
 
-        </div>
+<div class="logo-text">
+ملك
+</div>
 
-        <button class="music-button" id="musicButton">
-            🎵 شغّلي الأغنية
-        </button>
+<div class="logo-sub">
+17 سنة من الجمال
+</div>
 
-    </nav>
+</div>
 
+</div>
 
-    <!-- ===================================================
-         HERO
-    ==================================================== -->
+<button class="music-button" id="musicButton">
+🎵 شغّلي الأغنية
+</button>
 
-    <header class="hero">
+</nav>
 
-        <div class="hero-inner">
 
-            <div class="hero-copy">
+<!-- =====================================================
+HERO
+===================================================== -->
 
-                <div class="eyebrow">
-                    ✨ اليوم اللي الدنيا بقت فيه أحلى
-                </div>
+<header class="hero">
 
-                <h1>
-                    عيد ميلاد
-                    <span class="gradient-text">
-                        ملك
-                    </span>
-                    👑
-                </h1>
+<div class="hero-inner">
 
-                <p class="hero-desc">
-                    في ناس عيد ميلادها بيعدي عادي...
-                    وفي ناس وجودها نفسه بيخلي اليوم يستاهل
-                    يتعمل له عالم كامل.
-                    <br><br>
-                    والنهارده؟
-                    العالم ده معمول عشانك إنتِ.
-                </p>
+<div class="hero-copy">
 
-                <div class="hero-buttons">
+<div class="eyebrow">
+✨ يوم معمول مخصوص لملك
+</div>
 
-                    <a href="#countdown" class="btn btn-primary">
-                        ⏳ شوفي العد التنازلي
-                    </a>
+<h1>
+عيد ميلاد
+<br>
+<span class="gradient-text">
+ملك
+</span>
+👑
+</h1>
 
-                    <a href="#memories" class="btn btn-secondary">
-                        📸 شوفي الحكاية
-                    </a>
+<p class="hero-desc">
 
-                </div>
+في ناس عيد ميلادها بيعدي...
+وفي ناس وجودها يخلي اليوم نفسه يستاهل الاحتفال.
 
-            </div>
+النهارده عملنا عالم صغير كله مخصوص عشانك.
 
+صور،
+موسيقى،
+ذكريات،
+أمنيات،
+ومفاجآت...
 
-            <!-- PHOTO WALL -->
+وكل تفصيلة فيه بتقول:
 
-            <div class="photo-wall">
-
-                <div class="wall-main">
-                    <img src="photos/01.jpg" alt="ملك">
-                    <div class="photo-shine"></div>
-                </div>
-
-                <div class="wall-card one">
-                    <img src="photos/02.jpg" alt="">
-                </div>
-
-                <div class="wall-card two">
-                    <img src="photos/03.jpg" alt="">
-                </div>
-
-                <div class="wall-card three">
-                    <img src="photos/04.jpg" alt="">
-                </div>
-
-                <div class="wall-card four">
-                    <img src="photos/05.jpg" alt="">
-                </div>
-
-            </div>
-
-        </div>
-
-    </header>
-
-
-    <!-- ===================================================
-         COUNTDOWN
-    ==================================================== -->
-
-    <section class="section countdown-section reveal" id="countdown">
-
-        <div class="section-head" style="margin-left:auto;margin-right:auto;text-align:center">
-
-            <div class="section-label">
-                THE BIG MOMENT
-            </div>
-
-            <h2 class="section-title">
-                لسه كام لحظة على اليوم الكبير؟ ⏳
-            </h2>
-
-            <p class="section-desc">
-                العد هنا بيحسب الوقت المتبقي لعيد ميلاد ملك.
-                وكل ثانية بتقربنا من لحظة الاحتفال.
-            </p>
-
-        </div>
-
-
-        <div class="countdown-box">
-
-            <div class="countdown-title">
-                🎂 لحد عيد ميلاد ملك
-            </div>
-
-            <div class="countdown">
-
-                <div class="time-card">
-                    <div class="time-number" id="days">
-                        00
-                    </div>
-                    <div class="time-label">
-                        يوم
-                    </div>
-                </div>
-
-                <div class="time-card">
-                    <div class="time-number" id="hours">
-                        00
-                    </div>
-                    <div class="time-label">
-                        ساعة
-                    </div>
-                </div>
-
-                <div class="time-card">
-                    <div class="time-number" id="minutes">
-                        00
-                    </div>
-                    <div class="time-label">
-                        دقيقة
-                    </div>
-                </div>
-
-                <div class="time-card">
-                    <div class="time-number" id="seconds">
-                        00
-                    </div>
-                    <div class="time-label">
-                        ثانية
-                    </div>
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- ===================================================
-         MUSIC
-    ==================================================== -->
-
-    <section class="section music-section reveal">
-
-        <div class="music-card">
-
-            <div class="music-disc" id="musicDisc"></div>
-
-            <div class="music-info">
-
-                <h3>
-                    أغنية اليوم 🎵
-                </h3>
-
-                <p>
-                    لأن عيد الميلاد من غير موسيقى ناقص حاجة.
-                </p>
-
-            </div>
-
-            <button class="music-play" id="musicPlay">
-                ▶
-            </button>
-
-        </div>
-
-    </section>
-
-
-    <!-- ===================================================
-         MEMORIES
-    ==================================================== -->
-
-    <section class="section reveal" id="memories">
-
-        <div class="section-head">
-
-            <div class="section-label">
-                12 MOMENTS
-            </div>
-
-            <h2 class="section-title">
-                ١٢ صورة...
-                <span class="gradient-text">
-                    وحكاية واحدة
-                </span>
-            </h2>
-
-            <p class="section-desc">
-                مش مجرد صور اتحطت في موقع.
-                كل صورة هنا جزء من المشهد الكبير.
-                اضغطي على أي صورة وشوفيها بالحجم الكامل.
-            </p>
-
-        </div>
-
-
-        <div class="photo-grid">
-
-            <div class="memory">
-                <img src="photos/01.jpg" alt="ذكرى 1">
-                <div class="memory-info">
-                    <div class="memory-number">01 / 12</div>
-                    <div class="memory-title">البداية ✨</div>
-                </div>
-            </div>
-
-            <div class="memory">
-                <img src="photos/02.jpg" alt="ذكرى 2">
-                <div class="memory-info">
-                    <div class="memory-number">02 / 12</div>
-                    <div class="memory-title">الضحكة 🤍</div>
-                </div>
-            </div>
-
-            <div class="memory">
-                <img src="photos/03.jpg" alt="ذكرى 3">
-                <div class="memory-info">
-                    <div class="memory-number">03 / 12</div>
-                    <div class="memory-title">تفصيلة جميلة</div>
-                </div>
-            </div>
-
-            <div class="memory">
-                <img src="photos/04.jpg" alt="ذكرى 4">
-                <div class="memory-info">
-                    <div class="memory-number">04 / 12</div>
-                    <div class="memory-title">لحظة ✨</div>
-                </div>
-            </div>
-
-            <div class="memory">
-                <img src="photos/05.jpg" alt="ذكرى 5">
-                <div class="memory-info">
-                    <div class="memory-number">05 / 12</div>
-                    <div class="memory-title">تفاصيل</div>
-                </div>
-            </div>
-
-            <div class="memory">
-                <img src="photos/06.jpg" alt="ذكرى 6">
-                <div class="memory-info">
-                    <div class="memory-number">06 / 12</div>
-                    <div class="memory-title">ابتسامة ❤️</div>
-                </div>
-            </div>
-
-            <div class="memory">
-                <img src="photos/07.jpg" alt="ذكرى 7">
-                <div class="memory-info">
-                    <div class="memory-number">07 / 12</div>
-                    <div class="memory-title">مشهد</div>
-                </div>
-            </div>
-
-            <div class="memory">
-                <img src="photos/08.jpg" alt="ذكرى 8">
-                <div class="memory-info">
-                    <div class="memory-number">08 / 12</div>
-                    <div class="memory-title">حكاية</div>
-                </div>
-            </div>
-
-            <div class="memory">
-                <img src="photos/09.jpg" alt="ذكرى 9">
-                <div class="memory-info">
-                    <div class="memory-number">09 / 12</div>
-                    <div class="memory-title">لحظة لا تتكرر</div>
-                </div>
-            </div>
-
-            <div class="memory">
-                <img src="photos/10.jpg" alt="ذكرى 10">
-                <div class="memory-info">
-                    <div class="memory-number">10 / 12</div>
-                    <div class="memory-title">نور ✨</div>
-                </div>
-            </div>
-
-            <div class="memory">
-                <img src="photos/11.jpg" alt="ذكرى 11">
-                <div class="memory-info">
-                    <div class="memory-number">11 / 12</div>
-                    <div class="memory-title">قبل النهاية</div>
-                </div>
-            </div>
-
-            <div class="memory">
-                <img src="photos/12.jpg" alt="ذكرى 12">
-                <div class="memory-info">
-                    <div class="memory-number">12 / 12</div>
-                    <div class="memory-title">وأجملهم... إنتِ 👑</div>
-                </div>
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- ===================================================
-         17 WISHES
-    ==================================================== -->
-
-    <section class="section reveal">
-
-        <div class="section-head">
-
-            <div class="section-label">
-                17 WISHES
-            </div>
-
-            <h2 class="section-title">
-                ١٧ أمنية...
-                <span class="gradient-text">
-                    على عدد السنين
-                </span>
-            </h2>
-
-            <p class="section-desc">
-                كل سنة من عمرك تستحق أمنية.
-                فجمعتلك ١٧ واحدة.
-            </p>
-
-        </div>
-
-
-        <div class="wishes">
-
-            <div class="wish">
-                <div class="wish-number">01</div>
-                <div class="wish-icon">🌷</div>
-                <p>يا رب سنتك الجديدة تكون مليانة فرحة.</p>
-            </div>
-
-            <div class="wish">
-                <div class="wish-number">02</div>
-                <div class="wish-icon">✨</div>
-                <p>يا رب كل حاجة نفسك فيها تقرب منك.</p>
-            </div>
-
-            <div class="wish">
-                <div class="wish-number">03</div>
-                <div class="wish-icon">🤍</div>
-                <p>يا رب قلبك يفضل دايمًا مرتاح.</p>
-            </div>
-
-            <div class="wish">
-                <div class="wish-number">04</div>
-                <div class="wish-icon">🌙</div>
-                <p>يا رب لياليك تكون أجمل من أحلامك.</p>
-            </div>
-
-            <div class="wish">
-                <div class="wish-number">05</div>
-                <div class="wish-icon">💫</div>
-                <p>يا رب كل خطوة تاخديها توصلك لحاجة جميلة.</p>
-            </div>
-
-            <div class="wish">
-                <div class="wish-number">06</div>
-                <div class="wish-icon">🌸</div>
-                <p>يا رب الضحكة ما تفارقش وشك.</p>
-            </div>
-
-            <div class="wish">
-                <div class="wish-number">07</div>
-                <div class="wish-icon">🦋</div>
-                <p>يا رب أيامك تتغير للأجمل.</p>
-            </div>
-
-            <div class="wish">
-                <div class="wish-number">08</div>
-                <div class="wish-icon">⭐</div>
-                <p>يا رب السنة دي تكون بداية لحاجات عظيمة.</p>
-            </div>
-
-            <div class="wish">
-                <div class="wish-number">09</div>
-                <div class="wish-icon">🎀</div>
-                <p>يا رب تفضلي دايمًا مميزة زي ما إنتِ.</p>
-            </div>
-
-            <div class="wish">
-                <div class="wish-number">10</div>
-                <div class="wish-icon">🌹</div>
-                <p>يا رب كل يوم جديد يحمل لك سبب للابتسام.</p>
-            </div>
-
-            <div class="wish">
-                <div class="wish-number">11</div>
-                <div class="wish-icon">💗</div>
-                <p>يا رب الحب والدفا يفضلوا حوالين قلبك.</p>
-            </div>
-
-            <div class="wish">
-                <div class="wish-number">12</div>
-                <div class="wish-icon">☁️</div>
-                <p>يا رب أحلامك تكبر وتتحقق.</p>
-            </div>
-
-            <div class="wish">
-                <div class="wish-number">13</div>
-                <div class="wish-icon">🎂</div>
-                <p>يا رب كل عيد ميلاد جاي يكون أحلى من اللي قبله.</p>
-            </div>
-
-            <div class="wish">
-                <div class="wish-number">14</div>
-                <div class="wish-icon">👑</div>
-                <p>يا رب تفضلي ملكة في مكانك الخاص دايمًا.</p>
-            </div>
-
-            <div class="wish">
-                <div class="wish-number">15</div>
-                <div class="wish-icon">🌟</div>
-                <p>يا رب نورك يفضل سابقك في كل مكان.</p>
-            </div>
-
-            <div class="wish">
-                <div class="wish-number">16</div>
-                <div class="wish-icon">🥂</div>
-                <p>يا رب السنة الجديدة تستحق كل الاحتفال.</p>
-            </div>
-
-            <div class="wish">
-                <div class="wish-number">17</div>
-                <div class="wish-icon">❤️</div>
-                <p>وأمنيتي الأخيرة؟ إنك تفضلي مبسوطة... دايمًا.</p>
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- ===================================================
-         LETTER
-    ==================================================== -->
-
-    <section class="section reveal">
-
-        <div class="letter">
-
-            <div class="section-label">
-                A LETTER FOR YOU
-            </div>
-
-            <h2 class="letter-title">
-                ملك... في كلام مينفعش يتقال في سطرين 💌
-            </h2>
-
-            <div class="letter-text">
+<strong style="color:#ffd36a">
 كل سنة وإنتِ طيبة يا ملك ❤️
+</strong>
 
-النهارده مش مجرد تاريخ على التقويم،
-النهارده اليوم اللي بدأت فيه واحدة من أجمل الحكايات.
+</p>
 
-يمكن الكلام مهما كان حلو مش هيقدر يوصف
-قد إيه وجود شخص ممكن يفرق في تفاصيل أيامنا.
+<div class="hero-buttons">
 
-وعشان كده،
-الموقع ده معمول مخصوص ليكي.
+<a href="#countdown" class="btn btn-primary">
+⏳ العد التنازلي
+</a>
 
-كل صورة هنا،
-كل حركة،
-كل نجمة،
-وكل تفصيلة صغيرة...
+<a href="#memories" class="btn btn-secondary">
+📸 الحكاية بالصور
+</a>
 
-هدفها حاجة واحدة:
-
-إنك لما تشوفيه تحسي إن اليوم ده فعلًا مختلف.
-
-أتمنى سنتك الـ17 تكون بداية لحاجات كتير نفسك فيها،
-وضَحك أكتر،
-نجاحات أكتر،
-وأيام لما تفتكريها بعدين تبتسمي.
-
-كل سنة وإنتِ ملك...
-مش بس بالاسم،
-لكن بكل معنى الكلمة. 👑❤️
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- ===================================================
-         SECRET CARDS
-    ==================================================== -->
-
-    <section class="section reveal">
-
-        <div class="section-head">
-
-            <div class="section-label">
-                THREE LITTLE SECRETS
-            </div>
-
-            <h2 class="section-title">
-                عندي ٣ حاجات مخبيهم هنا 👀
-            </h2>
-
-            <p class="section-desc">
-                اضغطي على الكارت وشوفي اللي وراه.
-            </p>
-
-        </div>
-
-
-        <div class="secret-grid">
-
-            <div class="secret-card">
-
-                <div class="secret-inner">
-
-                    <div class="secret-front">
-                        <div class="secret-icon">🔮</div>
-                        <h3>سر رقم ١</h3>
-                        <p>اضغطي واكتشفي</p>
-                    </div>
-
-                    <div class="secret-back">
-                        <div class="secret-icon">✨</div>
-                        <p>
-                            في ناس بتدخل حياتنا كصدفة...
-                            وبعدها الصدفة نفسها تبقى من أجمل الحاجات.
-                        </p>
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <div class="secret-card">
-
-                <div class="secret-inner">
-
-                    <div class="secret-front">
-                        <div class="secret-icon">💌</div>
-                        <h3>سر رقم ٢</h3>
-                        <p>اضغطي واكتشفي</p>
-                    </div>
-
-                    <div class="secret-back">
-                        <div class="secret-icon">🌹</div>
-                        <p>
-                            لو كان ينفع أقدم لكِ حاجة أكبر من الكلام،
-                            كنت هحط جوا الموقع ده يوم كامل من السعادة.
-                        </p>
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <div class="secret-card">
-
-                <div class="secret-inner">
-
-                    <div class="secret-front">
-                        <div class="secret-icon">⭐</div>
-                        <h3>سر رقم ٣</h3>
-                        <p>اضغطي واكتشفي</p>
-                    </div>
-
-                    <div class="secret-back">
-                        <div class="secret-icon">👑</div>
-                        <p>
-                            أهم تفصيلة في اليوم كله؟
-                            إن البطلة الأساسية فيه هي ملك.
-                        </p>
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- ===================================================
-         FINAL
-    ==================================================== -->
-
-    <section class="section final-section reveal">
-
-        <div class="final-card">
-
-            <div class="final-crown">
-                👑
-            </div>
-
-            <h2>
-                كل سنة وإنتِ
-                <span class="gradient-text">
-                    أجمل حاجة
-                </span>
-            </h2>
-
-            <p>
-                ولسه الحكاية طويلة...
-                ولسه في أيام كتير جاية تستاهل تتصور،
-                وتتكتب،
-                وتتفرح.
-                <br>
-                عيد ميلاد سعيد يا ملك ❤️
-            </p>
-
-            <button class="celebrate-btn" id="celebrate">
-                🎆 اضغطي هنا للاحتفال
-            </button>
-
-        </div>
-
-    </section>
-
-
-    <footer>
-
-        صُمم بكل الحب لملك خفاجي
-        <span class="footer-heart">♥</span>
-
-        <br><br>
-
-        17 سنة من الجمال... والباقي أجمل 👑
-
-    </footer>
+</div>
 
 </div>
 
 
-<!-- =======================================================
-     LIGHTBOX
-======================================================= -->
+<div class="photo-wall">
+
+<div class="wall-main">
+
+<img src="photos/01.jpg" alt="ملك">
+
+</div>
+
+<div class="wall-card one">
+<img src="photos/02.jpg" alt="">
+</div>
+
+<div class="wall-card two">
+<img src="photos/03.jpg" alt="">
+</div>
+
+<div class="wall-card three">
+<img src="photos/04.jpg" alt="">
+</div>
+
+<div class="wall-card four">
+<img src="photos/05.jpg" alt="">
+</div>
+
+</div>
+
+</div>
+
+</header>
+
+
+<!-- =====================================================
+COUNTDOWN
+===================================================== -->
+
+<section class="section countdown-section reveal" id="countdown">
+
+<div class="section-head" style="margin:auto auto 50px;text-align:center">
+
+<div class="section-label">
+THE BIG MOMENT
+</div>
+
+<h2 class="section-title">
+العد التنازلي لليوم الكبير ⏳
+</h2>
+
+<p class="section-desc">
+كل ثانية بتقربنا من يوم ملك.
+</p>
+
+</div>
+
+<div class="countdown-box">
+
+<div class="countdown-title">
+🎂 باقي على عيد ميلاد ملك
+</div>
+
+<div class="countdown">
+
+<div class="time-card">
+
+<div class="time-number" id="days">
+00
+</div>
+
+<div class="time-label">
+يوم
+</div>
+
+</div>
+
+<div class="time-card">
+
+<div class="time-number" id="hours">
+00
+</div>
+
+<div class="time-label">
+ساعة
+</div>
+
+</div>
+
+<div class="time-card">
+
+<div class="time-number" id="minutes">
+00
+</div>
+
+<div class="time-label">
+دقيقة
+</div>
+
+</div>
+
+<div class="time-card">
+
+<div class="time-number" id="seconds">
+00
+</div>
+
+<div class="time-label">
+ثانية
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+MUSIC
+===================================================== -->
+
+<section class="section reveal">
+
+<div class="music-card">
+
+<div class="music-disc" id="musicDisc"></div>
+
+<div class="music-info">
+
+<h3>
+أغنية اليوم 🎵
+</h3>
+
+<p>
+الأغنية هتفضل شغالة Loop طول ما هي بتتصفح الموقع.
+</p>
+
+</div>
+
+<button class="music-play" id="musicPlay">
+▶
+</button>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+12 PHOTOS
+===================================================== -->
+
+<section class="section reveal" id="memories">
+
+<div class="section-head">
+
+<div class="section-label">
+12 MOMENTS
+</div>
+
+<h2 class="section-title">
+١٢ صورة...
+<br>
+<span class="gradient-text">
+١٢ لحظة... وحكاية واحدة
+</span>
+</h2>
+
+<p class="section-desc">
+كل الصور اللي حطيتها هنا جزء من تجربة الموقع.
+اضغطي على أي صورة عشان تشوفيها كاملة.
+</p>
+
+</div>
+
+
+<div class="photo-grid">
+
+<div class="memory">
+<img src="photos/01.jpg" alt="">
+<div class="memory-info">
+<div class="memory-number">01 / 12</div>
+<div class="memory-title">البداية ✨</div>
+</div>
+</div>
+
+<div class="memory">
+<img src="photos/02.jpg" alt="">
+<div class="memory-info">
+<div class="memory-number">02 / 12</div>
+<div class="memory-title">الضحكة 🤍</div>
+</div>
+</div>
+
+<div class="memory">
+<img src="photos/03.jpg" alt="">
+<div class="memory-info">
+<div class="memory-number">03 / 12</div>
+<div class="memory-title">تفصيلة جميلة</div>
+</div>
+</div>
+
+<div class="memory">
+<img src="photos/04.jpg" alt="">
+<div class="memory-info">
+<div class="memory-number">04 / 12</div>
+<div class="memory-title">لحظة ✨</div>
+</div>
+</div>
+
+<div class="memory">
+<img src="photos/05.jpg" alt="">
+<div class="memory-info">
+<div class="memory-number">05 / 12</div>
+<div class="memory-title">ذكرى</div>
+</div>
+</div>
+
+<div class="memory">
+<img src="photos/06.jpg" alt="">
+<div class="memory-info">
+<div class="memory-number">06 / 12</div>
+<div class="memory-title">ابتسامة ❤️</div>
+</div>
+</div>
+
+<div class="memory">
+<img src="photos/07.jpg" alt="">
+<div class="memory-info">
+<div class="memory-number">07 / 12</div>
+<div class="memory-title">مشهد</div>
+</div>
+</div>
+
+<div class="memory">
+<img src="photos/08.jpg" alt="">
+<div class="memory-info">
+<div class="memory-number">08 / 12</div>
+<div class="memory-title">حكاية</div>
+</div>
+</div>
+
+<div class="memory">
+<img src="photos/09.jpg" alt="">
+<div class="memory-info">
+<div class="memory-number">09 / 12</div>
+<div class="memory-title">لحظة لا تتكرر</div>
+</div>
+</div>
+
+<div class="memory">
+<img src="photos/10.jpg" alt="">
+<div class="memory-info">
+<div class="memory-number">10 / 12</div>
+<div class="memory-title">نور ✨</div>
+</div>
+</div>
+
+<div class="memory">
+<img src="photos/11.jpg" alt="">
+<div class="memory-info">
+<div class="memory-number">11 / 12</div>
+<div class="memory-title">قبل النهاية</div>
+</div>
+</div>
+
+<div class="memory">
+<img src="photos/12.jpg" alt="">
+<div class="memory-info">
+<div class="memory-number">12 / 12</div>
+<div class="memory-title">ملك 👑❤️</div>
+</div>
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+17 WISHES
+===================================================== -->
+
+<section class="section reveal">
+
+<div class="section-head">
+
+<div class="section-label">
+17 WISHES
+</div>
+
+<h2 class="section-title">
+١٧ أمنية
+<br>
+<span class="gradient-text">
+على عدد سنينك
+</span>
+</h2>
+
+<p class="section-desc">
+مش عايزين نسيب سنة من سنينك من غير أمنية حلوة.
+</p>
+
+</div>
+
+
+<div class="wishes">
+
+<div class="wish">
+<div class="wish-number">01</div>
+<div class="wish-icon">🌷</div>
+<p>سنة جديدة مليانة فرحة.</p>
+</div>
+
+<div class="wish">
+<div class="wish-number">02</div>
+<div class="wish-icon">✨</div>
+<p>كل حاجة نفسك فيها تقرب منك.</p>
+</div>
+
+<div class="wish">
+<div class="wish-number">03</div>
+<div class="wish-icon">🤍</div>
+<p>قلبك يفضل مرتاح.</p>
+</div>
+
+<div class="wish">
+<div class="wish-number">04</div>
+<div class="wish-icon">🌙</div>
+<p>ليالي جميلة وأحلام أجمل.</p>
+</div>
+
+<div class="wish">
+<div class="wish-number">05</div>
+<div class="wish-icon">💫</div>
+<p>كل خطوة توصلك لحاجة عظيمة.</p>
+</div>
+
+<div class="wish">
+<div class="wish-number">06</div>
+<div class="wish-icon">🌸</div>
+<p>الضحكة ما تفارقش وشك.</p>
+</div>
+
+<div class="wish">
+<div class="wish-number">07</div>
+<div class="wish-icon">🦋</div>
+<p>أيامك تتغير للأجمل.</p>
+</div>
+
+<div class="wish">
+<div class="wish-number">08</div>
+<div class="wish-icon">⭐</div>
+<p>السنة دي تكون بداية عظيمة.</p>
+</div>
+
+<div class="wish">
+<div class="wish-number">09</div>
+<div class="wish-icon">🎀</div>
+<p>تفضلي دايمًا مميزة.</p>
+</div>
+
+<div class="wish">
+<div class="wish-number">10</div>
+<div class="wish-icon">🌹</div>
+<p>كل يوم يكون عندك سبب للابتسام.</p>
+</div>
+
+<div class="wish">
+<div class="wish-number">11</div>
+<div class="wish-icon">💗</div>
+<p>الحب والدفا يفضلوا حواليكي.</p>
+</div>
+
+<div class="wish">
+<div class="wish-number">12</div>
+<div class="wish-icon">☁️</div>
+<p>أحلامك تكبر وتتحقق.</p>
+</div>
+
+<div class="wish">
+<div class="wish-number">13</div>
+<div class="wish-icon">🎂</div>
+<p>كل عيد ميلاد جاي يكون أحلى.</p>
+</div>
+
+<div class="wish">
+<div class="wish-number">14</div>
+<div class="wish-icon">👑</div>
+<p>تفضلي ملكة دايمًا.</p>
+</div>
+
+<div class="wish">
+<div class="wish-number">15</div>
+<div class="wish-icon">🌟</div>
+<p>نورك يفضل سابقك.</p>
+</div>
+
+<div class="wish">
+<div class="wish-number">16</div>
+<div class="wish-icon">🥂</div>
+<p>سنة تستحق كل الاحتفال.</p>
+</div>
+
+<div class="wish">
+<div class="wish-number">17</div>
+<div class="wish-icon">❤️</div>
+<p>وأهم أمنية: تفضلي مبسوطة دايمًا.</p>
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+LETTER
+===================================================== -->
+
+<section class="section reveal">
+
+<div class="letter">
+
+<div class="section-label">
+A LETTER FOR MALAK
+</div>
+
+<h2 class="letter-title">
+ملك... الرسالة دي ليكي 💌
+</h2>
+
+<div class="letter-text">
+
+كل سنة وإنتِ طيبة يا ملك ❤️
+
+النهارده مش مجرد عيد ميلاد.
+
+النهارده اليوم اللي بدأت فيه حكاية
+خلت الدنيا فيها شخص اسمه ملك.
+
+وعشان اليوم ده مختلف،
+كان لازم الهدية نفسها تكون مختلفة.
+
+مش وردة وخلاص،
+ومش رسالة تتقري وتنتهي.
+
+كان لازم يبقى فيه عالم صغير
+كل تفصيلة فيه معمولة عشانك.
+
+الصور،
+الموسيقى،
+النجوم،
+الـ17 أمنية،
+والحاجات اللي لسه مخبيها الموقع...
+
+كلها عشان أقولك حاجة بسيطة:
+
+كل سنة وإنتِ طيبة،
+وكل سنة وإنتِ أجمل،
+وإن شاء الله السنة الجديدة من عمرك
+تكون أحلى من كل اللي فات.
+
+عيد ميلاد سعيد يا ملك 👑❤️
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+SECRET CARDS
+===================================================== -->
+
+<section class="section reveal">
+
+<div class="section-head">
+
+<div class="section-label">
+OPEN THEM
+</div>
+
+<h2 class="section-title">
+٣ حاجات مخبيينهم هنا 👀
+</h2>
+
+<p class="section-desc">
+اضغطي على الكروت وشوفي اللي وراها.
+</p>
+
+</div>
+
+
+<div class="secret-grid">
+
+<div class="secret-card">
+
+<div class="secret-inner">
+
+<div class="secret-front">
+
+<div class="secret-icon">
+🔮
+</div>
+
+<h3>
+سر رقم ١
+</h3>
+
+<p>
+اضغطي هنا
+</p>
+
+</div>
+
+<div class="secret-back">
+
+<div class="secret-icon">
+✨
+</div>
+
+<p>
+أحيانًا أجمل الحاجات
+بتبدأ من صدفة صغيرة.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+
+<div class="secret-card">
+
+<div class="secret-inner">
+
+<div class="secret-front">
+
+<div class="secret-icon">
+💌
+</div>
+
+<h3>
+سر رقم ٢
+</h3>
+
+<p>
+اضغطي هنا
+</p>
+
+</div>
+
+<div class="secret-back">
+
+<div class="secret-icon">
+🌹
+</div>
+
+<p>
+في حاجات مهما اتقالت
+الكلام مش هيكفيها.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+
+<div class="secret-card">
+
+<div class="secret-inner">
+
+<div class="secret-front">
+
+<div class="secret-icon">
+⭐
+</div>
+
+<h3>
+سر رقم ٣
+</h3>
+
+<p>
+اضغطي هنا
+</p>
+
+</div>
+
+<div class="secret-back">
+
+<div class="secret-icon">
+👑
+</div>
+
+<p>
+البطلة الأساسية
+في اليوم ده هي ملك.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+JOKER GIFT
+===================================================== -->
+
+<section class="joker-area reveal">
+
+<div class="joker-box">
+
+<div class="joker-symbol">
+🃏
+</div>
+
+<h2>
+لسه في حاجة أخيرة...
+</h2>
+
+<p>
+كل اللي شفتيه لحد هنا كان مجرد بداية.
+<br>
+لكن الجوكر مخبي حاجة في مكان تاني.
+<br><br>
+لو جاهزة للمفاجأة...
+</p>
+
+<a
+href="joker-gift.html"
+class="joker-button">
+
+🎁 هدية الجوكر
+
+</a>
+
+</div>
+
+</section>
+
+
+<footer>
+
+صُمم خصيصًا لملك خفاجي
+
+<br><br>
+
+<span style="color:#ff4f91;font-size:20px">
+♥
+</span>
+
+<br><br>
+
+17 سنة من الجمال...
+والأجمل لسه جاي 👑
+
+</footer>
+
+</div>
+
+
+<!-- =====================================================
+LIGHTBOX
+===================================================== -->
 
 <div class="lightbox" id="lightbox">
 
-    <button class="close-lightbox" id="closeLightbox">
-        ×
-    </button>
+<button class="close-lightbox" id="closeLightbox">
+×
+</button>
 
-    <img id="lightboxImage" src="" alt="">
+<img id="lightboxImage" src="" alt="">
 
 </div>
 
-
-<!-- TOAST -->
 
 <div class="toast" id="toast"></div>
 
 
-<!-- MUSIC -->
+<!-- =====================================================
+MUSIC
+===================================================== -->
 
 <audio
-    id="birthdayMusic"
-    src="music/birthday.mp3"
-    preload="auto"
-    loop>
+id="birthdayMusic"
+src="music/birthday.mp3"
+preload="auto"
+loop>
 </audio>
 
 
 <script>
 
-/* =========================================================
-   17 CANDLES
-========================================================= */
+/* =====================================================
+17 CANDLES
+===================================================== */
 
-const candles = document.getElementById("candles");
+const candles =
+document.getElementById("candles");
 
 for(let i=0;i<17;i++){
 
-    const candle = document.createElement("span");
+const candle =
+document.createElement("span");
 
-    candle.className = "candle";
+candle.className="candle";
 
-    candles.appendChild(candle);
+candles.appendChild(candle);
+
 }
 
 
-/* =========================================================
-   INTRO PARTICLES
-========================================================= */
+/* =====================================================
+PARTICLES
+===================================================== */
 
 function createParticles(container,count){
 
-    for(let i=0;i<count;i++){
+for(let i=0;i<count;i++){
 
-        const p = document.createElement("span");
+const p =
+document.createElement("span");
 
-        p.className = "particle";
+p.className="particle";
 
-        p.style.left = Math.random()*100 + "%";
-        p.style.animationDuration =
-            (5 + Math.random()*9) + "s";
+p.style.left =
+Math.random()*100+"%";
 
-        p.style.animationDelay =
-            (-Math.random()*10) + "s";
+p.style.animationDuration =
+(5+Math.random()*9)+"s";
 
-        p.style.opacity =
-            (.15 + Math.random()*.7);
+p.style.animationDelay =
+(-Math.random()*10)+"s";
 
-        container.appendChild(p);
-    }
+p.style.opacity =
+(.15+Math.random()*.7);
+
+container.appendChild(p);
+
+}
+
 }
 
 createParticles(
-    document.getElementById("introParticles"),
-    70
+document.getElementById("introParticles"),
+70
 );
 
 createParticles(
-    document.getElementById("particles"),
-    45
+document.getElementById("particles"),
+45
 );
 
 
-/* =========================================================
-   INTRO EXACTLY 10 SECONDS
-========================================================= */
+/* =====================================================
+INTRO 10 SECONDS — FIXED
+===================================================== */
 
-const intro = document.getElementById("intro");
-const site = document.getElementById("site");
-const introTimer = document.getElementById("introTimer");
+const intro =
+document.getElementById("intro");
 
-const introStart = performance.now();
-const introDuration = 10000;
+const site =
+document.getElementById("site");
 
-let introFinished = false;
+const introTimer =
+document.getElementById("introTimer");
 
-function introTick(now){
+let secondsLeft=10;
 
-    if(introFinished) return;
+introTimer.textContent="10";
 
-    const elapsed = now - introStart;
-    const remaining = Math.max(
-        0,
-        introDuration - elapsed
-    );
+const introInterval =
+setInterval(()=>{
 
-    const seconds =
-        Math.ceil(remaining / 1000);
+secondsLeft--;
 
-    introTimer.textContent =
-        seconds > 0 ? seconds : "0";
+if(secondsLeft>=0){
 
-    if(remaining <= 0){
+introTimer.textContent=
+secondsLeft;
 
-        introFinished = true;
-
-        intro.classList.add("hide");
-        site.classList.add("ready");
-
-        setTimeout(()=>{
-            intro.remove();
-        },1500);
-
-        startHearts();
-        tryAutoMusic();
-
-        return;
-    }
-
-    requestAnimationFrame(introTick);
 }
 
-requestAnimationFrame(introTick);
+if(secondsLeft<=0){
 
+clearInterval(introInterval);
 
-/* =========================================================
-   COUNTDOWN
-   Birthday = September 16
-   If already passed, next year.
-========================================================= */
+intro.classList.add("hide");
 
-function getNextBirthday(){
+site.classList.add("ready");
 
-    const now = new Date();
+setTimeout(()=>{
 
-    let year = now.getFullYear();
-
-    let target = new Date(
-        year,
-        8,
-        16,
-        0,
-        0,
-        0
-    );
-
-    if(target <= now){
-
-        target = new Date(
-            year + 1,
-            8,
-            16,
-            0,
-            0,
-            0
-        );
-    }
-
-    return target;
+if(intro){
+intro.remove();
 }
 
-let birthdayTarget = getNextBirthday();
+},1500);
+
+startHearts();
+
+tryAutoMusic();
+
+}
+
+},1000);
+
+
+/* =====================================================
+COUNTDOWN
+===================================================== */
+
+function getBirthday(){
+
+const now=new Date();
+
+let year=now.getFullYear();
+
+let target=
+new Date(
+year,
+8,
+16,
+0,
+0,
+0
+);
+
+if(target<=now){
+
+target=
+new Date(
+year+1,
+8,
+16,
+0,
+0,
+0
+);
+
+}
+
+return target;
+
+}
+
+let birthdayTarget=
+getBirthday();
+
 
 function updateCountdown(){
 
-    const now = new Date();
+const now=new Date();
 
-    let difference =
-        birthdayTarget.getTime() -
-        now.getTime();
+let diff=
+birthdayTarget-now;
 
-    if(difference <= 0){
+if(diff<=0){
 
-        birthdayTarget = getNextBirthday();
+birthdayTarget=
+getBirthday();
 
-        difference =
-            birthdayTarget.getTime() -
-            now.getTime();
-    }
+diff=
+birthdayTarget-now;
 
-    const days =
-        Math.floor(
-            difference /
-            (1000*60*60*24)
-        );
+}
 
-    const hours =
-        Math.floor(
-            (difference /
-            (1000*60*60)) % 24
-        );
+const days=
+Math.floor(
+diff/(1000*60*60*24)
+);
 
-    const minutes =
-        Math.floor(
-            (difference /
-            (1000*60)) % 60
-        );
+const hours=
+Math.floor(
+(diff/(1000*60*60))%24
+);
 
-    const seconds =
-        Math.floor(
-            (difference / 1000) % 60
-        );
+const minutes=
+Math.floor(
+(diff/(1000*60))%60
+);
 
-    document.getElementById("days")
-        .textContent = String(days).padStart(2,"0");
+const seconds=
+Math.floor(
+(diff/1000)%60
+);
 
-    document.getElementById("hours")
-        .textContent = String(hours).padStart(2,"0");
+document.getElementById("days")
+.textContent=
+String(days).padStart(2,"0");
 
-    document.getElementById("minutes")
-        .textContent = String(minutes).padStart(2,"0");
+document.getElementById("hours")
+.textContent=
+String(hours).padStart(2,"0");
 
-    document.getElementById("seconds")
-        .textContent = String(seconds).padStart(2,"0");
+document.getElementById("minutes")
+.textContent=
+String(minutes).padStart(2,"0");
+
+document.getElementById("seconds")
+.textContent=
+String(seconds).padStart(2,"0");
+
 }
 
 updateCountdown();
 
 setInterval(
-    updateCountdown,
-    1000
+updateCountdown,
+1000
 );
 
 
-/* =========================================================
-   MUSIC
-========================================================= */
+/* =====================================================
+MUSIC
+===================================================== */
 
-const music =
-    document.getElementById("birthdayMusic");
+const music=
+document.getElementById("birthdayMusic");
 
-const musicPlay =
-    document.getElementById("musicPlay");
+const musicPlay=
+document.getElementById("musicPlay");
 
-const musicButton =
-    document.getElementById("musicButton");
+const musicButton=
+document.getElementById("musicButton");
 
-const musicDisc =
-    document.getElementById("musicDisc");
-
-let musicStarted = false;
+const musicDisc=
+document.getElementById("musicDisc");
 
 
 function setMusicUI(playing){
 
-    if(playing){
+if(playing){
 
-        musicPlay.textContent = "❚❚";
+musicPlay.textContent="❚❚";
 
-        musicButton.textContent =
-            "🎵 الأغنية شغالة";
+musicButton.textContent=
+"🎵 الأغنية شغالة";
 
-        musicDisc.classList.add("playing");
+musicDisc.classList.add(
+"playing"
+);
 
-    }else{
+}else{
 
-        musicPlay.textContent = "▶";
+musicPlay.textContent="▶";
 
-        musicButton.textContent =
-            "🎵 شغّلي الأغنية";
+musicButton.textContent=
+"🎵 شغّلي الأغنية";
 
-        musicDisc.classList.remove("playing");
-    }
+musicDisc.classList.remove(
+"playing"
+);
+
+}
+
 }
 
 
 async function playMusic(){
 
-    try{
+try{
 
-        await music.play();
+await music.play();
 
-        musicStarted = true;
+setMusicUI(true);
 
-        setMusicUI(true);
+}catch(error){
 
-    }catch(error){
+showToast(
+"اضغطي على زر الأغنية عشان تبدأ 🎵"
+);
 
-        showToast(
-            "اضغطي على زر الموسيقى لتشغيل الأغنية 🎵"
-        );
+}
 
-    }
 }
 
 
 function pauseMusic(){
 
-    music.pause();
+music.pause();
 
-    setMusicUI(false);
+setMusicUI(false);
+
 }
 
 
 musicPlay.addEventListener(
-    "click",
-    ()=>{
+"click",
+()=>{
 
-        if(music.paused){
+if(music.paused){
 
-            playMusic();
+playMusic();
 
-        }else{
+}else{
 
-            pauseMusic();
+pauseMusic();
 
-        }
+}
 
-    }
-);
+});
 
 
 musicButton.addEventListener(
-    "click",
-    ()=>{
+"click",
+()=>{
 
-        if(music.paused){
+if(music.paused){
 
-            playMusic();
+playMusic();
 
-        }else{
+}else{
 
-            pauseMusic();
+pauseMusic();
 
-        }
+}
 
-    }
-);
+});
 
-
-/*
-   المتصفح ممكن يمنع تشغيل الصوت تلقائيًا.
-   لذلك نحاول تشغيله بعد انتهاء المقدمة،
-   ولو المتصفح رفضه الزرار هيشتغل طبيعي.
-*/
 
 function tryAutoMusic(){
 
-    music.volume = .75;
+music.volume=.75;
 
-    music.play()
-        .then(()=>{
+music.play()
+.then(()=>{
 
-            musicStarted = true;
+setMusicUI(true);
 
-            setMusicUI(true);
+})
+.catch(()=>{
 
-        })
-        .catch(()=>{
+showToast(
+"الأغنية جاهزة 🎵"
+);
 
-            showToast(
-                "الأغنية جاهزة 🎵 اضغطي تشغيل"
-            );
+});
 
-        });
 }
 
 
-/* =========================================================
-   SCROLL REVEAL
-========================================================= */
+/* =====================================================
+REVEAL
+===================================================== */
 
-const reveals =
-    document.querySelectorAll(".reveal");
+const reveals=
+document.querySelectorAll(".reveal");
 
-const observer =
-   
+const observer=
+new IntersectionObserver(
+entries=>{
+
+entries.forEach(entry=>{
+
+if(entry.isIntersecting){
+
+entry.target.classList.add(
+"visible"
+);
+
+}
+
+});
+
+},
+{
+threshold:.12
+}
+);
+
+reveals.forEach(
+element=>
+observer.observe(element)
+);
+
+
+/* =====================================================
+SECRET CARDS
+===================================================== */
+
+document
+.querySelectorAll(".secret-card")
+.forEach(card=>{
+
+card.addEventListener(
+"click",
+()=>{
+
+card.classList.toggle("open");
+
+}
+);
+
+});
+
+
+/* =====================================================
+LIGHTBOX
+===================================================== */
+
+const lightbox=
+document.getElementById("lightbox");
+
+const lightboxImage=
+document.getElementById("lightboxImage");
+
+const closeLightbox=
+document.getElementById("closeLightbox");
+
+
+document
+.querySelectorAll(".memory img")
+.forEach(img=>{
+
+img.addEventListener(
+"click",
+event=>{
+
+event.stopPropagation();
+
+lightboxImage.src=
+img.src;
+
+lightbox.classList.add("show");
+
+}
+);
+
+});
+
+
+closeLightbox.addEventListener(
+"click",
+()=>{
+
+lightbox.classList.remove(
+"show"
+);
+
+});
+
+
+lightbox.addEventListener(
+"click",
+event=>{
+
+if(event.target===lightbox){
+
+lightbox.classList.remove(
+"show"
+);
+
+}
+
+});
+
+
+/* =====================================================
+TOAST
+===================================================== */
+
+const toast=
+document.getElementById("toast");
+
+let toastTimer;
+
+function showToast(message){
+
+toast.textContent=
+message;
+
+toast.classList.add("show");
+
+clearTimeout(toastTimer);
+
+toastTimer=
+setTimeout(
+()=>{
+
+toast.classList.remove(
+"show"
+);
+
+},
+3500
+);
+
+}
+
+
+/* =====================================================
+FLOATING HEARTS
+===================================================== */
+
+function createHeart(){
+
+const heart=
+document.createElement("div");
+
+heart.className=
+"floating-heart";
+
+const icons=
+["♡","♥","❤","✦","✨"];
+
+heart.textContent=
+icons[
+Math.floor(
+Math.random()*icons.length
+)
+];
+
+heart.style.left=
+Math.random()*100+"%";
+
+heart.style.animationDuration=
+(6+Math.random()*7)+"s";
+
+heart.style.fontSize=
+(10+Math.random()*20)+"px";
+
+document.body.appendChild(
+heart
+);
+
+setTimeout(
+()=>{
+heart.remove();
+},
+14000
+);
+
+}
+
+
+function startHearts(){
+
+setInterval(
+createHeart,
+1300
+);
+
+}
+
+
+/* =====================================================
+IMAGE FALLBACK
+===================================================== */
+
+document
+.querySelectorAll("img")
+.forEach(img=>{
+
+img.addEventListener(
+"error",
+()=>{
+
+img.style.background=
+"linear-gradient(135deg,#24102d,#7b2455,#24103a)";
+
+}
+);
+
+});
+
+
+</script>
+
+</body>
+   </html>
